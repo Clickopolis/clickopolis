@@ -1,0 +1,16 @@
+{
+  "name": "@clickopolis/app",
+  "version": "0.0.0",
+  "description": "the webapp for clickopolis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "webapp",
+    "clickopolis"
+  ],
+  "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
+  "license": "MIT",
+  "private": false
+}

@@ -1,0 +1,14 @@
+{
+    "name": "@clickopolis/server",
+    "version": "0.0.0",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
+    "license": "MIT",
+    "description": "Server for Clickopolis apps",
+    "private": false
+  }
+  
