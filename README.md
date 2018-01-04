@@ -4,9 +4,9 @@
 
 |  Package     |   version   |  build  | details |
 |-------|-----|----|-----|
-| @core   |      |        |
-| @app    |
-| @mobile |
-| @server |
+| @core   |      |        | core set of components and interfaces |
+| @app    |     |           | webapp for clickopolis |
+| @mobile |    |         | mobile app for clickopolis |
+| @server |     |        | API server |
 
 
