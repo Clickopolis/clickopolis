@@ -4,9 +4,9 @@
 
 |  Package     |   version   |  build  | details |
 |-------|-----|----|-----|
-| @core   |      |        | core set of components and interfaces |
-| @app    |     |           | webapp for clickopolis |
-| @mobile |    |         | mobile app for clickopolis |
-| @server |     |        | API server |
+| [@core](https://github.com/Clickopolis/clickopolis/tree/master/packages/core)   |      |        | core set of components and interfaces |
+| [@app](https://github.com/Clickopolis/clickopolis/tree/master/packages/app)    |     |           | webapp for clickopolis |
+| [@mobile](https://github.com/Clickopolis/clickopolis/tree/master/packages/mobile) |    |         | mobile app for clickopolis |
+| [@server](https://github.com/Clickopolis/clickopolis/tree/master/packages/server) |     |        | API server |
 
 
