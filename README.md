@@ -1,4 +1,4 @@
-# 🗽🗼🏰 Clickopolis
+# 🗽🗼🏰 Clickopolis [![CircleCI](https://img.shields.io/circleci/project/github/Clickopolis/clickopolis.svg)]()
 > an interactive, incremental Empire management game
 
 
