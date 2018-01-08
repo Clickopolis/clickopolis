@@ -1,6 +1,8 @@
 {
-    "lerna": "2.5.0",
-    "npmClient": "npm",
-    "useWorkspaces": true,
-    "version": "independent"
+  "lerna": "2.5.1",
+  "npmClient": "npm",
+  "version": "independent",
+  "packages": [
+    "packages/*"
+  ]
 }
