@@ -9,6 +9,9 @@
     "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
     "license": "MIT",
     "description": "Mobile app for Clickopolis",
-    "private": false
+    "private": false,
+    "publishConfig": {
+      "access": true
+    }
   }
   

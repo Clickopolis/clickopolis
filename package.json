@@ -4,7 +4,8 @@
   "description": "an interactive, incremental empire management game",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "exit 0",
+    "build": "lerna run build --parallel --scope '@clickopolis/{core}'"
   },
   "repository": {
     "type": "git",

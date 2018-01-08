@@ -12,5 +12,8 @@
   ],
   "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "publishConfig": {
+    "access": true
+  }
 }

@@ -1,5 +1,9 @@
 # Project
 __trash
+.sass-cache/
+build
+dist
+coverage
 
 # Logs
 logs
