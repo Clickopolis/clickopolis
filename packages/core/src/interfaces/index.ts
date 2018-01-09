@@ -1,9 +1,32 @@
 
-export type ResourceName = 'Food'
-                            | 'Prod'
-                            | 'Gold'
-                            | 'Faith'
-                            | 'Culture';
+
+
+
+/**
+ * Citizens are the backbone of one's quest for resources.
+ */
+export interface Citizen {
+    name: CitizenType;
+    /* The contribution a citizen provides */
+    contribution: Contribution | Contribution[];
+}
+
+/* A valid citizen name */
+export type CitizenType = 'Farmer'
+                        | 'Miner'
+                        | 'Merchant'
+                        | 'Cleric'
+                        | 'Artist';
+
+/* The contribution a citizen provides */
+export interface Contribution {
+    /* Interval of contribution, in ms */
+    interval: number;
+    /* Amount of contribution */
+    amount: number;
+    /* Resouce provided */
+    type: ResourceName;
+}
 
 /**
 *   Resources are the common currency of the game.
@@ -22,3 +45,10 @@ export interface Resource {
     perClick: number;
     description: string;
 }
+
+/** A valid resource name */
+export type ResourceName = 'Food'
+                            | 'Prod'
+                            | 'Gold'
+                            | 'Faith'
+                            | 'Culture';
