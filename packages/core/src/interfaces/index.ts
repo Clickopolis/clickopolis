@@ -1,11 +1,17 @@
 
+export type ResourceName = 'Food'
+                            | 'Prod'
+                            | 'Gold'
+                            | 'Faith'
+                            | 'Culture';
+
 /**
 *   Resources are the common currency of the game.
 *   Food, Production, Gold, Faith, etc -- all are considered "Resources"
 */
 export interface Resource {
     /* name of resources */
-    name: string;
+    name: ResourceName;
     /* total that the player has */
     total: number;
     /* max the player can get */
