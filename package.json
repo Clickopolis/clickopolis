@@ -26,9 +26,13 @@
   "dependencies": {
     "@types/react": "^16.0.31",
     "@types/react-dom": "^16.0.3",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest-enzyme": "^4.0.2",
     "lerna": "^2.5.1",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "ts-jest": "^22.0.1"
   },
   "workspaces": [
     "packages/*"
