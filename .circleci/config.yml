@@ -20,8 +20,8 @@ jobs:
     steps:
       - checkout
       - run:
-        name: update-npm
-        command: 'sudo npm install -g npm@latest'
+          name: update-npm
+          command: 'sudo npm install -g npm@latest'
 
       # Download and cache dependencies
       - restore_cache:
@@ -45,8 +45,8 @@ jobs:
         prefix: coverage
 
       - run: ./scripts/publish-npm-semver
-        filters:
-          branches:
-            only:
-              - master
-              - /^release\/.*/
+          filters:
+            branches:
+              only:
+                - master
+                - /^release\/.*/
