@@ -1,9 +1,4 @@
 #!/usr/bin/env node
-/**
- * Copyright 2017 Palantir Technologies, Inc. All rights reserved.
- * @fileoverview Finds the subset of packages which are ready to be published based on the latest Lerna publish commit.
- */
-
 "use strict";
 
 const child_process = require("child_process");

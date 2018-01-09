@@ -1,0 +1,9 @@
+#!/bin/bash
+
+set -e
+set -o pipefail
+
+# Core
+cd packages/core
+npm publish
+

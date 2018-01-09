@@ -5,46 +5,67 @@
 version: 2
 jobs:
   build:
+    pre:
+      - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
+      - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
     docker:
-      # specify the version you desire here
       - image: circleci/node:9
-      - image: mongo:3.4.4
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
-    working_directory: ~/repo
-
     steps:
       - checkout
-      - run:
-          name: update-npm
-          command: 'sudo npm install -g npm@latest'
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
+            - v7-dependency-cache-{{ checksum "package-lock.json" }}
+            - v7-dependency-cache
       - run: npm install
-
       - save_cache:
+          key: v7-dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      - run: npm test
+      - persist_to_workspace:
+          root: '.'
+          paths:
+            - package-lock.json
+  test:
+    parallelism: 4
+    docker:
+      - image: circleci/node:9
+    steps:
+      - checkout
+      - attach_workspace:
+          at: '.'
+      - restore_cache:
+          key: v7-dependency-cache-{{ checksum "package-lock.json" }}
+      - run: sudo npm i -g lerna
+      - run:
+          command: |
+            case $CIRCLE_NODE_INDEX in \
+            0) npm test -- --scope '@clickopolis/app' ;;\
+            1) npm test -- --scope '@clickopolis/core' ;;\
+            2) npm test -- --scope '@clickopolis/mobile' ;;\
+            3) npm test -- --scope '@clickopolis/server' ;;\
+            4) npm test -- --scope '@clickopolis/webpack-build-scripts' ;;\
+            esac
+  deploy_npm:
+    docker:
+      - image: circleci/node:9
+    steps:
+      - checkout
+      - run: npm i semver
+      - attach_workspace:
+          at: '.'
+      - restore_cache:
+          key: v7-dependency-cache-{{ checksum "package-lock.json" }}
+      - run: echo "It would normally deploy here."
 
-      - store_artifacts:
-          path: coverage
-          prefix: coverage
-
-      - run: ./scripts/publish-npm-semver
-
-      - store_test_results:
-          path: /tmp/test-results
+workflows:
+  version: 2
+  build_test_deploy:
+    jobs:
+      - build
+      - test
+      - deploy_npm:
+          filters:
+            branches:
+              only:
+                - master
+                - /^release\.*/
