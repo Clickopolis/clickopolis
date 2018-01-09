@@ -45,8 +45,3 @@ jobs:
         prefix: coverage
 
       - run: ./scripts/publish-npm-semver
-          filters:
-            branches:
-              only:
-                - master
-                - /^release\/.*/
