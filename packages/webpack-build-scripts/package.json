@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/webpack-build-scripts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "webpack build scripts for @clickopolis packages",
   "main": "index.js",
   "scripts": {
@@ -33,6 +33,6 @@
     "webpack-notifier": "^1.5.0"
   },
   "publishConfig": {
-    "access": true
+    "access": "public"
   }
 }

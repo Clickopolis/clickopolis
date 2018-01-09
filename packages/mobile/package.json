@@ -1,17 +1,16 @@
 {
-    "name": "@clickopolis/mobile",
-    "version": "0.0.0",
-    "main": "index.js",
-    "scripts": {
-      "test": "exit 0"
-    },
-    "keywords": [],
-    "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
-    "license": "MIT",
-    "description": "Mobile app for Clickopolis",
-    "private": false,
-    "publishConfig": {
-      "access": true
-    }
+  "name": "@clickopolis/mobile",
+  "version": "0.0.1",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "keywords": [],
+  "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
+  "license": "MIT",
+  "description": "Mobile app for Clickopolis",
+  "private": false,
+  "publishConfig": {
+    "access": "public"
   }
-  
+}

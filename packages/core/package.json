@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/core",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -23,7 +23,7 @@
     "webpack": "^3.10.0"
   },
   "publishConfig": {
-    "access": true
+    "access": "public"
   },
   "dependencies": {
     "@types/chai": "^4.1.0",
