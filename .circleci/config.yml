@@ -41,7 +41,7 @@ jobs:
       - run: npm test
 
       - store_artifacts:
-        path: coverage
-        prefix: coverage
+          path: coverage
+          prefix: coverage
 
       - run: ./scripts/publish-npm-semver
