@@ -1,52 +1,11 @@
 {
-  "name": "clickopolis",
-  "version": "0.0.1",
-  "description": "an interactive, incremental empire management game",
-  "main": "index.js",
   "scripts": {
-    "build": "lerna run build --parallel",
-    "test": "lerna run test --parallel"
+    "test": "lerna run --parallel test",
+    "publish": "lerna publish --conventional-commits -m 'chore(release): publish :tada:' --independent",
+    "build": "lerna run --parallel  build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Clickopolis/clickopolis.git"
-  },
-  "keywords": [
-    "empire",
-    "clickopolis",
-    "click",
-    "game"
-  ],
-  "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Clickopolis/clickopolis/issues"
-  },
-  "homepage": "https://github.com/Clickopolis/clickopolis#readme",
-  "dependencies": {
-    "@types/react": "^16.0.31",
-    "@types/react-dom": "^16.0.3",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "jest-enzyme": "^4.0.2",
-    "lerna": "^2.5.1",
-    "lerna-semantic-release": "^9.1.0",
-    "npm-run-all": "^4.1.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "semver": "^5.4.1",
-    "ts-jest": "^22.0.1",
-    "yargs": "^10.0.3"
-  },
-  "workspaces": [
-    "packages/*"
-  ],
   "devDependencies": {
-    "cz-lerna-changelog": "^1.2.1"
+    "lerna": "^2.5.1"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-lerna-changelog"
-    }
-  }
+  "dependencies": {}
 }
