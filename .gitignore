@@ -4,6 +4,7 @@ __trash
 build
 dist
 coverage
+*.env
 
 # Logs
 logs
