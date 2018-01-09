@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -p ./src",
     "dist": "NODE_ENV=production webpack",
-    "test": "exit 0"
+    "test": "jest --config ./jest-config.json"
   },
   "keywords": [],
   "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
@@ -18,10 +18,19 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "tslib": "^1.8.1",
     "typescript": "^2.6.2",
     "webpack": "^3.10.0"
   },
   "publishConfig": {
     "access": true
+  },
+  "dependencies": {
+    "@types/chai": "^4.1.0",
+    "@types/enzyme": "^3.1.6",
+    "@types/jasmine": "^2.8.3",
+    "jest-enzyme": "^4.0.2",
+    "react-polyfills": "0.0.1",
+    "ts-jest": "^22.0.1"
   }
 }
