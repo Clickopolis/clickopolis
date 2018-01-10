@@ -1,5 +1,4 @@
-# 🗽🗼🏰 Clickopolis [![CircleCI](https://img.shields.io/circleci/project/github/Clickopolis/clickopolis.svg?style=flat-square)]() [![Stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)][![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FClickopolis%2Fclickopolis.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FClickopolis%2Fclickopolis?ref=badge_shield)
-()
+# 🗽🗼🏰 Clickopolis [![CircleCI](https://img.shields.io/circleci/project/github/Clickopolis/clickopolis.svg?style=flat-square)]() [![Stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)]()
 > an interactive, incremental Empire management game
 
 
@@ -11,7 +10,3 @@
 | [@server](https://github.com/Clickopolis/clickopolis/tree/master/packages/server) | [![npm (scoped)](https://img.shields.io/npm/v/@clickopolis/server.svg?style=flat-square)]()    |        | API server |
 
 
-
-
-## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FClickopolis%2Fclickopolis.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FClickopolis%2Fclickopolis?ref=badge_large)
