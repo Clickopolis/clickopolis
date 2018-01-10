@@ -1,6 +1,17 @@
 
 
+export type BiomeType = 'Desert'
+                    | 'Tundra'
+                    | 'Island'
+                    | 'Coast'
+                    | 'Plains'
+                    | 'Forest'
+                    | 'Mountains';
 
+export interface Bimoe {
+    name: BiomeType;
+    description: string;
+}
 
 /**
  * Citizens are the backbone of one's quest for resources.
@@ -28,6 +39,15 @@ export interface Contribution {
     type: ResourceName;
 }
 
+/* A player in the game - Human or AI */
+export interface Player {
+    type: 'Human' | 'AI';
+    name: string;
+    id: string;
+    timesLegacied: number;
+    legacyPoints: number;
+}
+
 /**
 *   Resources are the common currency of the game.
 *   Food, Production, Gold, Faith, etc -- all are considered "Resources"
@@ -44,6 +64,15 @@ export interface Resource {
     /* gain per click (if applicable) */
     perClick: number;
     description: string;
+    /* Bonuses */
+    happinessBonus?: number;
+    healthBonus?: number;
+    pollutionBonus?: number;
+    influenceBonus?: number;
+    faithBonus?: number;
+
+    /* Amount of $ it can be sold for */
+    exchangeRate?: number;
 }
 
 /** A valid resource name */
