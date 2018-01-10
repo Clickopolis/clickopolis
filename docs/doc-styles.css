@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    background: #333;
+    color: #eee;
+    font-family: 'Roboto';
+}
+
+header {
+    background: #212121;
+    color: #eee;
+    padding: 1rem;
+    width: 100%;
+}
+
+a {
+    border-bottom: 1px solid transparent;
+    color: lightgreen;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px solid lightgreen;
+}
+
+section {
+    padding: 1rem;
+}

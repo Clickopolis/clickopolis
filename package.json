@@ -2,7 +2,8 @@
   "scripts": {
     "test": "lerna run --parallel test",
     "publish": "lerna publish --conventional-commits -m 'chore(release): publish :tada:' --independent",
-    "build": "lerna run --parallel  build"
+    "build": "lerna run --parallel  build",
+    "docs": "node ./scripts/write-docs.js"
   },
   "devDependencies": {
     "lerna": "^2.5.1"
