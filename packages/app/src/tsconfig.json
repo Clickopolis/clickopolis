@@ -2,10 +2,14 @@
     "extends": "../../../config/tsconfig.base",
     "compilerOptions": {
         "outDir": "../dist",
-        "baseUrl": ".",
+        "module": "commonjs",
         "lib": [
-            "es2017"
+            "es2017",
+            "dom",
+            "dom.iterable"
         ],
-        "importHelpers": true
+        "target": "es5",
+        "importHelpers": true,
+        "noEmitHelpers": true
     },
 }

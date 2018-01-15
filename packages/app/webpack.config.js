@@ -1,4 +1,4 @@
-const { baseConfig, COMMON_EXTERNALS } = require('@clickopolis/wepback-build-scripts');
+const { baseConfig, COMMON_EXTERNALS } = require('../webpack-build-scripts');
 const path = require('path');
 
 module.exports = {
@@ -10,8 +10,8 @@ module.exports = {
 
     output: {
         filename: 'bundle.js',
-        path: './dist',
+        path: path.join(__dirname, './dist'),
         publicPath: '/'
     }
 
-}
+};
