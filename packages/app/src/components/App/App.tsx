@@ -6,6 +6,6 @@ export class App extends React.Component {
     }
 
     public render() {
-        return <div />;
+        return <div>Hello!</div>;
     }
 }
