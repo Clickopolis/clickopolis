@@ -1,11 +1,12 @@
 {
   "name": "@clickopolis/app",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "the webapp for clickopolis",
   "main": "index.js",
   "scripts": {
     "test": "exit 0",
-    "serve": "ts-node ./src/server.ts"
+    "serve": "ts-node ./src/server.ts",
+    "build": "webpack"
   },
   "keywords": [
     "webapp",
@@ -18,8 +19,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@clickopolis/core": "^0.2.0",
-    "@clickopolis/server": "^0.0.1",
+    "@clickopolis/core": "^0.2.1",
+    "@clickopolis/server": "^0.0.2",
+    "@clickopolis/webpack-build-scripts": "^0.1.1",
     "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
     "react": "^16.2.0",
