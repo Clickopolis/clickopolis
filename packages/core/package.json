@@ -29,6 +29,7 @@
     "@types/chai": "^4.1.0",
     "@types/enzyme": "^3.1.6",
     "@types/jasmine": "^2.8.3",
+    "classnames": "^2.2.5",
     "jest-enzyme": "^4.0.2",
     "react-polyfills": "0.0.1",
     "ts-jest": "^22.0.1"
