@@ -115,6 +115,9 @@ module.exports = {
             {
                 test: /\.(eot|ttf|woff|woff2|svg|png|gif|jpe?g)$/,
                 loader: require.resolve('file-loader'),
+                options: {
+                    name: './images/[name].[ext]'
+                }
             },
         ],
     },
@@ -122,6 +125,6 @@ module.exports = {
     plugins,
 
     resolve: {
-        extensions: [ '.js', '.jsx', '.ts', '.tsx', '.scss' ],
+        extensions: [ '.js', '.jsx', '.ts', '.tsx', '.scss', '.svg' ],
     },
 };
