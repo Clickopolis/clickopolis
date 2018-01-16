@@ -21,6 +21,8 @@ module.exports = {
         publicPath: '/'
     },
 
+    devtool: 'source-map',
+
     plugins: [
         ...baseConfig.plugins,
         new CopyWebpackPlugin([
