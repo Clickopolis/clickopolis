@@ -81,3 +81,5 @@ export type ResourceName = 'Food'
                             | 'Gold'
                             | 'Faith'
                             | 'Culture';
+
+export {};

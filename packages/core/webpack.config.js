@@ -1,4 +1,4 @@
-const { baseConfig, COMMON_EXTERNALS } = require('@clickopolis/webpack-build-scripts');
+const { baseConfig, COMMON_EXTERNALS } = require('../webpack-build-scripts');
 const path = require('path');
 
 module.exports = {
@@ -9,10 +9,16 @@ module.exports = {
         ],
     },
 
-    externals: COMMON_EXTERNALS,
+    resolve: {
+        ...baseConfig.resolve,
+        modules: [
+            path.resolve(__dirname, 'src'),
+            'node_modules'
+        ]
+    },
 
     output: {
-        filename: '[name].bundle.js',
+        filename: 'index.js',
         library: ['Clickopolis', 'Core'],
         libraryTarget: 'umd',
         path: path.resolve(__dirname, './dist')
