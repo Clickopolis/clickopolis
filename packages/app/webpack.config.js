@@ -7,6 +7,14 @@ module.exports = {
 
     entry: './src/index.tsx',
 
+    resolve: {
+        ...baseConfig.resolve,
+        modules: [
+            path.resolve(__dirname, 'src'),
+            'node_modules'
+        ]
+    },
+
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, './dist'),
@@ -16,7 +24,8 @@ module.exports = {
     plugins: [
         ...baseConfig.plugins,
         new CopyWebpackPlugin([
-            { from: './src/index.html', to: '.' }
+            { from: './src/index.html', to: '.' },
+            { from: './src/images', to: './images' }
         ])
     ]
 

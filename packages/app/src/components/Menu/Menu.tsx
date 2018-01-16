@@ -13,11 +13,11 @@ export class Menu extends React.Component {
     }
 
     private generateMenu() {
-        return CONSTANTS.screenData.map((i, idx) => {
+        return CONSTANTS.screenData.map((i:string) => {
             return (
-                <li>
+                <li key={i}>
                     <a href={'#' + i} title={i}>
-                        <img src={'./' + i.toLowerCase() + '.png'} />
+                        <img alt={i} src={'./images/' + i.toLowerCase() + '.svg'} style={{ height: '2rem' }} />
                     </a>
                 </li>
             );
