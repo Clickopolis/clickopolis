@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/webpack-build-scripts",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "webpack build scripts for @clickopolis packages",
   "scripts": {
     "test": "exit 0"

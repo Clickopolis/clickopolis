@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.3.0...@clickopolis/core@0.3.1) (2018-01-16)
+
+
+### Bug Fixes
+
+* make core exports work ([b471943](https://github.com/Clickopolis/clickopolis/commit/b471943))
+
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.2.5...@clickopolis/core@0.3.0) (2018-01-16)
 

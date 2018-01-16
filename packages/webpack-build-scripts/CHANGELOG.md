@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.5"></a>
+## [0.1.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/webpack-build-scripts@0.1.4...@clickopolis/webpack-build-scripts@0.1.5) (2018-01-16)
+
+
+### Bug Fixes
+
+* add css to resolve extensions ([5ec8f26](https://github.com/Clickopolis/clickopolis/commit/5ec8f26))
+
+
+
+
 <a name="0.1.4"></a>
 ## [0.1.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/webpack-build-scripts@0.1.3...@clickopolis/webpack-build-scripts@0.1.4) (2018-01-16)
 
