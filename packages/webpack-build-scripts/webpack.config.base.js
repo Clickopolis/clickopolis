@@ -125,6 +125,6 @@ module.exports = {
     plugins,
 
     resolve: {
-        extensions: [ '.js', '.jsx', '.ts', '.tsx', '.scss', '.svg' ],
+        extensions: [ '.js', '.jsx', '.ts', '.tsx', '.scss', '.css', '.svg' ],
     },
 };
