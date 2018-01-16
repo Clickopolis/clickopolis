@@ -1,4 +1,7 @@
 import * as React from 'react';
+// @ts-ignore: no @types defintion
+import { Tooltip } from 'react-tippy';
+
 import { CONSTANTS } from 'utils';
 
 import './Menu.scss';
@@ -17,7 +20,13 @@ export class Menu extends React.Component {
             return (
                 <li key={i}>
                     <a href={'#' + i} title={i}>
-                        <img alt={i} src={'./images/' + i.toLowerCase() + '.svg'} style={{ height: '2rem' }} />
+                        <Tooltip
+                            title={i}
+                            position={'top'}
+                            followCursor={true}
+                        >
+                            <img alt={i} src={'./images/' + i.toLowerCase() + '.svg'} style={{ height: '2rem' }} />
+                        </Tooltip>
                     </a>
                 </li>
             );
