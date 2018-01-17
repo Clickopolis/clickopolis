@@ -1,6 +1,12 @@
 @import 'normalize';
 @import '~react-tippy/dist/tippy.css';
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 }
