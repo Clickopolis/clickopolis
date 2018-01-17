@@ -9,7 +9,11 @@ import { colors } from 'utils';
 import './ResourcesScreen.scss';
 
 const indicatorStyle = {
-    height: '1.25rem',
+    alignItems: 'center',
+    display: 'flex',
+    height: '2rem',
+    justifyContent: 'center',
+    margin: '.25rem',
     width: '5rem'
 };
 
@@ -29,7 +33,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
         };
     }
 
-    private growFood = e => this.setState({ foodTotal: this.state.foodTotal + 1 });
+    private growFood = e => this.setState({ foodTotal: this.state.foodTotal - 1 });
 
     public render() {
         return (
@@ -53,6 +57,16 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
+                            label='total'
+                            description='Food is used for feeding your citizens, even Jim.'
+                        />
+                        <Indicator
+                            value={this.state.foodTotal * 4}
+                            positiveColor={colors.get('resources')}
+                            neutralColor={colors.get('resources')}
+                            style={indicatorStyle}
+                            label='per click'
+                            description='Use your clicks to amass corn!'
                         />
                     </div>
                     <div className='resources-main-buttons-row'>
@@ -70,6 +84,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
+                            label='total'
+                            description='Production lets you build.'
                         />
                     </div>
                 </div>

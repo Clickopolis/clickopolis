@@ -1,9 +1,12 @@
 $food-button-color: #1edb50;
 $prod-button-color: #e6d83e;
 
-.resources-screen {
+.clickopolis-screen {
     background: #222;
+    height: 85vh;
+    margin: .5rem;
     padding: 1rem;
+    width: 700px;
 }
 
 .screen-header {
@@ -22,7 +25,10 @@ $prod-button-color: #e6d83e;
     display: flex;
     flex-direction: column;
     .resources-main-buttons-row {
+        align-content: center;
+        align-items: flex-end;
         display: flex;
+        height: 64px;
         flex-direction: row;
     }
 }
