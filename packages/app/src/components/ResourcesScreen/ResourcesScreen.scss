@@ -1,3 +1,6 @@
+$food-button-color: #1edb50;
+$prod-button-color: #e6d83e;
+
 .resources-screen {
     background: #222;
     padding: 1rem;
@@ -12,5 +15,62 @@
     h2 {
         color: white;
         margin: .25rem;
+    }
+}
+
+.resources-main-buttons {
+    display: flex;
+    flex-direction: column;
+    .resources-main-buttons-row {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+.food-button {
+    all: unset;
+    align-content: center;
+    background: $food-button-color;
+    border-bottom: 2px solid darken($food-button-color, 15%);
+    border-radius: 4px;
+    color: #222;
+    cursor: pointer;
+    display: flex;
+    margin: .25rem;
+    padding: .5rem;
+    vertical-align: middle;
+    width: 12rem;
+
+    span {
+        display: inline-block;
+        margin-left: .5rem;
+    }
+
+    &:hover {
+        background: lighten($food-button-color, 5%);
+        transition: 200ms all;
+    }
+
+    &:active {
+        border-bottom: 0 solid transparent;
+        transform: translateY(4px);
+        transition: 200ms all;
+    }
+}
+
+.clickopolis-button-value {
+    font-weight: bold;
+}
+
+.prod-button {
+    @extend .food-button;
+    background: $prod-button-color;
+    border-bottom: 2px solid darken($prod-button-color, 15%);
+
+    
+
+    &:hover {
+        background: lighten($prod-button-color, 5%);
+        transition: 200ms all;
     }
 }
