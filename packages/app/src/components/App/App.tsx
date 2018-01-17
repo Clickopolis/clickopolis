@@ -13,8 +13,12 @@ export class App extends React.Component {
         return (
             <div id='app' className='clickopolis-app'>
                 <Menu />
-                <ResourcesScreen />
-                <CivilizationScreen />
+                <div id='screen-container' style={{
+                    display: 'flex',
+                }}>
+                    <ResourcesScreen />
+                    <CivilizationScreen />
+                </div>
             </div>
         );
     }
