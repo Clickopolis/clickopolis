@@ -1,11 +1,16 @@
 .clickopolis-menu {
+    align-items: center;
     background: #222;
     color: #fafafa;
-    padding: 1rem;
+    display: flex;
+    height: 3rem;
+    //padding: 1rem;
 }
 
 .clickopolis-menu ul {
-    display: flex;
+    align-content: center;
+    display: inline-flex;
+    //height: 100%;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -13,4 +18,12 @@
 
 .clickopolis-menu li {
     margin: .25rem;
+}
+
+.clickopolis-menu-text {
+    background: #000;
+    display: inline-block;
+    font-weight: bold;
+    height: 100%;
+    padding: .75rem;
 }

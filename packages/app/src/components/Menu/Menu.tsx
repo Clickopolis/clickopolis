@@ -36,7 +36,7 @@ export class Menu extends React.Component {
     public render() {
         return (
             <nav className='clickopolis-menu'>
-                <div>menu</div>
+                <div className='clickopolis-menu-text'>menu</div>
                 <ul>
                     {
                         this.generateMenu()
