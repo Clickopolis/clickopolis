@@ -2,7 +2,9 @@ export {
     Button,
     ButtonProps,
     Screen,
-    ScreenProps
+    ScreenProps,
+    Indicator,
+    IndicatorProps
 } from './components';
 export * from './interfaces';
 export * from './utils';

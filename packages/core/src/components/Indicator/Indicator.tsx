@@ -7,6 +7,7 @@ export interface IndicatorProps {
     icon?: string;
     iconHeight?: string;
     onClick?: (e:any) => void;
+    style?: any;
     id?: string;
     description?: string;
     formatFunction?: (v: string | number | React.ReactNode) => string | number | React.ReactNode;
@@ -50,6 +51,7 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
             icon,
             iconHeight,
             value,
+            style,
             positiveColor,
             negativeColor,
             neutralColor
@@ -59,7 +61,13 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                     onClick={onClick}
                     className={classNames('clickopolis-indicator', className)}
                     style={{
-                        color: this.determineSignColor(value, positiveColor, negativeColor, neutralColor)
+                        ...style,
+                        backgroundColor: this.determineSignColor(value, positiveColor, negativeColor, neutralColor),
+                        border: '1px solid rgba(0, 0, 0, 0.3)',
+                        borderRadius: '.25rem',
+                        display: 'flex',
+                        textAlign: 'center',
+                        padding: '.25rem'
                     }}
                 >
                     {
@@ -68,7 +76,7 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                             height: iconHeight || '1rem'
                         }} /> : null
                     }
-                    <span className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>
+                    <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>
                 </div>;
     }
 }
