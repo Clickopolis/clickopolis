@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
+import { Tooltip } from 'react-tippy';
 
 export interface IndicatorProps {
     className?: any;
@@ -10,6 +11,7 @@ export interface IndicatorProps {
     style?: any;
     id?: string;
     description?: string;
+    label?: string;
     formatFunction?: (v: string | number | React.ReactNode) => string | number | React.ReactNode;
     positiveColor?: string;
     negativeColor?: string;
@@ -45,18 +47,27 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
 
     public render() {
         const {
-            id,
-            onClick,
             className,
+            description,
             icon,
             iconHeight,
-            value,
-            style,
-            positiveColor,
+            id,
+            label,
             negativeColor,
-            neutralColor
+            neutralColor,
+            onClick,
+            positiveColor,
+            style,
+            value
         } = this.props;
-        return <div
+        return (
+            <Tooltip
+                title={description}
+                position={'top'}
+                followCursor={true}
+            >
+                { label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{this.props.label}</div> : null }
+                <div
                     id={id}
                     onClick={onClick}
                     className={classNames('clickopolis-indicator', className)}
@@ -65,7 +76,6 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                         backgroundColor: this.determineSignColor(value, positiveColor, negativeColor, neutralColor),
                         border: '1px solid rgba(0, 0, 0, 0.3)',
                         borderRadius: '.25rem',
-                        display: 'flex',
                         textAlign: 'center',
                         padding: '.25rem'
                     }}
@@ -77,6 +87,8 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                         }} /> : null
                     }
                     <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>
-                </div>;
+                </div>
+            </Tooltip>
+        );
     }
 }

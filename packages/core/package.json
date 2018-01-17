@@ -33,6 +33,7 @@
     "classnames": "^2.2.5",
     "jest-enzyme": "^4.0.2",
     "react-polyfills": "0.0.1",
+    "react-tippy": "^1.2.2",
     "ts-jest": "^22.0.1"
   }
 }
