@@ -68,6 +68,22 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             label='per click'
                             description='Use your clicks to amass corn!'
                         />
+                        <Indicator
+                            value={this.state.foodTotal * 4}
+                            positiveColor={colors.get('resources')}
+                            neutralColor={colors.get('resources')}
+                            style={indicatorStyle}
+                            label='per second'
+                            description='Use your clicks to amass corn!'
+                        />
+                        <Indicator
+                            value={this.state.foodTotal * 4}
+                            positiveColor={colors.get('resources')}
+                            neutralColor={colors.get('resources')}
+                            style={indicatorStyle}
+                            label='max'
+                            description='Make sure to reserve some for times of famine.'
+                        />
                     </div>
                     <div className='resources-main-buttons-row'>
                         <Button
@@ -86,6 +102,30 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             style={indicatorStyle}
                             label='total'
                             description='Production lets you build.'
+                        />
+                        <Indicator
+                            value={this.state.foodTotal * 4}
+                            positiveColor={colors.get('production')}
+                            neutralColor={colors.get('production')}
+                            style={indicatorStyle}
+                            label='per click'
+                            description='Use your clicks to amass corn!'
+                        />
+                        <Indicator
+                            value={this.state.foodTotal * 4}
+                            positiveColor={colors.get('production')}
+                            neutralColor={colors.get('production')}
+                            style={indicatorStyle}
+                            label='per second'
+                            description='Use your clicks to amass corn!'
+                        />
+                        <Indicator
+                            value={this.state.foodTotal * 4}
+                            positiveColor={colors.get('production')}
+                            neutralColor={colors.get('production')}
+                            style={indicatorStyle}
+                            label='max'
+                            description='Use your clicks to amass corn!'
                         />
                     </div>
                 </div>

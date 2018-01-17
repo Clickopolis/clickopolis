@@ -8,5 +8,13 @@
 }
 
 body {
+    background: #333;
     font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+}
+
+html,
+body,
+#root,
+#app {
+    height: 100%;
 }

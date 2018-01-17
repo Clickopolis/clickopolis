@@ -31,7 +31,24 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 type='Civilization'
                 color={colors.get('civilization')}
             >
-                <div>Civ</div>
+                <Indicator
+                    value={'Population: 62'}
+                    neutralColor='tan'
+                />
+                <Indicator
+                    value={62}
+                    positiveColor='yellow'
+                    neutralColor='yellow'
+                    icon={'./images/happiness.svg'}
+                    description='Keep your citizens happy with buildings and innovation.'
+                />
+                <Indicator
+                    value={0}
+                    positiveColor='red'
+                    neutralColor='red'
+                    icon={'./images/anger.svg'}
+                    description={`Don't make your citizens angrier`}
+                />
             </Screen>
         );
     }
