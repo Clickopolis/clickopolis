@@ -8,9 +8,24 @@ export type BiomeType = 'Desert'
                     | 'Forest'
                     | 'Mountains';
 
-export interface Bimoe {
+export interface Biome {
     name: BiomeType;
     description: string;
+}
+
+export interface Cash {
+    total: number;
+    perMinute: number;
+    perMinuteCitizens: number;
+    perMinuteBuildings: number;
+    perMinuteBuildingMaintenance: number;
+    perMinuteMilitary: number;
+    perMinuteTradeRoutes: number;
+    perMinuteTradeDeals: number;
+    perMinuteSocialPolicies: number;
+    perMinuteFaith: number;
+    perMinuteLegacy: number;
+    perMinuteWonders: number;
 }
 
 /**
@@ -30,7 +45,58 @@ export type CitizenType = 'Farmer'
                         | 'Artist';
 
 export interface Civilization {
+    civName: string;
+    leader: Leader;
+    color: string;
+    biomes: Biome[];
 
+    happiness: number;
+    happinessBase: number;
+    happinessFromBuildings: number;
+    happinessFromWonders: number;
+    happinessFromCitizens: number;
+    happinessFromResources: number;
+    happinessFromCultureBonuses: number;
+    happinessFromFaithBonuses: number;
+    happinessFromEvents: number;
+    happinessFromMod: number;
+
+    anger: number;
+    angerFromPopulation: number;
+    angerFromWar: number;
+    angerMod: number;
+
+    health: number;
+    healthBase: number;
+    healthFromResources: number;
+    healthFromBuildings: number;
+
+    pollution: number;
+    pollutionFromPopulation: number;
+    pollutionFromResources: number;
+    pollutionFromBuildings: number;
+    pollutionFromCorporations: number;
+    pollutionMod: number;
+
+    population: number;
+    populationGrowthCost: number;
+    populationReal: number;
+    populationEmployed: number;
+
+    influence: Influence;
+
+    cash: Cash;
+
+    goldenAge: GoldenAge;
+    faith: CivFaith;
+
+    research: Research;
+    // culture
+    // socialPolicies
+    // strength
+    // defense
+    // canMeet
+    // conquested
 }
 
 /* The contribution a citizen provides */
@@ -43,6 +109,36 @@ export interface Contribution {
     type: ResourceName;
 }
 
+export interface CivFaith {
+    total: number;
+    gameTotal: number;
+    perMinuteFromBuildings: number;
+    perMinuteFromSocailPolicies: number;
+    perMinuteFromResources: number;
+    perMinuteFromLegacy: number;
+    perMinuteFromWonders: number;
+    perMinute: number;
+    cost: number;
+}
+
+export interface Influence {
+    domestic: number;
+    international: number;
+}
+
+export interface GoldenAge {
+    total: number;
+    progress: number;
+    goal: number;
+    multiplier: number;
+}
+
+export interface Leader {
+    name: string;
+    defaultName: string;
+    traits: Trait[];
+}
+
 /* A player in the game - Human or AI */
 export interface Player {
     type: 'Human' | 'AI';
@@ -50,6 +146,12 @@ export interface Player {
     id: string;
     timesLegacied: number;
     legacyPoints: number;
+}
+
+export interface Research {
+    total: number;
+    perMinute: number;
+    cost: number;
 }
 
 /**
@@ -88,5 +190,11 @@ export interface Resource {
 
 /** A valid resource name */
 export type ResourceName = string;
+
+export interface Trait {
+    name: string;
+    description: string;
+    unlocked: boolean;
+}
 
 export {};
