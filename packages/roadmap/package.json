@@ -18,7 +18,7 @@
   "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
   "license": "MIT",
   "publishConfig": {
-    "access": true
+    "access": "public"
   },
   "dependencies": {
     "@types/express": "^4.11.0",
