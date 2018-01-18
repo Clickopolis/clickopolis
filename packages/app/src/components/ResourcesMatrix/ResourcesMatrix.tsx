@@ -9,9 +9,12 @@ export interface ResourcesMatrixProps {
     [resource: string]: Resource;
 }
 
-export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
+export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, { info: Resource | boolean }> {
     constructor(props:ResourcesMatrixProps) {
         super(props);
+        this.state = {
+            info: false
+        };
     }
 
     getResources(props:ResourcesMatrixProps) {
@@ -52,8 +55,27 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
             value={r.total}
             icon={`./images/${r.name}.svg`}
             description={r.description}
+            onClick={e => this.setState({ info: r })}
             className='resources-matrix-item'
         />);
+    }
+
+    renderInfo = (resource:Resource) => {
+        return (
+            <div className='resource-info'>
+                <div className='resource-info-row center-row'>
+                    <h3>{ resource.name }</h3>
+                </div>
+                <div className='resource-info-row'>
+                    <div className='info-image'>
+                        <img src={`./images/${resource.name}.svg`} />
+                    </div>
+                    <div className='info-description'>
+                        { resource.description }
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     public render() {
@@ -113,6 +135,10 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
                             this.getResources(this.props)['power']
                         )
                     }
+                </div>
+
+                <div className='resources-matrix-row'>
+                    { this.state.info ? this.renderInfo(this.state.info) : null }
                 </div>
             </div>
         );
