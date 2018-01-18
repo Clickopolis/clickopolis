@@ -2,17 +2,17 @@
     "features": [
         {
             "name": "Managing Resources",
-            "status": "planned",
+            "status": "in progress",
             "note": ""
         },
         {
             "name": "Civilization Metrics & Management",
-            "status": "planned",
+            "status": "in progress",
             "note": ""
         },
         {
-            "name": "",
-            "status": "",
+            "name": "Citizen Management",
+            "status": "planned",
             "note": ""
         },
         {
