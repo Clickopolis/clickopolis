@@ -7,7 +7,8 @@
     "test": "exit 0",
     "serve": "ts-node ./server.ts",
     "build": "webpack",
-    "clean": "rm -rf ./dist"
+    "clean": "rm -rf ./dist",
+    "start": "npm run build && npm run serve"
   },
   "keywords": [
     "webapp",
