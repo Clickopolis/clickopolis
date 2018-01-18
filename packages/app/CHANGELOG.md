@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.1.3"></a>
+## [0.1.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.1.2...@clickopolis/app@0.1.3) (2018-01-18)
+
+
+### Bug Fixes
+
+* **design:** add proper box-sizing for everything ([d009c19](https://github.com/Clickopolis/clickopolis/commit/d009c19))
+* **design:** make App contain screens in flex-box ([2f0bf03](https://github.com/Clickopolis/clickopolis/commit/2f0bf03))
+* **design:** make Menu more compact + centered ([1f53a27](https://github.com/Clickopolis/clickopolis/commit/1f53a27))
+
+
+
+
 <a name="0.1.2"></a>
 ## [0.1.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.1.1...@clickopolis/app@0.1.2) (2018-01-17)
 

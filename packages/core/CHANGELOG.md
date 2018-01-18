@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.4.1"></a>
+## [0.4.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.4.0...@clickopolis/core@0.4.1) (2018-01-18)
+
+
+### Bug Fixes
+
+* **Indicator:** add labels + descripts + tooltips ([4fc7350](https://github.com/Clickopolis/clickopolis/commit/4fc7350))
+
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.3.1...@clickopolis/core@0.4.0) (2018-01-17)
 

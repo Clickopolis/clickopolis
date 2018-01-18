@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/roadmap",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "The roadmap microsite for clickopolis",
   "main": "index.js",
   "scripts": {
