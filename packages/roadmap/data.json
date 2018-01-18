@@ -1,0 +1,24 @@
+{
+    "features": [
+        {
+            "name": "Managing Resources",
+            "status": "planned",
+            "note": ""
+        },
+        {
+            "name": "Civilization Metrics & Management",
+            "status": "planned",
+            "note": ""
+        },
+        {
+            "name": "",
+            "status": "",
+            "note": ""
+        },
+        {
+            "name": "Multiplayer battles",
+            "status": "not planned",
+            "note": "Not planned for next 12 months"
+        }
+    ]
+}

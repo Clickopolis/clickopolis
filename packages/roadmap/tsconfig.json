@@ -1,0 +1,9 @@
+{
+    "extends": "../../config/tsconfig.base",
+    "compilerOptions": {
+        "outDir": "../dist",
+        "target": "es5",
+        "importHelpers": true,
+        "noEmitHelpers": true
+    }
+}
