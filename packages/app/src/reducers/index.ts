@@ -3,13 +3,16 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import { food } from './food';
+import { production } from './production';
 
 export const appReducers:any = combineReducers({
     food,
+    production,
     router: routerReducer
 });
 
-export const reducers = {
+export const reducers:any = {
     food,
+    production,
     router: routerReducer
 };

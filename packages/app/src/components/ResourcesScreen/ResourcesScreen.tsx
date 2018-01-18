@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Button, Indicator } from '../../../../core';
+import { Screen, Button, Indicator, Resource } from '../../../../core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
+import { growFood, createProduction } from 'actions';
 import { colors } from 'utils';
 
 import './ResourcesScreen.scss';
@@ -18,22 +19,19 @@ const indicatorStyle = {
 };
 
 export interface ResourcesScreenProps {
-
+    food: Resource;
+    growFood: Function;
+    production: Resource;
+    createProduction: Function;
 }
 
 export interface ResourcesScreenState {
-    foodTotal: number;
 }
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
     constructor(props:ResourcesScreenProps) {
         super(props);
-        this.state = {
-            foodTotal: 10
-        };
     }
-
-    private growFood = e => this.setState({ foodTotal: this.state.foodTotal - 1 });
 
     public render() {
         return (
@@ -48,12 +46,12 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             id='food-btn'
                             iconHeight='1rem'
                             value='Grow Food'
-                            onClick={this.growFood}
+                            onClick={this.props.growFood as any}
                             className='food-button'
                             layout={null}
                         />
                         <Indicator
-                            value={this.state.foodTotal}
+                            value={this.props.food.total}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -61,7 +59,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Food is used for feeding your citizens, even Jim.'
                         />
                         <Indicator
-                            value={this.state.foodTotal * 4}
+                            value={0}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -69,7 +67,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={this.state.foodTotal * 4}
+                            value={0}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -77,7 +75,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={this.state.foodTotal * 4}
+                            value={0}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -91,12 +89,12 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             id='production-btn'
                             iconHeight='1rem'
                             value='Create Production'
-                            onClick={this.growFood}
+                            onClick={this.props.createProduction as any}
                             className='prod-button'
                             layout={null}
                         />
                         <Indicator
-                            value={this.state.foodTotal}
+                            value={this.props.production.total}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
@@ -104,7 +102,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Production lets you build.'
                         />
                         <Indicator
-                            value={this.state.foodTotal * 4}
+                            value={0}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
@@ -112,7 +110,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={this.state.foodTotal * 4}
+                            value={0}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
@@ -120,7 +118,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={this.state.foodTotal * 4}
+                            value={0}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
@@ -135,6 +133,9 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 }
 
 export const ResourcesScreen = connect(
-    () => ({}),
-    {}
+    (state:any) => ({ food: state.food, production: state.production }),
+    (dispatch:any) => ({
+        growFood: () => dispatch(growFood(1)),
+        createProduction: () => dispatch(createProduction(1))
+    })
 )(ResourcesScreenBase);
