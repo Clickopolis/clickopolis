@@ -4,6 +4,7 @@ import { Screen, Button, Indicator, Resource } from '../../../../core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
+import { ResourcesMatrix } from '../ResourcesMatrix';
 import { growFood, createProduction } from 'actions';
 import { colors } from 'utils';
 
@@ -19,10 +20,10 @@ const indicatorStyle = {
 };
 
 export interface ResourcesScreenProps {
-    food: Resource;
-    growFood: Function;
-    production: Resource;
-    createProduction: Function;
+    food?: Resource;
+    growFood?: Function;
+    production?: Resource;
+    createProduction?: Function;
 }
 
 export interface ResourcesScreenState {
@@ -127,6 +128,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                         />
                     </div>
                 </div>
+                <ResourcesMatrix />
             </Screen>
         );
     }
@@ -138,4 +140,4 @@ export const ResourcesScreen = connect(
         growFood: () => dispatch(growFood(1)),
         createProduction: () => dispatch(createProduction(1))
     })
-)(ResourcesScreenBase);
+)(ResourcesScreenBase as any);

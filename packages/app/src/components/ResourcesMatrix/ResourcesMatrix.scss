@@ -1,0 +1,44 @@
+.resources-matrix {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.resources-matrix-row {
+    align-items: flex-end;
+    display: flex;
+    height: 4rem;
+    & > div {
+        margin: .25rem;
+    }
+}
+
+.resources-matrix-category {
+    align-items: center;
+    background: #111;
+    border: 1px solid black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: .5rem;
+    width: 8rem;
+    img {
+        height: 1rem;
+        margin-right: auto;
+        width: 1rem;
+    }
+    span {
+        display: block;
+        margin: .25rem;
+    }
+}
+
+.resources-matrix-item {
+    align-items: center;
+    background-color: #111;
+    color: white;
+    display: flex;
+    height: 3rem;
+    justify-content: center;
+    width: 7rem;
+}
