@@ -8,6 +8,7 @@
     "serve": "ts-node ./server.ts",
     "build": "webpack",
     "clean": "rm -rf ./dist",
+    "create-component": "ts-node ./create-component.ts",
     "start": "npm run build && npm run serve"
   },
   "keywords": [
