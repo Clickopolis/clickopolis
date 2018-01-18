@@ -2,6 +2,7 @@ import * as React from 'react';
 // @ts-ignore: no @types defintion
 import { Tooltip } from 'react-tippy';
 
+import { UserMenu } from 'components';
 import { CONSTANTS } from 'utils';
 
 import './Menu.scss';
@@ -42,6 +43,7 @@ export class Menu extends React.Component {
                         this.generateMenu()
                     }
                 </ul>
+                <UserMenu username='Emma' userCivName='Clickopolis' />
             </nav>
         );
     }

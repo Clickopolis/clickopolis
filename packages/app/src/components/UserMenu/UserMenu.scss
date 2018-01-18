@@ -1,0 +1,36 @@
+.user-menu {
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    height: 100%;
+    margin-left: auto;
+    padding: .25rem;
+    padding-right: .5rem;
+    transition: 350ms background-color;
+    &:hover {
+        background: #444;
+        box-shadow: 0 0 4px black;
+        transition: 350ms background-color;
+    }
+}
+
+.user-info {
+    text-align: right;
+}
+
+.user-info-name {
+    font-weight: bold;
+}
+
+.user-info-civ {
+    font-weight: light;
+}
+
+.user-profile {
+    height: 100%;
+    margin: 0 .5rem;
+}
+.user-profile img {
+    border-radius: 50%;
+    height: 100%;
+}

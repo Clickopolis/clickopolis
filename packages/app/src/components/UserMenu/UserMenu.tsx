@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import './UserMenu.scss';
+
 export interface UserMenuProps {
     username: string;
     userCivName: string;
@@ -20,7 +22,7 @@ export class UserMenu extends React.Component<UserMenuProps> {
                     <div className='user-info-civ'>{ userCivName }</div>
                 </div>
                 <div className='user-profile'>
-                    <img src='' />
+                    <img src='./images/avatar.png' />
                 </div>
             </div>
         );
