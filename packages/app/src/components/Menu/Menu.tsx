@@ -2,6 +2,8 @@ import * as React from 'react';
 // @ts-ignore: no @types defintion
 import { Tooltip } from 'react-tippy';
 
+import { Indicator } from '../../../../core';
+
 import { UserMenu } from 'components';
 import { CONSTANTS } from 'utils';
 
@@ -43,6 +45,18 @@ export class Menu extends React.Component {
                         this.generateMenu()
                     }
                 </ul>
+                <Indicator
+                    value='Ancient Era'
+                    description={`Huts, mammoths, early life expectancy -- can't get much better!`}
+                    neutralColor='#444'
+                    style={ { margin: '0 .33rem' }}
+                />
+                <Indicator
+                    value='77 AC'
+                    description={'AC: After Click'}
+                    neutralColor='#333'
+                    style={ { margin: '0 .33rem' }}
+                />
                 <UserMenu username='Emma' userCivName='Clickopolis' />
             </nav>
         );
