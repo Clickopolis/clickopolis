@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Screen, Button, Indicator } from '../../../../core';
+import { Screen, Button, Indicator, Resource } from '../../../../core';
 
 import './ResourcesMatrix.scss';
 
 export interface ResourcesMatrixProps {
-
+    [resource: string]: Resource;
 }
 
 export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
@@ -14,8 +14,46 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
         super(props);
     }
 
-    sortResources() {
+    getResources(props:ResourcesMatrixProps) {
+        const sort = (arr, prop = 'category') => {
+            return (a, b) => {
+                const result = (a[prop] < b[prop]) ? -1 : (a[prop] > b[prop]) ? 1 : 0;
+                return result;
+            };
+        };
 
+        const group = (xs, key) => {
+            return xs.reduce((rv, x) => {
+                (rv[x[key]] = rv[x[key]] || []).push(x);
+                return rv;
+            }, {});
+        };
+
+        const resources:Resource[] = [
+            props.cattle,
+            props.fish,
+            props.banana,
+            props.wood,
+            props.horses,
+            props.oil,
+            props.spices,
+            props.gold,
+            props.silver,
+            props.gems,
+            props.spaghetti
+        ];
+
+        return group(resources.sort(sort(this)), 'category');
+    }
+
+    renderResourceRow(resources) {
+        return resources.map((r, k) => <Indicator
+            key={k}
+            value={r.total}
+            icon={`./images/${r.name}.svg`}
+            description={r.description}
+            className='resources-matrix-item'
+        />);
     }
 
     public render() {
@@ -26,96 +64,55 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
                         <img src='./images/health.svg' />
                         <span>Health</span>
                     </div>
-                    <Indicator
-                        value={15}
-                        icon={'./images/cattle.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
-                    <Indicator
-                        value={15}
-                        icon={'./images/fish.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
-                    <Indicator
-                        value={15}
-                        icon={'./images/banana.svg'}
-                        description='Bananas provide health'
-                        className='resources-matrix-item'
-                    />
+                    {
+                        this.renderResourceRow(
+                            this.getResources(this.props)['health']
+                        )
+                    }
                 </div>
                 <div className='resources-matrix-row'>
                     <div className='resources-matrix-category'>
                         <img src='./images/buildings.svg' />
                         <span>Building</span>
                     </div>
-                    <Indicator
-                        value={15}
-                        icon={'./images/wood.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
+                    {
+                        this.renderResourceRow(
+                            this.getResources(this.props)['building']
+                        )
+                    }
                 </div>
                 <div className='resources-matrix-row'>
                     <div className='resources-matrix-category'>
                         <img src='./images/strategic.svg' />
                         <span>Strategic</span>
                     </div>
-                    <Indicator
-                        value={15}
-                        icon={'./images/horses.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
-                    <Indicator
-                        value={15}
-                        icon={'./images/oil.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
+                    {
+                        this.renderResourceRow(
+                            this.getResources(this.props)['strategic']
+                        )
+                    }
                 </div>
                 <div className='resources-matrix-row'>
                     <div className='resources-matrix-category'>
                         <img src='./images/luxury.svg' />
                         <span>Luxury</span>
                     </div>
-                    <Indicator
-                        value={15}
-                        icon={'./images/spices.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
-                    <Indicator
-                        value={15}
-                        icon={'./images/gold.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
-                    <Indicator
-                        value={15}
-                        icon={'./images/silver.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
-                    <Indicator
-                        value={15}
-                        icon={'./images/gems.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
+                    {
+                        this.renderResourceRow(
+                            this.getResources(this.props)['luxury']
+                        )
+                    }
                 </div>
                 <div className='resources-matrix-row'>
                     <div className='resources-matrix-category'>
                         <img src='./images/power.svg' />
                         <span>Power</span>
                     </div>
-                    <Indicator
-                        value={15}
-                        icon={'./images/spaghetti.svg'}
-                        description=''
-                        className='resources-matrix-item'
-                    />
+                    {
+                        this.renderResourceRow(
+                            this.getResources(this.props)['power']
+                        )
+                    }
                 </div>
             </div>
         );
@@ -123,6 +120,18 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps> {
 }
 
 export const ResourcesMatrix = connect(
-    null,
+    (state:any) => ({
+        cattle: state.cattle,
+        fish: state.fish,
+        banana: state.banana,
+        wood: state.wood,
+        horses: state.horses,
+        oil: state.oil,
+        spices: state.spices,
+        gold: state.gold,
+        silver: state.silver,
+        gems: state.gems,
+        spaghetti: state.spaghetti,
+    }),
     null
 )(ResourcesMatrixBase);

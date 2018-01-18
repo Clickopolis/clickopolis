@@ -7,7 +7,6 @@
 .resources-matrix-row {
     align-items: flex-end;
     display: flex;
-    height: 4rem;
     & > div {
         margin: .25rem;
     }
@@ -35,7 +34,7 @@
 
 .resources-matrix-item {
     align-items: center;
-    background-color: #111;
+    background-color: #111 !important;
     color: white;
     display: flex;
     height: 3rem;
