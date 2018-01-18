@@ -9,8 +9,8 @@ import { colors } from 'utils';
 import './CivilizationScreen.scss';
 
 const indicatorStyle = {
-    height: '1.25rem',
-    width: '5rem'
+    margin: '.25rem',
+    minWidth: '5rem'
 };
 
 export interface CivilizationScreenProps {
@@ -31,24 +31,47 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 type='Civilization'
                 color={colors.get('civilization')}
             >
-                <Indicator
-                    value={'Population: 62'}
-                    neutralColor='tan'
-                />
-                <Indicator
-                    value={62}
-                    positiveColor='yellow'
-                    neutralColor='yellow'
-                    icon={'./images/happiness.svg'}
-                    description='Keep your citizens happy with buildings and innovation.'
-                />
-                <Indicator
-                    value={0}
-                    positiveColor='red'
-                    neutralColor='red'
-                    icon={'./images/anger.svg'}
-                    description={`Don't make your citizens angrier`}
-                />
+                <div className='civilization-indicator' style={{
+                    display: 'flex'
+                }}>
+                    <Indicator
+                        value={'Population: 62'}
+                        neutralColor='tan'
+                        style={indicatorStyle}
+                    />
+                    <Indicator
+                        value={62}
+                        positiveColor='yellow'
+                        neutralColor='yellow'
+                        icon={'./images/happiness.svg'}
+                        description='Keep your citizens happy with buildings and innovation.'
+                        style={indicatorStyle}
+                    />
+                    <Indicator
+                        value={0}
+                        positiveColor='red'
+                        neutralColor='red'
+                        icon={'./images/anger.svg'}
+                        description={`Don't make your citizens angrier`}
+                        style={indicatorStyle}
+                    />
+                    <Indicator
+                        value={0}
+                        positiveColor='white'
+                        neutralColor='white'
+                        icon={'./images/health.svg'}
+                        description={`Health`}
+                        style={indicatorStyle}
+                    />
+                    <Indicator
+                        value={0}
+                        positiveColor='lightgreen'
+                        neutralColor='lightgreen'
+                        icon={'./images/pollution.svg'}
+                        description={`Pollution`}
+                        style={indicatorStyle}
+                    />
+                </div>
             </Screen>
         );
     }
