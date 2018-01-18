@@ -3,22 +3,34 @@
         {
             "name": "Managing Resources",
             "status": "in progress",
-            "note": ""
+            "note": "",
+            "link": ""
         },
         {
             "name": "Civilization Metrics & Management",
             "status": "in progress",
-            "note": ""
+            "note": "",
+            "link": ""
         },
         {
             "name": "Citizen Management",
             "status": "planned",
-            "note": ""
+            "note": "",
+            "link": ""
         },
+
+        {
+            "name": "Biomes",
+            "status": "planned",
+            "note": "",
+            "link": ""
+        },
+
         {
             "name": "Multiplayer battles",
             "status": "not planned",
-            "note": "Not planned for next 12 months"
+            "note": "Not planned for next 12 months",
+            "link": ""
         }
     ]
 }

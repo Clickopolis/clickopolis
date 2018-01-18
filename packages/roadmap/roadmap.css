@@ -36,6 +36,17 @@ h2 {
     margin: 4px;
 }
 
+a {
+    color: #fafafa;
+    text-decoration: none;
+    transition: 300ms color;
+}
+
+a:hover {
+    color: #aadefe;
+    transition: 300ms color;
+}
+
 table {
     background: #343434;
     border: 1px solid #111;

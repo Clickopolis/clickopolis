@@ -44,7 +44,7 @@ const buildTable = (data:any) => {
     const body = `<tbody>${
         data.features.map((f:any, idx:number) => `<tr data-id='${idx}' class='status-${f.status.replace(/\s/g, '-')}'>
             <td class='category-name'>
-                ${ f.name }
+                <a href='${f.link || '#'}'>${ f.name }</a>
             </td>
             <td>${ getStatus(f.status, f.note, 'not planned') }</td>
             <td>${ getStatus(f.status, f.note, 'planned') }</td>
