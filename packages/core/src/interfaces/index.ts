@@ -1,4 +1,4 @@
-
+/* entries are sorted alphabetically */
 
 export type BiomeType = 'Desert'
                     | 'Tundra'
@@ -28,6 +28,10 @@ export type CitizenType = 'Farmer'
                         | 'Merchant'
                         | 'Cleric'
                         | 'Artist';
+
+export interface Civilization {
+
+}
 
 /* The contribution a citizen provides */
 export interface Contribution {
@@ -64,6 +68,8 @@ export interface Resource {
     /* gain per click (if applicable) */
     perClick: number;
     description: string;
+    /* category */
+    category?: 'health' | 'building' | 'strategic' | 'luxury' | 'power';
     /* Bonuses */
     happinessBonus?: number;
     healthBonus?: number;
@@ -73,13 +79,14 @@ export interface Resource {
 
     /* Amount of $ it can be sold for */
     exchangeRate?: number;
+
+    /* Can the resource be seen in the UI? */
+    visible?: boolean;
+    /* Can the user actually interact with it? */
+    unlocked?: boolean;
 }
 
 /** A valid resource name */
-export type ResourceName = 'Food'
-                            | 'Prod'
-                            | 'Gold'
-                            | 'Faith'
-                            | 'Culture';
+export type ResourceName = string;
 
 export {};
