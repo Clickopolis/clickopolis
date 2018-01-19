@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 // @ts-ignore no @types module
 import { routerReducer } from 'react-router-redux';
 
+import { civilization } from './civilization';
 import { food } from './food';
 import { production } from './production';
 import {
@@ -19,6 +20,7 @@ import {
 } from './resources';
 
 export const reducers:any = {
+    civilization,
     food,
     production,
     cattle,

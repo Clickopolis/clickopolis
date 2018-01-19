@@ -1,0 +1,20 @@
+.population-button {
+    background: tan;
+    border-radius: .25rem;
+    display: flex;
+    margin: .25rem;
+    //padding: .5rem;
+    overflow: hidden;
+    text-align: center;
+    width: 10rem;
+}
+
+.population-text {
+    padding: .25rem;
+}
+
+.population-to-growth {
+    background: lightgreen;
+    margin-left: auto;
+    padding: .25rem;
+}

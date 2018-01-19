@@ -1,10 +1,13 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Button, Indicator } from '../../../../core';
+import { Screen, Button, Indicator, Civilization } from '../../../../core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
+import { PopulationButton } from '../PopulationButton';
 import { colors } from 'utils';
+
+console.log(PopulationButton);
 
 import './CivilizationScreen.scss';
 
@@ -14,7 +17,8 @@ const indicatorStyle = {
 };
 
 export interface CivilizationScreenProps {
-
+    civilization?: Civilization;
+    growPopulation?: Function;
 }
 
 export interface CivilizationScreenState {
@@ -32,15 +36,12 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 color={colors.get('civilization')}
             >
                 <div className='civilization-indicator' style={{
-                    display: 'flex'
+                    display: 'flex',
+                    marginTop: '1rem'
                 }}>
+                    <PopulationButton />
                     <Indicator
-                        value={'Population: 62'}
-                        neutralColor='tan'
-                        style={indicatorStyle}
-                    />
-                    <Indicator
-                        value={62}
+                        value={this.props.civilization.happiness}
                         positiveColor='yellow'
                         neutralColor='yellow'
                         icon={'./images/happiness.svg'}
@@ -48,7 +49,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                     <Indicator
-                        value={0}
+                        value={this.props.civilization.anger}
                         positiveColor='red'
                         neutralColor='red'
                         icon={'./images/anger.svg'}
@@ -56,7 +57,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                     <Indicator
-                        value={0}
+                        value={this.props.civilization.health}
                         positiveColor='white'
                         neutralColor='white'
                         icon={'./images/health.svg'}
@@ -64,7 +65,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                     <Indicator
-                        value={0}
+                        value={this.props.civilization.pollution}
                         positiveColor='lightgreen'
                         neutralColor='lightgreen'
                         icon={'./images/pollution.svg'}
@@ -78,6 +79,6 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
 }
 
 export const CivilizationScreen = connect(
-    () => ({}),
-    {}
-)(CivilizationScreenBase);
+    (state:any) => ({ civilization: state.civilization }),
+    null
+)(CivilizationScreenBase as any);
