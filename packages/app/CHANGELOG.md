@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.1.3...@clickopolis/app@0.2.0) (2018-01-19)
+
+
+### Bug Fixes
+
+* add scss import to component files ([0a7b356](https://github.com/Clickopolis/clickopolis/commit/0a7b356))
+
+
+### Features
+
+* add CitizensScreen ([656fc44](https://github.com/Clickopolis/clickopolis/commit/656fc44))
+* add Era/Year indicators to Menu ([59d41b3](https://github.com/Clickopolis/clickopolis/commit/59d41b3))
+* add growPopulation action ([3706b91](https://github.com/Clickopolis/clickopolis/commit/3706b91))
+* add proper PopulationButton component ([48d8d52](https://github.com/Clickopolis/clickopolis/commit/48d8d52))
+* add ResourceInfo ([40666f2](https://github.com/Clickopolis/clickopolis/commit/40666f2))
+* add ResourceMatrix component ([093b42a](https://github.com/Clickopolis/clickopolis/commit/093b42a))
+* add UserMenu component ([407f840](https://github.com/Clickopolis/clickopolis/commit/407f840))
+* working Grow Food / Create Prod buttons ([aa483cb](https://github.com/Clickopolis/clickopolis/commit/aa483cb))
+
+
+
+
 <a name="0.1.3"></a>
 ## [0.1.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.1.2...@clickopolis/app@0.1.3) (2018-01-18)
 
