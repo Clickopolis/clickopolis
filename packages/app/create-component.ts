@@ -27,6 +27,8 @@ export class ${name} extends React.Component<${name}Props> {
 const componentConnected = (name) => `import * as React from 'react';
 import { connect } from 'react-redux';
 
+import './${name}.scss';
+
 export interface ${name}Props {
 
 }
