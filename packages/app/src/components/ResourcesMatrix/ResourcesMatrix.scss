@@ -78,6 +78,8 @@
 }
 
 .info-description {
+    margin-left: 1rem;
+    text-align: left;
     width: calc(100% - 8rem);
 }
 
@@ -90,4 +92,28 @@
     justify-content: center;
     height: 8rem;
     width: 8rem;
+}
+
+.image-fish {
+    background: #f9a885
+}
+
+.image-banana {
+    background: #8f58f6;
+}
+
+.image-cattle {
+    background: #ccb7ac;
+}
+
+.image-gems {
+    background: #ccffc9;
+}
+
+.image-horses {
+    background: #4db8b4;
+}
+
+.image-wood {
+    background: #495b74
 }

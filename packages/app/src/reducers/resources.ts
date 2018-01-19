@@ -8,7 +8,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: 'Moo! Cows provide health',
+        description: `Don't milk these beautiful creatures too hard, now`,
         category: 'health',
         healthBonus: 0.5,
     }],
@@ -28,7 +28,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: 'A fruit filled with potassium and innuendo',
         category: 'health',
         healthBonus: 0.5,
     }],
@@ -38,7 +38,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: 'Moo! Cows provide health',
+        description: 'Woo! Wood provides wood. Woohoo!',
         category: 'building',
     }],
     ['horses', {
@@ -47,7 +47,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: 'Giddy up, pony. An important resource for military leaders.',
         category: 'strategic',
     }],
     ['oil', {
@@ -56,7 +56,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: 'Carry through cars, bombers jets, and plastic bags into the new era.',
         category: 'strategic',
         pollutionBonus: 1
     }],
@@ -66,7 +66,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: 'Probably not a good idea to snort.',
         category: 'luxury',
     }],
     ['gold', {
@@ -75,7 +75,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: `Clickopolis's most yearned after metal`,
         category: 'luxury',
     }],
     ['silver', {
@@ -84,7 +84,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: `Gold's nerdy cousin`,
         category: 'luxury',
     }],
     ['gems', {
@@ -93,7 +93,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: `Though sparkly, provides little utility`,
         category: 'luxury',
     }],
     ['spaghetti', {
@@ -102,7 +102,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: '',
+        description: `WHO TOUCHED MY SPAHGET!?`,
         category: 'power',
     }]
 ]);

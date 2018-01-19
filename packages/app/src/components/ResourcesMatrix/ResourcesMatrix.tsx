@@ -67,11 +67,15 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                     <h3>{ resource.name }</h3>
                 </div>
                 <div className='resource-info-row'>
-                    <div className='info-image'>
+                    <div className={`info-image image-${resource.name}`}>
                         <img src={`./images/${resource.name}.svg`} />
                     </div>
                     <div className='info-description'>
                         { resource.description }
+                        { resource.healthBonus ? <div>
+                            <img style={{ height: '1rem' }} src='./images/health.svg' />
+                            &nbsp;+{resource.healthBonus} per {resource.name}, {resource.healthBonus * resource.total} total
+                        </div> : null }
                     </div>
                 </div>
             </div>
