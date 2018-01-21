@@ -31,12 +31,15 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, { a
                     <Indicator
                         value={this.props.population}
                         neutralColor='#666'
+                        description='Employment ratio'
+                        className='citizens-employment'
                     />
                     <input
                         type='number'
                         value={this.state.amount}
                         onChange={this.onChange}
                         min={1}
+                        className='citizens-input'
                     />
                 </div>
                 <CitizensList

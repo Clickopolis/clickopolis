@@ -25,11 +25,12 @@ export function ruler(state = defaults.get('ruler'), action: any) {
 }
 
 export function farmer(state = defaults.get('farmer'), action: Action<ADD_CITIZEN | REMOVE_CITIZEN>) {
+    const amount = parseInt(action.amount);
     switch (action.type) {
         case 'ADD_CITIZEN':
-            return action.citizen === 'farmer' ? { state, amount: state.amount + action.amount } : state;
+            return action.citizen === 'farmer' ? { ...state, amount: state.amount + amount } : state;
         case 'REMOVE_CITIZEN':
-            return action.citizen === 'farmer' ? { state, amount: state.amount + (-action.amount) } : state;
+            return action.citizen === 'farmer' ? { ...state, amount: state.amount + (-amount) } : state;
         default:
             return state;
     }

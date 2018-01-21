@@ -21,9 +21,9 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
     private renderCitizens() {
         const citizens:Citizen[] = [this.props.ruler, this.props.farmer];
 
-        return citizens.map((c:Citizen) => {
+        return citizens.map((c:Citizen, idx: number) => {
             return (
-                <div className='citizens-list-item' key={c.name}>
+                <div className='citizens-list-item' key={idx}>
                     <div className='citizen-amount'>{c.amount}</div>
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
@@ -38,7 +38,7 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
                     /> : null }
                     <div className='citizen-description'>{c.description}</div>
                     <div className='citizen-contribution'>
-                        {c.name}: +0.5<img src='./images/food.svg' /> PC, +1.5 <img src='./images/food.svg' /> PS
+                        {Array.isArray(c.contribution) ? c.contribution.map(contrib => <div />) : null}
                     </div>
                 </div>
             );

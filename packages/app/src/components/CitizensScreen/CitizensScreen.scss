@@ -1,10 +1,22 @@
 .citizens-top-bar {
     display: flex;
-    margin: .25rem;
+    justify-content: space-between;
+    margin: .5rem;
+}
+
+.citizens-employment {
+    background: #ddd;
 }
 
 .citizens-note {
     color: #fff;
     margin: .5rem;
     text-align: center;
+}
+
+.citizens-input {
+    background: #ddd;
+    border: 1px solid #000;
+    color: #111;
+    padding: 0 .5rem;
 }
