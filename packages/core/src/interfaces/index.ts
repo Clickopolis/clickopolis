@@ -1,5 +1,11 @@
 /* entries are sorted alphabetically */
 
+export interface Achievement {
+    name: string;
+    description: string;
+    unlocked: boolean;
+}
+
 export type BiomeType = 'Desert'
                     | 'Tundra'
                     | 'Island'
@@ -11,6 +17,17 @@ export type BiomeType = 'Desert'
 export interface Biome {
     name: BiomeType;
     description: string;
+}
+
+export interface Building {
+    name: string;
+    amount: number;
+    productionCost: number;
+    cashCost: number;
+    description: string;
+    effect: string;
+    visible: boolean;
+    enabled: boolean;
 }
 
 export interface Cash {
@@ -35,14 +52,17 @@ export interface Citizen {
     name: CitizenType;
     /* The contribution a citizen provides */
     contribution: Contribution | Contribution[];
+    amount: number;
+    description: string;
 }
 
 /* A valid citizen name */
-export type CitizenType = 'Farmer'
-                        | 'Miner'
-                        | 'Merchant'
-                        | 'Cleric'
-                        | 'Artist';
+export type CitizenType = 'farmer'
+                        | 'miner'
+                        | 'merchant'
+                        | 'cleric'
+                        | 'artist'
+                        | 'ruler';
 
 export interface Civilization {
     civName: string;
@@ -195,6 +215,16 @@ export interface Trait {
     name: string;
     description: string;
     unlocked: boolean;
+}
+
+export interface Wonder {
+    name: string;
+    buildTime: number;
+    remainingTime: number;
+    visible: boolean;
+    enabled: boolean;
+    description: string;
+    effect: string;
 }
 
 export {};
