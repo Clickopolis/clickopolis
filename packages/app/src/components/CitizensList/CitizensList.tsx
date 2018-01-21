@@ -12,8 +12,19 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
         super(props);
     }
 
+    private renderCitizens() {
+
+    }
+
     public render() {
-        return <div />;
+        return (
+            <div className='citizens-list-wrapper'>
+                <div className='citizens-list-bar'></div>
+                <div className='citizens-list'>
+
+                </div>
+            </div>
+        );
     }
 }
 
