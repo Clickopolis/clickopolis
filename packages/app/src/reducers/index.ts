@@ -4,7 +4,8 @@ import { routerReducer } from 'react-router-redux';
 
 import {
     ruler,
-    farmer
+    farmer,
+    miner
 } from './citizens';
 import { civilization } from './civilization';
 import { food } from './food';
@@ -24,22 +25,23 @@ import {
 } from './resources';
 
 export const reducers:any = {
-    civilization,
-    ruler,
-    farmer,
-    food,
-    production,
-    cattle,
-    fish,
     banana,
-    wood,
-    horses,
-    oil,
-    spices,
-    gold,
-    silver,
+    cattle,
+    civilization,
+    farmer,
+    fish,
+    food,
     gems,
+    gold,
+    horses,
+    miner,
+    oil,
+    production,
+    ruler,
+    silver,
     spaghetti,
+    spices,
+    wood,
     router: routerReducer
 };
 

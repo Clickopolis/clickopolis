@@ -5,7 +5,9 @@ import { growPopulation } from 'actions';
 import './PopulationButton.scss';
 
 export interface PopulationButtonProps {
+    foodNeededForGrowth: number;
     population: number;
+    food: any;
     growPopulation: Function;
 }
 
@@ -14,13 +16,22 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps>
         super(props);
     }
 
+    private handleGrowth = (e:any) => {
+        this.props.growPopulation(1, 22);
+    }
+
+    private isGrowthPossible () {
+        if (this.props.food.total >= this.props.foodNeededForGrowth) return 'disabled';
+        return '';
+    }
+
     public render() {
-        const { population, growPopulation } = this.props;
+        const { foodNeededForGrowth, population } = this.props;
         return (
-            <div className='population-button' onClick={e => growPopulation(1)}>
+            <div className={`population-button ${this.isGrowthPossible()}`} onClick={this.handleGrowth}>
                 <div className='population-text'>{ 'Population: ' + population }</div>
                 <div className='population-to-growth'>
-                    { 44 }<img style={{ height: '1rem' }} src='./images/food.svg' />
+                    { foodNeededForGrowth }<img style={{ height: '1rem' }} src='./images/food.svg' />
                 </div>
             </div>
         );
@@ -28,6 +39,6 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps>
 }
 
 export const PopulationButton = connect(
-    (state:any) => ({ population: state.civilization.population }),
+    (state:any) => ({ population: state.civilization.population, food: state.food, foodNeededForGrowth: state.civilization.foodNeededForGrowth }),
     { growPopulation }
 )(PopulationButtonBase as any);

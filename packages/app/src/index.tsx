@@ -35,3 +35,4 @@ render(
 store.subscribe(() => {
   console.table(store.getState());
 });
+

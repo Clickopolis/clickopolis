@@ -16,7 +16,7 @@ export class App extends React.Component {
         return (
             <div id='app' className='clickopolis-app'>
                 <Menu />
-                <div id='screen-container' style={{
+                <div data-scroll id='screen-container' style={{
                     alignItems: 'center',
                     display: 'flex',
                     height: 'calc(100% - 48px)',

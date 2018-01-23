@@ -7,6 +7,11 @@
     overflow: hidden;
     text-align: center;
     width: 10rem;
+    &.disabled {
+        filter: grayscale(90%);
+        opacity: .9;
+        pointer-events: none;
+    }
 }
 
 .population-text {

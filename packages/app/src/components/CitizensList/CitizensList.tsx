@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { addCitizen, removeCitizen } from 'actions';
 import { Citizen, Contribution, Button, abbrNum } from '../../../../core';
+import { Contribution as ContributionComponent } from '../Contribution';
 
 import './CitizensList.scss';
 
@@ -19,7 +20,7 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
     }
 
     private renderCitizens() {
-        const citizens:Citizen[] = [this.props.ruler, this.props.farmer];
+        const citizens:Citizen[] = [this.props.ruler, this.props.farmer, this.props.miner];
 
         return citizens.map((c:Citizen, idx: number) => {
             return (
@@ -38,7 +39,11 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
                     /> : null }
                     <div className='citizen-description'>{c.description}</div>
                     <div className='citizen-contribution'>
-                        {Array.isArray(c.contribution) ? c.contribution.map(contrib => <div />) : null}
+                        {
+                            Array.isArray(c.contribution)
+                            ? c.contribution.map((contrib:Contribution, index: number) => <ContributionComponent key={index} {...contrib} />)
+                            : null
+                        }
                     </div>
                 </div>
             );
@@ -60,7 +65,8 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
 export const CitizensList = connect(
     (state:any) => ({
         ruler: state.ruler,
-        farmer: state.farmer
+        farmer: state.farmer,
+        miner: state.miner
     }),
     {
         addCitizen,

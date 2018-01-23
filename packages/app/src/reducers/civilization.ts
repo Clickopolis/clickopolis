@@ -9,6 +9,7 @@ const civDefault:Civilization = {
     biomes: ['Biome'],
 
     population: 1,
+    foodNeededForGrowth: 20,
 
     happiness: 0,
     happinessBase: 10,
@@ -29,7 +30,8 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION>
         case 'GROW_POPULATION':
             return {
                 ...state,
-                population: state.population + action.amount
+                population: state.population + action.amount,
+                foodNeededForGrowth: action.foodNeededForGrowth,
             };
         default:
             return state;
