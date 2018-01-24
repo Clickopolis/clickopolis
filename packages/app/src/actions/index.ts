@@ -1,6 +1,7 @@
 export * from './Action';
 
 export * from './addCitizen';
+export * from './advanceEra';
 export * from './consumeFood';
 export * from './createProduction';
 export * from './growFood';

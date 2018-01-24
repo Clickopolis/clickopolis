@@ -8,6 +8,7 @@ import {
     miner
 } from './citizens';
 import { civilization } from './civilization';
+import { era } from './era';
 import { food } from './food';
 import { production } from './production';
 import {
@@ -28,6 +29,7 @@ export const reducers:any = {
     banana,
     cattle,
     civilization,
+    era,
     farmer,
     fish,
     food,

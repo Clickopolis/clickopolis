@@ -8,6 +8,7 @@ import { UserMenu } from 'components';
 import { CONSTANTS } from 'utils';
 
 import './Menu.scss';
+import { EraIndicator } from 'components/EraIndicator';
 
 export interface MenuProps {
     menuData: any;
@@ -45,12 +46,7 @@ export class Menu extends React.Component {
                         this.generateMenu()
                     }
                 </ul>
-                <Indicator
-                    value='Ancient Era'
-                    description={`Huts, mammoths, early life expectancy -- can't get much better!`}
-                    neutralColor='#444'
-                    style={ { margin: '0 .33rem' }}
-                />
+                <EraIndicator />
                 <Indicator
                     value='77 AC'
                     description={'AC: After Click'}
