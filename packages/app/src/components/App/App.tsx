@@ -8,8 +8,22 @@ import { CitizensScreen } from 'components/CitizensScreen';
 const NUM_OF_COMPONENTS = 3;
 
 export class App extends React.Component {
+    public intervalId: any;
+
     constructor(props:any) {
         super(props);
+    }
+
+    componentDidMount() {
+        this.intervalId = setInterval(this.timer, 1000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
+
+    timer() {
+
     }
 
     public render() {

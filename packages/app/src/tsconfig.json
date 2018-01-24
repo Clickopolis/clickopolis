@@ -10,6 +10,7 @@
         ],
         "target": "es5",
         "importHelpers": true,
-        "noEmitHelpers": true
+        "noEmitHelpers": true,
+        "baseUrl": "."
     },
 }
