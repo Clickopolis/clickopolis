@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.5.0...@clickopolis/core@0.6.0) (2018-01-24)
+
+
+### Bug Fixes
+
+* change type => resource, add type for PS/PC ([a258702](https://github.com/Clickopolis/clickopolis/commit/a258702))
+
+
+### Features
+
+* add Wonder, add more properties to Citizen ([120c445](https://github.com/Clickopolis/clickopolis/commit/120c445))
+
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.4.1...@clickopolis/core@0.5.0) (2018-01-19)
 

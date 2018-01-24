@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.2.0...@clickopolis/app@0.3.0) (2018-01-24)
+
+
+### Bug Fixes
+
+* add baseUrl to tsconfig ([8e87527](https://github.com/Clickopolis/clickopolis/commit/8e87527))
+* fix missing features of PopulationButton ([85bbcfb](https://github.com/Clickopolis/clickopolis/commit/85bbcfb))
+
+
+### Features
+
+* add CitizensList ([d6489ed](https://github.com/Clickopolis/clickopolis/commit/d6489ed))
+* add Era Indicator component ([be927eb](https://github.com/Clickopolis/clickopolis/commit/be927eb))
+
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.1.3...@clickopolis/app@0.2.0) (2018-01-19)
 
