@@ -1,17 +1,34 @@
 .population-button {
+    align-items: center;
     background: tan;
     border-radius: .25rem;
+    cursor: pointer;
     display: flex;
     margin: .25rem;
-    //padding: .5rem;
+    padding: .5rem;
     overflow: hidden;
     text-align: center;
-    width: 10rem;
+    width: 18rem;
     &.disabled {
         filter: grayscale(90%);
         opacity: .9;
         pointer-events: none;
     }
+    &:hover {
+        background: lighten(tan, 5%);
+        .population-to-growth {
+            background: lighten(lightgreen, 5%);
+        }
+    }
+}
+
+.pop-growth-text {
+    border-bottom: 2px solid navy;
+    color: white;
+    font-weight: lighter;
+    margin-right: .5rem;
+    padding: .25rem;
+    transform: translate(-.5rem, 0);
 }
 
 .population-text {
@@ -20,6 +37,7 @@
 
 .population-to-growth {
     background: lightgreen;
+    border-radius: 2px;
     margin-left: auto;
-    padding: .25rem;
+    padding: .25rem .5rem;
 }

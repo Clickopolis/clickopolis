@@ -1,5 +1,5 @@
 import { Resource } from '../../../core';
-import { Action, GROW_FOOD } from '../actions';
+import { Action, GROW_FOOD, CONSUME_FOOD } from '../actions';
 
 const foodState:Resource = {
     name: 'Food',
@@ -10,12 +10,17 @@ const foodState:Resource = {
     description: 'Food',
 };
 
-export function food(state = foodState, action: Action<GROW_FOOD>) {
+export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD>) {
     switch (action.type) {
         case 'GROW_FOOD':
             return {
                 ...state,
                 total: state.total + action.amount
+            };
+        case 'CONSUME_FOOD':
+            return {
+                ...state,
+                total: state.total - action.amount
             };
         default:
             return state;
