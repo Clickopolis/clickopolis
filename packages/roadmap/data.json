@@ -4,26 +4,33 @@
             "name": "Managing Resources",
             "status": "in progress",
             "note": "",
-            "link": ""
+            "link": "https://github.com/Clickopolis/clickopolis/issues/6"
         },
         {
             "name": "Civilization Metrics & Management",
             "status": "in progress",
             "note": "",
-            "link": ""
+            "link": "https://github.com/Clickopolis/clickopolis/issues/13"
         },
         {
             "name": "Citizen Management",
             "status": "planned",
             "note": "",
-            "link": ""
+            "link": "https://github.com/Clickopolis/clickopolis/issues/10"
+        },
+
+        {
+            "name": "Buildings Management",
+            "status": "planned",
+            "note": "",
+            "link": "https://github.com/Clickopolis/clickopolis/issues/12"
         },
 
         {
             "name": "Biomes",
             "status": "planned",
             "note": "",
-            "link": ""
+            "link": "https://github.com/Clickopolis/clickopolis/issues/8"
         },
 
         {
