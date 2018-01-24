@@ -51,7 +51,7 @@ export interface Cash {
 export interface Citizen {
     name: CitizenType;
     /* The contribution a citizen provides */
-    contribution: Contribution | Contribution[];
+    contribution: Contribution[];
     amount: number;
     description: string;
 }
@@ -121,12 +121,13 @@ export interface Civilization {
 
 /* The contribution a citizen provides */
 export interface Contribution {
+    type: 'PS' | 'PC';
     /* Interval of contribution, in ms */
     interval: number;
     /* Amount of contribution */
     amount: number;
     /* Resouce provided */
-    type: ResourceName;
+    resource: ResourceName;
 }
 
 export interface CivFaith {
