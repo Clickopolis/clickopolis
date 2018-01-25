@@ -35,6 +35,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
     }
 
     public render() {
+        const { food, production } = this.props;
         return (
             <Screen
                 type='Resources'
@@ -52,7 +53,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             layout={null}
                         />
                         <Indicator
-                            value={this.props.food.total}
+                            value={food.total}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -60,7 +61,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Food is used for feeding your citizens, even Jim.'
                         />
                         <Indicator
-                            value={0}
+                            value={food.perClick}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -68,7 +69,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={0}
+                            value={food.perSecond}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -76,7 +77,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={0}
+                            value={food.max}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
@@ -103,7 +104,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Production lets you build.'
                         />
                         <Indicator
-                            value={0}
+                            value={production.perClick}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
@@ -111,7 +112,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={0}
+                            value={production.perSecond}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
@@ -119,7 +120,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             description='Use your clicks to amass corn!'
                         />
                         <Indicator
-                            value={0}
+                            value={production.max}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
                             style={indicatorStyle}
