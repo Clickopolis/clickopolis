@@ -10,8 +10,8 @@ import './CitizensList.scss';
 export interface CitizensListProps {
     addCitizen?: Function;
     removeCitizen?: Function;
-    amount: number;
     [citizen: string]: Citizen;
+    amount: number;
 }
 
 export class CitizensListBase extends React.Component<CitizensListProps> {
@@ -20,9 +20,7 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
     }
 
     private renderCitizens() {
-        const citizens:Citizen[] = [this.props.ruler, this.props.farmer, this.props.miner];
-
-        return citizens.map((c:Citizen, idx: number) => {
+        return this.props.citizens.map((c:Citizen, idx: number) => {
             return (
                 <div className='citizens-list-item' key={idx}>
                     <div className='citizen-amount'>{c.amount}</div>
@@ -64,9 +62,11 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
 
 export const CitizensList = connect(
     (state:any) => ({
-        ruler: state.ruler,
-        farmer: state.farmer,
-        miner: state.miner
+        citizens: [
+            state.ruler,
+            state.farmer,
+            state.miner,
+        ]
     }),
     {
         addCitizen,

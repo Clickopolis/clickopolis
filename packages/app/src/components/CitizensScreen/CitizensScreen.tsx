@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Screen, Button, Indicator } from '../../../../core';
+import { Screen, Button, Indicator, Citizen } from '../../../../core';
 import { CitizensList } from '../CitizensList';
 import { colors } from 'utils';
 
@@ -9,6 +9,7 @@ import './CitizensScreen.scss';
 
 export interface CitizensScreenProps {
     population: number;
+    citizens: Citizen[];
 }
 
 export class CitizensScreenBase extends React.Component<CitizensScreenProps, { amount: number }> {
@@ -21,6 +22,12 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, { a
 
     private onChange = (e:any) => this.setState({ amount: e.target.value });
 
+    private getTotalEmployed () {
+        return this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
+            return prev + curr;
+        }, 0);
+    }
+
     public render() {
         return (
             <Screen
@@ -29,7 +36,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, { a
             >
                 <div className='citizens-top-bar'>
                     <Indicator
-                        value={this.props.population}
+                        value={`${this.getTotalEmployed()} / ${this.props.population}`}
                         neutralColor='#666'
                         description='Employment ratio'
                         className='citizens-employment'
@@ -56,7 +63,12 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, { a
 
 export const CitizensScreen = connect(
     (state:any) => ({
-        population: state.civilization.population
+        population: state.civilization.population,
+        citizens: [
+            state.ruler,
+            state.farmer,
+            state.miner,
+        ]
     }),
     null
 )(CitizensScreenBase);

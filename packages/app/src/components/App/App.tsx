@@ -9,6 +9,7 @@ const NUM_OF_COMPONENTS = 3;
 
 export class App extends React.Component {
     public intervalId: any;
+    public scrollElement: HTMLElement;
 
     constructor(props:any) {
         super(props);
