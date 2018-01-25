@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { growPopulation, consumeFood } from 'actions';
+import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond } from 'actions';
 import { Tooltip } from 'react-tippy';
 
-import { abbrNum } from '../../../../core';
+import { abbrNum, Citizen } from '../../../../core';
 
 import './PopulationButton.scss';
 
@@ -13,6 +13,9 @@ export interface PopulationButtonProps {
     food: any;
     growPopulation: Function;
     consumeFood: Function;
+    addCitizen: addCitizen;
+    updateFoodPerSecond: updateFoodPerSecond;
+    farmer: Citizen;
 }
 
 export interface PopulationButtonState {
@@ -30,6 +33,7 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
     private handleGrowth = (e:any) => {
         const newGrowth = Math.floor(this.props.foodNeededForGrowth * 1.07);
         this.props.growPopulation(1, newGrowth);
+        this.props.addCitizen(1, 'farmer');
         this.props.consumeFood(this.props.foodNeededForGrowth);
     }
 
@@ -71,6 +75,6 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
 }
 
 export const PopulationButton = connect(
-    (state:any) => ({ population: state.civilization.population, food: state.food, foodNeededForGrowth: state.civilization.foodNeededForGrowth }),
-    { growPopulation, consumeFood }
+    (state:any) => ({ population: state.civilization.population, food: state.food, foodNeededForGrowth: state.civilization.foodNeededForGrowth, farmer: state.farmer  }),
+    { growPopulation, consumeFood, addCitizen, updateFoodPerSecond }
 )(PopulationButtonBase as any);

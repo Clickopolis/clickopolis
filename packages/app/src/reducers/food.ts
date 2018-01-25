@@ -1,5 +1,5 @@
 import { Resource } from '../../../core';
-import { Action, GROW_FOOD, CONSUME_FOOD } from '../actions';
+import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND } from '../actions';
 
 const foodState:Resource = {
     name: 'Food',
@@ -10,7 +10,7 @@ const foodState:Resource = {
     description: 'Food',
 };
 
-export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD>) {
+export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD | UPDATE_FOOD_PER_SECOND>) {
     switch (action.type) {
         case 'GROW_FOOD':
             return {
@@ -21,6 +21,11 @@ export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD>
             return {
                 ...state,
                 total: state.total - action.amount
+            };
+        case 'UPDATE_FOOD_PER_SECOND':
+            return {
+                ...state,
+                perSecond: action.amount
             };
         default:
             return state;
