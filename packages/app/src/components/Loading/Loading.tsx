@@ -12,6 +12,10 @@ export class Loading extends React.Component<LoadingProps> {
     }
 
     public render() {
-        return <div />
+        return (
+            <div className='loading'>
+                <img src='./images/loading.svg' />
+            </div>
+        );
     }
 }

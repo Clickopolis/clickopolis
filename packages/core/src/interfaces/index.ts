@@ -142,6 +142,18 @@ export interface CivFaith {
     cost: number;
 }
 
+export enum Era {
+    Ancient,
+    Classical,
+    Medieval,
+    Renaissance,
+    Industrial,
+    Modern,
+    Atomic,
+    Information,
+    Future
+}
+
 export interface Influence {
     domestic: number;
     international: number;

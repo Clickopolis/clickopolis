@@ -9,6 +9,7 @@ import { CivilizationScreen } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
 import { growFood, consumeFood, createProduction } from 'actions';
 
+
 const NUM_OF_COMPONENTS = 3;
 
 export interface AppProps {
