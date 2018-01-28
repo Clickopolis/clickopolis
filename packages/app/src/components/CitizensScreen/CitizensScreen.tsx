@@ -41,6 +41,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, { a
                         description='Employment ratio'
                         className='citizens-employment'
                     />
+                    <span className='citizens-amount-text'>Citizens Amount</span>
                     <input
                         type='number'
                         value={this.state.amount}

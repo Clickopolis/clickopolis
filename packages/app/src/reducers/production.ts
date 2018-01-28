@@ -15,7 +15,7 @@ export function production(state = productionState, action: Action<CREATE_PRODUC
         case 'CREATE_PRODUCTION':
             return {
                 ...state,
-                total: state.total + action.amount
+                total: state.total >= state.max ? state.total : state.total + action.amount
             };
         default:
             return state;

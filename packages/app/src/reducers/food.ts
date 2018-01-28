@@ -6,7 +6,7 @@ const foodState:Resource = {
     total: 0,
     max: 2000,
     perSecond: 0,
-    perClick: 0,
+    perClick: 1,
     description: 'Food',
 };
 
@@ -15,7 +15,7 @@ export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD 
         case 'GROW_FOOD':
             return {
                 ...state,
-                total: state.total + action.amount
+                total: state.total >= state.max ? state.total : state.total + action.amount
             };
         case 'CONSUME_FOOD':
             return {

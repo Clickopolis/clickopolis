@@ -32,7 +32,5 @@ render(
   mountNode
 );
 
-store.subscribe(() => {
-  console.table(store.getState());
-});
+store.subscribe(() => {});
 
