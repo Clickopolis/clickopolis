@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
+// @ts-ignore: no types
 import { Tooltip } from 'react-tippy';
 
 export interface IndicatorProps {

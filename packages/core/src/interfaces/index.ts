@@ -158,6 +158,8 @@ export interface Influence {
     domestic: number;
     international: number;
 }
+export type flag = { [flag: string]: boolean };
+export interface Flags { [flag: string]: boolean | flag; }
 
 export interface GoldenAge {
     total: number;
@@ -240,4 +242,6 @@ export interface Wonder {
     effect: string;
 }
 
-export {};
+export function noop() {
+    return {};
+}
