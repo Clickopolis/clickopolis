@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.6.0...@clickopolis/core@0.7.0) (2018-01-31)
+
+
+### Bug Fixes
+
+* ensure interface exports work ([5594d41](https://github.com/Clickopolis/clickopolis/commit/5594d41))
+
+
+### Features
+
+* add Loading component ([ceabfa7](https://github.com/Clickopolis/clickopolis/commit/ceabfa7))
+
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.5.0...@clickopolis/core@0.6.0) (2018-01-24)
 

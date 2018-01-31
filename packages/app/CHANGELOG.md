@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.3.0...@clickopolis/app@0.4.0) (2018-01-31)
+
+
+### Bug Fixes
+
+* add proper typings + behavior to food mechanics ([b5a54cb](https://github.com/Clickopolis/clickopolis/commit/b5a54cb))
+* add values to Resource Indicators ([dfef601](https://github.com/Clickopolis/clickopolis/commit/dfef601))
+
+
+### Features
+
+* add employmentTotal to employment Indicator ([4a9ee41](https://github.com/Clickopolis/clickopolis/commit/4a9ee41))
+* add flags to reducers/actions ([645f8d1](https://github.com/Clickopolis/clickopolis/commit/645f8d1))
+* add Loading component ([ceabfa7](https://github.com/Clickopolis/clickopolis/commit/ceabfa7))
+* add updateFoodPerSecond action ([852e9c8](https://github.com/Clickopolis/clickopolis/commit/852e9c8))
+
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.2.0...@clickopolis/app@0.3.0) (2018-01-24)
 
