@@ -1,9 +1,9 @@
 import { Action, TURN_ON_FLAG, TURN_OFF_FLAG } from '../actions';
 
-export type flag = { [flag: string]: boolean };
+import { Flags } from '@clickopolis/core';
 
-const defaultFlags: { [flag: string]: boolean | flag } = {
-
+const defaultFlags: Flags = {
+    HAS_STARTED_GAME: false
 };
 
 export function flags(state = defaultFlags, action: Action<TURN_ON_FLAG | TURN_OFF_FLAG>) {

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Indicator } from '../../../../core';
+import { Indicator } from '@clickopolis/core';
 import { Era, getEraString } from 'utils';
 
 import './EraIndicator.scss';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Screen, Button, Indicator, Citizen } from '../../../../core';
+import { Screen, Button, Indicator, Citizen } from '@clickopolis/core';
 import { CitizensList } from '../CitizensList';
 import { colors } from 'utils';
 

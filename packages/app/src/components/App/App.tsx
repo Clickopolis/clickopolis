@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Resource } from '../../../../core';
+import { Resource, Flags } from '@clickopolis/core';
 
 import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
 import { CivilizationScreen } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
 import { growFood, consumeFood, createProduction } from 'actions';
+import { StartScreen } from 'components/StartScreen';
 
 
 const NUM_OF_COMPONENTS = 3;
@@ -18,7 +19,16 @@ export interface AppProps {
     createProduction: createProduction;
     food: Resource;
     production: Resource;
+    flags: Flags;
 }
+
+const visibilityTransformer = (f:number) => {
+    if (document.hidden) {
+        return f / 2;
+    } else {
+        return f;
+    }
+};
 
 export class AppBase extends React.Component<AppProps> {
     public intervalId: any;
@@ -37,16 +47,11 @@ export class AppBase extends React.Component<AppProps> {
     }
 
     timer = () => {
-        const visibilityTransformer = (f:number) => {
-            if (document.hidden) {
-                return f / 2;
-            } else {
-                return f;
-            }
-        };
-        this.props.growFood(visibilityTransformer(this.props.food.perSecond));
-        this.props.createProduction(visibilityTransformer(this.props.production.perSecond));
-        console.log('%c Timer set off.', 'color: #8942f4');
+        if (this.props.flags.HAS_STARTED_GAME) {
+            this.props.growFood(visibilityTransformer(this.props.food.perSecond));
+            this.props.createProduction(visibilityTransformer(this.props.production.perSecond));
+            console.log('%c Timer set off.', 'color: #8942f4');
+        }
     }
 
     public render() {
@@ -59,9 +64,16 @@ export class AppBase extends React.Component<AppProps> {
                     height: 'calc(100% - 48px)',
                     width: `calc(800px * ${NUM_OF_COMPONENTS})`
                 }}>
-                    <ResourcesScreen />
-                    <CivilizationScreen />
-                    <CitizensScreen />
+                    {
+                        this.props.flags.HAS_STARTED_GAME ?
+                        < >
+                            <ResourcesScreen />
+                            <CivilizationScreen />
+                            <CitizensScreen />
+                        </>
+                        :
+                        <StartScreen />
+                    }
                 </div>
             </div>
         );
@@ -72,7 +84,8 @@ export const App = connect(
     (state:any) => ({
         food: state.food,
         production: state.production,
-        citizens: [state.ruler, state.farmer, state.miner]
+        citizens: [state.ruler, state.farmer, state.miner],
+        flags: state.flags
     }),
     {
         growFood,

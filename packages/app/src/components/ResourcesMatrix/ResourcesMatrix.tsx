@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Screen, Button, Indicator, Resource } from '../../../../core';
+import { Screen, Button, Indicator, Resource } from '@clickopolis/core';
 
 import './ResourcesMatrix.scss';
 

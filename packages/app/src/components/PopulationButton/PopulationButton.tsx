@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond } from 'actions';
 import { Tooltip } from 'react-tippy';
 
-import { abbrNum, Citizen } from '../../../../core';
+import { abbrNum, Citizen } from '@clickopolis/core';
 
 import './PopulationButton.scss';
 

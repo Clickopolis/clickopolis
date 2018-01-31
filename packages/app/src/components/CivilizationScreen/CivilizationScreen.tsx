@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Button, Indicator, Civilization } from '../../../../core';
+import { Screen, Button, Indicator, Civilization } from '@clickopolis/core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
