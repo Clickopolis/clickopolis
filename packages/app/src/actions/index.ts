@@ -7,5 +7,7 @@ export * from './createProduction';
 export * from './growFood';
 export * from './growPopulation';
 export * from './removeCitizen';
+export * from './turnOffFlag';
+export * from './turnOnFlag';
 export * from './updateCivilization';
 export * from './updateFoodPerSecond';

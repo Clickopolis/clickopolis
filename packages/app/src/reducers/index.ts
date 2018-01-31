@@ -9,6 +9,7 @@ import {
 } from './citizens';
 import { civilization } from './civilization';
 import { era } from './era';
+import { flags } from './flags';
 import { food } from './food';
 import { production } from './production';
 import {
@@ -32,6 +33,7 @@ export const reducers:any = {
     era,
     farmer,
     fish,
+    flags,
     food,
     gems,
     gold,
