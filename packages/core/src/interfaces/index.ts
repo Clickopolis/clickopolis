@@ -51,9 +51,9 @@ export interface Cash {
 export interface Citizen {
     name: CitizenType;
     /* The contribution a citizen provides */
-    contribution: Contribution[];
-    amount: number;
-    description: string;
+    contribution?: Contribution[];
+    amount?: number;
+    description?: string;
 }
 
 /* A valid citizen name */
