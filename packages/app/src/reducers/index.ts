@@ -11,6 +11,7 @@ import { civilization } from './civilization';
 import { era } from './era';
 import { flags } from './flags';
 import { food } from './food';
+import { leader } from './leader';
 import { production } from './production';
 import {
     cattle,
@@ -38,6 +39,7 @@ export const reducers:any = {
     gems,
     gold,
     horses,
+    leader,
     miner,
     oil,
     production,
