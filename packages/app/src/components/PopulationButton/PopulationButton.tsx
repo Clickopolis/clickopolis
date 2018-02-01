@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond } from 'actions';
+// @ts-ignore: no types
 import { Tooltip } from 'react-tippy';
 
 import { abbrNum, Citizen } from '@clickopolis/core';

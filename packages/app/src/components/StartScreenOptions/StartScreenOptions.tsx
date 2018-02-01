@@ -12,6 +12,10 @@ export class StartScreenOptions extends React.Component<StartScreenOptionsProps>
     }
 
     public render() {
-        return <div />
+        return (
+            <div className='start-screen-options'>
+
+            </div>
+        );
     }
 }

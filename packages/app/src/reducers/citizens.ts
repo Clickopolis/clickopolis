@@ -1,4 +1,4 @@
-import { Citizen, Contribution } from '../../../core';
+import { Citizen } from '@clickopolis/core';
 import { Action, ADD_CITIZEN, REMOVE_CITIZEN  } from '../actions';
 
 const defaults = new Map<string, Citizen>([
