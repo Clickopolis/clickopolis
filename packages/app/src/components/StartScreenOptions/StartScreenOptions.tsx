@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import { LeaderSelect } from 'components/LeaderSelect';
+
 import './StartScreenOptions.scss';
 
 export interface StartScreenOptionsProps {
@@ -14,6 +16,20 @@ export class StartScreenOptions extends React.Component<StartScreenOptionsProps>
     public render() {
         return (
             <div className='start-screen-options'>
+                <div className='option-wrapper'>
+                    <span className='option-name'>Name</span>
+                    <input type='text' />
+                </div>
+
+                <div className='option-wrapper'>
+                    <span className='option-name'>Leader</span>
+                    <LeaderSelect />
+                </div>
+
+                <div className='option-wrapper'>
+                    <span className='option-name'>Civilization Name</span>
+                    <input type='text' />
+                </div>
 
             </div>
         );

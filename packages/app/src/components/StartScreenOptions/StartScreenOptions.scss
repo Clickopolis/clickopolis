@@ -1,1 +1,25 @@
+.start-screen-options {
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    background: #eee;
+    margin: 1rem;
+    padding: 1rem;
+}
 
+.option-wrapper {
+    display: flex;
+    margin: .5rem;
+}
+
+.option-name {
+    font-size: 1.15rem;
+    margin: 0 .5rem;
+    text-align: left;
+    width: 10rem;
+}
+
+input {
+    border: 1px solid #ccc;
+    border-radius: .25rem;
+    padding: .25rem;
+}
