@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/app",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "the webapp for clickopolis",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@clickopolis/core": "^0.7.1",
+    "@clickopolis/core": "^0.8.0",
     "@clickopolis/server": "^0.0.5",
     "@clickopolis/webpack-build-scripts": "^0.1.5",
     "@types/react": "^16.0.34",
