@@ -1,0 +1,15 @@
+.leader-icon {
+    align-items: center;
+    background: lightcoral;
+    border: 2px solid rgba(black, 0.3);
+    border-radius: .25rem;
+    display: flex;
+    justify-content: center;
+    margin: .5rem;
+    height: 4rem;
+    padding: .5rem;
+    width: 4rem;
+    img {
+        height: 100%;
+    }
+}

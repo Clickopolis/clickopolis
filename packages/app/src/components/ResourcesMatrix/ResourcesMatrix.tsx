@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Screen, Button, Indicator, Resource } from '@clickopolis/core';
+import { Indicator, Resource } from '@clickopolis/core';
 
 import './ResourcesMatrix.scss';
 
@@ -18,14 +18,14 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
     }
 
     getResources(props:ResourcesMatrixProps) {
-        const sort = (arr, prop = 'category') => {
-            return (a, b) => {
+        const sort = (_:any, prop = 'category') => {
+            return (a:any, b:any) => {
                 const result = (a[prop] < b[prop]) ? -1 : (a[prop] > b[prop]) ? 1 : 0;
                 return result;
             };
         };
 
-        const group = (xs, key) => {
+        const group = (xs:any[], key:string) => {
             return xs.reduce((rv, x) => {
                 (rv[x[key]] = rv[x[key]] || []).push(x);
                 return rv;
@@ -49,13 +49,13 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
         return group(resources.sort(sort(this)), 'category');
     }
 
-    renderResourceRow(resources) {
+    renderResourceRow(resources:Resource[]) {
         return resources.map((r, k) => <Indicator
             key={k}
             value={r.total}
             icon={`./images/${r.name}.svg`}
             description={r.description}
-            onClick={e => this.setState({ info: r })}
+            onClick={(e:any) => this.setState({ info: r })}
             className='resources-matrix-item'
         />);
     }
@@ -142,7 +142,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                 </div>
 
                 <div className='resources-matrix-row'>
-                    { this.state.info ? this.renderInfo(this.state.info) : null }
+                    { this.state.info ? this.renderInfo(this.state.info as any) : null }
                 </div>
             </div>
         );

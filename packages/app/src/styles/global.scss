@@ -29,3 +29,15 @@ body,
     transition: 350ms all;
     width: 700px;
 }
+
+.screen-header {
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    h2 {
+        color: white;
+        margin: .25rem;
+    }
+}

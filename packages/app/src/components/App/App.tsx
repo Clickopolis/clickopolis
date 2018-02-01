@@ -55,17 +55,19 @@ export class AppBase extends React.Component<AppProps> {
     }
 
     public render() {
+        const { HAS_STARTED_GAME } = this.props.flags;
         return (
             <div id='app' className='clickopolis-app'>
-                <Menu />
+                { HAS_STARTED_GAME ? <Menu /> : null }
                 <div data-scroll id='screen-container' style={{
                     alignItems: 'center',
                     display: 'flex',
+                    justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
                     height: 'calc(100% - 48px)',
-                    width: `calc(800px * ${NUM_OF_COMPONENTS})`
+                    width: HAS_STARTED_GAME ? `calc(800px * ${NUM_OF_COMPONENTS})` : '100%'
                 }}>
                     {
-                        this.props.flags.HAS_STARTED_GAME ?
+                        HAS_STARTED_GAME ?
                         < >
                             <ResourcesScreen />
                             <CivilizationScreen />

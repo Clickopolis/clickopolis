@@ -1,10 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+import { Button } from '@clickopolis/core';
+
+import { turnOnFlag } from 'actions';
+
 import './StartScreen.scss';
 
 export interface StartScreenProps {
-
+    turnOnFlag: turnOnFlag;
 }
 
 export class StartScreenBase extends React.Component<StartScreenProps> {
@@ -12,11 +16,16 @@ export class StartScreenBase extends React.Component<StartScreenProps> {
         super(props);
     }
 
+    private loadOptions = () => {
+
+    }
+
     public render() {
         return (
             <div className='start-screen'>
-                <h1>Clickopolis</h1>
-                <img src='./images/abraham-lincoln.svg' />
+                <h1 className='clickopolis-heading'>Clickopolis <img src='./images/icon.png' /></h1>
+                <Button onClick={this.loadOptions} iconHeight='1rem' icon='./images/plus.svg' className='start-new-game-button' value='Start New Game' />
+
             </div>
         );
     }
@@ -24,5 +33,7 @@ export class StartScreenBase extends React.Component<StartScreenProps> {
 
 export const StartScreen = connect(
     null,
-    null
-)(StartScreenBase);
+    {
+        turnOnFlag
+    }
+)(StartScreenBase as any);
