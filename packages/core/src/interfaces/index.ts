@@ -70,6 +70,8 @@ export interface Civilization {
     color: string;
     biomes: Biome[];
 
+    foodNeededForGrowth: number;
+
     happiness: number;
     happinessBase: number;
     happinessFromBuildings: number;
