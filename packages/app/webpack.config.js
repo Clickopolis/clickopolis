@@ -1,5 +1,7 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { baseConfig, COMMON_EXTERNALS } = require('../webpack-build-scripts');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
+const { baseConfig, COMMON_EXTERNALS } = require('@clickopolis/webpack-build-scripts');
 const path = require('path');
 
 module.exports = {
@@ -28,7 +30,13 @@ module.exports = {
         new CopyWebpackPlugin([
             { from: './src/index.html', to: '.' },
             { from: './src/images', to: './images' }
-        ])
+        ]),
+        // new HtmlWebpackPlugin({
+        //     title: 'Clickopolis'
+        // }),
+        // new ScriptExtHtmlWebpackPlugin({
+        //     defaultAttribute: 'async'
+        // })
     ]
 
 };
