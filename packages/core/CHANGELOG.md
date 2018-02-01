@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.8.1...@clickopolis/core@0.9.0) (2018-02-01)
+
+
+### Features
+
+* add  prop to Civilization ([69fcc31](https://github.com/Clickopolis/clickopolis/commit/69fcc31))
+
+
+
+
 <a name="0.8.1"></a>
 ## [0.8.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.8.0...@clickopolis/core@0.8.1) (2018-02-01)
 
