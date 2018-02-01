@@ -39,7 +39,11 @@ export class ${name}Base extends React.Component<${name}Props> {
     }
 
     public render() {
-        return <div />;
+        return (
+            <div>
+
+            </div>
+        );
     }
 }
 
