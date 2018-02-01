@@ -171,6 +171,7 @@ export interface GoldenAge {
 export interface Leader {
     name: string;
     defaultName: string;
+    defaultCivName: string;
     traits: Trait[];
 }
 

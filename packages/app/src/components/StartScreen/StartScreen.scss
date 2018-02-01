@@ -45,3 +45,21 @@
         margin: .25rem;
     }
 }
+
+.start-button {
+    @extend .start-new-game-button;
+    background: lightgreen;
+    border: 1px solid darken(lightgreen, 5%);
+    justify-content: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    &:hover {
+        background: darken(lightgreen, 10%);
+    }
+    img {
+        border-radius: 50%;
+    }
+    &.disabled {
+        
+    }
+}

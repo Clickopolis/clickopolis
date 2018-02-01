@@ -7,8 +7,6 @@ import * as classNames from 'classnames';
 import { PopulationButton } from '../PopulationButton';
 import { colors } from 'utils';
 
-console.log(PopulationButton);
-
 import './CivilizationScreen.scss';
 
 const indicatorStyle = {

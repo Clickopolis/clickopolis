@@ -5,6 +5,7 @@ import './LeaderSelect.scss';
 
 export interface LeaderSelectProps {
     options: string[];
+    onSelect: (item: string) => void;
 }
 
 export interface LeaderSelectState {
@@ -27,8 +28,10 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
 
     private openSelect (leader: string, idx: number) {
         this.setState({
-            isOpen: idx === 0 ? true : false
+            isOpen: this.state.selectedItem === leader ? true : false,
+            selectedItem: leader
         });
+        this.props.onSelect(this.toTitleCase(this.state.selectedItem));
     }
 
     private renderOptions():JSX.Element[] {
@@ -40,7 +43,7 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
                     <LeaderIcon style={{ marginLeft: '.5rem' }} height='2rem' width='2rem' icon={o} />
                     <span style={{ marginLeft: '2rem' }} className='leader-option-name'>{ this.toTitleCase(o) }</span>
                     {
-                        isSelected ?
+                        idx === 0 ?
                         <span style={{ color: '#333', marginLeft: 'auto' }}>▼</span>
                         :
                         <span style={{ marginLeft: 'auto' }}></span>
