@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.7.0...@clickopolis/core@0.7.1) (2018-02-01)
+
+
+### Bug Fixes
+
+* make parts of Citizen optional ([7c0f819](https://github.com/Clickopolis/clickopolis/commit/7c0f819))
+
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.6.0...@clickopolis/core@0.7.0) (2018-01-31)
 
