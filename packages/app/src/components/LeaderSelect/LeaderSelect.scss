@@ -1,5 +1,29 @@
 .leader-select {
+    background: white;
     border: 1px solid #ccc;
     border-radius: .25rem;
+    cursor: pointer;
+    height: 3rem;
     padding: .25rem;
+    width: 100%;
+    &.open {
+        box-shadow: 0 0 4px rgba(black, 0.1);
+        .leader-option {
+            border: 1px solid #ccc;
+            border-top: 1px solid transparent;
+            &:first-of-type {
+                border: 1px solid transparent;
+            }
+        }
+    }
+}
+
+.leader-option {
+    align-items: center;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    position: relative;
+    z-index: 1;
 }

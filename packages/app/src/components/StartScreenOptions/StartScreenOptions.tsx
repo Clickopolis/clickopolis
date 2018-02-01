@@ -23,7 +23,10 @@ export class StartScreenOptions extends React.Component<StartScreenOptionsProps>
 
                 <div className='option-wrapper'>
                     <span className='option-name'>Leader</span>
-                    <LeaderSelect />
+                    <LeaderSelect options={[
+                        'abraham-lincoln',
+                        'george-washington'
+                    ]} />
                 </div>
 
                 <div className='option-wrapper'>
