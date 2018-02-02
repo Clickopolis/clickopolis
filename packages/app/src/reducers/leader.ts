@@ -7,6 +7,18 @@ const leaders:Map<string, Leader> = new Map([
         defaultName: 'Abraham Lincoln',
         defaultCivName: 'United States of America',
         traits: []
+    }],
+    ['Mao Zedong', {
+        name: 'Mao Zedong',
+        defaultName: 'Mao Zedong',
+        defaultCivName: 'China',
+        traits: []
+    }],
+    ['George Washington', {
+        name: 'George Washington',
+        defaultName: 'George Washington',
+        defaultCivName: 'United States of America',
+        traits: []
     }]
 ]);
 

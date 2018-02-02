@@ -55,7 +55,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
             value={r.total}
             icon={`./images/${r.name}.svg`}
             description={r.description}
-            onClick={(e:any) => this.setState({ info: r })}
+            onClick={_ => this.setState({ info: r })}
             className='resources-matrix-item'
         />);
     }

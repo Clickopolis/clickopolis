@@ -2,19 +2,19 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { addCitizen, removeCitizen } from 'actions';
-import { Citizen, Contribution, Button, abbrNum } from '../../../../core';
+import { Citizen, Contribution, Button, abbrNum } from '@clickopolis/core';
 import { Contribution as ContributionComponent } from '../Contribution';
 
 import './CitizensList.scss';
 
 export interface CitizensListProps {
-    addCitizen?: Function;
-    removeCitizen?: Function;
-    [citizen: string]: Citizen;
-    amount: number;
+    amount?: number;
+    addCitizen?: addCitizen;
+    removeCitizen?: removeCitizen;
+    citizens?: Citizen[];
 }
 
-export class CitizensListBase extends React.Component<CitizensListProps> {
+export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     constructor(props:CitizensListProps) {
         super(props);
     }
@@ -27,18 +27,19 @@ export class CitizensListBase extends React.Component<CitizensListProps> {
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`-${abbrNum(this.props.amount)}`}
-                        onClick={e => this.props.removeCitizen(this.props.amount, c.name)}
+                        onClick={_ => this.props.removeCitizen(this.props.amount, c.name)}
                     /> : null }
                     <img className='citizen-image' src={`./images/${c.name}.svg`} />
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`+${abbrNum(this.props.amount)}`}
-                        onClick={e => this.props.addCitizen(this.props.amount, c.name)}
+                        onClick={_ => this.props.addCitizen(this.props.amount, c.name)}
                     /> : null }
                     <div className='citizen-description'>{c.description}</div>
                     <div className='citizen-contribution'>
                         {
                             Array.isArray(c.contribution)
+                            // @ts-ignore: not sure what error here means
                             ? c.contribution.map((contrib:Contribution, index: number) => <ContributionComponent key={index} {...contrib} />)
                             : null
                         }
