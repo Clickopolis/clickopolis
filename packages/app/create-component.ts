@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-const readline = require('readline');
-const fs = require('fs');
+import * as readline from 'readline';
+import * as fs from 'fs';
 
 const DEFAULT_DIR = './src/components';
 
