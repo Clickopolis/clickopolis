@@ -70,22 +70,23 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
     determinePreviousCoords() {
         return this.state.growFoodPlusElementCoords.map(coords => {
-            if ((coords.o - 0.1) <= 0) {
+            if (coords.y < -700) {
                 return null;
             }
-            return { ...coords, o: coords.o - 0.001, y: coords.y - 10 };
+            return { ...coords, o: coords.o - 0.001, y: coords.y - 3 };
         }).filter(c => c != null);
     }
 
     growFood = (_:any) => {
         let gotRandomBonus: boolean;
-        const randomBonusN = Math.floor(Math.random() * 1000);
+        const randomBonusN = Math.floor(Math.random() * 100);
 
-        if (randomBonusN === 777) {
+        if (randomBonusN === 77) {
             this.props.growFood(this.props.food.perClick * 100);
+            alert('you won mofo');
             gotRandomBonus = true;
         } else {
-            this.props.growFood();
+            this.props.growFood(this.props.food.perClick);
             gotRandomBonus = false;
         }
 
@@ -172,7 +173,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             id='production-btn'
                             iconHeight='1rem'
                             value='Create Production'
-                            onClick={this.props.createProduction as any}
+                            onClick={() => this.props.createProduction(1)}
                             className='prod-button'
                             layout={null}
                         />
@@ -218,8 +219,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
 export const ResourcesScreen = connect(
     (state:any) => ({ food: state.food, production: state.production }),
-    (dispatch:any) => ({
-        growFood: () => dispatch(growFood(1)),
-        createProduction: () => dispatch(createProduction(1))
+    (_:any) => ({
+        growFood,
+        createProduction
     })
 )(ResourcesScreenBase as any);
