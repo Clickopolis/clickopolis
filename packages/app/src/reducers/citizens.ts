@@ -1,3 +1,4 @@
+// @ts-ignore: importing core
 import { Citizen } from '@clickopolis/core';
 import { Action, ADD_CITIZEN, REMOVE_CITIZEN  } from '../actions';
 

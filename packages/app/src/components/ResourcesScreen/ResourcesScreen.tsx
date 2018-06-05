@@ -27,20 +27,24 @@ export interface ResourcesScreenProps {
     createProduction?: Function;
 }
 
-export type XYCoordsWithOpacity = { x: number, y: number, o: number };
+export type XYCoordsWithOpacity = { x: number, y: number, c: string, o: number };
 
 export interface ResourcesScreenState {
     growFoodPlusElementCoords: XYCoordsWithOpacity[];
 }
 
-const PlusSign = ({ x, y, o }: XYCoordsWithOpacity) => <div className='plus-food-sign' style={{
+const PlusSign = ({ x, y, o, c, perClick }: XYCoordsWithOpacity & { perClick: number }) => <div className='plus-food-sign' style={{
     position: 'absolute',
     top: `${y}px`,
     left: `${x}px`,
+    color: c,
+    fontSize: c === 'gold' ? '3rem' : '1rem',
     opacity: o,
-}}>+1</div>;
+}}>+{c === 'gold' ? (perClick * 100) : perClick}</div>;
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
+    private intervalId: any;
+
     constructor(props:ResourcesScreenProps) {
         super(props);
         this.state = {
@@ -48,23 +52,57 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
         };
     }
 
-    growFood = (e?:any) => {
-        this.props.growFood();
+    componentDidMount() {
+        this.intervalId = setInterval(this.timer, 1000 / 60);
+    }
 
-        const x = e.clientX;
-        const y = e.clientY;
+    componentWillUnmount() {
+        clearInterval(this.intervalId);
+    }
 
-        const previousCoords = this.state.growFoodPlusElementCoords.map(coords => {
+    timer = () => {
+        if (this.state.growFoodPlusElementCoords.length) {
+            this.setState({
+                growFoodPlusElementCoords: this.determinePreviousCoords()
+            });
+        }
+    }
+
+    determinePreviousCoords() {
+        return this.state.growFoodPlusElementCoords.map(coords => {
             if ((coords.o - 0.1) <= 0) {
                 return null;
             }
-            return { ...coords, o: coords.o - 0.1 };
+            return { ...coords, o: coords.o - 0.001, y: coords.y - 10 };
         }).filter(c => c != null);
+    }
+
+    growFood = (_:any) => {
+        let gotRandomBonus: boolean;
+        const randomBonusN = Math.floor(Math.random() * 1000);
+
+        if (randomBonusN === 777) {
+            this.props.growFood(this.props.food.perClick * 100);
+            gotRandomBonus = true;
+        } else {
+            this.props.growFood();
+            gotRandomBonus = false;
+        }
+
+        const rect = document.getElementById('food-btn').getBoundingClientRect();
+
+        const rand1 = Math.random() * 50;
+        const rand2 = Math.random() * 50;
+        const x = ((rect.left + rect.right) / 2) + rand1 - rand2;
+        const y = rect.top;
+
+        const previousCoords = this.determinePreviousCoords();
 
         this.setState({
             growFoodPlusElementCoords: [...previousCoords, {
                 x,
                 y,
+                c: gotRandomBonus ? 'gold' : 'white',
                 o: 1,
             }]
         });
@@ -92,7 +130,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                         />
                         {
                             this.state.growFoodPlusElementCoords.map((coords, key) => {
-                                return <PlusSign key={key} {...coords} />;
+                                return <PlusSign key={key} perClick={this.props.food.perClick} {...coords} />;
                             })
                         }
                         <Indicator
