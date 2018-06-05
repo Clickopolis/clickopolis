@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
+// @ts-ignore: node module
 import * as readline from 'readline';
+// @ts-ignore: node module
 import * as fs from 'fs';
+import * as process from 'process';
 
 const DEFAULT_DIR = './src/components';
 

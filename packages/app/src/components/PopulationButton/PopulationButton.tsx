@@ -31,7 +31,7 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
         };
     }
 
-    private handleGrowth = (e:any) => {
+    private handleGrowth = (_?: any) => {
         const newGrowth = Math.floor(this.props.foodNeededForGrowth * 1.07);
         this.props.growPopulation(1, newGrowth);
         this.props.addCitizen(1, 'farmer');

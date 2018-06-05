@@ -1,4 +1,4 @@
-import { Resource } from '../../../core';
+import { Resource } from '@clickopolis/core';
 import { Action  } from '../actions';
 
 const defaults:Map<string, Resource> = new Map([

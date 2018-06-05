@@ -26,6 +26,7 @@
     "@clickopolis/core": "^0.9.1",
     "@clickopolis/server": "^0.0.5",
     "@clickopolis/webpack-build-scripts": "^0.1.5",
+    "@types/graphql": "^0.13.1",
     "@types/react": "^16.0.34",
     "@types/react-dom": "^16.0.3",
     "@types/react-redux": "^5.0.14",
@@ -34,9 +35,12 @@
     "@types/redux-persist": "^4.3.1",
     "classnames": "^2.2.5",
     "copy-webpack-plugin": "^4.3.1",
+    "enzyme": "^3.3.0",
     "express": "^4.16.2",
+    "express-graphql": "^0.6.12",
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
+    "jest-enzyme": "^6.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-loadable": "^5.3.1",
@@ -54,6 +58,7 @@
     "redux-saga": "^0.16.0",
     "script-ext-html-webpack-plugin": "^1.8.8",
     "sweet-scroll": "^3.0.0",
+    "ts-jest": "^22.4.6",
     "uuid": "^3.1.0"
   },
   "devDependencies": {

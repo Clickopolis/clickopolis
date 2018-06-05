@@ -1,18 +1,22 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Screen, Button, Indicator, Citizen } from '@clickopolis/core';
+import { Screen, Indicator, Citizen } from '@clickopolis/core';
 import { CitizensList } from '../CitizensList';
 import { colors } from 'utils';
 
 import './CitizensScreen.scss';
 
 export interface CitizensScreenProps {
-    population: number;
-    citizens: Citizen[];
+    population?: number;
+    citizens?: Citizen[];
 }
 
-export class CitizensScreenBase extends React.Component<CitizensScreenProps, { amount: number }> {
+export interface CitizenScreenState {
+    amount?: number;
+}
+
+export class CitizensScreenBase extends React.Component<CitizensScreenProps, CitizenScreenState> {
     constructor(props:CitizensScreenProps) {
         super(props);
         this.state = {
@@ -51,6 +55,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, { a
                     />
                 </div>
                 <CitizensList
+                    //@ts-ignore: false positive?
                     amount={this.state.amount}
                 />
                 <div className='citizens-note'>

@@ -2,7 +2,7 @@ import * as React from 'react';
 // @ts-ignore: no @types defintion
 import { Tooltip } from 'react-tippy';
 
-import { Indicator } from '../../../../core';
+import { Indicator } from '@clickopolis/core';
 
 import { UserMenu } from 'components';
 import { CONSTANTS } from 'utils';
@@ -46,6 +46,7 @@ export class Menu extends React.Component {
                         this.generateMenu()
                     }
                 </ul>
+                // @ts-ignore: false positive?
                 <EraIndicator />
                 <Indicator
                     value='77 AC'

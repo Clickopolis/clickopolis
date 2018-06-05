@@ -26,7 +26,7 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
         return str.replace(/-/g, ' ').replace(/[^\s]+/g, word => word.replace(/^./, first => first.toUpperCase()));
     }
 
-    private openSelect (leader: string, idx: number) {
+    private openSelect (leader: string, _: number) {
         this.setState({
             isOpen: this.state.selectedItem === leader ? true : false,
             selectedItem: leader

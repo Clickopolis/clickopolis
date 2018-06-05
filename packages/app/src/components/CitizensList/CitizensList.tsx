@@ -8,7 +8,7 @@ import { Contribution as ContributionComponent } from '../Contribution';
 import './CitizensList.scss';
 
 export interface CitizensListProps {
-    amount?: number;
+    amount: number;
     addCitizen?: addCitizen;
     removeCitizen?: removeCitizen;
     citizens?: Citizen[];
