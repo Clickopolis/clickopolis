@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.5.2"></a>
+## [0.5.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.5.1...@clickopolis/app@0.5.2) (2018-06-05)
+
+
+### Bug Fixes
+
+* fix build errors ([32e6cfb](https://github.com/Clickopolis/clickopolis/commit/32e6cfb))
+
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.5.0...@clickopolis/app@0.5.1) (2018-06-05)
 
