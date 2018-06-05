@@ -27,12 +27,49 @@ export interface ResourcesScreenProps {
     createProduction?: Function;
 }
 
+export type XYCoordsWithOpacity = { x: number, y: number, o: number };
+
 export interface ResourcesScreenState {
+    growFoodPlusElementCoords: XYCoordsWithOpacity[];
 }
+
+const PlusSign = ({ x, y, o }: XYCoordsWithOpacity) => <div className='plus-food-sign' style={{
+    position: 'absolute',
+    top: `${y}px`,
+    left: `${x}px`,
+    opacity: o,
+}}>+1</div>;
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
     constructor(props:ResourcesScreenProps) {
         super(props);
+        this.state = {
+            growFoodPlusElementCoords: []
+        };
+    }
+
+    growFood = (e?:any) => {
+        this.props.growFood();
+
+        const x = e.clientX;
+        const y = e.clientY;
+
+        const previousCoords = this.state.growFoodPlusElementCoords.map(coords => {
+            if ((coords.o - 0.1) <= 0) {
+                return null;
+            }
+            return { ...coords, o: coords.o - 0.1 };
+        }).filter(c => c != null);
+
+        this.setState({
+            growFoodPlusElementCoords: [...previousCoords, {
+                x,
+                y,
+                o: 1,
+            }]
+        });
+
+        console.log(this.state.growFoodPlusElementCoords);
     }
 
     public render() {
@@ -49,10 +86,15 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             id='food-btn'
                             iconHeight='1rem'
                             value='Grow Food'
-                            onClick={this.props.growFood as any}
+                            onClick={this.growFood}
                             className='food-button'
                             layout={null}
                         />
+                        {
+                            this.state.growFoodPlusElementCoords.map((coords, key) => {
+                                return <PlusSign key={key} {...coords} />;
+                            })
+                        }
                         <Indicator
                             value={food.total}
                             positiveColor={colors.get('resources')}
@@ -75,7 +117,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
                             label='per second'
-                            description='Use your clicks to amass corn!'
+                            description='Food will naturally accumulate over time!'
                         />
                         <Indicator
                             value={food.max}
