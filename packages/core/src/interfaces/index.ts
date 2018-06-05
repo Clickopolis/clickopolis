@@ -209,7 +209,7 @@ export interface Resource {
     perClick: number;
     description: string;
     /* category */
-    category?: 'health' | 'building' | 'strategic' | 'luxury' | 'power';
+    category?: ResourceCategory;
     /* Bonuses */
     happinessBonus?: number;
     healthBonus?: number;
@@ -224,6 +224,14 @@ export interface Resource {
     visible?: boolean;
     /* Can the user actually interact with it? */
     unlocked?: boolean;
+}
+
+export enum ResourceCategory {
+    health = 'health',
+    building = 'building',
+    strategic = 'strategic',
+    luxury = 'luxury',
+    power = 'power'
 }
 
 /** A valid resource name */
