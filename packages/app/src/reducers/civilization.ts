@@ -1,8 +1,9 @@
-import { Civilization } from '../../../core';
+// import { Civilization } from '../../../core';
 
 import { Action, GROW_POPULATION, UPDATE_CIVILIZATION } from '../actions';
 
-const civDefault:Civilization = {
+// @NOTE: Replace any with Civilization
+const civDefault:any = {
     civName: '',
     leader: {},
     color: '',

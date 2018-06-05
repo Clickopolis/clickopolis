@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+// @ts-ignore: importing core
 import { Indicator, Resource } from '@clickopolis/core';
 
 import './ResourcesMatrix.scss';
@@ -55,7 +56,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
             value={r.total}
             icon={`./images/${r.name}.svg`}
             description={r.description}
-            onClick={_ => this.setState({ info: r })}
+            onClick={(_:any) => this.setState({ info: r })}
             className='resources-matrix-item'
         />);
     }

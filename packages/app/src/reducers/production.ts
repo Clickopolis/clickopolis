@@ -1,4 +1,4 @@
-import { Resource } from '../../../core';
+import { Resource } from '@clickopolis/core';
 import { Action, CREATE_PRODUCTION } from '../actions';
 
 const productionState:Resource = {

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+// @ts-ignore: importing core
 import { Button } from '@clickopolis/core';
 
 import { turnOnFlag } from 'actions';
@@ -24,11 +25,11 @@ export class StartScreenBase extends React.Component<StartScreenProps, StartScre
         this.state = {
             startScreenOptions: null,
             isStartingNewGame: false,
-            hasFilledInOptions: false
+            hasFilledInOptions: false,
         };
     }
 
-    private startNewGame = () => {
+    private startNewGame = (_?:any) => {
         this.props.turnOnFlag('HAS_STARTED_GAME');
     }
 
@@ -43,7 +44,7 @@ export class StartScreenBase extends React.Component<StartScreenProps, StartScre
                 <h1 className='clickopolis-heading'>Clickopolis <img src='./images/icon.png' /></h1>
                 { this.state.isStartingNewGame ? null : <Button onClick={this.loadOptions} iconHeight='1rem' icon='./images/plus.svg' className='start-new-game-button' value='Start New Game' /> }
                 { this.state.startScreenOptions }
-                { this.state.isStartingNewGame ? <Button disabled={!this.state.hasFilledInOptions} className='start-button' onClick={this.startNewGame} icon='./images/icon.png' value='Start!' /> : null }
+                { this.state.isStartingNewGame ? <Button className='start-button' onClick={this.startNewGame} icon='./images/icon.png' value='Start!' /> : null }
             </div>
         );
     }

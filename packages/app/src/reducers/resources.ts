@@ -1,4 +1,4 @@
-import { Resource } from '@clickopolis/core';
+import { Resource, ResourceCategory } from '@clickopolis/core';
 import { Action  } from '../actions';
 
 const defaults:Map<string, Resource> = new Map([
@@ -9,7 +9,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: `Don't milk these beautiful creatures too hard, now`,
-        category: 'health',
+        category: ResourceCategory.health,
         healthBonus: 0.5,
     }],
     ['fish', {
@@ -19,7 +19,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: 'Teach a civ to fish, keep them healthy for a lifetime.',
-        category: 'health',
+        category: ResourceCategory.health,
         healthBonus: 0.5,
     }],
     ['banana', {
@@ -29,7 +29,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: 'A fruit filled with potassium and innuendo',
-        category: 'health',
+        category: ResourceCategory.health,
         healthBonus: 0.5,
     }],
     ['wood', {
@@ -39,7 +39,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: 'Woo! Wood provides wood. Woohoo!',
-        category: 'building',
+        category: ResourceCategory.building,
     }],
     ['horses', {
         name: 'horses',
@@ -48,7 +48,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: 'Giddy up, pony. An important resource for military leaders.',
-        category: 'strategic',
+        category: ResourceCategory.strategic,
     }],
     ['oil', {
         name: 'oil',
@@ -57,7 +57,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: 'Carry through cars, bombers jets, and plastic bags into the new era.',
-        category: 'strategic',
+        category: ResourceCategory.strategic,
         pollutionBonus: 1
     }],
     ['spices', {
@@ -67,7 +67,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: 'Probably not a good idea to snort.',
-        category: 'luxury',
+        category: ResourceCategory.luxury,
     }],
     ['gold', {
         name: 'gold',
@@ -76,7 +76,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: `Clickopolis's most yearned after metal`,
-        category: 'luxury',
+        category: ResourceCategory.luxury,
     }],
     ['silver', {
         name: 'silver',
@@ -85,7 +85,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: `Gold's nerdy cousin`,
-        category: 'luxury',
+        category: ResourceCategory.luxury,
     }],
     ['gems', {
         name: 'gems',
@@ -94,7 +94,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: `Though sparkly, provides little utility`,
-        category: 'luxury',
+        category: ResourceCategory.luxury,
     }],
     ['spaghetti', {
         name: 'spaghetti',
@@ -103,7 +103,7 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: `WHO TOUCHED MY SPAHGET!?`,
-        category: 'power',
+        category: ResourceCategory.power,
     }]
 ]);
 

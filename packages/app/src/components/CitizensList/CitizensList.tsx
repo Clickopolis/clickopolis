@@ -2,6 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { addCitizen, removeCitizen } from 'actions';
+// @ts-ignore: importing core
 import { Citizen, Contribution, Button, abbrNum } from '@clickopolis/core';
 import { Contribution as ContributionComponent } from '../Contribution';
 
@@ -27,13 +28,13 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`-${abbrNum(this.props.amount)}`}
-                        onClick={_ => this.props.removeCitizen(this.props.amount, c.name)}
+                        onClick={(_:any) => this.props.removeCitizen(this.props.amount, c.name)}
                     /> : null }
                     <img className='citizen-image' src={`./images/${c.name}.svg`} />
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`+${abbrNum(this.props.amount)}`}
-                        onClick={_ => this.props.addCitizen(this.props.amount, c.name)}
+                        onClick={(_:any) => this.props.addCitizen(this.props.amount, c.name)}
                     /> : null }
                     <div className='citizen-description'>{c.description}</div>
                     <div className='citizen-contribution'>

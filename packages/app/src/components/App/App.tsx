@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+// @ts-ignore: importing core
 import { Resource, Flags } from '@clickopolis/core';
 
 import { Menu } from '../Menu';

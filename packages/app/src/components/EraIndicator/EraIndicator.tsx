@@ -1,13 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
+// @ts-ignore: importing core
 import { Indicator } from '@clickopolis/core';
 import { Era, getEraString } from 'utils';
 
 import './EraIndicator.scss';
 
 export interface EraIndicatorProps {
-    era: Era;
+    era?: Era;
 }
 
 export class EraIndicatorBase extends React.Component<EraIndicatorProps> {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+// @ts-ignore: importing core
 import { Screen, Button, Indicator, Resource } from '@clickopolis/core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';

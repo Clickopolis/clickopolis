@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
+// @ts-ignore: importing core
 import { Screen, Indicator, Civilization } from '@clickopolis/core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
@@ -34,6 +35,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 color={colors.get('civilization')}
             >
                 <div className='civilization-indicator' style={{
+                    alignItems: 'center',
                     display: 'flex',
                     marginTop: '1rem'
                 }}>
