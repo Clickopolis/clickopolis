@@ -6,7 +6,7 @@ const productionState:Resource = {
     total: 0,
     max: 2000,
     perSecond: 0,
-    perClick: 1,
+    perClick: 0,
     description: 'Prod',
 };
 

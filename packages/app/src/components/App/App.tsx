@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 // @ts-ignore: importing core
-import { Resource, Flags } from '@clickopolis/core';
+import { Resource, Flags, Citizen } from '@clickopolis/core';
 
 import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
@@ -21,6 +21,7 @@ export interface AppProps {
     food: Resource;
     production: Resource;
     flags: Flags;
+    citizens: Citizen[];
 }
 
 const visibilityTransformer = (f:number) => {

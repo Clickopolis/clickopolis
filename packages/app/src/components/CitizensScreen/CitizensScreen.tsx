@@ -56,7 +56,6 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                     />
                 </div>
                 <CitizensList
-                    //@ts-ignore: false positive?
                     amount={this.state.amount}
                 />
                 <div className='citizens-note'>
@@ -77,5 +76,4 @@ export const CitizensScreen = connect(
             state.miner,
         ]
     }),
-    null
-)(CitizensScreenBase);
+)(CitizensScreenBase as any);

@@ -15,7 +15,7 @@ export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD 
         case 'GROW_FOOD':
             return {
                 ...state,
-                total: state.total >= state.max ? state.total : state.total + action.amount
+                total: (state.total + action.amount) > state.max ? state.max : state.total + action.amount
             };
         case 'CONSUME_FOOD':
             return {
