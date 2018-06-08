@@ -47,12 +47,12 @@ $prod-button-color: #e6d83e;
     }
 }
 
-.plus-food-sign {
+.plus-sign {
     font-weight: bold;
     color: white;
     -webkit-text-stroke: 1px solid #222;
     pointer-events: none;
-    transition: 250ms ease-in;
+    transition: 300ms ease-in;
     transform: translateZ(0);
 }
 

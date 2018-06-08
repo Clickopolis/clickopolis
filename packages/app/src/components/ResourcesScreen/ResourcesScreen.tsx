@@ -22,25 +22,30 @@ const indicatorStyle = {
 
 export interface ResourcesScreenProps {
     food?: Resource;
-    growFood?: Function;
+    growFood?: growFood;
     production?: Resource;
-    createProduction?: Function;
+    createProduction?: createProduction;
 }
 
 export type XYCoordsWithOpacity = { x: number, y: number, c: string, o: number };
 
 export interface ResourcesScreenState {
     growFoodPlusElementCoords: XYCoordsWithOpacity[];
+    growProdPlusElementCoords: XYCoordsWithOpacity[];
+    [x: string]: XYCoordsWithOpacity[];
 }
 
-const PlusSign = ({ x, y, o, c, perClick }: XYCoordsWithOpacity & { perClick: number }) => <div className='plus-food-sign' style={{
+const PlusSign = ({ x, y, o, c, perClick, resourceType }: XYCoordsWithOpacity & { perClick: number, resourceType: string }) => <div className='plus-sign' style={{
     position: 'absolute',
     top: `${y}px`,
     left: `${x}px`,
+    display: 'flex',
+    alignItems: 'center',
     color: c,
-    fontSize: c === 'gold' ? '3rem' : '1rem',
+    textAlign: 'left',
+    width: '90px',
     opacity: o,
-}}>+{c === 'gold' ? (perClick * 100) : perClick}</div>;
+}}><span>+{c === 'gold' ? (perClick * 100) : perClick}</span><img height='12' src={`./images/${resourceType}.svg`} /></div>;
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
     private intervalId: any;
@@ -48,12 +53,13 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
     constructor(props:ResourcesScreenProps) {
         super(props);
         this.state = {
-            growFoodPlusElementCoords: []
+            growFoodPlusElementCoords: [],
+            growProdPlusElementCoords: [],
         };
     }
 
     componentDidMount() {
-        this.intervalId = setInterval(this.timer, 1000 / 60);
+        this.intervalId = setInterval(this.timer, 1000 / 10);
     }
 
     componentWillUnmount() {
@@ -63,17 +69,26 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
     timer = () => {
         if (this.state.growFoodPlusElementCoords.length) {
             this.setState({
-                growFoodPlusElementCoords: this.determinePreviousCoords()
+                growFoodPlusElementCoords: this.determinePreviousCoords(true, 'growFoodPlusElementCoords'),
+            });
+        }
+        if (this.state.growProdPlusElementCoords.length) {
+            this.setState({
+                growProdPlusElementCoords: this.determinePreviousCoords(true, 'growProdPlusElementCoords')
             });
         }
     }
 
-    determinePreviousCoords() {
-        return this.state.growFoodPlusElementCoords.map(coords => {
-            if (coords.y < -700) {
+    determinePreviousCoords(timer: boolean, property: 'growFoodPlusElementCoords' | 'growProdPlusElementCoords') {
+        return this.state[property].map(coords => {
+            if (coords.o <= 0) {
                 return null;
             }
-            return { ...coords, o: coords.o - 0.001, y: coords.y - 3 };
+            if (timer) {
+                return { ...coords, o: coords.o - 0.05, y: coords.y - 5 };
+            } else {
+                return coords;
+            }
         }).filter(c => c != null);
     }
 
@@ -83,32 +98,51 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
         if (randomBonusN === 77) {
             this.props.growFood(this.props.food.perClick * 100);
-            alert('you won mofo');
+            console.log('win of: ', this.props.food.perClick * 100);
             gotRandomBonus = true;
         } else {
             this.props.growFood(this.props.food.perClick);
             gotRandomBonus = false;
         }
 
-        const rect = document.getElementById('food-btn').getBoundingClientRect();
+        this.addPlusElement({ resourceType: 'food', gotRandomBonus });
+    }
 
-        const rand1 = Math.random() * 50;
-        const rand2 = Math.random() * 50;
-        const x = ((rect.left + rect.right) / 2) + rand1 - rand2;
-        const y = rect.top;
+    createProduction = (_:any) => {
+        let gotRandomBonus: boolean;
+        const randomBonusN = Math.floor(Math.random() * 100);
 
-        const previousCoords = this.determinePreviousCoords();
+        if (randomBonusN === 77) {
+            this.props.growFood(this.props.production.perClick * 100);
+            console.log('win of: ', this.props.production.perClick * 100);
+            gotRandomBonus = true;
+        } else {
+            this.props.growFood(this.props.production.perClick);
+            gotRandomBonus = false;
+        }
+
+        this.addPlusElement({ resourceType: 'production', gotRandomBonus });
+    }
+
+    addPlusElement({ resourceType, gotRandomBonus }: { resourceType: string, gotRandomBonus: boolean }) {
+        const element = resourceType === 'food' ? 'food-btn' : 'production-btn';
+        const rect = document.getElementById(element).getBoundingClientRect();
+
+        const x = ((rect.left + rect.right) / 2);
+        const y = rect.top - 24;
+
+        const coordString = resourceType === 'food' ? 'growFoodPlusElementCoords' : 'growProdPlusElementCoords';
+
+        const previousCoords = this.determinePreviousCoords(false, coordString);
 
         this.setState({
-            growFoodPlusElementCoords: [...previousCoords, {
+            [coordString]: [...previousCoords, {
                 x,
                 y,
                 c: gotRandomBonus ? 'gold' : 'white',
                 o: 1,
             }]
         });
-
-        console.log(this.state.growFoodPlusElementCoords);
     }
 
     public render() {
@@ -131,7 +165,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                         />
                         {
                             this.state.growFoodPlusElementCoords.map((coords, key) => {
-                                return <PlusSign key={key} perClick={this.props.food.perClick} {...coords} />;
+                                return <PlusSign key={key} resourceType={'food'} perClick={this.props.food.perClick} {...coords} />;
                             })
                         }
                         <Indicator
@@ -173,10 +207,15 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             id='production-btn'
                             iconHeight='1rem'
                             value='Create Production'
-                            onClick={() => this.props.createProduction(1)}
+                            onClick={this.createProduction}
                             className='prod-button'
                             layout={null}
                         />
+                        {
+                            this.state.growProdPlusElementCoords.map((coords, key) => {
+                                return <PlusSign key={key} resourceType={'production'} perClick={this.props.production.perClick} {...coords} />;
+                            })
+                        }
                         <Indicator
                             value={this.props.production.total}
                             positiveColor={colors.get('production')}
@@ -219,8 +258,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
 export const ResourcesScreen = connect(
     (state:any) => ({ food: state.food, production: state.production }),
-    (_:any) => ({
+    {
         growFood,
         createProduction
-    })
+    }
 )(ResourcesScreenBase as any);

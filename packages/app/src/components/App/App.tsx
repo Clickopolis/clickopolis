@@ -64,7 +64,7 @@ export class AppBase extends React.Component<AppProps> {
                     alignItems: 'center',
                     display: 'flex',
                     justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
-                    height: 'calc(100% - 48px)',
+                    height: 'calc(100%)',
                     width: HAS_STARTED_GAME ? `calc(800px * ${NUM_OF_COMPONENTS})` : '100%'
                 }}>
                     {
