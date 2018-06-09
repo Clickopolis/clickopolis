@@ -13,7 +13,7 @@ const civDefault:any = {
     foodNeededForGrowth: 20,
 
     happiness: 0,
-    happinessBase: 10,
+    happinessBase: 50,
 
     anger: 0,
 

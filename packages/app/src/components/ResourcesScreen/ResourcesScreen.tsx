@@ -189,6 +189,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
+                            formatFunction={(v:number) => v.toFixed(1)}
                             label='per second'
                             description='Food will naturally accumulate over time!'
                         />

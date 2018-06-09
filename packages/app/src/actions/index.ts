@@ -11,5 +11,6 @@ export * from './removeCitizen';
 export * from './selectLeader';
 export * from './turnOffFlag';
 export * from './turnOnFlag';
+export * from './updateProductionPerSecond';
 export * from './updateCivilization';
 export * from './updateFoodPerSecond';

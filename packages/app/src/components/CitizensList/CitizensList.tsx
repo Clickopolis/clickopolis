@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { addCitizen, removeCitizen, updateFoodPerSecond } from 'actions';
+import { addCitizen, removeCitizen, updateFoodPerSecond, updateProductionPerSecond } from 'actions';
 // @ts-ignore: importing core
 import { Citizen, Contribution, Button, abbrNum, Civilization } from '@clickopolis/core';
 import { Contribution as CC } from '../Contribution';
@@ -13,17 +13,17 @@ export interface CitizensListProps {
     addCitizen?: addCitizen;
     removeCitizen?: removeCitizen;
     updateFoodPerSecond?: updateFoodPerSecond;
+    updateProductionPerSecond?: updateProductionPerSecond;
     civilization?: Civilization;
     citizens?: Citizen[];
 }
 
 const ContributionComponent:any = CC;
 
-const determineFoodPerSecond = (citizens: Citizen[], population: number) => {
-    console.error(citizens);
+const getContributionFor = (findFunction: any, citizens: Citizen [], population: number): number => {
     const contributionTotal = citizens.map(citizen => {
         if (citizen.name === 'ruler') return { citizenAmount: 0, contributionAmount: 0 };
-        const contrib = citizen.contribution.find(c => c.resource === 'food' && c.type === 'PS');
+        const contrib = citizen.contribution.find(findFunction);
         return {
             citizenAmount: citizen.amount,
             contributionAmount: contrib ? contrib.amount : 0
@@ -42,7 +42,8 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
 
     private addCitizen (amount: number, c: Citizen) {
         this.props.addCitizen(amount, c.name);
-        this.props.updateFoodPerSecond(determineFoodPerSecond(this.props.citizens, this.props.civilization.population));
+        this.props.updateFoodPerSecond(getContributionFor((c: Contribution) => c.resource === 'food' && c.type === 'PS', this.props.citizens, this.props.civilization.population));
+        this.props.updateProductionPerSecond(getContributionFor((c: Contribution) => c.resource === 'production' && c.type === 'PS', this.props.citizens, this.props.civilization.population));
     }
 
     private renderCitizens() {
@@ -98,6 +99,7 @@ export const CitizensList:any = connect(
     {
         addCitizen,
         removeCitizen,
-        updateFoodPerSecond
+        updateFoodPerSecond,
+        updateProductionPerSecond
     }
 )(CitizensListBase as any);
