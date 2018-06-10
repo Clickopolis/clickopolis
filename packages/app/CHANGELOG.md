@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.5.2...@clickopolis/app@0.6.0) (2018-06-10)
+
+
+### Bug Fixes
+
+* growFood/createProduction in Resources is no longer always 1 ([c184223](https://github.com/Clickopolis/clickopolis/commit/c184223))
+* make sure dynamic imports are possible ([bb3d826](https://github.com/Clickopolis/clickopolis/commit/bb3d826))
+* modify Resources to work with Citizen contributions ([9bb6708](https://github.com/Clickopolis/clickopolis/commit/9bb6708))
+
+
+### Features
+
+* **Citizens:** add more logic to Citizens Screen ([bde991d](https://github.com/Clickopolis/clickopolis/commit/bde991d))
+* add Economy Screen ([12a865c](https://github.com/Clickopolis/clickopolis/commit/12a865c))
+* get foodPS from citizen contributions ([cbe4ebf](https://github.com/Clickopolis/clickopolis/commit/cbe4ebf))
+* get productionPS using same mechanisms ([683fddd](https://github.com/Clickopolis/clickopolis/commit/683fddd))
+
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.5.1...@clickopolis/app@0.5.2) (2018-06-05)
 
