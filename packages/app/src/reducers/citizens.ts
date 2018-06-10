@@ -14,7 +14,7 @@ const defaults = new Map<string, Citizen>([
             {
                 type: 'PS',
                 interval: 1000,
-                amount: 1,
+                amount: 1.1,
                 resource: 'food'
             }
         ],

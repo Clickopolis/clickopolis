@@ -1,5 +1,5 @@
 import { Resource } from '@clickopolis/core';
-import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND } from '../actions';
+import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND } from 'actions';
 
 const foodState:Resource = {
     name: 'Food',

@@ -23,7 +23,9 @@ const history = createHistory();
 
 const persistReducers = persistCombineReducers(config, reducers);
 
-const loggerMiddleware = createLogger();
+const loggerMiddleware = createLogger({
+  predicate: (_, action) => action.type !== 'GROW_FOOD' || action.type === 'CREATE_PRODUCTION'
+});
 const sagaMiddleware = createSagaMiddleware();
 const routerMiddleware = createRouterMiddleware(history);
 

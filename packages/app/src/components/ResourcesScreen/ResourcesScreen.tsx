@@ -237,6 +237,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={production.perSecond}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
+                            formatFunction={(v:number) => v.toFixed(1)}
                             style={indicatorStyle}
                             label='per second'
                             description='Use your clicks to amass corn!'
