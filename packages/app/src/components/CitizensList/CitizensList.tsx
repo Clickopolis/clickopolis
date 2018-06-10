@@ -20,7 +20,11 @@ export interface CitizensListProps {
 
 const ContributionComponent:any = CC;
 
-const getContributionFor = (findFunction: any, citizens: Citizen [], population: number): number => {
+const getContributionFor = ({ consumptionFunction, findFunction, citizens }: {
+    consumptionFunction: () => number,
+    findFunction: (c: Contribution) => boolean,
+    citizens: Citizen[],
+}): number => {
     const contributionTotal = citizens.map(citizen => {
         if (citizen.name === 'ruler') return { citizenAmount: 0, contributionAmount: 0 };
         const contrib = citizen.contribution.find(findFunction);
@@ -31,7 +35,7 @@ const getContributionFor = (findFunction: any, citizens: Citizen [], population:
     }).reduce((prev, curr) => {
         return prev + (curr.citizenAmount * curr.contributionAmount);
     }, 0);
-    const consumptionTotal = population - 1;
+    const consumptionTotal = consumptionFunction();
     return contributionTotal - consumptionTotal;
 };
 
@@ -41,9 +45,23 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     }
 
     private addCitizen (amount: number, c: Citizen) {
-        this.props.addCitizen(amount, c.name);
-        this.props.updateFoodPerSecond(getContributionFor((c: Contribution) => c.resource === 'food' && c.type === 'PS', this.props.citizens, this.props.civilization.population));
-        this.props.updateProductionPerSecond(getContributionFor((c: Contribution) => c.resource === 'production' && c.type === 'PS', this.props.citizens, this.props.civilization.population));
+        const fullEmployment = this.props.civilization.population - this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
+            return prev + curr;
+        }, 0) === 0;
+
+        if (!fullEmployment) {
+            this.props.addCitizen(amount, c.name);
+            this.props.updateFoodPerSecond(getContributionFor({
+                consumptionFunction: () => this.props.civilization.population - 1,
+                findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
+                citizens: this.props.citizens,
+            }));
+            this.props.updateProductionPerSecond(getContributionFor({
+                consumptionFunction: () => 0,
+                findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
+                citizens: this.props.citizens
+            }));
+        }
     }
 
     private renderCitizens() {

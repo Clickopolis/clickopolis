@@ -33,6 +33,10 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
         }, 0);
     }
 
+    private getEmploymentRatio () {
+        return this.getTotalEmployed() / this.props.population;
+    }
+
     public render() {
         return (
             <Screen
@@ -44,7 +48,10 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                         value={`${this.getTotalEmployed()} / ${this.props.population}`}
                         neutralColor='#666'
                         description='Employment ratio'
-                        className='citizens-employment'
+                        className={`citizens-employment`}
+                        style={{
+                            background: this.getEmploymentRatio() >= 1 ? 'lightgreen' : 'tomato'
+                        }}
                     />
                     <span className='citizens-amount-text'>Citizens Amount</span>
                     <input
@@ -59,8 +66,8 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                     amount={this.state.amount}
                 />
                 <div className='citizens-note'>
-                    Each citizen produces 2 $, 2 R, 1 A, 1 P.<br/>
-                    Each citizen also consumes 1 F PS
+                    Each citizen produces 2 <img className='tiny-image' src='./images/cash.svg' />, 1 <img className='tiny-image' src='./images/research.svg' />, 1 <img className='tiny-image' src='./images/anger.svg' />, and 1 <img className='tiny-image' src='./images/pollution.svg' />.<br/>
+                    Each citizen also consumes 1 <img className='tiny-image' src='./images/food.svg' />PS
                 </div>
             </Screen>
         );
