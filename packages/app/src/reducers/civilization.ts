@@ -1,6 +1,6 @@
 // import { Civilization } from '../../../core';
 
-import { Action, GROW_POPULATION, UPDATE_CIVILIZATION } from '../actions';
+import { Action, GROW_POPULATION, UPDATE_CIVILIZATION, GAIN_CASH } from '../actions';
 
 // @NOTE: Replace any with Civilization
 const civDefault:any = {
@@ -26,13 +26,20 @@ const civDefault:any = {
     }
 };
 
-export function civilization(state = civDefault, action: Action<GROW_POPULATION | UPDATE_CIVILIZATION>) {
+export function civilization(state = civDefault, action: Action<GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH>) {
     switch (action.type) {
         case 'GROW_POPULATION':
             return {
                 ...state,
                 population: state.population + action.amount,
                 foodNeededForGrowth: action.foodNeededForGrowth,
+            };
+        case 'GAIN_CASH':
+            return {
+                ...state,
+                cash: {
+                    total: state.cash.total + action.amount
+                }
             };
         case 'UPDATE_CIVILIZATION':
             return {
