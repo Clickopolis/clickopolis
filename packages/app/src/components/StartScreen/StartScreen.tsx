@@ -14,7 +14,7 @@ export interface StartScreenProps {
 }
 
 export interface StartScreenState {
-    startScreenOptions: any;
+    startScreenOptions: React.ReactNode;
     isStartingNewGame: boolean;
     hasFilledInOptions: boolean;
 }
