@@ -16,10 +16,10 @@
   "devDependencies": {
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.8.5",
+    "react-dom": "^16.8.5",
     "tslib": "^1.8.1",
-    "typescript": "^2.6.2",
+    "typescript": "^2.9.2",
     "webpack": "^3.10.0"
   },
   "publishConfig": {
@@ -30,6 +30,8 @@
     "@types/classnames": "^2.2.3",
     "@types/enzyme": "^3.1.6",
     "@types/jasmine": "^2.8.3",
+    "@types/react": "^16.8.8",
+    "@types/react-dom": "^16.8.3",
     "classnames": "^2.2.5",
     "fs": "0.0.1-security",
     "jest-enzyme": "^4.0.2",
