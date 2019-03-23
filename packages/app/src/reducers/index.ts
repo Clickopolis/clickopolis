@@ -13,6 +13,7 @@ import { flags } from './flags';
 import { food } from './food';
 import { leader } from './leader';
 import { production } from './production';
+import { timeStatus } from './timeStatus';
 import {
     cattle,
     fish,
@@ -47,6 +48,7 @@ export const reducers:any = {
     silver,
     spaghetti,
     spices,
+    timeStatus,
     wood,
     router: routerReducer
 };

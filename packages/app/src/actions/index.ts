@@ -3,6 +3,7 @@ export * from './Action';
 export * from './food';
 export * from './production';
 export * from './economy';
+export * from './time';
 
 export * from './addCitizen';
 export * from './advanceEra';
