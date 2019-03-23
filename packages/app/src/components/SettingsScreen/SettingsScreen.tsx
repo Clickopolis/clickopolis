@@ -16,13 +16,17 @@ export class SettingsScreenBase extends React.Component<SettingsScreenProps> {
         super(props);
     }
 
+    private deleteData = (e: React.MouseEvent<HTMLButtonElement>) => {
+        console.log(e);
+    }
+
     public render() {
         return (
             <Screen
                 type='Settings'
                 color={colors.get('settings')}
             >
-                <Button>Delete Data</Button>
+                <Button onClick={this.deleteData} value={'Delete Data'} />
             </Screen>
         );
     }
