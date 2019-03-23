@@ -1,1 +1,1 @@
-web: npm install && npm i -g lerna webpack && npm start:app
+web: npm install && npm i -g lerna webpack && npm run start:app
