@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.6.0...@clickopolis/app@0.7.0) (2019-03-23)
+
+
+### Bug Fixes
+
+* fix error where createProductionw as assigning food ([ad779f3](https://github.com/Clickopolis/clickopolis/commit/ad779f3))
+* **design:** modify start screen button ([0013401](https://github.com/Clickopolis/clickopolis/commit/0013401))
+
+
+### Features
+
+* add SettingsScreen into <App /> ([0d36d88](https://github.com/Clickopolis/clickopolis/commit/0d36d88))
+* calculate Anger in Civilization Screen ([c440e50](https://github.com/Clickopolis/clickopolis/commit/c440e50))
+
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.5.2...@clickopolis/app@0.6.0) (2018-06-10)
 
