@@ -4,6 +4,7 @@
     "publish": "lerna publish --conventional-commits -m 'chore(release): publish :tada:' --independent",
     "build": "lerna run --parallel  build",
     "docs": "node ./scripts/write-docs.js",
+    "preinstall": "npm i -g ts-node lerna webpack-cli",
     "start:app": "cd packages/app && npm start"
   },
   "devDependencies": {
