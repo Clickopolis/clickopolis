@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.7.0...@clickopolis/app@0.8.0) (2019-03-23)
+
+
+### Bug Fixes
+
+* include AngerFromPopulation in growth action ([c87f829](https://github.com/Clickopolis/clickopolis/commit/c87f829))
+
+
+### Features
+
+* add Chihuahuas as Power resource ([b5773d6](https://github.com/Clickopolis/clickopolis/commit/b5773d6))
+* add game pausing & resuming ([6bb6aef](https://github.com/Clickopolis/clickopolis/commit/6bb6aef))
+* add time Pause/Play button ([94b6ab7](https://github.com/Clickopolis/clickopolis/commit/94b6ab7))
+* Notification design ([23a0a40](https://github.com/Clickopolis/clickopolis/commit/23a0a40))
+
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.6.0...@clickopolis/app@0.7.0) (2019-03-23)
 
