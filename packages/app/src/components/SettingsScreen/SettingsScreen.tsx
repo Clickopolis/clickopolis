@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { colors } from 'utils';
 // @ts-ignore: importing core
-import { Screen } from '@clickopolis/core';
+import { Screen, Button } from '@clickopolis/core';
 
 import './SettingsScreen.scss';
 
@@ -22,6 +22,7 @@ export class SettingsScreenBase extends React.Component<SettingsScreenProps> {
                 type='Settings'
                 color={colors.get('settings')}
             >
+                <Button>Delete Data</Button>
             </Screen>
         );
     }

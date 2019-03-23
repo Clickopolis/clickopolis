@@ -11,6 +11,7 @@ import { CitizensScreen } from 'components/CitizensScreen';
 import { growFood, consumeFood, createProduction } from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
+import { SettingsScreen } from 'components/SettingsScreen';
 
 
 const NUM_OF_COMPONENTS = 3;
@@ -76,6 +77,7 @@ export class AppBase extends React.Component<AppProps> {
                             <CivilizationScreen />
                             <CitizensScreen />
                             <EconomyScreen />
+                            <SettingsScreen />
                         </>
                         :
                         <StartScreen />
