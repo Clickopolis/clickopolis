@@ -12,6 +12,7 @@ import { growFood, consumeFood, createProduction, pauseGame, resumeGame } from '
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
+import { Notification} from 'components/Notification';
 import { TimeStatus } from 'utils';
 import { PositionProperty } from 'csstype';
 
@@ -94,6 +95,7 @@ export class AppBase extends React.Component<AppProps> {
                 <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
                     {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
                 </div>
+                <Notification content={'This notification is poppin yall!'} />
                 <div id='app' className={`clickopolis-app ${timeStatus === TimeStatus.Paused && 'paused'}`}>
                     { HAS_STARTED_GAME ? <Menu /> : null }
                     <div data-scroll id='screen-container' style={{

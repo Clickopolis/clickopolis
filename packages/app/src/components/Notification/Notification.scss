@@ -1,0 +1,33 @@
+.notification {
+    position: fixed;
+    top: 3.5rem;
+    right: 1rem;
+    width: 30rem;
+    max-height: 10rem;
+    overflow-y: auto;
+    font-size: 1.1rem;
+    background: #222;
+    color: #fff;
+    box-shadow: 0 0 1rem rgba(black, 0.33);
+    border: 1px solid #444;
+    padding: 1.5rem;
+    border-radius: .25rem;
+    text-align: center;
+    z-index: 1001;
+}
+
+.notification-close {
+    position: fixed;
+    top: 3.7rem;
+    right: 1.2rem;
+    padding: .3rem;
+    border-radius: .25rem;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    background: rgba(black, 0.4);
+    font-size: 1.5rem;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
