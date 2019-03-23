@@ -1,1 +1,12 @@
-
+.delete-button {
+    background: tomato;
+    color: #222;
+    margin: 4px;
+    border-radius: .25rem;
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    .delete-button img {
+        height: 1rem;
+    }
+}

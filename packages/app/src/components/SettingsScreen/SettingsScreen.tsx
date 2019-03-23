@@ -26,7 +26,7 @@ export class SettingsScreenBase extends React.Component<SettingsScreenProps> {
                 type='Settings'
                 color={colors.get('settings')}
             >
-                <Button onClick={this.deleteData} value={'Delete Data'} />
+                <Button className='delete-button' icon={'./images/trash.svg'} onClick={this.deleteData} value={'Delete Data'} />
             </Screen>
         );
     }
