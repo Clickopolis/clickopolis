@@ -14,8 +14,19 @@ const civDefault:any = {
 
     happiness: 0,
     happinessBase: 50,
+    happinessFromBuildings: 0,
+    happinessFromWonders: 0,
+    happinessFromCitizens: 0,
+    happinessFromResources: 0,
+    happinessFromCultureBonuses: 0,
+    happinessFromFaithBonuses: 0,
+    happinessFromEvents: 0,
+    happinessFromMod: 1,
 
     anger: 0,
+    angerFromPopulation: 0,
+    angerFromWar: 0,
+    angerMod: 1,
 
     health: 15,
 

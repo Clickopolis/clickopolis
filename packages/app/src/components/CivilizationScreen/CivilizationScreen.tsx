@@ -35,6 +35,10 @@ export const calculateHappiness = (civ: Civilization) => {
     * (civ.happinessFromMod || 1)
 }
 
+export const calculateAnger = (civ: Civilization) => {
+    return ((civ.angerFromPopulation || 0) + (civ.angerFromWar || 0) * (civ.angerMod || 1))
+}
+
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
     constructor(props:CivilizationScreenProps) {
         super(props);
@@ -61,7 +65,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                     <Indicator
-                        value={this.props.civilization.anger}
+                        value={calculateAnger(this.props.civilization)}
                         positiveColor='red'
                         neutralColor='red'
                         icon={'./images/anger.svg'}
