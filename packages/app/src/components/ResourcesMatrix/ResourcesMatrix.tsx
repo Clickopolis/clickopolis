@@ -44,7 +44,8 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
             props.gold,
             props.silver,
             props.gems,
-            props.spaghetti
+            props.spaghetti,
+            props.chihuahuas,
         ];
 
         return group(resources.sort(sort(this)), 'category');
@@ -163,6 +164,7 @@ export const ResourcesMatrix = connect(
         silver: state.silver,
         gems: state.gems,
         spaghetti: state.spaghetti,
+        chihuahuas: state.chihuahuas,
     }),
     null
 )(ResourcesMatrixBase);

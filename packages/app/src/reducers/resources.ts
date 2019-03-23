@@ -93,7 +93,7 @@ const defaults:Map<string, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: `Though sparkly, provides little utility`,
+        description: `Not all that glitters is gold`,
         category: ResourceCategory.luxury,
     }],
     ['spaghetti', {
@@ -103,6 +103,15 @@ const defaults:Map<string, Resource> = new Map([
         perSecond: null,
         perClick: null,
         description: `WHO TOUCHED MY SPAHGET!?`,
+        category: ResourceCategory.power,
+    }],
+    ['chihuahuas', {
+        name: 'chihuahuas',
+        total: 0,
+        max: Infinity,
+        perSecond: null,
+        perClick: null,
+        description: `Pint-sized dog with full-sized sass`,
         category: ResourceCategory.power,
     }]
 ]);
@@ -198,6 +207,15 @@ export function gems(state = defaults.get('gems'), action: Action<any>) {
 }
 
 export function spaghetti(state = defaults.get('spaghetti'), action: Action<any>) {
+    switch (action.type) {
+        case '_':
+            return state;
+        default:
+            return state;
+    }
+}
+
+export function chihuahuas(state = defaults.get('chihuahuas'), action: Action<any>) {
     switch (action.type) {
         case '_':
             return state;

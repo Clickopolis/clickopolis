@@ -34,7 +34,7 @@
 
 .resources-matrix-item {
     align-items: center;
-    background-color: #111 !important;
+    background-color: rgba(17, 17, 17, 0.925) !important;
     color: white;
     display: flex;
     height: 3rem;
@@ -64,6 +64,7 @@
 
     img {
         height: 6rem;
+        transform: scale(0.8);
     }
 
 }
@@ -116,4 +117,28 @@
 
 .image-wood {
     background: #495b74
+}
+
+.image-chihuahuas {
+    background: rgb(94, 48, 26);
+}
+
+.image-spaghetti {
+    background: rgb(168, 57, 57);
+}
+
+.image-spices {
+    background: rgb(109, 185, 109);
+}
+
+.image-gold {
+    background: rgb(70, 16, 70);
+}
+
+.image-silver {
+    background: rgb(211, 189, 64);
+}
+
+.image-oil {
+    background: rgb(168, 8, 8);
 }

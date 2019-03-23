@@ -25,12 +25,14 @@ import {
     gold,
     silver,
     gems,
-    spaghetti
+    spaghetti,
+    chihuahuas
 } from './resources';
 
 export const reducers:any = {
     banana,
     cattle,
+    chihuahuas,
     civilization,
     era,
     farmer,
