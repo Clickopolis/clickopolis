@@ -113,11 +113,11 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
         const randomBonusN = Math.floor(Math.random() * 100);
 
         if (randomBonusN === 77) {
-            this.props.growFood(this.props.production.perClick * 100);
+            this.props.createProduction(this.props.production.perClick * 100);
             console.log('win of: ', this.props.production.perClick * 100);
             gotRandomBonus = true;
         } else {
-            this.props.growFood(this.props.production.perClick);
+            this.props.createProduction(this.props.production.perClick);
             gotRandomBonus = false;
         }
 

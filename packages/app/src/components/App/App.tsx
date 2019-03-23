@@ -14,7 +14,7 @@ import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
 
 
-const NUM_OF_COMPONENTS = 3;
+const NUM_OF_COMPONENTS = 5;
 
 export interface AppProps {
     growFood: growFood;
