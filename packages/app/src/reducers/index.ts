@@ -28,6 +28,7 @@ import {
     spaghetti,
     chihuahuas
 } from './resources';
+import { notifications } from './notifications';
 
 export const reducers:any = {
     banana,
@@ -44,6 +45,7 @@ export const reducers:any = {
     horses,
     leader,
     miner,
+    notifications,
     oil,
     production,
     ruler,

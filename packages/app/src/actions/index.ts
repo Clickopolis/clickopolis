@@ -14,3 +14,4 @@ export * from './selectLeader';
 export * from './turnOffFlag';
 export * from './turnOnFlag';
 export * from './updateCivilization';
+export * from './notifications';

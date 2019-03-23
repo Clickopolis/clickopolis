@@ -13,6 +13,7 @@ import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
 import { Notification} from 'components/Notification';
+import { Notification as Note } from 'reducers/notifications';
 import { TimeStatus } from 'utils';
 import { PositionProperty } from 'csstype';
 
@@ -29,6 +30,7 @@ export interface AppProps {
     timeStatus: TimeStatus;
     pauseGame: pauseGame;
     resumeGame: resumeGame;
+    notifications: Note[];
 }
 
 const visibilityTransformer = (f:number) => {
@@ -95,7 +97,9 @@ export class AppBase extends React.Component<AppProps> {
                 <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
                     {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
                 </div>
-                <Notification content={'This notification is poppin yall!'} />
+                {this.props.notifications.map((note: Note, idx: number) => (
+                    <Notification key={note.id} posId={idx} content={note.content} />
+                ))}
                 <div id='app' className={`clickopolis-app ${timeStatus === TimeStatus.Paused && 'paused'}`}>
                     { HAS_STARTED_GAME ? <Menu /> : null }
                     <div data-scroll id='screen-container' style={{
@@ -131,6 +135,7 @@ export const App = connect(
         citizens: [state.ruler, state.farmer, state.miner],
         flags: state.flags,
         timeStatus: state.timeStatus,
+        notifications: state.notifications,
     }),
     {
         growFood,

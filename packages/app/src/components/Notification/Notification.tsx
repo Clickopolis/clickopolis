@@ -1,6 +1,8 @@
 import * as React from 'react';
 
 import './Notification.scss';
+import { connect } from 'react-redux';
+import { removeNotification } from 'actions';
 
 export enum NotificationType {
     Success = 'success',
@@ -14,10 +16,13 @@ export interface NotificationProps {
     type?: NotificationType;
     requireUserCancellation?: boolean;
     content: React.ReactNode;
+    posId?: number;
+    key: string;
+    removeNotification: removeNotification;
     onClose?: () => void;
 }
 
-export class Notification extends React.Component<NotificationProps> {
+export class NotificationBase extends React.Component<NotificationProps> {
     public intervalId: any;
     public static defaultProps = {
         timeout: 2000,
@@ -32,9 +37,13 @@ export class Notification extends React.Component<NotificationProps> {
     }
 
     public render() {
-        const {content} = this.props;
+        const {content, posId} = this.props;
+        const style  = {
+            top: `calc(3.5rem + (10rem * (${posId} + 1))`,
+            right: '1rem'
+        };
 
-        return <div className='notification'>
+        return <div className='notification' style={style}>
             <div className='notification-close'>×</div>
             {content}
         </div>
@@ -42,6 +51,9 @@ export class Notification extends React.Component<NotificationProps> {
 
     private disappear = () => {
         this.props.onClose && this.props.onClose();
+        this.props.removeNotification(this.props.key)
     }
 
 }
+
+export const Notification: any = connect(null, { removeNotification })(NotificationBase as any)
