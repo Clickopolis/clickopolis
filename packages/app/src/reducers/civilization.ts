@@ -40,10 +40,12 @@ const civDefault:any = {
 export function civilization(state = civDefault, action: Action<GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH>) {
     switch (action.type) {
         case 'GROW_POPULATION':
+            const population = state.population + action.amount
             return {
                 ...state,
-                population: state.population + action.amount,
+                population,
                 foodNeededForGrowth: action.foodNeededForGrowth,
+                angerFromPopulation: population,
             };
         case 'GAIN_CASH':
             return {

@@ -13,6 +13,7 @@ import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
 import { TimeStatus } from 'utils';
+import { PositionProperty } from 'csstype';
 
 const NUM_OF_COMPONENTS = 5;
 
@@ -71,15 +72,29 @@ export class AppBase extends React.Component<AppProps> {
 
     public render() {
         const { HAS_STARTED_GAME } = this.props.flags;
-        const style = { pointerEvents: 'none' as React.CSSProperties['pointerEvents'] }
+        const { timeStatus } = this.props;
         const timeControlStyle = {
-            
+            background: '#fff',
+            color: '#111',
+            cursor: 'pointer',
+            borderRadius: '50%',
+            position: 'fixed' as PositionProperty,
+            bottom: '1em',
+            left: '1em',
+            opactiy: '0.95',
+            filter: 'invert(100%)',
+        }
+        const timeControlIconStyle = {
+            height: '3rem',
+            width: '3rem',
         }
         
         return (
             <>
-                <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >{this.props.timeStatus === TimeStatus.Paused ? 'Play' : 'Pause'}</div>
-                <div id='app' className='clickopolis-app' style={this.props.timeStatus === TimeStatus.Paused && style}>
+                <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
+                    {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
+                </div>
+                <div id='app' className={`clickopolis-app ${timeStatus === TimeStatus.Paused && 'paused'}`}>
                     { HAS_STARTED_GAME ? <Menu /> : null }
                     <div data-scroll id='screen-container' style={{
                         alignItems: 'center',

@@ -20,6 +20,12 @@ body,
     height: 100%;
 }
 
+.clickopolis-app.paused {
+    pointer-events: none !important;
+    filter: grayscale(100%);
+    transition: 1s filter ease-in;
+}
+
 .clickopolis-screen {
     background: #222;
     box-shadow: 0 0 1px rgba(black, 0.7);
