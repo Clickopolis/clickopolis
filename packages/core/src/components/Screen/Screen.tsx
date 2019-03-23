@@ -19,7 +19,7 @@ export class Screen extends React.Component<ScreenProps> {
 
         return (
             <section style={{ ...style, borderTop: `4px solid ${color}`}} className={classNames('clickopolis-screen', `${type.toLowerCase()}-screen`, className)} id={type}>
-                <header style={{ background: color }} className={classNames(`${type.toLowerCase()}-screen-header`, 'screen-header')}>
+                <header style={{ backgroundColor: color }} className={classNames(`${type.toLowerCase()}-screen-header`, 'screen-header')}>
                     <img alt={type} src={'./images/' + type.toLowerCase() + '.svg'} style={{ height: '2rem' }} />
                     <h2>{ type }</h2>
                 </header>

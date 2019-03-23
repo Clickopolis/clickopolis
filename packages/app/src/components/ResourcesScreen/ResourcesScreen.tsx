@@ -45,7 +45,7 @@ const PlusSign = ({ x, y, o, c, perClick, resourceType }: XYCoordsWithOpacity & 
     textAlign: 'left',
     width: '90px',
     opacity: o,
-}}><span>+{c === 'gold' ? (perClick * 100) : perClick}</span><img height='12' src={`./images/${resourceType}.svg`} /></div>;
+}}><span>+{c === 'gold' ? (perClick * 100).toFixed(2) : perClick.toFixed(2)}</span><img height='12' src={`./images/${resourceType}.svg`} /></div>;
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
     private intervalId: any;
@@ -94,9 +94,9 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
     growFood = (_:any) => {
         let gotRandomBonus: boolean;
-        const randomBonusN = Math.floor(Math.random() * 100);
+        const randomBonusN = Math.floor(Math.random() * 1000);
 
-        if (randomBonusN === 77) {
+        if (randomBonusN === 777) {
             this.props.growFood(this.props.food.perClick * 100);
             console.log('win of: ', this.props.food.perClick * 100);
             gotRandomBonus = true;

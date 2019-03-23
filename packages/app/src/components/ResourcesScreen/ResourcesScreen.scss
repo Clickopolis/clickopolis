@@ -1,7 +1,13 @@
 $food-button-color: #1edb50;
 $prod-button-color: #e6d83e;
 
-
+.resources-screen {
+    background-image: url('../../images/resources-bg.svg') !important;
+    background-position: center bottom !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: overlay !important;
+    background-size: contain !important;
+}
 
 .resources-main-buttons {
     display: flex;

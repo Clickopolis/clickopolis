@@ -23,6 +23,18 @@ export interface CivilizationScreenProps {
 export interface CivilizationScreenState {
 }
 
+export const calculateHappiness = (civ: Civilization) => {
+    return ((civ.happinessBase) + 
+    (civ.happinessFromBuildings || 0) +
+    (civ.happinessFromWonders || 0) +
+    (civ.happinessFromCitizens || 0) +
+    (civ.happinessFromResources || 0) +
+    (civ.happinessFromCultureBonuses || 0) +
+    (civ.happinessFromFaithBonuses || 0) +
+    (civ.happinessFromEvents || 0))
+    * (civ.happinessFromMod || 1)
+}
+
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
     constructor(props:CivilizationScreenProps) {
         super(props);
@@ -41,7 +53,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 }}>
                     <PopulationButton />
                     <Indicator
-                        value={this.props.civilization.happiness}
+                        value={calculateHappiness(this.props.civilization)}
                         positiveColor='yellow'
                         neutralColor='yellow'
                         icon={'./images/happiness.svg'}
