@@ -4,7 +4,7 @@
     "publish": "lerna publish --conventional-commits -m 'chore(release): publish :tada:' --independent",
     "build": "lerna run --parallel  build",
     "docs": "node ./scripts/write-docs.js",
-    "preinstall": "npm i -g ts-node lerna webpack@3.1.0 webpack-cli@3.1.0 && lerna bootstrap && cd ./packages/roadmap && mkdir ./dist && touch ./dist/index.html",
+    "preinstall": "npm i -g ts-node lerna webpack@3.10.0 webpack-cli@3.10.0 && lerna bootstrap && cd ./packages/roadmap && mkdir ./dist && touch ./dist/index.html",
     "start:app": "cd packages/app && npm start"
   },
   "devDependencies": {
