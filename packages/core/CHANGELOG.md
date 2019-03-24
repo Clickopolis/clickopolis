@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.9.5"></a>
+## [0.9.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.4...@clickopolis/core@0.9.5) (2019-03-24)
+
+
+
+
+**Note:** Version bump only for package @clickopolis/core
+
 <a name="0.9.4"></a>
 ## [0.9.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.3...@clickopolis/core@0.9.4) (2019-03-24)
 
