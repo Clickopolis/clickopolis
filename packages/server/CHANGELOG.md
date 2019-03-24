@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.0.8"></a>
+## [0.0.8](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/server@0.0.7...@clickopolis/server@0.0.8) (2019-03-24)
+
+
+### Bug Fixes
+
+* update Procfile ([6ebd2e4](https://github.com/Clickopolis/clickopolis/commit/6ebd2e4))
+
+
+
+
 <a name="0.0.7"></a>
 ## [0.0.7](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/server@0.0.6...@clickopolis/server@0.0.7) (2019-03-23)
 

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.8.0...@clickopolis/app@0.9.0) (2019-03-24)
+
+
+### Bug Fixes
+
+* food is now constrained to 0 ([dd44da6](https://github.com/Clickopolis/clickopolis/commit/dd44da6))
+* **design:** style delete button ([692b9c4](https://github.com/Clickopolis/clickopolis/commit/692b9c4))
+* package.json fixes, better styling on Delete button again ([1f54081](https://github.com/Clickopolis/clickopolis/commit/1f54081))
+* use process.env.PORT for server.ts ([4ba2eb4](https://github.com/Clickopolis/clickopolis/commit/4ba2eb4))
+
+
+### Features
+
+* **notifications:** add Notifications ([43df61c](https://github.com/Clickopolis/clickopolis/commit/43df61c))
+
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.7.0...@clickopolis/app@0.8.0) (2019-03-23)
 
