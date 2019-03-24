@@ -26,6 +26,7 @@
     "@clickopolis/core": "^0.9.4",
     "@clickopolis/server": "^0.0.8",
     "@clickopolis/webpack-build-scripts": "^0.1.6",
+    "@types/enzyme": "^3.9.1",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
     "@types/react-redux": "^5.0.20",
