@@ -27,5 +27,8 @@
             "@clickopolis/core": ["packages/core"],
             "@clickopolis/app": ["packages/app"]
         }
-    }
+    },
+    "exclude": [
+        "node_modules"
+    ]
 }
