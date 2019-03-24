@@ -4,7 +4,7 @@ const webpack = require('webpack');
 // webpack plugins
 const { CheckerPlugin } = require('awesome-typescript-loader');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const WebpackNotifierPlugin = require('webpack-notifier');
@@ -40,7 +40,7 @@ if (IS_PRODUCTION) {
         }),
 
         // Only extract CSS to a file for production because it is slow
-        new ExtractTextPlugin('[name].css'),
+        // new ExtractTextPlugin('[name].css'),
 
         // Minify JS
         new UglifyJsPlugin(),
@@ -105,12 +105,7 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: IS_PRODUCTION
-                    ? ExtractTextPlugin.extract({
-                            fallback: require.resolve('style-loader'),
-                            use: scssLoaders
-                        })
-                    : [ require.resolve('style-loader'), ...scssLoaders ],
+                use: [ require.resolve('style-loader'), ...scssLoaders ],
             },
             {
                 test: /\.(eot|ttf|woff|woff2|svg|png|gif|jpe?g)$/,
