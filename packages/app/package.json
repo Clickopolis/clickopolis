@@ -9,7 +9,7 @@
     "build": "npm i @clickopolis/core @clickopolis/webpack-build-scripts && webpack",
     "clean": "rm -rf ./dist",
     "create-component": "ts-node ./create-component.ts",
-    "start": "npm run build && npm run serve",
+    "start": "npm run serve",
     "build:watch": "npm run build -- --watch"
   },
   "keywords": [
