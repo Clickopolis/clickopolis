@@ -11,5 +11,5 @@ else
      lerna bootstrap &&\
       cd ./packages/roadmap &&\
        sudo mkdir ./dist &&\
-        touch ./dist/index.html
+        sudo touch ./dist/index.html
 fi
