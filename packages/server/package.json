@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/server",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/index.js",
   "scripts": {
     "test": "exit 0",
@@ -20,7 +20,8 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "express-graphql": "^0.6.11",
-    "graphql": "^0.12.3"
+    "graphql": "^0.12.3",
+    "typescript": "^3.3.3"
   },
   "publishConfig": {
     "access": "public"
