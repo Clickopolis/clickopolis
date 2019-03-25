@@ -15,7 +15,7 @@ const HTML = (data:any) => `<!DOCTYPE html><html lang='en'>
             <header>
                 <img class='logo' src='./icon.png' />
                 <h2>Clickopolis</h2>
-                <h1>Roadmap</h1>
+                <h1>Roadmap <img class='roadmap' src='./roadmap.png' /></h1>
             </header>
             <table class='roadmap-table'>
                 ${ buildTable(data) }
@@ -60,6 +60,7 @@ const buildTable = (data:any) => {
 
 const writeRoadmap = () => {
     fs.createReadStream('./icon.png').pipe(fs.createWriteStream('./dist/icon.png'));
+    fs.createReadStream('./roadmap.png').pipe(fs.createWriteStream('./dist/roadmap.png'));
     fs.createReadStream('./roadmap.css').pipe(fs.createWriteStream('./dist/roadmap.css'));
     fs.writeFileSync(`${WRITE_TO}/index.html`, HTML(data));
 };

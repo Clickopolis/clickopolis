@@ -14,7 +14,7 @@
         },
         {
             "name": "Citizen Management",
-            "status": "planned",
+            "status": "in progress",
             "note": "",
             "link": "https://github.com/Clickopolis/clickopolis/issues/10"
         },
@@ -24,6 +24,13 @@
             "status": "planned",
             "note": "",
             "link": "https://github.com/Clickopolis/clickopolis/issues/12"
+        },
+
+        {
+            "name": "Economy Management",
+            "status": "planned",
+            "note": "",
+            "link": "https://github.com/Clickopolis/clickopolis/issues/14"
         },
 
         {
