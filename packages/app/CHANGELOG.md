@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.9.4"></a>
+## [0.9.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.3...@clickopolis/app@0.9.4) (2019-03-27)
+
+
+### Bug Fixes
+
+* update indicators, add deleteData action, add AC ([94f2725](https://github.com/Clickopolis/clickopolis/commit/94f2725))
+
+
+
+
 <a name="0.9.3"></a>
 ## [0.9.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.2...@clickopolis/app@0.9.3) (2019-03-25)
 
