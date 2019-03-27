@@ -6,6 +6,13 @@ export interface Achievement {
     unlocked: boolean;
 }
 
+export interface Anger {
+    fromPopulation: number;
+    fromWar: number;
+    fromEvents: number;
+    multiplier: number;
+}
+
 export type BiomeType = 'Desert'
                     | 'Tundra'
                     | 'Island'
@@ -72,34 +79,10 @@ export interface Civilization {
 
     foodNeededForGrowth: number;
 
-    happiness: {
-        happinessBase: number;
-        happinessFromBuildings: number;
-        happinessFromWonders: number;
-        happinessFromCitizens: number;
-        happinessFromResources: number;
-        happinessFromCultureBonuses: number;
-        happinessFromFaithBonuses: number;
-        happinessFromEvents: number;
-        happinessFromMod: number;
-    }
-
-    anger: number;
-    angerFromPopulation: number;
-    angerFromWar: number;
-    angerMod: number;
-
-    health: number;
-    healthBase: number;
-    healthFromResources: number;
-    healthFromBuildings: number;
-
-    pollution: number;
-    pollutionFromPopulation: number;
-    pollutionFromResources: number;
-    pollutionFromBuildings: number;
-    pollutionFromCorporations: number;
-    pollutionMod: number;
+    happiness: Happiness;
+    anger: Anger;
+    health: Health;
+    pollution: Pollution;
 
     population: number;
     populationGrowthCost: number;
@@ -171,6 +154,25 @@ export interface GoldenAge {
     multiplier: number;
 }
 
+export interface Happiness {
+    base: number;
+    fromBuildings: number;
+    fromWonders: number;
+    fromCitizens: number;
+    fromResources: number;
+    fromCultureBonuses: number;
+    fromFaithBonuses: number;
+    fromEvents: number;
+    multiplier: number;
+}
+
+export interface Health {
+    base: number;
+    fromResources: number;
+    fromBuildings: number;
+    multiplier: number;
+}
+
 export interface Leader {
     name: string;
     defaultName: string;
@@ -185,6 +187,15 @@ export interface Player {
     id: string;
     timesLegacied: number;
     legacyPoints: number;
+}
+
+export interface Pollution {
+    fromPopulation: number;
+    fromResources: number;
+    fromBuildings: number;
+    fromWonders: number;
+    fromCorporations: number;
+    mulitiplier: number;
 }
 
 export interface Research {
