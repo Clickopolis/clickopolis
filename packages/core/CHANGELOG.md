@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.7](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.6...@clickopolis/core@0.9.7) (2019-03-27)
+
+
+### Bug Fixes
+
+* apply Happiness treatment to other indicators ([6ba3336](https://github.com/Clickopolis/clickopolis/commit/6ba3336))
+
+
+
+
+
 <a name="0.9.6"></a>
 ## [0.9.6](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.5...@clickopolis/core@0.9.6) (2019-03-27)
 

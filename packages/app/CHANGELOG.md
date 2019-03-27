@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.4...@clickopolis/app@0.9.5) (2019-03-27)
+
+
+### Bug Fixes
+
+* wire in indicator refactor ([8feeefb](https://github.com/Clickopolis/clickopolis/commit/8feeefb))
+
+
+
+
+
 <a name="0.9.4"></a>
 ## [0.9.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.3...@clickopolis/app@0.9.4) (2019-03-27)
 
