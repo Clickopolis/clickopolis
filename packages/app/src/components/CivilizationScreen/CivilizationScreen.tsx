@@ -21,18 +21,19 @@ export interface CivilizationScreenProps {
 }
 
 export interface CivilizationScreenState {
+    selectedIndicator: any;
 }
 
 export const calculateHappiness = (civ: Civilization) => {
-    return ((civ.happinessBase) + 
-    (civ.happinessFromBuildings || 0) +
-    (civ.happinessFromWonders || 0) +
-    (civ.happinessFromCitizens || 0) +
-    (civ.happinessFromResources || 0) +
-    (civ.happinessFromCultureBonuses || 0) +
-    (civ.happinessFromFaithBonuses || 0) +
-    (civ.happinessFromEvents || 0))
-    * (civ.happinessFromMod || 1)
+    return ((civ.happiness.happinessBase) + 
+    (civ.happiness.happinessFromBuildings || 0) +
+    (civ.happiness.happinessFromWonders || 0) +
+    (civ.happiness.happinessFromCitizens || 0) +
+    (civ.happiness.happinessFromResources || 0) +
+    (civ.happiness.happinessFromCultureBonuses || 0) +
+    (civ.happiness.happinessFromFaithBonuses || 0) +
+    (civ.happiness.happinessFromEvents || 0))
+    * (civ.happiness.happinessFromMod || 1)
 }
 
 export const calculateAnger = (civ: Civilization) => {
@@ -40,8 +41,8 @@ export const calculateAnger = (civ: Civilization) => {
 }
 
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
-    constructor(props:CivilizationScreenProps) {
-        super(props);
+    state: CivilizationScreenState = {
+        selectedIndicator: null,
     }
 
     public render() {
@@ -63,6 +64,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         icon={'./images/happiness.svg'}
                         description='Keep your citizens happy with buildings and innovation.'
                         style={indicatorStyle}
+                        onClick={this.onClick('happiness')}
                     />
                     <Indicator
                         value={calculateAnger(this.props.civilization)}
@@ -89,8 +91,49 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                 </div>
+                <div className='civilization-indicator' style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    marginTop: '.5rem'
+                }}>
+                    <Indicator
+                        value={this.props.civilization.cash.total}
+                        positiveColor='goldenrold'
+                        neutralColor='goldenrod'
+                        icon={'./images/cash.svg'}
+                        description={`The total cash in your empire`}
+                        style={indicatorStyle}
+                        onClick={this.onClick('cash')}
+                    />
+                </div>
+                {this.state.selectedIndicator && <div className='civilization-indicator-breakdown' style={{
+                    background: 'rgba(0, 0, 0, 0.8)',
+                    color: 'white',
+                }}>
+                    <h4>Indicator Breakdown</h4>
+                    <ul>
+                        {this.renderIndicatorStats()}
+                    </ul>
+                </div>}
             </Screen>
         );
+    }
+
+    private onClick = (selectedIndicator: string) => () => {
+        this.setState({
+            selectedIndicator,
+        })
+    }
+
+    private renderIndicatorStats = () => {
+        const {selectedIndicator} = this.state
+
+        const propMap = Object.entries(selectedIndicator)
+        return propMap.map(item => {
+            return <li>
+                {item[0]}: {item[1]}
+            </li>
+        })
     }
 }
 

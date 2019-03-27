@@ -8,7 +8,7 @@ import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
 import { CivilizationScreen } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
-import { growFood, consumeFood, createProduction, pauseGame, resumeGame } from 'actions';
+import { growFood, consumeFood, createProduction, pauseGame, resumeGame, updateCivilization } from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
@@ -23,6 +23,7 @@ export interface AppProps {
     growFood: growFood;
     consumeFood: consumeFood;
     createProduction: createProduction;
+    updateCivilization: updateCivilization;
     food: Resource;
     production: Resource;
     flags: Flags;
@@ -31,6 +32,7 @@ export interface AppProps {
     pauseGame: pauseGame;
     resumeGame: resumeGame;
     notifications: Note[];
+    ac: number;
 }
 
 const visibilityTransformer = (f:number) => {
@@ -43,6 +45,7 @@ const visibilityTransformer = (f:number) => {
 
 export class AppBase extends React.Component<AppProps> {
     public intervalId: any;
+    public intervalIdMin: any;
     public scrollElement: HTMLElement;
 
     constructor(props:any) {
@@ -51,17 +54,25 @@ export class AppBase extends React.Component<AppProps> {
 
     componentDidMount() {
         this.intervalId = setInterval(this.timer, 1000);
+        this.intervalIdMin = setInterval(this.minuteTimer, 1000 * 60);
     }
 
     componentWillUnmount() {
         clearInterval(this.intervalId);
     }
 
+    minuteTimer = () => {
+        if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
+            this.props.updateCivilization('ac', this.props.ac + 1);
+            console.log('%c 1m Timer set off.', 'color: #8924a1');
+        }
+    } 
+
     timer = () => {
         if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
             this.props.growFood(visibilityTransformer(this.props.food.perSecond));
             this.props.createProduction(visibilityTransformer(this.props.production.perSecond));
-            console.log('%c Timer set off.', 'color: #8942f4');
+            console.log('%c 1s Timer set off.', 'color: #8942f4');
         }
     }
 
@@ -136,6 +147,7 @@ export const App = connect(
         flags: state.flags,
         timeStatus: state.timeStatus,
         notifications: state.notifications,
+        ac: state.civilization.ac,
     }),
     {
         growFood,
@@ -143,5 +155,6 @@ export const App = connect(
         createProduction,
         pauseGame,
         resumeGame,
+        updateCivilization,
     }
 )(AppBase);

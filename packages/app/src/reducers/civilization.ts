@@ -8,20 +8,23 @@ const civDefault:any = {
     leader: {},
     color: '',
     biomes: ['Biome'],
+    ac: 0,
 
     population: 1,
     foodNeededForGrowth: 20,
 
-    happiness: 0,
-    happinessBase: 50,
-    happinessFromBuildings: 0,
-    happinessFromWonders: 0,
-    happinessFromCitizens: 0,
-    happinessFromResources: 0,
-    happinessFromCultureBonuses: 0,
-    happinessFromFaithBonuses: 0,
-    happinessFromEvents: 0,
-    happinessFromMod: 1,
+    happiness: {
+        happinessBase: 50,
+        happinessFromBuildings: 0,
+        happinessFromWonders: 0,
+        happinessFromCitizens: 0,
+        happinessFromResources: 0,
+        happinessFromCultureBonuses: 0,
+        happinessFromFaithBonuses: 0,
+        happinessFromEvents: 0,
+        happinessFromMod: 1,
+    },
+    
 
     anger: 0,
     angerFromPopulation: 0,
@@ -33,7 +36,18 @@ const civDefault:any = {
     pollution: 0,
 
     cash: {
-        total: 0
+        total: 0,
+        perMinute: 0,
+        perMinuteCitizens: 0,
+        perMinuteBuildings: 0,
+        perMinuteBuildingMaintenance: 0,
+        perMinuteMilitary: 0,
+        perMinuteTradeRoutes: 0,
+        perMinuteTradeDeals: 0,
+        perMinuteSocialPolicies: 0,
+        perMinuteFaith: 0,
+        perMinuteLegacy: 0,
+        perMinuteWonders: 0,
     }
 };
 

@@ -10,16 +10,13 @@ import { CONSTANTS } from 'utils';
 
 import './Menu.scss';
 import { EraIndicator } from 'components/EraIndicator';
+import { connect } from 'react-redux';
 
 export interface MenuProps {
-    menuData: any;
+    ac?: number;
 }
 
-export class Menu extends React.Component {
-    constructor(props:MenuProps) {
-        super(props);
-    }
-
+export class MenuBase extends React.Component<MenuProps> {
     private generateMenu() {
         return CONSTANTS.screenData.map((i:string) => {
             return (
@@ -39,6 +36,8 @@ export class Menu extends React.Component {
     }
 
     public render() {
+        const {ac} = this.props
+
         return (
             <nav className='clickopolis-menu'>
                 <div className='clickopolis-menu-text'>menu</div>
@@ -49,7 +48,7 @@ export class Menu extends React.Component {
                 </ul>
                 <EraIndicator />
                 <Indicator
-                    value='77 AC'
+                    value={`${ac} AC`}
                     description={'AC: After Click'}
                     neutralColor='#333'
                     style={ { margin: '0 .33rem' }}
@@ -59,3 +58,8 @@ export class Menu extends React.Component {
         );
     }
 }
+
+export const Menu: React.ComponentClass<{}> = connect(
+    (state: any) => ({ac: state.civilization.ac})
+)(MenuBase as any)
+

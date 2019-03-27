@@ -49,7 +49,7 @@ export function farmer(state = defaults.get('farmer'), action: Action<ADD_CITIZE
         case 'ADD_CITIZEN':
             return action.citizen === 'farmer' ? { ...state, amount: state.amount + amount } : state;
         case 'REMOVE_CITIZEN':
-            return action.citizen === 'farmer' ? { ...state, amount: state.amount + (-amount) } : state;
+            return action.citizen === 'farmer' ? { ...state, amount: Math.max(state.amount + (-amount), 0) } : state;
         default:
             return state;
     }
@@ -61,7 +61,7 @@ export function miner(state = defaults.get('miner'), action: Action<ADD_CITIZEN 
         case 'ADD_CITIZEN':
             return action.citizen === 'miner' ? { ...state, amount: state.amount + amount } : state;
         case 'REMOVE_CITIZEN':
-            return action.citizen === 'miner' ? { ...state, amount: state.amount + (-amount) } : state;
+            return action.citizen === 'miner' ? { ...state, amount: Math.max(state.amount + (-amount), 0) } : state;
         default:
             return state;
     }
