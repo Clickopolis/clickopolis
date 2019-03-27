@@ -1,10 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-// @ts-ignore: importing core
 import { Screen, Indicator, Civilization } from '@clickopolis/core';
-//@ts-ignore: no @types def
-import * as classNames from 'classnames';
-
 import { PopulationButton } from '../PopulationButton';
 import { colors } from 'utils';
 
@@ -25,19 +21,19 @@ export interface CivilizationScreenState {
 }
 
 export const calculateHappiness = (civ: Civilization) => {
-    return ((civ.happiness.happinessBase) + 
-    (civ.happiness.happinessFromBuildings || 0) +
-    (civ.happiness.happinessFromWonders || 0) +
-    (civ.happiness.happinessFromCitizens || 0) +
-    (civ.happiness.happinessFromResources || 0) +
-    (civ.happiness.happinessFromCultureBonuses || 0) +
-    (civ.happiness.happinessFromFaithBonuses || 0) +
-    (civ.happiness.happinessFromEvents || 0))
-    * (civ.happiness.happinessFromMod || 1)
+    return ((civ.happiness.base) + 
+    (civ.happiness.fromBuildings || 0) +
+    (civ.happiness.fromWonders || 0) +
+    (civ.happiness.fromCitizens || 0) +
+    (civ.happiness.fromResources || 0) +
+    (civ.happiness.fromCultureBonuses || 0) +
+    (civ.happiness.fromFaithBonuses || 0) +
+    (civ.happiness.fromEvents || 0))
+    * (civ.happiness.multiplier || 1)
 }
 
 export const calculateAnger = (civ: Civilization) => {
-    return ((civ.angerFromPopulation || 0) + (civ.angerFromWar || 0) * (civ.angerMod || 1))
+    return ((civ.fromPopulation || 0) + (civ.fromWar || 0) * (civ.multiplier || 1))
 }
 
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
@@ -75,7 +71,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                     <Indicator
-                        value={this.props.civilization.health}
+                        value={0}
                         positiveColor='white'
                         neutralColor='white'
                         icon={'./images/health.svg'}
@@ -83,7 +79,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                     />
                     <Indicator
-                        value={this.props.civilization.pollution}
+                        value={0}
                         positiveColor='lightgreen'
                         neutralColor='lightgreen'
                         icon={'./images/pollution.svg'}
@@ -107,10 +103,13 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     />
                 </div>
                 {this.state.selectedIndicator && <div className='civilization-indicator-breakdown' style={{
-                    background: 'rgba(0, 0, 0, 0.8)',
+                    background: 'rgba(20, 20, 20, 0.8)',
                     color: 'white',
+                    padding: '.25rem',
+                    border: '1px solid #111',
+                    borderRadius: '4px',
                 }}>
-                    <h4>Indicator Breakdown</h4>
+                    <h4 style={{fontSize: '1.1rem', textAlign: 'center'}}>Indicator Breakdown</h4>
                     <ul>
                         {this.renderIndicatorStats()}
                     </ul>
@@ -127,11 +126,14 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
 
     private renderIndicatorStats = () => {
         const {selectedIndicator} = this.state
+        const {civilization} = this.props
 
-        const propMap = Object.entries(selectedIndicator)
+        // @ts-ignore
+        const propMap: [keyof Civilization, any][] = Object.entries(civilization[selectedIndicator])
+        console.log(propMap)
         return propMap.map(item => {
-            return <li>
-                {item[0]}: {item[1]}
+            return <li style={{listItemType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
+                <span style={{fontWeight: 'bold'}}>{item[0]}</span><span>{item[1]}</span>
             </li>
         })
     }

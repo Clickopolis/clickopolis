@@ -14,26 +14,40 @@ const civDefault:any = {
     foodNeededForGrowth: 20,
 
     happiness: {
-        happinessBase: 50,
-        happinessFromBuildings: 0,
-        happinessFromWonders: 0,
-        happinessFromCitizens: 0,
-        happinessFromResources: 0,
-        happinessFromCultureBonuses: 0,
-        happinessFromFaithBonuses: 0,
-        happinessFromEvents: 0,
-        happinessFromMod: 1,
+        base: 50,
+        fromBuildings: 0,
+        fromWonders: 0,
+        fromCitizens: 0,
+        fromResources: 0,
+        fromCultureBonuses: 0,
+        fromFaithBonuses: 0,
+        fromEvents: 0,
+        multiplier: 1,
     },
     
 
-    anger: 0,
-    angerFromPopulation: 0,
-    angerFromWar: 0,
-    angerMod: 1,
+    anger: {
+        fromPopulation: 0,
+        fromWar: 0,
+        fromEvents: 0,
+        multiplier: 1,
+    },
 
-    health: 15,
+    health: {
+        base: 15,
+        fromResources: 0,
+        fromBuildings: 0,
+        multiplier: 1,
+    },
 
-    pollution: 0,
+    pollution: {
+        fromPopulation: 0,
+        fromResources: 0,
+        fromBuildings: 0,
+        fromWonders: 0,
+        fromCorporations: 0,
+        multiplier: 1,
+    },
 
     cash: {
         total: 0,
@@ -48,6 +62,7 @@ const civDefault:any = {
         perMinuteFaith: 0,
         perMinuteLegacy: 0,
         perMinuteWonders: 0,
+        multiplier: 1,
     }
 };
 
