@@ -72,16 +72,17 @@ export interface Civilization {
 
     foodNeededForGrowth: number;
 
-    happiness: number;
-    happinessBase: number;
-    happinessFromBuildings: number;
-    happinessFromWonders: number;
-    happinessFromCitizens: number;
-    happinessFromResources: number;
-    happinessFromCultureBonuses: number;
-    happinessFromFaithBonuses: number;
-    happinessFromEvents: number;
-    happinessFromMod: number;
+    happiness: {
+        happinessBase: number;
+        happinessFromBuildings: number;
+        happinessFromWonders: number;
+        happinessFromCitizens: number;
+        happinessFromResources: number;
+        happinessFromCultureBonuses: number;
+        happinessFromFaithBonuses: number;
+        happinessFromEvents: number;
+        happinessFromMod: number;
+    }
 
     anger: number;
     angerFromPopulation: number;
