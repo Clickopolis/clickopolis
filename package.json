@@ -1,7 +1,7 @@
 {
   "scripts": {
     "test": "lerna run --parallel test",
-    "publish": "lerna publish --conventional-commits -m 'chore(release): publish :tada:' --independent",
+    "publish": "lerna publish --conventional-commits -m 'chore(release): publish :tada:'",
     "build": "lerna run --parallel  build",
     "docs": "node ./scripts/write-docs.js",
     "preinstall": "bash preinstall.sh",
