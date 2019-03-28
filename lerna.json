@@ -1,4 +1,5 @@
 {
+  "lerna": "3.13.1",
   "npmClient": "npm",
   "version": "independent",
   "packages": [
