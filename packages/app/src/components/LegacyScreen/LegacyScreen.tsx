@@ -21,9 +21,7 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
                 type='Legacy'
                 color={colors.get('legacy')}
             >
-                <Button>
-                    Pass On Your Legacy
-                </Button>
+                <Button icon='./images/legacy.svg' className='legacy-button' value={'Pass On Your Legacy'} />
             </Screen>
         );
     }

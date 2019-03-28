@@ -11,6 +11,7 @@ export interface ButtonProps {
     onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
     disabled?: boolean;
     layout?: string;
+    style?: object;
 }
 
 export class Button extends React.PureComponent<ButtonProps> {
@@ -26,18 +27,22 @@ export class Button extends React.PureComponent<ButtonProps> {
             disabled,
             icon,
             iconHeight,
-            value
+            value,
+            style,
+            children,
         } = this.props;
         return <button
                     id={id}
                     onClick={onClick}
                     className={classNames('clickopolis-button', disabled ? 'disabled' : null, className)}
                     disabled={disabled}
+                    style={style}
                 >
-                    <img src={ icon } style={{
+                    {icon && <img src={ icon } style={{
                         height: iconHeight || '2rem'
-                    }} />
-                    <span className='clickopolis-button-value'>{ value }</span>
+                    }} />}
+                    {value && <span className='clickopolis-button-value'>{ value }</span>}
+                    {children}
                 </button>;
     }
 }

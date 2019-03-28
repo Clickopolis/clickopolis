@@ -1,0 +1,24 @@
+$legacyColor: #ffbebe;
+
+.legacy-button {
+    background: $legacyColor;
+    box-shadow: 0 0 4px rgba(white, 0.33);
+    color: white;
+    padding: .25rem;
+    text-align: center;
+    width: 300px;
+    margin: .5rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 4px;
+
+    img {
+        padding: 2px;
+    }
+
+    &:hover {
+        box-shadow: 0 0 8px rgba(white, 0.85);
+        transition: 250ms box-shadow;
+    }
+}
