@@ -34,7 +34,7 @@ export class EconomyScreenBase extends React.Component<EconomyScreenProps> {
     }
 }
 
-export const EconomyScreen = connect(
+export const EconomyScreen: React.ComponentClass<{}> = connect(
     (state: any) => ({
         civilization: state.civilization,
     }),

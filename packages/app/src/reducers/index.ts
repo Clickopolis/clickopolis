@@ -30,7 +30,7 @@ import {
 } from './resources';
 import { notifications } from './notifications';
 
-export const reducers:any = {
+export const reducers = {
     banana,
     cattle,
     chihuahuas,
@@ -57,4 +57,4 @@ export const reducers:any = {
     router: routerReducer
 };
 
-export const appReducers:any = combineReducers(reducers);
+export const appReducers = combineReducers(reducers);
