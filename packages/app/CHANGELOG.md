@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.5...@clickopolis/app@0.10.0) (2019-03-28)
+
+
+### Bug Fixes
+
+* update app/server.ts to use webpack ([ddeb31d](https://github.com/Clickopolis/clickopolis/commit/ddeb31d))
+
+
+### Features
+
+* wire in LegacyScreen/EconomyScreen ([cd78c33](https://github.com/Clickopolis/clickopolis/commit/cd78c33))
+
+
+
+
+
 ## [0.9.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.4...@clickopolis/app@0.9.5) (2019-03-27)
 
 
