@@ -8,7 +8,7 @@ import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
 import { CivilizationScreen } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
-import { growFood, consumeFood, createProduction, pauseGame, resumeGame, updateCivilization } from 'actions';
+import { growFood, consumeFood, createProduction, pauseGame, resumeGame, updateCivilization, gainCash } from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
@@ -16,8 +16,9 @@ import { Notification} from 'components/Notification';
 import { Notification as Note } from 'reducers/notifications';
 import { TimeStatus } from 'utils';
 import { PositionProperty } from 'csstype';
+import { LegacyScreen } from 'components/LegacyScreen';
 
-const NUM_OF_COMPONENTS = 5;
+const NUM_OF_COMPONENTS = 6;
 
 export interface AppProps {
     growFood: growFood;
@@ -31,8 +32,10 @@ export interface AppProps {
     timeStatus: TimeStatus;
     pauseGame: pauseGame;
     resumeGame: resumeGame;
+    gainCash: gainCash;
     notifications: Note[];
     ac: number;
+    cashPerMin: number;
 }
 
 const visibilityTransformer = (f:number) => {
@@ -64,6 +67,7 @@ export class AppBase extends React.Component<AppProps> {
     minuteTimer = () => {
         if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
             this.props.updateCivilization('ac', this.props.ac + 1);
+            this.props.gainCash(this.props.cashPerMin)
             console.log('%c 1m Timer set off.', 'color: #8924a1');
         }
     } 
@@ -127,6 +131,7 @@ export class AppBase extends React.Component<AppProps> {
                                 <CivilizationScreen />
                                 <CitizensScreen />
                                 <EconomyScreen />
+                                <LegacyScreen />
                                 <SettingsScreen />
                             </>
                             :
@@ -148,6 +153,7 @@ export const App = connect(
         timeStatus: state.timeStatus,
         notifications: state.notifications,
         ac: state.civilization.ac,
+        cashPerMin: state.civilization.cash.perMinute,
     }),
     {
         growFood,
@@ -156,5 +162,6 @@ export const App = connect(
         pauseGame,
         resumeGame,
         updateCivilization,
+        gainCash,
     }
 )(AppBase);

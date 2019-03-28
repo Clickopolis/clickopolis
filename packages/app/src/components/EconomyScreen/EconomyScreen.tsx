@@ -1,13 +1,14 @@
 import * as React from 'react';
-import { Screen } from '@clickopolis/core';
+import { Screen, Indicator } from '@clickopolis/core';
 import { connect } from 'react-redux';
 
 import { colors } from 'utils';
 
 import './EconomyScreen.scss';
+import { Civilization } from '@clickopolis/core'
 
 export interface EconomyScreenProps {
-
+    civilization: Civilization;
 }
 
 export class EconomyScreenBase extends React.Component<EconomyScreenProps> {
@@ -21,13 +22,21 @@ export class EconomyScreenBase extends React.Component<EconomyScreenProps> {
                 type='Economy'
                 color={colors.get('economy')}
             >
-
+                <Indicator
+                    value={this.props.civilization.cash.total}
+                    positiveColor='goldenrold'
+                    neutralColor='goldenrod'
+                    icon={'./images/cash.svg'}
+                    description={`The total cash in your empire`}
+                />
             </Screen>
         );
     }
 }
 
 export const EconomyScreen = connect(
-    null,
+    (state: any) => ({
+        civilization: state.civilization,
+    }),
     null
 )(EconomyScreenBase);
