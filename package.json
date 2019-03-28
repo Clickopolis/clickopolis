@@ -13,5 +13,6 @@
   "dependencies": {
     "tslib": "^1.8.1",
     "typescript": "^3.3.4000"
-  }
+  },
+  "name": "clickopolis"
 }
