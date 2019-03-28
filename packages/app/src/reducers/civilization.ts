@@ -63,7 +63,42 @@ const civDefault:any = {
         perMinuteLegacy: 0,
         perMinuteWonders: 0,
         multiplier: 1,
-    }
+    },
+
+    culture: {
+        total: 0,
+    
+        perMinuteFromCitizens: 0,
+        perMinuteFromSocialPolicies: 0,
+        perMinuteFromResources: 0,
+        perMinuteFromLegacy: 0,
+        perMinuteFromWonders: 0,
+        perMinuteFromAdvancements: 0,
+        multiplier: 0,
+    },
+
+    faith: {
+        total: 0,
+        gameTotal: 0,
+        perMinuteFromBuildings: 0,
+        perMinuteFromSocialPolicies: 0,
+        perMinuteFromResources: 0,
+        perMinuteFromLegacy: 0,
+        perMinuteFromWonders: 0,
+        perMinute: 0,
+        multiplier: 0,
+    },
+
+    research: {
+        total: 0,
+        perMinuteFromCitizens: 0,
+        perMinuteFromCultureBonuses: 0,
+        perMinuteFromFaithBonuses: 0,
+        perMinuteFromAdvancements: 0,
+        perMinuteFromTrade: 0,
+        perMinuteFromBuildings: 0,
+        perMinuteFromCorporations: 0,
+    },
 };
 
 export function civilization(state = civDefault, action: Action<GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH>) {
@@ -99,38 +134,38 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
 //     color: string;
 //     biomes: Biome[];
 
-//     happiness: number;
-//     happinessBase: number;
-//     happinessFromBuildings: number;
-//     happinessFromWonders: number;
-//     happinessFromCitizens: number;
-//     happinessFromResources: number;
-//     happinessFromCultureBonuses: number;
-//     happinessFromFaithBonuses: number;
-//     happinessFromEvents: number;
-//     happinessFromMod: number;
+//     happiness: 0,
+//     happinessBase: 0,
+//     happinessFromBuildings: 0,
+//     happinessFromWonders: 0,
+//     happinessFromCitizens: 0,
+//     happinessFromResources: 0,
+//     happinessFromCultureBonuses: 0,
+//     happinessFromFaithBonuses: 0,
+//     happinessFromEvents: 0,
+//     happinessFromMod: 0,
 
-//     anger: number;
-//     angerFromPopulation: number;
-//     angerFromWar: number;
-//     angerMod: number;
+//     anger: 0,
+//     angerFromPopulation: 0,
+//     angerFromWar: 0,
+//     angerMod: 0,
 
-//     health: number;
-//     healthBase: number;
-//     healthFromResources: number;
-//     healthFromBuildings: number;
+//     health: 0,
+//     healthBase: 0,
+//     healthFromResources: 0,
+//     healthFromBuildings: 0,
 
-//     pollution: number;
-//     pollutionFromPopulation: number;
-//     pollutionFromResources: number;
-//     pollutionFromBuildings: number;
-//     pollutionFromCorporations: number;
-//     pollutionMod: number;
+//     pollution: 0,
+//     pollutionFromPopulation: 0,
+//     pollutionFromResources: 0,
+//     pollutionFromBuildings: 0,
+//     pollutionFromCorporations: 0,
+//     pollutionMod: 0,
 
-//     population: number;
-//     populationGrowthCost: number;
-//     populationReal: number;
-//     populationEmployed: number;
+//     population: 0,
+//     populationGrowthCost: 0,
+//     populationReal: 0,
+//     populationEmployed: 0,
 
 //     influence: Influence;
 

@@ -95,8 +95,8 @@ export interface Civilization {
 
     goldenAge: GoldenAge;
     faith: CivFaith;
-
     research: Research;
+    culture: Culture;
     // culture
     // socialPolicies
     // strength
@@ -120,12 +120,24 @@ export interface CivFaith {
     total: number;
     gameTotal: number;
     perMinuteFromBuildings: number;
-    perMinuteFromSocailPolicies: number;
+    perMinuteFromSocialPolicies: number;
     perMinuteFromResources: number;
     perMinuteFromLegacy: number;
     perMinuteFromWonders: number;
     perMinute: number;
-    cost: number;
+    multiplier: number;
+}
+
+export interface Culture {
+    total: number;
+    
+    perMinuteFromCitizens: number;
+    perMinuteFromSocialPolicies: number;
+    perMinuteFromResources: number;
+    perMinuteFromLegacy: number;
+    perMinuteFromWonders: number;
+    perMinuteFromAdvancements: number;
+    multiplier: number;
 }
 
 export enum Era {
@@ -200,8 +212,13 @@ export interface Pollution {
 
 export interface Research {
     total: number;
-    perMinute: number;
-    cost: number;
+    perMinuteFromCitizens: number;
+    perMinuteFromCultureBonuses: number;
+    perMinuteFromFaithBonuses: number;
+    perMinuteFromAdvancements: number;
+    perMinuteFromTrade: number;
+    perMinuteFromBuildings: number;
+    perMinuteFromCorporations: number;
 }
 
 /**

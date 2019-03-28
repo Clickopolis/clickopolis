@@ -33,7 +33,15 @@ export const calculateHappiness = (civ: Civilization) => {
 }
 
 export const calculateAnger = (civ: Civilization) => {
-    return ((civ.fromPopulation || 0) + (civ.fromWar || 0) * (civ.multiplier || 1))
+    return ((civ.anger.fromPopulation || 0) + (civ.anger.fromWar || 0) * (civ.anger.multiplier || 1))
+}
+
+export const calculateHealth = (civ: Civilization) => {
+    return ((civ.health.base) + (civ.health.fromResources || 0) + (civ.health.fromBuildings || 0) * (civ.health.multiplier || 1))
+}
+
+export const calculatePollution = (civ: Civilization) => {
+    return civ.pollution.fromPopulation
 }
 
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
@@ -69,14 +77,16 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         icon={'./images/anger.svg'}
                         description={`Don't make your citizens angrier`}
                         style={indicatorStyle}
+                        onClick={this.onClick('anger')}
                     />
                     <Indicator
-                        value={0}
+                        value={calculateHealth(this.props.civilization)}
                         positiveColor='white'
                         neutralColor='white'
                         icon={'./images/health.svg'}
                         description={`Health`}
                         style={indicatorStyle}
+                        onClick={this.onClick('health')}
                     />
                     <Indicator
                         value={0}
@@ -85,6 +95,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         icon={'./images/pollution.svg'}
                         description={`Pollution`}
                         style={indicatorStyle}
+                        onClick={this.onClick('pollution')}
                     />
                 </div>
                 <div className='civilization-indicator' style={{
@@ -101,6 +112,33 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={indicatorStyle}
                         onClick={this.onClick('cash')}
                     />
+                    <Indicator
+                        value={this.props.civilization.research.total}
+                        positiveColor='skyblue'
+                        neutralColor='skyblue'
+                        icon={'./images/research.svg'}
+                        description={`The total science in your empire`}
+                        style={indicatorStyle}
+                        onClick={this.onClick('research')}
+                    />
+                    <Indicator
+                        value={this.props.civilization.culture.total}
+                        positiveColor='#ff006d'
+                        neutralColor='#ff006d'
+                        icon={'./images/culture.svg'}
+                        description={`The total culture in your empire`}
+                        style={indicatorStyle}
+                        onClick={this.onClick('culture')}
+                    />
+                    <Indicator
+                        value={this.props.civilization.faith.total}
+                        positiveColor='#e5d48a'
+                        neutralColor='#e5d48a'
+                        icon={'./images/faith.svg'}
+                        description={`The total faith in your empire`}
+                        style={indicatorStyle}
+                        onClick={this.onClick('faith')}
+                    />
                 </div>
                 {this.state.selectedIndicator && <div className='civilization-indicator-breakdown' style={{
                     background: 'rgba(20, 20, 20, 0.8)',
@@ -108,9 +146,10 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     padding: '.25rem',
                     border: '1px solid #111',
                     borderRadius: '4px',
+                    margin: '.5rem 1rem',
                 }}>
                     <h4 style={{fontSize: '1.1rem', textAlign: 'center'}}>Indicator Breakdown</h4>
-                    <ul>
+                    <ul style={{padding: '0 2rem'}}>
                         {this.renderIndicatorStats()}
                     </ul>
                 </div>}
@@ -132,7 +171,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
         const propMap: [keyof Civilization, any][] = Object.entries(civilization[selectedIndicator])
         console.log(propMap)
         return propMap.map(item => {
-            return <li style={{listItemType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
+            return <li style={{marginBottom: '.25rem', listItemType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
                 <span style={{fontWeight: 'bold'}}>{item[0]}</span><span>{item[1]}</span>
             </li>
         })
