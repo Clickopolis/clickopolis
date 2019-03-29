@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.10.0...@clickopolis/core@0.11.0) (2019-03-29)
+
+
+### Bug Fixes
+
+* update styling in Indicator ([9631296](https://github.com/Clickopolis/clickopolis/commit/9631296))
+
+
+### Features
+
+* add more biomes ([e7ce72c](https://github.com/Clickopolis/clickopolis/commit/e7ce72c))
+
+
+
+
+
 # [0.10.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.8...@clickopolis/core@0.10.0) (2019-03-29)
 
 
