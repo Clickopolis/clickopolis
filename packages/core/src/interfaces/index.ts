@@ -245,6 +245,7 @@ export interface Resource {
     pollutionBonus?: number;
     influenceBonus?: number;
     faithBonus?: number;
+    cultureBonus?: number;
 
     /* Amount of $ it can be sold for */
     exchangeRate?: number;
