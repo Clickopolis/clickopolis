@@ -6,6 +6,13 @@ export interface Achievement {
     unlocked: boolean;
 }
 
+export interface Advancement {
+    const: number;
+    era?: Era;
+    name: string;
+    
+}
+
 export interface Anger {
     fromPopulation: number;
     fromWar: number;

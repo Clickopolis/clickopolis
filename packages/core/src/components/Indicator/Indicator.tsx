@@ -73,12 +73,12 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                     onClick={onClick}
                     className={classNames('clickopolis-indicator', className)}
                     style={{
-                        ...style,
                         backgroundColor: this.determineSignColor(value, positiveColor, negativeColor, neutralColor),
                         border: '1px solid rgba(0, 0, 0, 0.3)',
                         borderRadius: '.25rem',
                         textAlign: 'center',
-                        padding: '.25rem'
+                        padding: '.25rem',
+                        ...style,
                     }}
                 >
                     {
@@ -87,7 +87,7 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                             height: iconHeight || '1rem'
                         }} /> : null
                     }
-                    <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>
+                    {value && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>}
                 </div>
             </Tooltip>
         );
