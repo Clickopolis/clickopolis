@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.10.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.0...@clickopolis/app@0.10.1) (2019-03-29)
+
+
+### Bug Fixes
+
+* make sure server runs webpack only in dev ([05d6aec](https://github.com/Clickopolis/clickopolis/commit/05d6aec))
+
+
+
+
+
 # [0.10.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.5...@clickopolis/app@0.10.0) (2019-03-28)
 
 

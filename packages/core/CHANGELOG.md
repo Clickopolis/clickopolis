@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.8...@clickopolis/core@0.10.0) (2019-03-29)
+
+
+### Features
+
+* add cultureBonus to Resources ([f644de3](https://github.com/Clickopolis/clickopolis/commit/f644de3))
+
+
+
+
+
 ## [0.9.8](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.7...@clickopolis/core@0.9.8) (2019-03-28)
 
 **Note:** Version bump only for package @clickopolis/core
