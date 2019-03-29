@@ -171,7 +171,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
         const propMap: [keyof Civilization, any][] = Object.entries(civilization[selectedIndicator])
         console.log(propMap)
         return propMap.map(item => {
-            return <li style={{marginBottom: '.25rem', listItemType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
+            return <li style={{marginBottom: '.25rem', listStyleType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
                 <span style={{fontWeight: 'bold'}}>{item[0]}</span><span>{item[1]}</span>
             </li>
         })
