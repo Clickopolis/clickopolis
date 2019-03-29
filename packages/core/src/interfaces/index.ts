@@ -18,7 +18,14 @@ export type BiomeType = 'Desert'
                     | 'Island'
                     | 'Coast'
                     | 'Plains'
-                    | 'Forest'
+                    | 'Temperate Forest'
+                    | 'Rainforest'
+                    | 'Plains'
+                    | 'Hills'
+                    | 'Lake'
+                    | 'Iceberg'
+                    | 'Permafrost Tundra'
+                    | 'Oasis'
                     | 'Mountains';
 
 export interface Biome {
