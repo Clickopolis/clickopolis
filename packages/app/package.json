@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@clickopolis/core": "^0.10.0",
-    "@clickopolis/server": "^0.0.10",
+    "@clickopolis/server": "*",
     "@clickopolis/webpack-build-scripts": "^0.1.7",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
@@ -40,6 +40,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "^2.30.1",
     "jest-enzyme": "^6.0.1",
+    "node-sass": "^4.11.0",
     "react": "^16.8.5",
     "react-dom": "^16.8.5",
     "react-loadable": "^5.4.0",
@@ -61,6 +62,6 @@
     "uuid": "^3.2.1"
   },
   "devDependencies": {
-    "typescript": "^2.9.1"
+    "typescript": "^3.3.4000"
   }
 }

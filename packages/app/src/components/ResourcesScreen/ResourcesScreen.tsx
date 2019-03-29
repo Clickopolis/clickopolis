@@ -10,6 +10,7 @@ import { growFood, createProduction } from 'actions';
 import { colors } from 'utils';
 
 import './ResourcesScreen.scss';
+import { BiomeIcon } from 'components/BiomeIcon';
 
 const indicatorStyle = {
     alignItems: 'center',
@@ -19,6 +20,12 @@ const indicatorStyle = {
     margin: '.25rem',
     width: '5rem'
 };
+
+const biomeStyle = {
+    ...indicatorStyle,
+    height: '3rem',
+    color: 'white',
+}
 
 export interface ResourcesScreenProps {
     food?: Resource;
@@ -246,10 +253,26 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={production.max}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
-                            style={indicatorStyle}
+                            style={biomeStyle}
                             label='max'
                             description='Use your clicks to amass corn!'
                         />
+                    </div>
+                </div>
+                <div className='resources-main-buttons-row biomes-row' style={{ display: 'flex' }}>
+                    <Indicator
+                        value={'Biomes'}
+                        style={indicatorStyle}
+                        description='The types of ecosystems your civlization has access to'
+                    />
+                    <div style={{
+                        display: 'flex',
+                    }}>
+                        {
+                            ['desert', 'mountains', 'plains'].map(
+                                biome => <BiomeIcon key={biome} biome={biome} />
+                            )
+                        }
                     </div>
                 </div>
                 <ResourcesMatrix />
