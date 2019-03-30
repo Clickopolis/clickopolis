@@ -11,6 +11,8 @@ const defaults:Map<string, Resource> = new Map([
         description: `Don't milk these beautiful creatures too hard, now`,
         category: ResourceCategory.health,
         healthBonus: 0.5,
+        visible: true,
+        unlocked: true,
     }],
     ['fish', {
         name: 'fish',
@@ -21,6 +23,8 @@ const defaults:Map<string, Resource> = new Map([
         description: 'Teach a civ to fish, keep them healthy for a lifetime.',
         category: ResourceCategory.health,
         healthBonus: 0.5,
+        visible: true,
+        unlocked: true,
     }],
     ['banana', {
         name: 'banana',
@@ -31,6 +35,8 @@ const defaults:Map<string, Resource> = new Map([
         description: 'A fruit filled with potassium and innuendo',
         category: ResourceCategory.health,
         healthBonus: 0.5,
+        visible: true,
+        unlocked: false,
     }],
     ['wood', {
         name: 'wood',
@@ -40,6 +46,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: 'Woo! Wood provides wood. Woohoo!',
         category: ResourceCategory.building,
+        visible: true,
+        unlocked: true,
     }],
     ['horses', {
         name: 'horses',
@@ -49,6 +57,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: 'Giddy up, pony. An important resource for military leaders.',
         category: ResourceCategory.strategic,
+        visible: true,
+        unlocked: true,
     }],
     ['oil', {
         name: 'oil',
@@ -58,7 +68,9 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: 'Carry through cars, bombers jets, and plastic bags into the new era.',
         category: ResourceCategory.strategic,
-        pollutionBonus: 1
+        pollutionBonus: 1,
+        visible: false,
+        unlocked: false,
     }],
     ['spices', {
         name: 'spices',
@@ -68,6 +80,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: 'Probably not a good idea to snort.',
         category: ResourceCategory.luxury,
+        visible: true,
+        unlocked: true,
     }],
     ['gold', {
         name: 'gold',
@@ -77,6 +91,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: `Clickopolis's most yearned after metal`,
         category: ResourceCategory.luxury,
+        visible: true,
+        unlocked: true,
     }],
     ['silver', {
         name: 'silver',
@@ -86,6 +102,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: `Gold's nerdy cousin`,
         category: ResourceCategory.luxury,
+        visible: true,
+        unlocked: true,
     }],
     ['gems', {
         name: 'gems',
@@ -95,6 +113,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: `Not all that glitters is gold`,
         category: ResourceCategory.luxury,
+        visible: true,
+        unlocked: true,
     }],
     ['spaghetti', {
         name: 'spaghetti',
@@ -104,6 +124,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: `WHO TOUCHED MY SPAHGET!?`,
         category: ResourceCategory.power,
+        visible: false,
+        unlocked: false,
     }],
     ['chihuahuas', {
         name: 'chihuahuas',
@@ -113,6 +135,8 @@ const defaults:Map<string, Resource> = new Map([
         perClick: null,
         description: `Pint-sized dog with full-sized sass`,
         category: ResourceCategory.power,
+        visible: false,
+        unlocked: true,
     }]
 ]);
 

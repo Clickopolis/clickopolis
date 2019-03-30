@@ -52,14 +52,24 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
     }
 
     renderResourceRow(resources:Resource[]) {
-        return resources.map((r, k) => <Indicator
-            key={k}
-            value={r.total}
-            icon={`./images/${r.name}.svg`}
-            description={r.description}
-            onClick={(_:any) => this.setState({ info: r })}
-            className='resources-matrix-item'
-        />);
+        return resources.map((r, k) => {
+            const vis = r.visible ? {display: 'flex'} : {display: 'none'}
+            const lock = r.unlocked ? {opacity: '1'} : {opacity: '0.5'}
+        
+            return <Indicator
+                    key={k}
+                    value={r.total}
+                    icon={`./images/${r.name}.svg`}
+                    description={r.description}
+                    onClick={(_:any) => this.setState({ info: r })}
+                    className='resources-matrix-item'
+                    style={{
+                        ...vis,
+                        ...lock,
+                    }}
+                />
+            }
+        );
     }
 
     renderInfo = (resource:Resource) => {
