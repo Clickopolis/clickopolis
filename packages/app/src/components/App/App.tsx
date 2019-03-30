@@ -16,7 +16,8 @@ import {
     resumeGame,
     updateCivilization,
     gainCash,
-    addNotification
+    addNotification,
+    addResource
 } from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
@@ -44,6 +45,7 @@ export interface AppProps {
     gainCash: gainCash;
     addNotification: addNotification;
     notifications: Note[];
+    addResource: addResource;
     ac: number;
     cashPerMin: number;
 }
@@ -104,6 +106,7 @@ export class AppBase extends React.Component<AppProps> {
                 </div>,
                 id: `${rand()}`,
             })
+            this.props.addResource('cattle', 1)
         }
     }
 
@@ -191,5 +194,6 @@ export const App = connect(
         updateCivilization,
         addNotification,
         gainCash,
+        addResource,
     }
 )(AppBase);

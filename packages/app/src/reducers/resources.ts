@@ -1,5 +1,5 @@
 import { Resource, ResourceCategory } from '@clickopolis/core';
-import { Action  } from '../actions';
+import { Action, ADD_RESOURCE  } from '../actions';
 
 const defaults:Map<string, Resource> = new Map([
     ['cattle', {
@@ -140,10 +140,13 @@ const defaults:Map<string, Resource> = new Map([
     }]
 ]);
 
-export function cattle(state = defaults.get('cattle'), action: Action<any>) {
+export function cattle(state = defaults.get('cattle'), action: Action<ADD_RESOURCE>) {
     switch (action.type) {
-        case '_':
-            return state;
+        case ADD_RESOURCE:
+            return {
+                ...state,
+                total: action.name === 'cattle' ? state + action.amount : state.total,
+            }
         default:
             return state;
     }

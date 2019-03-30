@@ -5,7 +5,8 @@
     "build": "lerna run --parallel  build",
     "docs": "node ./scripts/write-docs.js",
     "preinstall": "bash preinstall.sh",
-    "start:app": "cd packages/app && npm start"
+    "start:app": "cd packages/app && npm start",
+    "bootstrap": "lerna bootstrap --hoist"
   },
   "devDependencies": {
     "lerna": "^3.13.1"

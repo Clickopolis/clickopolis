@@ -3,7 +3,7 @@
 if [[ -z "${CIRCLECI}" ]]; then
     npm i -g ts-node lerna webpack@3 webpack-cli@3 &&\
     lerna init &&\
-     lerna bootstrap &&\
+     npm run bootstrap &&\
       cd ./packages/roadmap &&\
        mkdir ./dist &&\
         touch ./dist/index.html
