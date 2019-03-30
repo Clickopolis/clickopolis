@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { Indicator } from '@clickopolis/core';
+import { colors } from 'utils';
 
 const biomeIconStyle = {
+    background: colors.get('biomes'),
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '3rem',
+    height: '2.5rem',
     margin: '.25rem',
     padding: '.25rem',
 }
@@ -22,9 +24,8 @@ export class BiomeIcon extends React.Component<BiomeIconProps> {
         return <Indicator
             style={{
                 ...biomeIconStyle,
-                background: 'white',
             }}
-            iconHeight='2.5rem'
+            iconHeight='2.3rem'
             icon={`./images/${biome}.svg`}
             description='Description for biome'
         />

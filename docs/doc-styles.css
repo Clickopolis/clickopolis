@@ -32,4 +32,11 @@ a:hover {
 
 section {
     padding: 1rem;
+    max-width: 60rem;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+ul {
+    list-style-type: none;
 }

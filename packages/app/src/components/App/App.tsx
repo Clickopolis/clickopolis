@@ -8,7 +8,16 @@ import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
 import { CivilizationScreen } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
-import { growFood, consumeFood, createProduction, pauseGame, resumeGame, updateCivilization, gainCash } from 'actions';
+import {
+    growFood,
+    consumeFood,
+    createProduction,
+    pauseGame,
+    resumeGame,
+    updateCivilization,
+    gainCash,
+    addNotification
+} from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
@@ -33,6 +42,7 @@ export interface AppProps {
     pauseGame: pauseGame;
     resumeGame: resumeGame;
     gainCash: gainCash;
+    addNotification: addNotification;
     notifications: Note[];
     ac: number;
     cashPerMin: number;
@@ -67,16 +77,29 @@ export class AppBase extends React.Component<AppProps> {
     minuteTimer = () => {
         if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
             this.props.updateCivilization('ac', this.props.ac + 1);
-            this.props.gainCash(this.props.cashPerMin)
+            this.props.gainCash(this.props.cashPerMin || 0)
+            this.rollForEvent()
             console.log('%c 1m Timer set off.', 'color: #8924a1');
         }
-    } 
+    }
 
     timer = () => {
         if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
             this.props.growFood(visibilityTransformer(this.props.food.perSecond));
             this.props.createProduction(visibilityTransformer(this.props.production.perSecond));
             console.log('%c 1s Timer set off.', 'color: #8942f4');
+        }
+    }
+
+    private rollForEvent() {
+        const rand = () => Math.floor(Math.random() * 10)
+        // 5%
+        // TODO: add Event likelihood modifiers
+        if (rand() === 5) {
+            this.props.addNotification({
+                content: 'An event happened!',
+                id: `${rand()}`,
+            })
         }
     }
 
@@ -162,6 +185,7 @@ export const App = connect(
         pauseGame,
         resumeGame,
         updateCivilization,
+        addNotification,
         gainCash,
     }
 )(AppBase);

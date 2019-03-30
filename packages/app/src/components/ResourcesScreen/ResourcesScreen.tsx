@@ -23,8 +23,8 @@ const indicatorStyle = {
 
 const biomeStyle = {
     ...indicatorStyle,
+    background: colors.get('biomes'),
     height: '3rem',
-    color: 'white',
 }
 
 export interface ResourcesScreenProps {
@@ -253,20 +253,22 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={production.max}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
-                            style={biomeStyle}
+                            style={indicatorStyle}
                             label='max'
                             description='Use your clicks to amass corn!'
                         />
                     </div>
                 </div>
-                <div className='resources-main-buttons-row biomes-row' style={{ display: 'flex' }}>
+                <div className='resources-main-buttons-row biomes-row' style={{ display: 'flex', alignItems: 'center', }}>
                     <Indicator
                         value={'Biomes'}
-                        style={indicatorStyle}
+                        style={biomeStyle}
                         description='The types of ecosystems your civlization has access to'
                     />
                     <div style={{
                         display: 'flex',
+                        alignItems: 'center',
+                        flexWrap: 'wrap',
                     }}>
                         {
                             ['desert', 'mountains', 'plains'].map(
