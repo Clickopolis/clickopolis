@@ -9,7 +9,10 @@ export function notifications(state: Notification[] = [], action: Action<ADD_NOT
     switch (action.type) {
         case ADD_NOTIFICATION:
             return [
-                action.notification,
+                {
+                    content: action.content,
+                    id: action.id,
+                },
                 ...state
             ];
         case REMOVE_NOTIFICATION:

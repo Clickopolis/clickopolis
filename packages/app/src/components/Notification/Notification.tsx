@@ -16,6 +16,7 @@ export interface NotificationProps {
     type?: NotificationType;
     requireUserCancellation?: boolean;
     content: React.ReactNode;
+    id?: string;
     posId?: number;
     key: string;
     removeNotification: removeNotification;
@@ -25,11 +26,11 @@ export interface NotificationProps {
 export class NotificationBase extends React.Component<NotificationProps> {
     public intervalId: any;
     public static defaultProps = {
-        timeout: 2000,
+        timeout: 10000,
     }
 
     public componentWillMount() {
-        this.intervalId = setTimeout(this.disappear, 1000);
+        this.intervalId = setTimeout(this.disappear, this.props.timeout);
     }
 
     public componentWillUnmount() {
@@ -38,8 +39,9 @@ export class NotificationBase extends React.Component<NotificationProps> {
 
     public render() {
         const {content, posId} = this.props;
+        console.log(posId)
         const style  = {
-            top: `calc(3.5rem + (10rem * (${posId} + 1))`,
+            top: `calc(3.5rem + (10rem * (${posId}))`,
             right: '1rem'
         };
 
@@ -51,7 +53,7 @@ export class NotificationBase extends React.Component<NotificationProps> {
 
     private disappear = () => {
         this.props.onClose && this.props.onClose();
-        this.props.removeNotification(this.props.key)
+        this.props.removeNotification(this.props.id.toString())
     }
 
 }

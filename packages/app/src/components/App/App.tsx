@@ -95,9 +95,13 @@ export class AppBase extends React.Component<AppProps> {
         const rand = () => Math.floor(Math.random() * 10)
         // 5%
         // TODO: add Event likelihood modifiers
-        if (rand() === 5) {
+        if (rand() < 11) {
             this.props.addNotification({
-                content: 'An event happened!',
+                content: <div>
+                    One of your farmers has domesticated a cow. Say hi to bessy!
+                    <br />
+                    +1 <img height='1.5rem' src='./images/cattle.svg' />
+                </div>,
                 id: `${rand()}`,
             })
         }
@@ -136,7 +140,7 @@ export class AppBase extends React.Component<AppProps> {
                     {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
                 </div>
                 {this.props.notifications.map((note: Note, idx: number) => (
-                    <Notification key={note.id} posId={idx} content={note.content} />
+                    note && note.id && Boolean(note.content) && <Notification key={note.id} id={note.id} posId={idx} content={note.content} />
                 ))}
                 <div id='app' className={`clickopolis-app ${timeStatus === TimeStatus.Paused && 'paused'}`}>
                     { HAS_STARTED_GAME ? <Menu /> : null }

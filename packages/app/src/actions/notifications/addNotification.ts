@@ -8,6 +8,6 @@ export type addNotification = (n: Note) => Action<ADD_NOTIFICATION>;
 export function addNotification (n: Note) {
     return {
         type: ADD_NOTIFICATION,
-        n,
+        ...n,
     };
 }
