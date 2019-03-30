@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/app",
-  "version": "0.10.2",
+  "version": "0.11.0",
   "description": "the webapp for clickopolis",
   "main": "dist/index.js",
   "scripts": {

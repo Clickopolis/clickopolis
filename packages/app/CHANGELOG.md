@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.11.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.2...@clickopolis/app@0.11.0) (2019-03-30)
+
+
+### Bug Fixes
+
+* Notifications work now ([d3ef4d1](https://github.com/Clickopolis/clickopolis/commit/d3ef4d1))
+* Resources now have visibile and unlocked statuses ([de5999e](https://github.com/Clickopolis/clickopolis/commit/de5999e))
+* update biomeIcon, update types for things ([442b29e](https://github.com/Clickopolis/clickopolis/commit/442b29e))
+
+
+### Features
+
+* add  component ([19d52fb](https://github.com/Clickopolis/clickopolis/commit/19d52fb))
+
+
+
+
+
 ## [0.10.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.1...@clickopolis/app@0.10.2) (2019-03-29)
 
 **Note:** Version bump only for package @clickopolis/app
