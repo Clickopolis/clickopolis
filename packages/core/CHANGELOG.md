@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.0...@clickopolis/core@0.11.1) (2019-03-31)
+
+
+### Bug Fixes
+
+* add  as CitizenType ([847ab8b](https://github.com/Clickopolis/clickopolis/commit/847ab8b))
+
+
+
+
+
 # [0.11.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.10.0...@clickopolis/core@0.11.0) (2019-03-29)
 
 

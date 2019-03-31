@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.11.0...@clickopolis/app@0.12.0) (2019-03-31)
+
+
+### Bug Fixes
+
+* update depencies to fix build ([673a027](https://github.com/Clickopolis/clickopolis/commit/673a027))
+
+
+### Features
+
+* add Soldier to citizens list ([a8fe05b](https://github.com/Clickopolis/clickopolis/commit/a8fe05b))
+
+
+
+
+
 # [0.11.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.2...@clickopolis/app@0.11.0) (2019-03-30)
 
 
