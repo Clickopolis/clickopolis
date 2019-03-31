@@ -83,7 +83,8 @@ export type CitizenType = 'farmer'
                         | 'merchant'
                         | 'cleric'
                         | 'artist'
-                        | 'ruler';
+                        | 'ruler'
+                        | 'soldier';
 
 export interface Civilization {
     civName: string;
