@@ -23,7 +23,7 @@ export const citizens = new Map<CitizenType, Citizen>([
         name: 'soldier',
         contribution: [],
         amount: 0,
-        description: `Soldiers: The backbone of your military enterprise.`
+        description: `Soldiers form your military enterprise.`
     }],
     ['miner', {
         name: 'miner',

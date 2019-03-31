@@ -5,7 +5,8 @@ import { routerReducer } from 'react-router-redux';
 import {
     ruler,
     farmer,
-    miner
+    miner,
+    soldier,
 } from './citizens';
 import { civilization } from './civilization';
 import { era } from './era';
@@ -50,6 +51,7 @@ export const reducers = {
     production,
     ruler,
     silver,
+    soldier,
     spaghetti,
     spices,
     timeStatus,

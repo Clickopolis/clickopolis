@@ -33,3 +33,15 @@ export function miner(state = defaults.get('miner'), action: Action<ADD_CITIZEN 
             return state;
     }
 }
+
+export function soldier(state = defaults.get('soldier'), action: Action<ADD_CITIZEN | REMOVE_CITIZEN>) {
+    const amount = parseInt(action.amount)
+    switch (action.type) {
+        case 'ADD_CITIZEN':
+            return action.citizen === 'soldier' ? { ...state, amount: state.amount + amount } : state;
+        case 'REMOVE_CITIZEN':
+            return action.citizen === 'soldier' ? { ...state, amount: Math.max(state.amount + (-amount), 0) } : state;
+        default:
+            return state;
+    }
+}

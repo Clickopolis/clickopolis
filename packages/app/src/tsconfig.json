@@ -2,15 +2,17 @@
     "extends": "../../../config/tsconfig.base",
     "compilerOptions": {
         "outDir": "../dist",
-        "module": "esnext",
         "lib": [
+            "es2015.generator",
+            "es2015",
             "es2017",
             "dom",
             "dom.iterable",
             "esnext.asynciterable",
             "esnext",
         ],
-        "target": "es5",
+        "target": "es6",
+        "module": "commonjs",
         "importHelpers": true,
         "noEmitHelpers": true,
         "baseUrl": "."

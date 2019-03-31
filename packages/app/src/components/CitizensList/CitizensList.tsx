@@ -111,6 +111,7 @@ export const CitizensList:any = connect(
             state.ruler,
             state.farmer,
             state.miner,
+            state.soldier,
         ],
         civilization: state.civilization
     }),
