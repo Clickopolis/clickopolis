@@ -10,7 +10,7 @@ if [[ -z "${CIRCLECI}" ]]; then
 else
     sudo npm i -g ts-node lerna webpack@3 webpack-cli@3 &&\
     sudo lerna init &&\
-     lerna bootstrap &&\
+     npm run bootstrap &&\
       cd ./packages/roadmap &&\
        sudo mkdir ./dist &&\
         sudo touch ./dist/index.html
