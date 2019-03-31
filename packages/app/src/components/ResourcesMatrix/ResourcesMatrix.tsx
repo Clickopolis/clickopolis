@@ -167,6 +167,8 @@ export const ResourcesMatrix = connect(
         fish: state.fish,
         banana: state.banana,
         wood: state.wood,
+        stone: state.stone,
+        marble: state.marble,
         horses: state.horses,
         oil: state.oil,
         spices: state.spices,

@@ -25,6 +25,7 @@ import {
     spices,
     gold,
     silver,
+    marble,
     gems,
     spaghetti,
     chihuahuas
@@ -45,6 +46,7 @@ export const reducers = {
     gold,
     horses,
     leader,
+    marble,
     miner,
     notifications,
     oil,
