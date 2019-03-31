@@ -6,7 +6,8 @@
         "lib": [
             "es2017",
             "dom",
-            "dom.iterable"
+            "dom.iterable",
+            "esnext.asynciterable"
         ],
         "target": "es5",
         "importHelpers": true,
