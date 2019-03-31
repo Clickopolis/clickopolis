@@ -1,13 +1,6 @@
-import { Citizen } from '@clickopolis/core'
+import { Citizen, CitizenType } from '@clickopolis/core'
 
-export type CitizenTypes = 'ruler' |
-                           'farmer' |
-                           'miner' |
-                           'cleric' |
-                           'artist'
-;
-
-export const citizens = new Map<CitizenTypes, Citizen>([
+export const citizens = new Map<CitizenType, Citizen>([
     ['ruler', {
         name: 'ruler',
         amount: 1,
@@ -26,6 +19,12 @@ export const citizens = new Map<CitizenTypes, Citizen>([
         amount: 0,
         description: `The humble farmer, a backbone of your society.`
     }],
+    ['soldier', {
+        name: 'soldier',
+        contribution: [],
+        amount: 0,
+        description: `Soldiers: The backbone of your military enterprise.`
+    }],
     ['miner', {
         name: 'miner',
         contribution: [
@@ -37,6 +36,6 @@ export const citizens = new Map<CitizenTypes, Citizen>([
             }
         ],
         amount: 0,
-        description: `Your earliest source of industry & luxury.`
+        description: `Miners are your earliest source of industry & luxury.`
     }]
 ]);
