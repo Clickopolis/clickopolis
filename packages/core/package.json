@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && npm run dist",
+    "build": "npm i webpack && rm -rf ./dist && npm run dist",
     "dist": "NODE_ENV=production webpack",
     "test": "exit 0",
     "prepublish": "npm run build"
