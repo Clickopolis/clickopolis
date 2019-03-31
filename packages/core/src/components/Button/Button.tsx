@@ -31,6 +31,16 @@ export class Button extends React.PureComponent<ButtonProps> {
             style,
             children,
         } = this.props;
+
+        const iconStyles = {
+            base: {
+                height: iconHeight || '2rem',
+            },
+            marginRight: {
+                marginRight: '4px',
+            }
+        }
+
         return <button
                     id={id}
                     onClick={onClick}
@@ -38,9 +48,9 @@ export class Button extends React.PureComponent<ButtonProps> {
                     disabled={disabled}
                     style={style}
                 >
-                    {icon && <img src={ icon } style={{
-                        height: iconHeight || '2rem'
-                    }} />}
+                    {icon && <img src={ icon } style={
+                        Object.assign(iconStyles.base, value ? iconStyles.marginRight : {})
+                    } />}
                     {value && <span className='clickopolis-button-value'>{ value }</span>}
                     {children}
                 </button>;
