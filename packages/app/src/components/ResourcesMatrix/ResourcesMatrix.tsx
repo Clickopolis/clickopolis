@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
-// @ts-ignore: importing core
 import { Indicator, Resource } from '@clickopolis/core';
 
 import './ResourcesMatrix.scss';
@@ -33,20 +31,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
             }, {});
         };
 
-        const resources:Resource[] = [
-            props.cattle,
-            props.fish,
-            props.banana,
-            props.wood,
-            props.horses,
-            props.oil,
-            props.spices,
-            props.gold,
-            props.silver,
-            props.gems,
-            props.spaghetti,
-            props.chihuahuas,
-        ];
+        const resources:Resource[] = Object.values(props)
 
         return group(resources.sort(sort(this)), 'category');
     }
@@ -86,7 +71,11 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                         { resource.description }
                         { resource.healthBonus ? <div>
                             <img style={{ height: '1rem' }} src='./images/health.svg' />
-                            &nbsp;+{resource.healthBonus} per {resource.name}, {resource.healthBonus * resource.total} total
+                            &nbsp;+{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total
+                        </div> : null }
+                        { resource.faithBonus ? <div>
+                            <img style={{ height: '1rem' }} src='./images/faith.svg' />
+                            &nbsp;+{resource.faithBonus} per {resource.name}, {(resource.faithBonus * resource.total).toFixed(0)} total
                         </div> : null }
                     </div>
                 </div>
@@ -164,14 +153,18 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
 export const ResourcesMatrix = connect(
     (state:any) => ({
         cattle: state.cattle,
+        crabs: state.crabs,
         fish: state.fish,
+        mushrooms: state.mushrooms,
         banana: state.banana,
+        wine: state.wine,
         wood: state.wood,
         stone: state.stone,
         marble: state.marble,
         horses: state.horses,
         oil: state.oil,
         spices: state.spices,
+        tobacco: state.tobacco,
         gold: state.gold,
         silver: state.silver,
         gems: state.gems,

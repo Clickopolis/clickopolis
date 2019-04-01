@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Indicator, Civilization } from '@clickopolis/core';
+import { Screen, Indicator, Civilization, Resource } from '@clickopolis/core';
 import { PopulationButton } from '../PopulationButton';
 import { colors } from 'utils';
 
@@ -14,6 +14,7 @@ const indicatorStyle = {
 export interface CivilizationScreenProps {
     civilization?: Civilization;
     growPopulation?: Function;
+    cattle?: Resource;
 }
 
 export interface CivilizationScreenState {
@@ -34,10 +35,6 @@ export const calculateHappiness = (civ: Civilization) => {
 
 export const calculateAnger = (civ: Civilization) => {
     return ((civ.anger.fromPopulation || 0) + (civ.anger.fromWar || 0) * (civ.anger.multiplier || 1))
-}
-
-export const calculateHealth = (civ: Civilization) => {
-    return ((civ.health.base) + (civ.health.fromResources || 0) + (civ.health.fromBuildings || 0) * (civ.health.multiplier || 1))
 }
 
 export const calculatePollution = (civ: Civilization) => {
@@ -80,7 +77,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         onClick={this.onClick('anger')}
                     />
                     <Indicator
-                        value={calculateHealth(this.props.civilization)}
+                        value={this.calculateHealth(this.props.civilization)}
                         positiveColor='white'
                         neutralColor='white'
                         icon={'./images/health.svg'}
@@ -157,6 +154,18 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
         );
     }
 
+    private calculateHealth = (civ: Civilization) => {
+        const {cattle} = this.props
+    
+        return (
+            (civ.health.base) + 
+            (civ.health.fromResources || 0) + 
+            ((cattle.healthBonus * cattle.total) || 0) +
+            (civ.health.fromBuildings || 0) * 
+            (civ.health.multiplier || 1)
+        )
+    }
+
     private onClick = (selectedIndicator: string) => () => {
         this.setState({
             selectedIndicator,
@@ -179,6 +188,11 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
 }
 
 export const CivilizationScreen = connect(
-    (state:any) => ({ civilization: state.civilization }),
+    (state:any) => ({
+        civilization: state.civilization,
+        cattle: state.cattle,
+        banana: state.banana,
+        fish: state.fish,
+    }),
     null
 )(CivilizationScreenBase as any);

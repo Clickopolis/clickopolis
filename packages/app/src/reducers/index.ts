@@ -17,6 +17,7 @@ import { production } from './production';
 import { timeStatus } from './timeStatus';
 import {
     cattle,
+    crabs,
     fish,
     banana,
     wood,
@@ -24,9 +25,13 @@ import {
     oil,
     spices,
     gold,
+    wine,
+    mushrooms,
     silver,
+    stone,
     marble,
     gems,
+    tobacco,
     spaghetti,
     chihuahuas
 } from './resources';
@@ -37,6 +42,7 @@ export const reducers = {
     cattle,
     chihuahuas,
     civilization,
+    crabs,
     era,
     farmer,
     fish,
@@ -48,15 +54,19 @@ export const reducers = {
     leader,
     marble,
     miner,
+    mushrooms,
     notifications,
     oil,
     production,
     ruler,
     silver,
+    stone,
     soldier,
     spaghetti,
     spices,
     timeStatus,
+    tobacco,
+    wine,
     wood,
     router: routerReducer
 };

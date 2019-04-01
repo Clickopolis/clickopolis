@@ -284,7 +284,10 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 }
 
 export const ResourcesScreen = connect(
-    (state:any) => ({ food: state.food, production: state.production }),
+    (state:any) => ({
+        food: state.food,
+        production: state.production,
+    }),
     {
         growFood,
         createProduction

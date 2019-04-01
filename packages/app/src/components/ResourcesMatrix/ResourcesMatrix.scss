@@ -10,6 +10,7 @@
 .resources-matrix-row {
     align-items: flex-end;
     display: flex;
+    flex-wrap: wrap;
     & > div {
         margin: .25rem;
     }
@@ -43,6 +44,9 @@
     height: 3rem;
     justify-content: center;
     width: 7rem;
+    &:nth-of-type(5n) {
+        margin-right: 8.5rem;
+    }
 }
 
 .resource-info {

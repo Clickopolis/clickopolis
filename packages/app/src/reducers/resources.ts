@@ -6,7 +6,7 @@ export function cattle(state = defaults.get('cattle'), action: Action<ADD_RESOUR
         case ADD_RESOURCE:
             return {
                 ...state,
-                total: action.name === 'cattle' ? state + action.amount : state.total,
+                total: action.name === 'cattle' ? state.total + action.amount : state.total,
             }
         default:
             return state;
@@ -40,18 +40,27 @@ export function wood(state = defaults.get('wood'), action: Action<any>) {
     }
 }
 
-export function stone(state = defaults.get('stone'), action: Action<any>) {
-    switch (action.type) {
-        case '_':
-            return state;
-        default:
-            return state;
-    }
+export function stone(state = defaults.get('stone')) {
+    return state;
 }
 
 export function marble(state = defaults.get('marble')) {
     return state;
 }
+
+export function mushrooms(state = defaults.get('mushrooms')) {
+    return state;
+}
+
+export function crabs(state = defaults.get('crabs')) {
+    return state;
+}
+
+export function tobacco(state = defaults.get('tobacco')) {
+    return state;
+}
+
+
 
 export function horses(state = defaults.get('horses'), action: Action<any>) {
     switch (action.type) {
@@ -60,6 +69,10 @@ export function horses(state = defaults.get('horses'), action: Action<any>) {
         default:
             return state;
     }
+}
+
+export function wine(state = defaults.get('wine')) {
+    return state;
 }
 
 export function oil(state = defaults.get('oil'), action: Action<any>) {
