@@ -8,6 +8,7 @@ import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
 import { CivilizationScreen } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
+import { AdvancementScreen } from 'components/AdvancementScreen';
 import {
     growFood,
     consumeFood,
@@ -28,7 +29,7 @@ import { TimeStatus } from 'utils';
 import { PositionProperty } from 'csstype';
 import { LegacyScreen } from 'components/LegacyScreen';
 
-const NUM_OF_COMPONENTS = 6;
+const NUM_OF_COMPONENTS = 7;
 
 export interface AppProps {
     growFood: growFood;
@@ -160,6 +161,7 @@ export class AppBase extends React.Component<AppProps> {
                                 <ResourcesScreen />
                                 <CivilizationScreen />
                                 <CitizensScreen />
+                                <AdvancementScreen />
                                 <EconomyScreen />
                                 <LegacyScreen />
                                 <SettingsScreen />
