@@ -68,7 +68,9 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                         <img src={`./images/${resource.name}.svg`} />
                     </div>
                     <div className='info-description'>
-                        { resource.description }
+                        <div style={{ marginBottom: '1rem' }}>
+                            { resource.description }
+                        </div>
                         { resource.healthBonus ? <div>
                             <img style={{ height: '1rem' }} src='./images/health.svg' />
                             &nbsp;+{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total

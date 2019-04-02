@@ -1,10 +1,12 @@
 import * as React from 'react';
-import { Screen, Era } from '@clickopolis/core';
+import { Screen, Era, Button } from '@clickopolis/core';
 import { connect } from 'react-redux';
 
 import { colors } from 'utils';
 
 import { Civilization } from '@clickopolis/core'
+
+import './AdvancementScreen.scss'
 
 export interface AdvancmentScreenProps {
     civilization: Civilization;
@@ -164,6 +166,17 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                 ]
             },
             {
+                name: 'Mysticism',
+                era: Era.Ancient,
+                cost: 20,
+                categories: ['faith'],
+                unlocked: true,
+                results: [
+                    'Can build Temple, Graveyard',
+                    'Can build Stonehedge World Wonder'
+                ]
+            },
+            {
                 name: 'Sailing',
                 era: Era.Ancient,
                 cost: 20,
@@ -207,7 +220,16 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
             <Screen
                 type='Advancements'
                 color={colors.get('advancement')}
+                style={{overflowY: 'auto'}}
             >
+                <div style={{display: 'flex', padding: '.25rem', justifyContent: 'space-around', alignItems: 'center' }}>
+                    <Button style={{background: colors.get('advancement'), border: '1px solid #222', color: '#222', padding: '.25rem', borderRadius: '.25rem'}}>View Tree</Button>
+                    <>
+                        <input className='styled-checkbox' type='checkbox' />
+                        <label style={{color: 'white'}} htmlFor='styled-checkbox-1'>show discovered</label>
+                    </>
+                    <input style={{borderRadius: '.25rem', padding: '.25rem .5rem', border: '1px solid #eee'}} type='search' />
+                </div>
                 {advancements.map(adv => <AdvancementDisplay key={adv.name} {...adv} />)}
             </Screen>
         );

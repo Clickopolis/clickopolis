@@ -1,4 +1,6 @@
 .notification {
+    animation: 750ms appear;
+    animation-iteration-count: 1;
     position: fixed;
     top: 3.5rem;
     right: 1rem;
@@ -14,6 +16,17 @@
     border-radius: .25rem;
     text-align: center;
     z-index: 1001;
+}
+
+@keyframes appear {
+    from {
+        right: -40rem;
+        opacity: 0;
+    }
+    to {
+        right: 1rem;
+        opacity: 1;
+    }
 }
 
 .notification-close {

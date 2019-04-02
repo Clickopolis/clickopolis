@@ -26,7 +26,7 @@ export interface NotificationProps {
 export class NotificationBase extends React.Component<NotificationProps> {
     public intervalId: any;
     public static defaultProps = {
-        timeout: Infinity,
+        timeout: 60000,
     }
 
     public componentWillMount() {
@@ -42,11 +42,10 @@ export class NotificationBase extends React.Component<NotificationProps> {
         console.log(posId)
         const style  = {
             top: `calc(3.5rem + (10rem * (${posId}))`,
-            right: '1rem'
         };
 
         return <div className='notification' style={style}>
-            <div className='notification-close'>×</div>
+            <div onClick={this.disappear} className='notification-close'>×</div>
             {content}
         </div>
     }

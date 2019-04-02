@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-// @ts-ignore: importing core
 import { Resource, Flags, Citizen } from '@clickopolis/core';
 
 import { Menu } from '../Menu';
@@ -28,6 +27,7 @@ import { Notification as Note } from 'reducers/notifications';
 import { TimeStatus } from 'utils';
 import { PositionProperty } from 'csstype';
 import { LegacyScreen } from 'components/LegacyScreen';
+import { Events } from 'components/Events';
 
 const NUM_OF_COMPONENTS = 7;
 
@@ -81,7 +81,6 @@ export class AppBase extends React.Component<AppProps> {
         if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
             this.props.updateCivilization('ac', this.props.ac + 1);
             this.props.gainCash(this.props.cashPerMin || 0)
-            this.rollForEvent()
             console.log('%c 1m Timer set off.', 'color: #8924a1');
         }
     }
@@ -91,23 +90,6 @@ export class AppBase extends React.Component<AppProps> {
             this.props.growFood(visibilityTransformer(this.props.food.perSecond));
             this.props.createProduction(visibilityTransformer(this.props.production.perSecond));
             console.log('%c 1s Timer set off.', 'color: #8942f4');
-        }
-    }
-
-    private rollForEvent() {
-        const rand = () => Math.floor(Math.random() * 10)
-        // 5%
-        // TODO: add Event likelihood modifiers
-        if (rand() < 11) {
-            this.props.addNotification({
-                content: <div>
-                    One of your farmers has domesticated a cow. Say hi to bessy!
-                    <br />
-                    +1 <img height='1.5rem' src='./images/cattle.svg' />
-                </div>,
-                id: `${rand()}`,
-            })
-            this.props.addResource('cattle', 1)
         }
     }
 
@@ -137,9 +119,12 @@ export class AppBase extends React.Component<AppProps> {
             height: '3rem',
             width: '3rem',
         }
+
+        console.log(this.props.notifications)
         
         return (
             <>
+                <Events />
                 <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
                     {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
                 </div>
