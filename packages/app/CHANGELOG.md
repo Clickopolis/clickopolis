@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.12.0...@clickopolis/app@0.13.0) (2019-04-03)
+
+
+### Features
+
+* add more Advancements, fleshout UI ([8e58ae1](https://github.com/Clickopolis/clickopolis/commit/8e58ae1))
+* add Soldier as citizen type in UI ([62b4340](https://github.com/Clickopolis/clickopolis/commit/62b4340))
+* add Stone & Marble as resources ([fb4f9b5](https://github.com/Clickopolis/clickopolis/commit/fb4f9b5))
+* AdvancementScreen and technologies ([457a536](https://github.com/Clickopolis/clickopolis/commit/457a536))
+
+
+
+
+
 # [0.12.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.11.0...@clickopolis/app@0.12.0) (2019-03-31)
 
 

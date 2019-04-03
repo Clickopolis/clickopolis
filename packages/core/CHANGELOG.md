@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.1...@clickopolis/core@0.11.2) (2019-04-03)
+
+
+### Bug Fixes
+
+* add margin to Icon when appropriate ([d4ab3ff](https://github.com/Clickopolis/clickopolis/commit/d4ab3ff))
+
+
+
+
+
 ## [0.11.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.0...@clickopolis/core@0.11.1) (2019-03-31)
 
 
