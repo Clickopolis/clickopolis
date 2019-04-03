@@ -24,9 +24,9 @@
     "access": "public"
   },
   "dependencies": {
-    "@clickopolis/core": "^0.11.2",
-    "@clickopolis/server": "^0.0.12",
-    "@clickopolis/webpack-build-scripts": "^0.1.7",
+    "@clickopolis/core": "*",
+    "@clickopolis/server": "*",
+    "@clickopolis/webpack-build-scripts": "*",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
     "@types/react-redux": "^5.0.20",

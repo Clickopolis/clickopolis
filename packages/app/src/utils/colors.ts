@@ -21,6 +21,6 @@ export const colors: Map<colorKeys, string> = new Map<colorKeys, string>([
     ['legacy', '#d14e2d'],
     ['settings', '#96bbce'],
     ['biomes', '#c3d463'],
-    ['advancement', '#13d1cd'],
+    ['advancement', '#7cdef0'],
     ['advancementPurchased', '#13d14e']
 ]);
