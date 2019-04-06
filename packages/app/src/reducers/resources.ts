@@ -60,7 +60,37 @@ export function tobacco(state = defaults.get('tobacco')) {
     return state;
 }
 
+export function uranium(state = defaults.get('uranium')) {
+    return state;
+}
 
+export function sheep(state = defaults.get('sheep')) {
+    return state;
+}
+
+export function aluminum(state = defaults.get('aluminum')) {
+    return state;
+}
+
+export function copper(state = defaults.get('copper')) {
+    return state;
+}
+
+export function maize(state = defaults.get('maize')) {
+    return state;
+}
+
+export function coral(state = defaults.get('coral')) {
+    return state;
+}
+
+export function urchin(state = defaults.get('urchin')) {
+    return state;
+}
+
+export function fossils(state = defaults.get('fossils')) {
+    return state;
+}
 
 export function horses(state = defaults.get('horses'), action: Action<any>) {
     switch (action.type) {
