@@ -6,10 +6,10 @@ import { Era, colors } from 'utils';
 import { Civilization } from '@clickopolis/core'
 
 import './AdvancementScreen.scss'
-import { advancements } from 'data/advancements';
 
 export interface AdvancmentScreenProps {
     civilization: Civilization;
+    advancements: Advancement[];
 }
 
 export interface Advancement {
@@ -120,7 +120,7 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                     </>
                     <input style={{borderRadius: '.25rem', padding: '.25rem .5rem', border: '1px solid #eee'}} type='search' />
                 </div>
-                {advancements.map(adv => <AdvancementDisplay key={adv.name} {...adv} />)}
+                {this.props.advancements.map(adv => <AdvancementDisplay key={adv.name} {...adv} />)}
             </Screen>
         );
     }
@@ -129,6 +129,7 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
 export const AdvancementScreen: React.ComponentClass<{}> = connect(
     (state: any) => ({
         civilization: state.civilization,
+        advancements: state.advancements,
     }),
     null
 )(AdvancementScreenBase);

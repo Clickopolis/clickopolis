@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { addNotification, addResource } from 'actions';
-import { Flags } from '@clickopolis/core';
+import { Flags, choose } from '@clickopolis/core';
 import { TimeStatus } from 'utils';
 
 interface EventsProps {
@@ -31,7 +31,7 @@ export class EventsBase extends React.Component<EventsProps> {
             if (rand() < 60) {
                 this.props.addNotification({
                     content: <div>
-                        One of your farmers has domesticated a cow. Say hi to bessy!
+                        One of your farmers has domesticated a cow. Say hi to {choose(['Bessy', 'Betty', 'Martha', 'Jumbo', 'Mac', 'Beeferino'])}!
                         <br />
                         +1 <img style={{height: '1.5rem'}} src='./images/cattle.svg' />
                     </div>,

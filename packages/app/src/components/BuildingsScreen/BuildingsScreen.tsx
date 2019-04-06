@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Screen, Indicator, Resource } from '@clickopolis/core';
 import { connect } from 'react-redux';
-import { buildings } from 'data/buildings';
 import { colors, Era } from 'utils';
 
 import { Civilization } from '@clickopolis/core'
 
 export interface BuildingScreenProps {
     civilization: Civilization;
+    buildings: Building[];
     production: Resource;
 }
 
@@ -118,7 +118,7 @@ export class BuildingsScreenBase extends React.Component<BuildingScreenProps> {
                     icon={'./images/production.svg'}
                 />
 
-                {buildings.map(build => <BuildingsDisplay key={build.name} {...build} />)}
+                {this.props.buildings.map(build => <BuildingsDisplay key={build.name} {...build} />)}
             </Screen>
         );
     }
@@ -128,6 +128,7 @@ export const BuildingsScreen: React.ComponentClass<{}> = connect(
     (state: any) => ({
         civilization: state.civilization,
         production: state.production,
+        buildings: state.buildings,
     }),
     null
 )(BuildingsScreenBase);

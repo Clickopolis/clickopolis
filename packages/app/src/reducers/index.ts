@@ -15,6 +15,8 @@ import { food } from './food';
 import { leader } from './leader';
 import { production } from './production';
 import { timeStatus } from './timeStatus';
+import { buildings } from './buildings';
+import { advancements } from './advancements';
 import {
     cattle,
     crabs,
@@ -46,8 +48,10 @@ import {
 import { notifications } from './notifications';
 
 export const reducers = {
+    advancements,
     aluminum,
     banana,
+    buildings,
     cattle,
     chihuahuas,
     civilization,

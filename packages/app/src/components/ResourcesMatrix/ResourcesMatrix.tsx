@@ -33,8 +33,6 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
 
         const resources:Resource[] = Object.values(props)
 
-        console.log(resources)
-
         return group(resources.sort(sort(this)), 'category');
     }
 
