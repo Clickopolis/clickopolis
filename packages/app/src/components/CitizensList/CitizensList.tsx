@@ -7,6 +7,7 @@ import { Citizen, Contribution, Button, abbrNum, Civilization } from '@clickopol
 import { Contribution as CC } from '../Contribution';
 
 import './CitizensList.scss';
+import { colors } from 'utils';
 
 export interface CitizensListProps {
     amount?: number;
@@ -44,6 +45,17 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
         super(props);
     }
 
+    getCitizenColor(name: string) {
+        const map: Record<string, string> = {
+            ruler: '#f15f95',
+            farmer: colors.get('resources'),
+            miner: '#f3cc3f',
+            soldier: '#f33838',
+        }
+
+        return map[name]
+    }
+
     private addCitizen (amount: number, c: Citizen) {
         const fullEmployment = this.props.civilization.population - this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
             return prev + curr;
@@ -62,6 +74,15 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                 citizens: this.props.citizens
             }));
         }
+    }
+
+    private renderCitizensBar() {
+        const {population} = this.props.civilization;
+        const {citizens} = this.props;
+
+        return citizens.map((c: Citizen) => {
+            return <div title={c.name} style={{background: this.getCitizenColor(c.name), height: '1rem', width: `${(c.amount / population) * 100}%`}} ></div>
+        })
     }
 
     private renderCitizens() {
@@ -96,7 +117,9 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     public render() {
         return (
             <div className='citizens-list-wrapper'>
-                <div className='citizens-list-bar'></div>
+                <div className='citizens-list-bar' style={{display: 'flex', margin: '.5rem', borderRadius: '.25rem', overflow: 'hidden'}}>
+                    { this.renderCitizensBar() }
+                </div>
                 <div className='citizens-list'>
                     { this.renderCitizens() }
                 </div>

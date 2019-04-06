@@ -12,12 +12,12 @@ const productionState:Resource = {
 
 export function production(state = productionState, action: Action<CREATE_PRODUCTION | UPDATE_PRODUCTION_PER_SECOND>) {
     switch (action.type) {
-        case 'CREATE_PRODUCTION':
+        case CREATE_PRODUCTION:
             return {
                 ...state,
                 total: state.total >= state.max ? state.total : state.total + action.amount
             };
-        case 'UPDATE_PRODUCTION_PER_SECOND':
+        case UPDATE_PRODUCTION_PER_SECOND:
             return {
                 ...state,
                 perSecond: action.amount

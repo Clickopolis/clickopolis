@@ -42,17 +42,17 @@ export interface ResourcesScreenState {
     [x: string]: XYCoordsWithOpacity[];
 }
 
-const PlusSign = ({ x, y, o, c, perClick, resourceType }: XYCoordsWithOpacity & { perClick: number, resourceType: string }) => <div className='plus-sign' style={{
+const PlusSign = ({ x, y, o, c, perClick }: XYCoordsWithOpacity & { perClick: number, resourceType: string }) => <div className='plus-sign' style={{
     position: 'absolute',
     top: `${y}px`,
     left: `${x}px`,
     display: 'flex',
     alignItems: 'center',
+    transition: '100ms all',
     color: c,
-    textAlign: 'left',
-    width: '90px',
+    textAlign: 'center',
     opacity: o,
-}}><span>+{c === 'gold' ? (perClick * 100).toFixed(2) : perClick.toFixed(2)}</span><img height='12' src={`./images/${resourceType}.svg`} /></div>;
+}}>+{c === 'gold' ? (perClick * 100).toFixed(0) : perClick.toFixed(0)}</div>;
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
     private intervalId: any;
@@ -92,9 +92,9 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                 return null;
             }
             if (timer) {
-                return { ...coords, o: coords.o - 0.05, y: coords.y - 5 };
+                return { ...coords, x: coords.x, o: coords.o - 0.05, y: coords.y - 5 };
             } else {
-                return coords;
+                return { ...coords, x: coords.x };
             }
         }).filter(c => c != null);
     }
@@ -135,7 +135,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
         const element = resourceType === 'food' ? 'food-btn' : 'production-btn';
         const rect = document.getElementById(element).getBoundingClientRect();
 
-        const x = ((rect.left + rect.right) / 2);
+        const baseX = ((rect.left + rect.right) / 2);
+        const x = baseX - Math.floor(Math.random() * 50) + Math.floor(Math.random() * 50)
         const y = rect.top - 24;
 
         const coordString = resourceType === 'food' ? 'growFoodPlusElementCoords' : 'growProdPlusElementCoords';
@@ -158,6 +159,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
             <Screen
                 type='Resources'
                 color={colors.get('resources')}
+                style={{overflowY: 'auto'}}
             >
                 <div className='resources-main-buttons'>
                     <div className='resources-main-buttons-row'>

@@ -110,6 +110,18 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                 population,
                 foodNeededForGrowth: action.foodNeededForGrowth,
                 angerFromPopulation: population,
+                research: {
+                    ...state.research,
+                    total: state.research.total + action.amount,
+                },
+                pollution: {
+                    ...state.pollution,
+                    total: state.pollution.total + action.amount,
+                },
+                cash: {
+                    ...state.cash,
+                    total: state.cash.total + action.amount,
+                }
             };
         case GAIN_CASH:
             return {

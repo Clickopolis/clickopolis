@@ -5,6 +5,7 @@ export type colorKeys = 'citizens' |
                   'economy' |
                   'legacy' |
                   'settings' |
+                  'buildings' |
                   'culture' |
                   'faith'  |
                   'biomes' |
@@ -18,6 +19,7 @@ export const colors: Map<colorKeys, string> = new Map<colorKeys, string>([
     ['production', '#e6d83e'],
     ['resources', '#1edb50'],
     ['economy', '#5ea556'],
+    ['buildings', '#e7ad31'],
     ['legacy', '#d14e2d'],
     ['settings', '#96bbce'],
     ['biomes', '#c3d463'],

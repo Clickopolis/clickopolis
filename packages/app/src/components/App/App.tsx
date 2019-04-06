@@ -23,13 +23,14 @@ import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
 import { SettingsScreen } from 'components/SettingsScreen';
 import { Notification} from 'components/Notification';
+import { BuildingsScreen } from 'components/BuildingsScreen';
 import { Notification as Note } from 'reducers/notifications';
 import { TimeStatus } from 'utils';
 import { PositionProperty } from 'csstype';
 import { LegacyScreen } from 'components/LegacyScreen';
 import { Events } from 'components/Events';
 
-const NUM_OF_COMPONENTS = 7;
+const NUM_OF_COMPONENTS = 8;
 
 export interface AppProps {
     growFood: growFood;
@@ -49,6 +50,7 @@ export interface AppProps {
     addResource: addResource;
     ac: number;
     cashPerMin: number;
+    miners: Citizen;
 }
 
 const visibilityTransformer = (f:number) => {
@@ -86,9 +88,13 @@ export class AppBase extends React.Component<AppProps> {
     }
 
     timer = () => {
-        if (this.props.flags.HAS_STARTED_GAME && this.props.timeStatus === TimeStatus.Playing) {
-            this.props.growFood(visibilityTransformer(this.props.food.perSecond));
-            this.props.createProduction(visibilityTransformer(this.props.production.perSecond));
+        const {miners, flags, createProduction, growFood, food, production, timeStatus} = this.props;
+        const minerProd = miners.contribution.find(c => c.type === 'PS').amount * miners.amount;
+
+        if (flags.HAS_STARTED_GAME && timeStatus === TimeStatus.Playing) {
+            growFood(visibilityTransformer(food.perSecond));
+            createProduction(visibilityTransformer(production.perSecond));
+            createProduction(visibilityTransformer(minerProd))
             console.log('%c 1s Timer set off.', 'color: #8942f4');
         }
     }
@@ -146,6 +152,7 @@ export class AppBase extends React.Component<AppProps> {
                                 <ResourcesScreen />
                                 <CivilizationScreen />
                                 <CitizensScreen />
+                                <BuildingsScreen />
                                 <AdvancementScreen />
                                 <EconomyScreen />
                                 <LegacyScreen />
@@ -171,6 +178,7 @@ export const App = connect(
         notifications: state.notifications,
         ac: state.civilization.ac,
         cashPerMin: state.civilization.cash.perMinute,
+        miner: state.miner,
     }),
     {
         growFood,

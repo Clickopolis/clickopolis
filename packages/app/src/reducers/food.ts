@@ -12,17 +12,17 @@ const foodState:Resource = {
 
 export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD | UPDATE_FOOD_PER_SECOND>) {
     switch (action.type) {
-        case 'GROW_FOOD':
+        case GROW_FOOD:
             return {
                 ...state,
                 total: Math.max((state.total + action.amount) > state.max ? state.max : state.total + action.amount, 0)
             };
-        case 'CONSUME_FOOD':
+        case CONSUME_FOOD:
             return {
                 ...state,
                 total: state.total - action.amount
             };
-        case 'UPDATE_FOOD_PER_SECOND':
+        case UPDATE_FOOD_PER_SECOND:
             return {
                 ...state,
                 perSecond: action.amount
