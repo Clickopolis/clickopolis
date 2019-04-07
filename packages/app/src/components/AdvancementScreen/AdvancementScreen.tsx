@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Screen, Button } from '@clickopolis/core';
+import { Screen, Button, Indicator } from '@clickopolis/core';
 import { connect } from 'react-redux';
 import { Era, colors } from 'utils';
 
 import { Civilization } from '@clickopolis/core'
 
 import './AdvancementScreen.scss'
+import { civilization } from 'reducers/civilization';
+import { CivilizationScreen } from 'components/CivilizationScreen';
 
 export interface AdvancmentScreenProps {
     civilization: Civilization;
@@ -112,6 +114,24 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                 color={colors.get('advancement')}
                 style={{overflowY: 'auto'}}
             >
+                <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+                    <Indicator
+                        value={this.props.civilization.research.total}
+                        positiveColor={colors.get('advancement')}
+                        neutralColor={colors.get('advancement')}
+                        icon='./images/research.svg'
+                        label={'total'}
+                        description={`The total amount of research in your empire.`}
+                    />
+                    <Indicator
+                        label={'per minute'}
+                        value={40}
+                        positiveColor={colors.get('advancement')}
+                        icon='./images/research.svg'
+                        description={`Your total research generated per minute.`}
+                    />
+                </div>
+                <div style={{margin: '.5rem 0', borderBottom: '1px solid #ccc', width: '100%', height: '1px'}} />
                 <div style={{display: 'flex', padding: '.25rem', justifyContent: 'space-around', alignItems: 'center' }}>
                     <Button style={{background: colors.get('advancement'), border: '1px solid #222', color: '#222', padding: '.25rem', borderRadius: '.25rem'}}>View Tree</Button>
                     <>

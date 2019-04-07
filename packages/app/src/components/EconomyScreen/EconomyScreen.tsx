@@ -45,16 +45,32 @@ export class EconomyScreenBase extends React.Component<EconomyScreenProps> {
 
                 <div style={{margin: '1rem'}}>
                     <h3 style={{color: colors.get('economy')}}>Trade Routes</h3>
-                    <table style={{ background: '#666' }}>
+                    <table className='trade-routes'>
                         <thead>
                             <td>Route To...</td>
-                            <td>Bonuses</td>
-                            <td>Minutes</td>
+                            <td><img style={{height: '1rem'}} src='./images/cash.svg' /></td>
+                            <td><img style={{height: '1rem'}} src='./images/research.svg' /></td>
+                            <td><img style={{height: '1rem'}} src='./images/faith.svg' /></td>
+                            <td><img style={{height: '1rem'}} src='./images/culture.svg' /></td>
+                            <td>Duration Per Trip (min)</td>
                         </thead>
                         <tbody>
-                            <td>Azabar</td>
-                            <td>+1 <img style={{height: '1rem'}} src='./images/cash.svg' /></td>
-                            <td>3</td>
+                            <tr>
+                                <td>Azabar</td>
+                                <td>+1</td>
+                                <td>+2</td>
+                                <td>+4</td>
+                                <td>0</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Morosia</td>
+                                <td>0</td>
+                                <td>+2</td>
+                                <td>+200</td>
+                                <td>+2</td>
+                                <td>3</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

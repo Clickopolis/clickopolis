@@ -38,10 +38,13 @@ body,
 
 .screen-header {
     align-content: center;
+    align-items: center;
     display: flex;
     justify-content: center;
+    letter-spacing: 2px;
     padding: 1rem;
     text-align: center;
+    text-transform: uppercase;
     h2 {
         color: white;
         margin: .25rem;

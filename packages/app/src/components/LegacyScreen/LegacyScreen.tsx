@@ -32,7 +32,7 @@ const LegacyIcon = (leg: Legacy) => {
                 position: 'absolute',
                 height: '3rem',
                 width: '3rem',
-                borderRadius: '50%',
+                clipPath: `polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)`,
                 top: '2.5rem',
                 left: '2.5rem',
             }}>
@@ -94,13 +94,6 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
                 color={colors.get('legacy')}
             >
                 <div style={{margin: '1rem', display: 'flex', justifyContent: 'space-between'}}>
-                    {/* <Button icon='./images/legacy.svg' className='legacy-button' value={
-                        <div style={{display: 'flex', alignItems: 'center'}}>
-                            <span style={{margin: '.1rem'}}>Pass On Your Legacy</span>
-                            <span style={{background: colors.get('legacy'), color: 'white', fontSize: '1rem', padding: '.25rem', textAlign: 'center'}}>Earn 420 Points</span>
-                        </div>
-                    } /> */}
-
                     <div
                         style={{
                             border: `1px solid ${colors.get('legacy')}`,

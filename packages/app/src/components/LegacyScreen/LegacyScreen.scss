@@ -3,25 +3,3 @@ $legacyColor: #444;
 .legacy-item:hover .legacy-level {
     display: flex !important;
 }
-
-.legacy-button {
-    background: $legacyColor;
-    box-shadow: 0 0 4px rgba(white, 0.33);
-    color: white;
-    text-align: center;
-    width: 500px;
-    margin: .5rem auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 4px;
-
-    img {
-        padding: 2px;
-    }
-
-    &:hover {
-        box-shadow: 0 0 8px rgba(white, 0.85);
-        transition: 250ms box-shadow;
-    }
-}

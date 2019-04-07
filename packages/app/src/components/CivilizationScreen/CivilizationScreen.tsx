@@ -102,8 +102,9 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 }}>
                     <Indicator
                         value={this.props.civilization.cash.total}
-                        positiveColor='goldenrold'
-                        neutralColor='goldenrod'
+                        positiveColor={colors.get('economy')}
+                        neutralColor={colors.get('economy')}
+                        negativeColor={colors.get('economy')}
                         icon={'./images/cash.svg'}
                         description={`The total cash in your empire`}
                         style={indicatorStyle}
