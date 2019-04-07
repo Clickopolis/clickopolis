@@ -35,12 +35,29 @@ export class EconomyScreenBase extends React.Component<EconomyScreenProps> {
                 <Indicator
                     value={this.props.civilization.cash.total}
                     style={totalCashStyle}
-                    positiveColor='goldenrold'
-                    neutralColor='goldenrod'
+                    positiveColor={colors.get('economy')}
+                    neutralColor={colors.get('economy')}
+                    negativeColor={colors.get('economy')}
                     iconHeight={'1.4rem'}
                     icon={'./images/cash.svg'}
                     description={`The total cash in your empire`}
                 />
+
+                <div style={{margin: '1rem'}}>
+                    <h3 style={{color: colors.get('economy')}}>Trade Routes</h3>
+                    <table style={{ background: '#666' }}>
+                        <thead>
+                            <td>Route To...</td>
+                            <td>Bonuses</td>
+                            <td>Minutes</td>
+                        </thead>
+                        <tbody>
+                            <td>Azabar</td>
+                            <td>+1 <img style={{height: '1rem'}} src='./images/cash.svg' /></td>
+                            <td>3</td>
+                        </tbody>
+                    </table>
+                </div>
             </Screen>
         );
     }
