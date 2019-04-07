@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.13.0...@clickopolis/app@0.14.0) (2019-04-07)
+
+
+### Bug Fixes
+
+* add webpack-dev-middleware to [@app](https://github.com/app) ([2273077](https://github.com/Clickopolis/clickopolis/commit/2273077))
+* update Adv color, add dep ([2dad235](https://github.com/Clickopolis/clickopolis/commit/2dad235))
+* wire things into redux ([bcd929b](https://github.com/Clickopolis/clickopolis/commit/bcd929b))
+
+
+### Features
+
+* add in Legacy UI ([e63701c](https://github.com/Clickopolis/clickopolis/commit/e63701c))
+* add New Resources ([4372897](https://github.com/Clickopolis/clickopolis/commit/4372897))
+* Advancements & Buildings ([0590169](https://github.com/Clickopolis/clickopolis/commit/0590169))
+
+
+
+
+
 # [0.13.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.12.0...@clickopolis/app@0.13.0) (2019-04-03)
 
 

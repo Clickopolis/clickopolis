@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/app",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "the webapp for clickopolis",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
     "access": "public"
   },
   "dependencies": {
-    "@clickopolis/core": "*",
+    "@clickopolis/core": "^0.11.3",
     "@clickopolis/server": "*",
     "@clickopolis/webpack-build-scripts": "*",
     "@types/ramda": "^0.26.6",

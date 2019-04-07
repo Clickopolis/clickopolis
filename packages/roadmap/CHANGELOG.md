@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/roadmap@0.0.5...@clickopolis/roadmap@0.1.0) (2019-04-07)
+
+
+### Features
+
+* add in Legacy UI ([e63701c](https://github.com/Clickopolis/clickopolis/commit/e63701c))
+
+
+
+
+
 <a name="0.0.5"></a>
 ## [0.0.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/roadmap@0.0.4...@clickopolis/roadmap@0.0.5) (2019-03-25)
 
