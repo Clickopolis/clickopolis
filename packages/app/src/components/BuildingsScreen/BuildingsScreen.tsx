@@ -2,13 +2,17 @@ import * as React from 'react';
 import { Screen, Indicator, Resource } from '@clickopolis/core';
 import { connect } from 'react-redux';
 import { colors, Era } from 'utils';
+import { purchaseBuilding } from 'actions';
 
 import { Civilization } from '@clickopolis/core'
+
+import './BuildingsScreen.scss';
 
 export interface BuildingScreenProps {
     civilization: Civilization;
     buildings: Building[];
     production: Resource;
+    purchaseBuilding: typeof purchaseBuilding;
 }
 
 export interface Building {
@@ -21,9 +25,13 @@ export interface Building {
     results: {icon?: string, description: string}[];
 }
 
-export const BuildingsDisplay = (build: Building) => {
+export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purchaseBuilding: typeof purchaseBuilding}) => {
+    console.log(build.purchaseBuilding)
+
     return (
-        <div className='advancement' style={{
+        <div className='building'
+            onClick={e => {console.log(e); build.purchaseBuilding(build)}}
+        style={{
             background: colors.get('buildings'),
             cursor: 'pointer',
             display: 'flex',
@@ -33,6 +41,8 @@ export const BuildingsDisplay = (build: Building) => {
             border: '1px solid rgba(0, 0, 0, 0.8)',
             borderRadius: '.25rem',
             position: 'relative',
+            pointerEvents: build.disabled ? 'none' : undefined,
+            opacity: build.disabled ? 0.8 : undefined,
         }}>
             {build.requirements.length ?
                 <div className='advancement-requirements' style={{
@@ -59,6 +69,11 @@ export const BuildingsDisplay = (build: Building) => {
                 <img style={{height: '3rem', margin: '.25rem'}} src={`./images/buildings/${
                     build.name.toLowerCase().replace(/\s/, '-')
                 }.svg`} />
+                <Indicator
+                    description={`Total ${build.name} owned`}
+                    style={{background: 'transparent'}}
+                    value={build.total}
+                />
             </div>
             <div className='advancement-info' style={{
                 width: '-webkit-fill-available',
@@ -106,6 +121,8 @@ export class BuildingsScreenBase extends React.Component<BuildingScreenProps> {
     }
 
     public render() {
+        const {buildings, production} = this.props
+
         return (
             <Screen
                 type='Buildings'
@@ -114,11 +131,18 @@ export class BuildingsScreenBase extends React.Component<BuildingScreenProps> {
                  <Indicator
                     value={this.props.production.total}
                     positiveColor={colors.get('buildings')}
+                    negativeColor={colors.get('buildings')}
+                    neutralColor={colors.get('buildings')}
                     style={{margin: '.25rem auto', width: '200px'}}
                     icon={'./images/production.svg'}
                 />
 
-                {this.props.buildings.map(build => <BuildingsDisplay key={build.name} {...build} />)}
+                {buildings.map(build => <BuildingsDisplay
+                    purchaseBuilding={this.props.purchaseBuilding}
+                    disabled={build.cost > production.total}
+                    key={build.name}
+                    {...build}
+                />)}
             </Screen>
         );
     }
@@ -130,5 +154,7 @@ export const BuildingsScreen: React.ComponentClass<{}> = connect(
         production: state.production,
         buildings: state.buildings,
     }),
-    null
-)(BuildingsScreenBase);
+    {
+        purchaseBuilding,
+    }
+)(BuildingsScreenBase as any);

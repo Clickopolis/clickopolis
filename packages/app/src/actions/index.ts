@@ -17,3 +17,4 @@ export * from './turnOnFlag';
 export * from './updateCivilization';
 export * from './deleteData';
 export * from './addResource';
+export * from './buildings';

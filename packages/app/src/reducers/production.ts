@@ -4,7 +4,7 @@ import { Action, CREATE_PRODUCTION, UPDATE_PRODUCTION_PER_SECOND } from '../acti
 const productionState:Resource = {
     name: 'Production',
     total: 0,
-    max: 2000,
+    max: 500,
     perSecond: 0,
     perClick: 1,
     description: 'Prod',
@@ -15,7 +15,7 @@ export function production(state = productionState, action: Action<CREATE_PRODUC
         case CREATE_PRODUCTION:
             return {
                 ...state,
-                total: state.total >= state.max ? state.total : state.total + action.amount
+                total: (state.total + action.amount) >= state.max ? state.total : state.total + action.amount
             };
         case UPDATE_PRODUCTION_PER_SECOND:
             return {

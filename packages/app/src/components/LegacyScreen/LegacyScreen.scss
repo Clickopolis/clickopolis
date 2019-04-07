@@ -1,16 +1,19 @@
 $legacyColor: #444;
 
+.legacy-item:hover .legacy-level {
+    display: flex !important;
+}
+
 .legacy-button {
     background: $legacyColor;
     box-shadow: 0 0 4px rgba(white, 0.33);
     color: white;
-    padding: .25rem;
     text-align: center;
-    width: 300px;
+    width: 500px;
     margin: .5rem auto;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     border-radius: 4px;
 
     img {

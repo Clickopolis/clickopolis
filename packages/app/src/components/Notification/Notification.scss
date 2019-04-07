@@ -18,6 +18,10 @@
     z-index: 1001;
 }
 
+.notification-inner {
+    max-width: 80%;
+}
+
 @keyframes appear {
     from {
         right: -40rem;

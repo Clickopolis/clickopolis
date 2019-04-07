@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore } from 'redux';
 import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 // @ts-ignore no @types module
 import createHistory from 'history/createBrowserHistory';
@@ -32,6 +33,7 @@ const routerMiddleware = createRouterMiddleware(history);
 export const store:any = createStore(
   persistReducers,
   applyMiddleware(
+    thunkMiddleware,
     loggerMiddleware,
     sagaMiddleware,
     routerMiddleware

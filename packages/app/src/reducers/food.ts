@@ -4,7 +4,7 @@ import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND } from 'actions
 const foodState:Resource = {
     name: 'Food',
     total: 0,
-    max: 2000,
+    max: 500,
     perSecond: 0,
     perClick: 1,
     description: 'Food',

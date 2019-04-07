@@ -5,7 +5,7 @@ export const buildings: Building[] = [
     {
         name: 'Hut',
         era: Era.Ancient,
-        cost: 25,
+        cost: 10,
         unlocked: true,
         results: [
             {icon: 'happiness', description: '+1'}
@@ -16,11 +16,11 @@ export const buildings: Building[] = [
     {
         name: 'Tent',
         era: Era.Ancient,
-        cost: 25,
+        cost: 30,
         unlocked: true,
         results: [
-           {icon: 'food', description: '+1/s'},
-           {icon: 'culture', description: '+1/min'}
+           {icon: 'food', description: '+0.5/s'},
+           {icon: 'culture', description: '+0.5/min'}
         ],
         total: 0,
         requirements: [],
@@ -28,7 +28,7 @@ export const buildings: Building[] = [
     {
         name: 'Obelisk',
         era: Era.Ancient,
-        cost: 25,
+        cost: 20,
         unlocked: true,
         results: [
             {icon: 'faith', description: '+1/min'},
@@ -63,10 +63,10 @@ export const buildings: Building[] = [
     {
         name: 'Pyramid',
         era: Era.Ancient,
-        cost: 50,
+        cost: 200,
         unlocked: true,
         results: [
-            {icon: 'culture', description: '+1/min'},
+            {icon: 'culture', description: '+3/min'},
         ],
         total: 0,
         requirements: [],

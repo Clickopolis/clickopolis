@@ -1,6 +1,7 @@
 // import { Civilization } from '../../../core';
 
 import { Action, GROW_POPULATION, UPDATE_CIVILIZATION, GAIN_CASH } from '../actions';
+import { assocPath } from 'ramda';
 
 // @NOTE: Replace any with Civilization
 const civDefault:any = {
@@ -131,10 +132,7 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                 }
             };
         case UPDATE_CIVILIZATION:
-            return {
-                ...state,
-                [action.key]: action.value,
-            };
+            return assocPath([...action.key], action.value, state);
         default:
             return state;
     }

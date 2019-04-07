@@ -89,7 +89,8 @@ export class AppBase extends React.Component<AppProps> {
 
     timer = () => {
         const {miners, flags, createProduction, growFood, food, production, timeStatus} = this.props;
-        const minerProd = miners.contribution.find(c => c.type === 'PS').amount * miners.amount;
+        const minerContrib = miners.contribution.find(c => c.type === 'PS')
+        const minerProd = minerContrib ? minerContrib.amount * miners.amount : 0;
 
         if (flags.HAS_STARTED_GAME && timeStatus === TimeStatus.Playing) {
             growFood(visibilityTransformer(food.perSecond));

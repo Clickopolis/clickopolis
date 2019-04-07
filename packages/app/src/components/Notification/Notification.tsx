@@ -46,7 +46,7 @@ export class NotificationBase extends React.Component<NotificationProps> {
 
         return <div className='notification' style={style}>
             <div onClick={this.disappear} className='notification-close'>×</div>
-            {content}
+            <div className='notification-inner'>{content}</div>
         </div>
     }
 
