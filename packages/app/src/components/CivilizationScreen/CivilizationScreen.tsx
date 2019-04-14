@@ -153,7 +153,10 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     borderRadius: '4px',
                     margin: '.5rem 1rem',
                 }}>
-                    <h4 style={{fontSize: '1.05rem', textAlign: 'center', letterSpacing: '3px', textTransform: 'uppercase'}}>{this.state.selectedIndicator} breakdown</h4>
+                    <h4 style={{fontSize: '1.05rem', textAlign: 'center', letterSpacing: '3px', textTransform: 'uppercase'}}>
+                        <img style={{height: '1rem'}} src={`./images/${this.state.selectedIndicator}.svg`} />
+                        {this.state.selectedIndicator} breakdown
+                    </h4>
                     <ul style={{padding: '0 2rem'}}>
                         {this.renderIndicatorStats()}
                     </ul>
