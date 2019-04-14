@@ -45,11 +45,12 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                 color={colors.get('citizens')}
                 infoComponent={<div style={{
                     position: 'absolute',
-                    top: 0,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    background: '#222',
+                    top: '4rem',
+                    left: '4rem',
+                    width: 'calc(100% - 8rem)',
+                    height: 'calc(100% - 8rem)',
+                    background: 'rgba(0, 0, 0, 0.9)',
+                    padding: '1rem',
                     color: '#fff',
                 }}>
                     <div>Here's some info</div>

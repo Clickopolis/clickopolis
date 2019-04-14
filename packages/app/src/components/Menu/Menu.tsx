@@ -2,15 +2,13 @@ import * as React from 'react';
 // @ts-ignore: no @types defintion
 import { Tooltip } from 'react-tippy';
 
-// @ts-ignore: importing core
 import { Indicator, Resource, Leader } from '@clickopolis/core';
-
 import { UserMenu } from 'components';
 import { colors } from 'utils';
-
-import './Menu.scss';
 import { EraIndicator } from 'components/EraIndicator';
 import { connect } from 'react-redux';
+
+import './Menu.scss';
 
 export interface MenuProps {
     ac?: number;
@@ -22,6 +20,8 @@ export interface MenuProps {
 const margin = {margin: '0 .5rem', color: '#111'}
 
 export class MenuBase extends React.Component<MenuProps> {
+
+    private displayQuests = (_:any) => ({})
 
     public render() {
         const {ac, food, leader, production} = this.props
@@ -51,6 +51,14 @@ export class MenuBase extends React.Component<MenuProps> {
                     description={'AC: After Click'}
                     neutralColor='#333'
                     style={ { margin: '0 .33rem' }}
+                />
+                <Indicator
+                    value={`${3} Quests`}
+                    icon={'./images/quests.svg'}
+                    positiveColor={colors.get('quests')}
+                    neutralColor={colors.get('quests')}
+                    style={{color: '#222'}}
+                    onClick={this.displayQuests}
                 />
                 <UserMenu username={leader.name} userCivName={leader.defaultCivName} />
             </nav>

@@ -9,6 +9,7 @@ export type colorKeys = 'citizens' |
                   'culture' |
                   'faith'  |
                   'biomes' |
+                  'quests' |
                   'advancement' |
                   'advancementPurchased'
 ;
@@ -26,5 +27,6 @@ export const colors: Map<colorKeys, string> = new Map<colorKeys, string>([
     ['settings', '#96bbce'],
     ['biomes', '#c3d463'],
     ['advancement', '#7cdef0'],
-    ['advancementPurchased', '#13d14e']
+    ['advancementPurchased', '#13d14e'],
+    ['quests', '#f4d742'],
 ]);

@@ -126,7 +126,7 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                 },
                 cash: {
                     ...state.cash,
-                    perMinuteFromCitizens: state.cash.perMinuteFromCitizens + action.amount,
+                    perMinuteCitizens: state.cash.perMinuteCitizens + action.amount,
                 }
             };
         case GAIN_CASH:

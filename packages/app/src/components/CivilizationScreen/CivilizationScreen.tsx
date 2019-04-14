@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { Screen, Indicator, Civilization, Resource } from '@clickopolis/core';
 import { PopulationButton } from '../PopulationButton';
-import { colors } from 'utils';
+import { colors, getCashPerMinute } from 'utils';
 
 import './CivilizationScreen.scss';
 
@@ -108,7 +108,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     marginTop: '.5rem'
                 }}>
                     <Indicator
-                        value={this.props.civilization.cash.total}
+                        value={getCashPerMinute(this.props.civilization)}
                         positiveColor={colors.get('economy')}
                         neutralColor={colors.get('economy')}
                         negativeColor={colors.get('economy')}

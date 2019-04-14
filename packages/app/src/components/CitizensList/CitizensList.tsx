@@ -57,21 +57,29 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     }
 
     private addCitizen (amount: number, c: Citizen) {
+        const {citizens} = this.props
+
         const fullEmployment = this.props.civilization.population - this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
             return prev + curr;
         }, 0) === 0;
+
+        console.log(getContributionFor({
+            consumptionFunction: () => this.props.civilization.population - 1,
+            findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
+            citizens,
+        }))
 
         if (!fullEmployment) {
             this.props.addCitizen(amount, c.name);
             this.props.updateFoodPerSecond(getContributionFor({
                 consumptionFunction: () => this.props.civilization.population - 1,
                 findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
-                citizens: this.props.citizens,
+                citizens,
             }));
             this.props.updateProductionPerSecond(getContributionFor({
                 consumptionFunction: () => 0,
                 findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
-                citizens: this.props.citizens
+                citizens,
             }));
         }
     }
