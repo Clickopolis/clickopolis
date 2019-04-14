@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.0...@clickopolis/app@0.15.1) (2019-04-14)
+
+
+### Bug Fixes
+
+* add Info state to Screens ([67664e0](https://github.com/Clickopolis/clickopolis/commit/67664e0))
+
+
+
+
+
 # [0.15.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.14.0...@clickopolis/app@0.15.0) (2019-04-14)
 
 
