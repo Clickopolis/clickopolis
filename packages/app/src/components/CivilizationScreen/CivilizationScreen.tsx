@@ -122,6 +122,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         positiveColor='skyblue'
                         neutralColor='skyblue'
                         icon={'./images/research.svg'}
+                        formatFunction={(v: number) => v.toFixed(1)}
                         description={`The total science in your empire`}
                         style={indicatorStyle}
                         onClick={this.onClick('research')}
