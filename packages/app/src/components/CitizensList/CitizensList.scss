@@ -31,6 +31,10 @@
     img {
         display: none;
     }
+    
+    &[disabled] {
+        opacity: 0.3;
+    }
 }
 
 .citizen-image {

@@ -54,52 +54,86 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
     }
 
     public render() {
+        const center = {
+            alignItems: 'center',
+            display: 'flex',
+            marginTop: '1rem'
+        }
+
         return (
             <Screen
                 type='Civilization'
                 color={colors.get('civilization')}
             >
-                <div className='civilization-indicator' style={{
-                    alignItems: 'center',
-                    display: 'flex',
-                    marginTop: '1rem'
-                }}>
+                <div className='civilization-indicator' style={center}>
                     <PopulationButton />
+                </div>
+                <div className='civilization-indicator' style={{
+                    ...center,
+                    alignItems: 'flex-end',
+                }}>
+                    <div style={{display: 'flex', flexDirection: 'column' }}>
+                        <div style={{width: '80%', height: '.5rem', borderRadius: '.25rem', display: 'flex', margin: '.5rem 1rem', overflow: 'hidden' }}>
+                            <div style={{background: 'yellow', height: '.5rem', width: '50%'}}></div>
+                            <div style={{background: 'red', height: '.5rem', width: '50%'}}></div>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <Indicator
+                                value={calculateHappiness(this.props.civilization)}
+                                positiveColor='yellow'
+                                neutralColor='yellow'
+                                icon={'./images/happiness.svg'}
+                                description='Keep your citizens happy with buildings and innovation.'
+                                style={indicatorStyle}
+                                onClick={this.onClick('happiness')}
+                            />
+                            <Indicator
+                                value={calculateAnger(this.props.civilization)}
+                                positiveColor='red'
+                                neutralColor='red'
+                                icon={'./images/anger.svg'}
+                                description={`Don't make your citizens angrier`}
+                                style={indicatorStyle}
+                                onClick={this.onClick('anger')}
+                            />
+                        </div>
+                    </div>
+                    <div style={{display: 'flex', flexDirection: 'column' }}>
+                        <div style={{width: '80%', height: '.5rem', borderRadius: '.25rem', display: 'flex', margin: '.5rem 1rem', overflow: 'hidden' }}>
+                            <div style={{background: 'white', height: '.5rem', width: '50%'}}></div>
+                            <div style={{background: 'lightgreen', height: '.5rem', width: '50%'}}></div>
+                        </div>
+                        <div style={{display: 'flex'}}>
+                            <Indicator
+                                value={this.calculateHealth(this.props.civilization)}
+                                positiveColor='white'
+                                neutralColor='white'
+                                icon={'./images/health.svg'}
+                                description={`Health`}
+                                style={indicatorStyle}
+                                onClick={this.onClick('health')}
+                            />
+                            <Indicator
+                                value={calculatePollution(this.props.civilization)}
+                                positiveColor='lightgreen'
+                                neutralColor='lightgreen'
+                                icon={'./images/pollution.svg'}
+                                description={`Pollution`}
+                                style={indicatorStyle}
+                                onClick={this.onClick('pollution')}
+                            />
+                        </div>
+                    </div>
                     <Indicator
-                        value={calculateHappiness(this.props.civilization)}
-                        positiveColor='yellow'
-                        neutralColor='yellow'
-                        icon={'./images/happiness.svg'}
-                        description='Keep your citizens happy with buildings and innovation.'
-                        style={indicatorStyle}
-                        onClick={this.onClick('happiness')}
-                    />
-                    <Indicator
-                        value={calculateAnger(this.props.civilization)}
-                        positiveColor='red'
-                        neutralColor='red'
-                        icon={'./images/anger.svg'}
-                        description={`Don't make your citizens angrier`}
-                        style={indicatorStyle}
-                        onClick={this.onClick('anger')}
-                    />
-                    <Indicator
-                        value={this.calculateHealth(this.props.civilization)}
-                        positiveColor='white'
-                        neutralColor='white'
-                        icon={'./images/health.svg'}
-                        description={`Health`}
-                        style={indicatorStyle}
-                        onClick={this.onClick('health')}
-                    />
-                    <Indicator
-                        value={calculatePollution(this.props.civilization)}
-                        positiveColor='lightgreen'
-                        neutralColor='lightgreen'
-                        icon={'./images/pollution.svg'}
-                        description={`Pollution`}
-                        style={indicatorStyle}
-                        onClick={this.onClick('pollution')}
+                        value={`Golden Age Progress`}
+                        style={{
+                            ...indicatorStyle,
+                            color: 'white',
+                            background: `linear-gradient(to right, ${colors.get('goldenAge')} 10%, ${colors.get('goldenAgeDark')} 10%, ${colors.get('goldenAgeDark')})`,
+                        }}
+                        icon={'./images/gold.svg'}
+                        description={`Your progress towards a Golden Age`}
+                        onClick={this.onClick('land')}
                     />
                 </div>
                 <div className='civilization-indicator' style={{
@@ -144,6 +178,15 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         description={`The total faith in your empire`}
                         style={indicatorStyle}
                         onClick={this.onClick('faith')}
+                    />
+                    <Indicator
+                        value={`2555 km`}
+                        positiveColor={colors.get('land')}
+                        neutralColor={colors.get('land')}
+                        icon={'./images/land.svg'}
+                        description={`The total land in your empire`}
+                        style={indicatorStyle}
+                        onClick={this.onClick('land')}
                     />
                 </div>
                 {this.state.selectedIndicator && <div className='civilization-indicator-breakdown' style={{

@@ -114,6 +114,7 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`-${abbrNum(this.props.amount)}`}
+                        disabled={!c.amount}
                         onClick={(_:any) => this.removeCitizen(this.props.amount * -1, c)}
                     /> : null }
                     <img className='citizen-image' src={`./images/${c.name}.svg`} />
