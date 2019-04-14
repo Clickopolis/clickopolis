@@ -2,9 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { addCitizen, removeCitizen, updateFoodPerSecond, updateProductionPerSecond } from 'actions';
-// @ts-ignore: importing core
 import { Citizen, Contribution, Button, abbrNum, Civilization } from '@clickopolis/core';
 import { Contribution as CC } from '../Contribution';
+// @ts-ignore: no types
+import { Tooltip } from 'react-tippy';
+import { getContributionFor } from 'utils'
 
 import './CitizensList.scss';
 import { colors } from 'utils';
@@ -20,25 +22,6 @@ export interface CitizensListProps {
 }
 
 const ContributionComponent:any = CC;
-
-const getContributionFor = ({ consumptionFunction, findFunction, citizens }: {
-    consumptionFunction: () => number,
-    findFunction: (c: Contribution) => boolean,
-    citizens: Citizen[],
-}): number => {
-    const contributionTotal = citizens.map(citizen => {
-        if (citizen.name === 'ruler') return { citizenAmount: 0, contributionAmount: 0 };
-        const contrib = citizen.contribution.find(findFunction);
-        return {
-            citizenAmount: citizen.amount,
-            contributionAmount: contrib ? contrib.amount : 0
-        };
-    }).reduce((prev, curr) => {
-        return prev + (curr.citizenAmount * curr.contributionAmount);
-    }, 0);
-    const consumptionTotal = consumptionFunction();
-    return contributionTotal - consumptionTotal;
-};
 
 export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     constructor(props:CitizensListProps) {
@@ -63,25 +46,44 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
             return prev + curr;
         }, 0) === 0;
 
-        console.log(getContributionFor({
-            consumptionFunction: () => this.props.civilization.population - 1,
+        const foodPerSecond = getContributionFor({
+            consumptionFunction: () => this.props.civilization.population - 2,
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens,
-        }))
+        })
+
+        const productionPerSecond = getContributionFor({
+            consumptionFunction: () => 0,
+            findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
+            citizens,
+        })
 
         if (!fullEmployment) {
             this.props.addCitizen(amount, c.name);
-            this.props.updateFoodPerSecond(getContributionFor({
-                consumptionFunction: () => this.props.civilization.population - 1,
-                findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
-                citizens,
-            }));
-            this.props.updateProductionPerSecond(getContributionFor({
-                consumptionFunction: () => 0,
-                findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
-                citizens,
-            }));
+            this.props.updateFoodPerSecond(foodPerSecond);
+            this.props.updateProductionPerSecond(productionPerSecond);
         }
+    }
+
+    private removeCitizen (amount: number, c: Citizen) {
+        const {citizens} = this.props
+
+        const foodPerSecond = getContributionFor({
+            consumptionFunction: () => this.props.civilization.population - 1,
+            findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
+            citizens,
+        })
+
+        const productionPerSecond = getContributionFor({
+            consumptionFunction: () => 0,
+            findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
+            citizens,
+        })
+
+        this.props.addCitizen(amount, c.name);
+        this.props.updateFoodPerSecond(foodPerSecond);
+        this.props.updateProductionPerSecond(productionPerSecond);
+        
     }
 
     private renderCitizensBar() {
@@ -89,7 +91,14 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
         const {citizens} = this.props;
 
         return citizens.map((c: Citizen) => {
-            return <div title={c.name} style={{background: this.getCitizenColor(c.name), height: '1rem', width: `${(c.amount / population) * 100}%`}} ></div>
+            return (
+                <div title={c.name} style={{background: this.getCitizenColor(c.name), height: '1rem', width: `${(c.amount / population) * 100}%`}} >
+                    <Tooltip
+                        title={`${((c.amount / population) * 100).toFixed(1)}% ${c.name}s`}>
+                        <div style={{width: '100%', height: '1rem'}}></div>
+                    </Tooltip>
+                </div>
+            )
         })
     }
 
@@ -101,7 +110,7 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`-${abbrNum(this.props.amount)}`}
-                        onClick={(_:any) => this.props.removeCitizen(this.props.amount, c.name)}
+                        onClick={(_:any) => this.removeCitizen(this.props.amount, c)}
                     /> : null }
                     <img className='citizen-image' src={`./images/${c.name}.svg`} />
                     { c.name !== 'ruler' ? <Button

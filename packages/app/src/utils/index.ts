@@ -6,3 +6,4 @@ export * from './choose';
 export * from './createMap';
 export * from './getPerMinute';
 export * from './debounce';
+export * from './getContributionFor';

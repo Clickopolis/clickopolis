@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond, turnOnFlag, addNotification } from 'actions';
 // @ts-ignore: no types
 import { Tooltip } from 'react-tippy';
-import { abbrNum, Citizen, Flags } from '@clickopolis/core';
+import { abbrNum, Citizen, Flags, Contribution } from '@clickopolis/core';
 
 import './PopulationButton.scss';
+import { getContributionFor } from 'utils';
 
 export interface PopulationButtonProps {
     foodNeededForGrowth: number;
@@ -34,8 +35,8 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
     }
 
     private handleGrowth = (_?: any) => {
-        const {turnOnFlag, flags, addNotification} = this.props
-
+        const {turnOnFlag, flags, addNotification, farmer, population} = this.props
+        
         if (!flags.HAS_UNLOCKED_CITIZENS) {
             turnOnFlag('HAS_UNLOCKED_CITIZENS');
             addNotification({
@@ -44,10 +45,34 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
             });
         }
 
+        if (!flags.HAS_UNLOCKED_ADVANCEMENTS && population > 2) {
+            turnOnFlag('HAS_UNLOCKED_ADVANCEMENTS');
+            addNotification({
+                id: 'advancements',
+                content: <div>You've unlocked the Advancements panel!</div>
+            });
+        }
+
+        if (!flags.HAS_UNLOCKED_BUILDINGS && population > 3) {
+            turnOnFlag('HAS_UNLOCKED_BUILDINGS');
+            addNotification({
+                id: 'buildings',
+                content: <div>You've unlocked the Buildings panel!</div>
+            });
+        }
+
         const newGrowth = Math.floor(this.props.foodNeededForGrowth * 1.07);
         this.props.growPopulation(1, newGrowth);
         this.props.addCitizen(1, 'farmer');
         this.props.consumeFood(this.props.foodNeededForGrowth);
+
+        const foodPerSecond = getContributionFor({
+            consumptionFunction: () => population - 2,
+            findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
+            citizens: [farmer]
+        })
+
+        this.props.updateFoodPerSecond(foodPerSecond);
     }
 
     private isGrowthPossible (foodTotal?: number, growth?:number):boolean {

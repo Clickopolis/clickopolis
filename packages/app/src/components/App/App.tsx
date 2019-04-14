@@ -115,7 +115,7 @@ export class AppBase extends React.Component<AppProps> {
             HAS_STARTED_GAME,
             HAS_UNLOCKED_CIVILIZATION,
             HAS_UNLOCKED_ADVANCEMENTS,
-            HAS_UNLOCKED_BULDINGS,
+            HAS_UNLOCKED_BUILDINGS,
             HAS_UNLOCKED_CITIZENS,
             HAS_UNLOCKED_ECONOMY,
             HAS_UNLOCKED_LEGACY,
@@ -146,7 +146,7 @@ export class AppBase extends React.Component<AppProps> {
             HAS_UNLOCKED_CIVILIZATION,
             HAS_UNLOCKED_CIVILIZATION,
             HAS_UNLOCKED_ADVANCEMENTS,
-            HAS_UNLOCKED_BULDINGS,
+            HAS_UNLOCKED_BUILDINGS,
             HAS_UNLOCKED_CITIZENS,
             HAS_UNLOCKED_ECONOMY,
             HAS_UNLOCKED_LEGACY,
@@ -181,7 +181,7 @@ export class AppBase extends React.Component<AppProps> {
                                 <ResourcesScreen />
                                 {HAS_UNLOCKED_CIVILIZATION && <CivilizationScreen />}     
                                 {HAS_UNLOCKED_CITIZENS && <CitizensScreen />}
-                                {HAS_UNLOCKED_BULDINGS && <BuildingsScreen />}
+                                {HAS_UNLOCKED_BUILDINGS && <BuildingsScreen />}
                                 {HAS_UNLOCKED_ADVANCEMENTS && <AdvancementScreen />}
                                 {HAS_UNLOCKED_ECONOMY && <EconomyScreen />}
                                 {HAS_UNLOCKED_LEGACY && <LegacyScreen />}

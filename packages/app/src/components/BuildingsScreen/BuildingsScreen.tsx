@@ -19,6 +19,7 @@ export interface Building {
     name: string;
     era: Era;
     cost: number;
+    landCost?: number;
     unlocked: boolean;
     requirements: string[];
     total: number;
