@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.16.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.3...@clickopolis/app@0.16.0) (2019-04-14)
+
+
+### Bug Fixes
+
+* make screen position relative ([1666130](https://github.com/Clickopolis/clickopolis/commit/1666130))
+
+
+### Features
+
+* add unlocking citizens ([4e90df5](https://github.com/Clickopolis/clickopolis/commit/4e90df5))
+
+
+
+
+
 ## [0.15.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.2...@clickopolis/app@0.15.3) (2019-04-14)
 
 
