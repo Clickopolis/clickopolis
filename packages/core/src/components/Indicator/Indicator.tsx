@@ -59,7 +59,8 @@ export function Indicator (props: IndicatorProps) {
     } = props;
 
     const indicator = (
-        <>{ label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{label}</div> : null }
+        <div>
+            { label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{label}</div> : null }
             <div
                 id={id}
                 onClick={onClick}
@@ -80,7 +81,7 @@ export function Indicator (props: IndicatorProps) {
                 }
                 {value && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ ff(value, formatFunction) }</span>}
             </div>
-        </>
+        </div>
     )
 
     return (
