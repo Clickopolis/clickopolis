@@ -9,7 +9,7 @@ export interface ScreenProps {
     type: string;
 
     showInfo?: boolean
-    infoComponent: React.ReactNode
+    infoComponent?: React.ReactNode
 }
 
 export class Screen extends React.Component<ScreenProps, {showInfo: boolean}> {
@@ -31,7 +31,7 @@ export class Screen extends React.Component<ScreenProps, {showInfo: boolean}> {
                     <h2>{ type }</h2>
                     {showInfo && <img onClick={this.onShowInfo} alt='info' src={'./images/info.svg'} />}
                 </header>
-                { this.state.showInfo && infoComponent }
+                { this.state.showInfo && infoComponent && infoComponent }
                 { children }
             </section>
         );
