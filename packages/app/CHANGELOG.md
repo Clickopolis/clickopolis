@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.1...@clickopolis/app@0.16.2) (2019-04-14)
+
+
+### Bug Fixes
+
+* update react versions ([3e5d142](https://github.com/Clickopolis/clickopolis/commit/3e5d142))
+
+
+
+
+
 ## [0.16.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.0...@clickopolis/app@0.16.1) (2019-04-14)
 
 
