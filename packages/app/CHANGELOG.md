@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.3...@clickopolis/app@0.16.4) (2019-04-14)
+
+
+### Bug Fixes
+
+* try rolling back to 1.1.1 ([b517b14](https://github.com/Clickopolis/clickopolis/commit/b517b14))
+
+
+
+
+
 ## [0.16.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.2...@clickopolis/app@0.16.3) (2019-04-14)
 
 
