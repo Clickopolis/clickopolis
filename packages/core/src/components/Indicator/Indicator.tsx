@@ -18,81 +18,77 @@ export interface IndicatorProps {
     neutralColor?: string;
 }
 
-export class Indicator extends React.PureComponent<IndicatorProps> {
-    constructor(props:IndicatorProps) {
-        super(props);
-    }
-
-    private determineSignColor (v:any, positiveColor: string, negativeColor: string = '#ff6347', neutralColor: string = '#222') {
-        if (typeof v === 'number') {
-            if (v > 0) {
-                return positiveColor;
-            } else if (v < 0) {
-                return negativeColor;
-            } else {
-                return neutralColor;
-            }
+function determineSignColor (v:any, positiveColor: string, negativeColor: string = '#ff6347', neutralColor: string = '#222') {
+    if (typeof v === 'number') {
+        if (v > 0) {
+            return positiveColor;
+        } else if (v < 0) {
+            return negativeColor;
         } else {
             return neutralColor;
         }
+    } else {
+        return neutralColor;
     }
+}
 
-    private formatFunction (v: any) {
-        if (this.props.formatFunction == null) {
-            return (typeof v === 'number') ? v.toFixed(0) : v;
-        } else {
-            return this.props.formatFunction(v);
-        }
+function ff (v: any, formatFunction: IndicatorProps['formatFunction']) {
+    if (formatFunction == null) {
+        return (typeof v === 'number') ? v.toFixed(0) : v;
+    } else {
+        return formatFunction(v);
     }
+}
 
-    public render() {
-        const {
-            className,
-            description,
-            icon,
-            iconHeight,
-            id,
-            label,
-            negativeColor,
-            neutralColor,
-            onClick,
-            positiveColor,
-            style,
-            value
-        } = this.props;
+export function Indicator (props: IndicatorProps) {
 
-        const indicator = (
-            <>{ label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{this.props.label}</div> : null }
-                <div
-                    id={id}
-                    onClick={onClick}
-                    className={classNames('clickopolis-indicator', className)}
-                    style={{
-                        backgroundColor: this.determineSignColor(value, positiveColor, negativeColor, neutralColor),
-                        borderRadius: '.25rem',
-                        textAlign: 'center',
-                        padding: '.25rem',
-                        ...style,
-                    }}
-                >
-                    {
-                        icon ?
-                        <img src={ icon } style={{
-                            height: iconHeight || '1rem'
-                        }} /> : null
-                    }
-                    {value && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>}
-                </div>
-            </>
-        )
+    const {
+        className,
+        description,
+        icon,
+        iconHeight,
+        id,
+        label,
+        negativeColor,
+        neutralColor,
+        formatFunction,
+        onClick,
+        positiveColor,
+        style,
+        value
+    } = props;
 
-        return (
-            description ? <Tippy
-                content={description}
-                followCursor={true}
+    const indicator = (
+        <>{ label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{label}</div> : null }
+            <div
+                id={id}
+                onClick={onClick}
+                className={classNames('clickopolis-indicator', className)}
+                style={{
+                    backgroundColor: determineSignColor(value, positiveColor, negativeColor, neutralColor),
+                    borderRadius: '.25rem',
+                    textAlign: 'center',
+                    padding: '.25rem',
+                    ...style,
+                }}
             >
-                {indicator}
-            </Tippy> : indicator
-        );
-    }
+                {
+                    icon ?
+                    <img src={ icon } style={{
+                        height: iconHeight || '1rem'
+                    }} /> : null
+                }
+                {value && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ ff(value, formatFunction) }</span>}
+            </div>
+        </>
+    )
+
+    return (
+        description ? <Tippy
+            content={description}
+            followCursor={true}
+        >
+            {indicator}
+        </Tippy> : indicator
+    );
 }
