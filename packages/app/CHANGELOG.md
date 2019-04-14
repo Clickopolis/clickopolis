@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.15.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.2...@clickopolis/app@0.15.3) (2019-04-14)
+
+
+### Bug Fixes
+
+* CivilizationScreen breakdown icons ([826cc05](https://github.com/Clickopolis/clickopolis/commit/826cc05))
+
+
+
+
+
 ## [0.15.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.1...@clickopolis/app@0.15.2) (2019-04-14)
 
 
