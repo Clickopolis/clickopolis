@@ -93,6 +93,17 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                 dispatch(updateAdvancementCosts())
             }
         };
+        case AdvName.pottery:
+            return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
+            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.pottery);
+            const name = adv.name
+            const research = getState().civilization.research.total
+            if (!path(['purchased'], adv)) {
+                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                dispatch(addAdvancement(name, ac))
+                dispatch(updateAdvancementCosts())
+            }
+        };
         case AdvName.sailing:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
             const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.sailing);

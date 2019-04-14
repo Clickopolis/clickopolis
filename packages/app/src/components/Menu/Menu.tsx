@@ -57,7 +57,13 @@ export class MenuBase extends React.Component<MenuProps> {
                     icon={'./images/quests.svg'}
                     positiveColor={colors.get('quests')}
                     neutralColor={colors.get('quests')}
-                    description='(1) Gain 20/30 Population\n(2) Have 3/6 Advancements\n(3) Gain 40 Population'
+                    description={<div>
+                        (1) Gain 20/30 Population
+                        <br/>
+                        (2) Have 3/6 Advancements
+                        <br />
+                        (3) Gain 40 Population
+                    </div>}
                     style={{color: '#222'}}
                     onClick={this.displayQuests}
                 />

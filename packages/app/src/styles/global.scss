@@ -20,6 +20,11 @@ body,
     height: 100%;
 }
 
+.tippy-tooltip {
+    background: #222 !important;
+    transition: 500ms all;
+}
+
 .clickopolis-app.paused {
     pointer-events: none !important;
     filter: grayscale(100%);

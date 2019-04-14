@@ -103,6 +103,10 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     }
 
     private renderCitizens() {
+        const fullEmployment = this.props.civilization.population - this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
+            return prev + curr;
+        }, 0) === 0;
+
         return this.props.citizens.map((c:Citizen, idx: number) => {
             return (
                 <div className='citizens-list-item' key={idx}>
@@ -110,12 +114,13 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`-${abbrNum(this.props.amount)}`}
-                        onClick={(_:any) => this.removeCitizen(this.props.amount, c)}
+                        onClick={(_:any) => this.removeCitizen(this.props.amount * -1, c)}
                     /> : null }
                     <img className='citizen-image' src={`./images/${c.name}.svg`} />
                     { c.name !== 'ruler' ? <Button
                         className='citizen-amount-button'
                         value={`+${abbrNum(this.props.amount)}`}
+                        disabled={fullEmployment}
                         onClick={(_:any) => this.addCitizen(this.props.amount, c)}
                     /> : null }
                     <div className='citizen-description'>{c.description}</div>
