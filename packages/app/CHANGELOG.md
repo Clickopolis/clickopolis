@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.0...@clickopolis/app@0.16.1) (2019-04-14)
+
+
+### Bug Fixes
+
+* add quests indicator, update CPM ([7e91fa7](https://github.com/Clickopolis/clickopolis/commit/7e91fa7))
+* removeCitizen button, getContribution is now a util ([a1a4563](https://github.com/Clickopolis/clickopolis/commit/a1a4563))
+
+
+
+
+
 # [0.16.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.3...@clickopolis/app@0.16.0) (2019-04-14)
 
 

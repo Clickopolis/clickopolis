@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.4...@clickopolis/core@0.12.5) (2019-04-14)
+
+
+### Bug Fixes
+
+* add quests indicator, update CPM ([7e91fa7](https://github.com/Clickopolis/clickopolis/commit/7e91fa7))
+* replace Tooltip with Tippy ([e327684](https://github.com/Clickopolis/clickopolis/commit/e327684))
+
+
+
+
+
 ## [0.12.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.3...@clickopolis/core@0.12.4) (2019-04-14)
 
 
