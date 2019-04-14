@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.1...@clickopolis/core@0.12.2) (2019-04-14)
+
+
+### Bug Fixes
+
+* make InfoComponent optional ([ba6a417](https://github.com/Clickopolis/clickopolis/commit/ba6a417))
+
+
+
+
+
 ## [0.12.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.0...@clickopolis/core@0.12.1) (2019-04-14)
 
 
