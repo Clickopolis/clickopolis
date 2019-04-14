@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.16.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.4...@clickopolis/app@0.16.5) (2019-04-14)
+
+
+### Bug Fixes
+
+* another update for tippy usage ([6f125c8](https://github.com/Clickopolis/clickopolis/commit/6f125c8))
+
+
+
+
+
 ## [0.16.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.3...@clickopolis/app@0.16.4) (2019-04-14)
 
 
