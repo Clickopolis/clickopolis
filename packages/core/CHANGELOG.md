@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.10](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.9...@clickopolis/core@0.12.10) (2019-04-14)
+
+
+### Bug Fixes
+
+* update tippy js version ([7e8652e](https://github.com/Clickopolis/clickopolis/commit/7e8652e))
+
+
+
+
+
 ## [0.12.9](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.8...@clickopolis/core@0.12.9) (2019-04-14)
 
 
