@@ -27,7 +27,7 @@ export class Screen extends React.Component<ScreenProps, {showInfo: boolean}> {
                 <header style={{ backgroundColor: color }} className={classNames(`${type.toLowerCase()}-screen-header`, 'screen-header')}>
                     <img alt={type} src={'./images/' + type.toLowerCase() + '.svg'} style={{ height: '2rem', marginRight: '8px' }} />
                     <h2>{ type }</h2>
-                    {infoComponent != null && <img onClick={this.onShowInfo} alt='info' src={'./images/info.svg'} />}
+                    {infoComponent != null && <img style={{height: '1.5rem'}} onClick={this.onShowInfo} alt='info' src={'./images/info.svg'} />}
                 </header>
                 { this.state.showInfo && infoComponent && infoComponent }
                 { children }
