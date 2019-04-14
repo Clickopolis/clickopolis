@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.7](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.6...@clickopolis/core@0.12.7) (2019-04-14)
+
+
+### Bug Fixes
+
+* cleanup Indicator to function ([09de096](https://github.com/Clickopolis/clickopolis/commit/09de096))
+
+
+
+
+
 ## [0.12.6](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.5...@clickopolis/core@0.12.6) (2019-04-14)
 
 
