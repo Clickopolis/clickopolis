@@ -42,6 +42,17 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
             <Screen
                 type='Citizens'
                 color={colors.get('citizens')}
+                infoComponent={<div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: '#222',
+                    color: '#fff',
+                }}>
+                    <div>Here's some info</div>
+                </div>}
             >
                 <div className='citizens-top-bar'>
                     <Indicator

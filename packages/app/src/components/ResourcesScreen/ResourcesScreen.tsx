@@ -119,7 +119,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
         if (this.props.food.total > 10 && !this.props.flags.HAS_UNLOCKED_CIVILIZATION) {
             this.props.turnOnFlag('HAS_UNLOCKED_CIVILIZATION')
-            this.props.addNotification({
+            addNotification({
                 content: <div>You've unlocked the Civilization panel!</div>,
                 id: 'unlock-civ',
             })

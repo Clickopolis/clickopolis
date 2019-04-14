@@ -1,10 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond } from 'actions';
+import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond, turnOnFlag, addNotification } from 'actions';
 // @ts-ignore: no types
 import { Tooltip } from 'react-tippy';
-// @ts-ignore: importing core
-import { abbrNum, Citizen } from '@clickopolis/core';
+import { abbrNum, Citizen, Flags } from '@clickopolis/core';
 
 import './PopulationButton.scss';
 
@@ -17,6 +16,9 @@ export interface PopulationButtonProps {
     addCitizen: addCitizen;
     updateFoodPerSecond: updateFoodPerSecond;
     farmer: Citizen;
+    turnOnFlag: turnOnFlag;
+    flags: Flags;
+    addNotification: addNotification;
 }
 
 export interface PopulationButtonState {
@@ -32,6 +34,16 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
     }
 
     private handleGrowth = (_?: any) => {
+        const {turnOnFlag, flags, addNotification} = this.props
+
+        if (!flags.HAS_UNLOCKED_CITIZENS) {
+            turnOnFlag('HAS_UNLOCKED_CITIZENS');
+            addNotification({
+                id: 'citizens',
+                content: <div>You've unlocked the Citizens panel!</div>
+            });
+        }
+
         const newGrowth = Math.floor(this.props.foodNeededForGrowth * 1.07);
         this.props.growPopulation(1, newGrowth);
         this.props.addCitizen(1, 'farmer');
@@ -67,7 +79,7 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
                     style={{ marginLeft: 'auto' }}
                 >
                     <div className='population-to-growth'>
-                        { abbrNum(foodNeededForGrowth.toFixed(0)) }<img style={{ height: '1rem' }} src='./images/food.svg' />
+                        { abbrNum(foodNeededForGrowth) }<img style={{ height: '1rem' }} src='./images/food.svg' />
                     </div>
                 </Tooltip>
             </div>
@@ -76,6 +88,19 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
 }
 
 export const PopulationButton = connect(
-    (state:any) => ({ population: state.civilization.population, food: state.food, foodNeededForGrowth: state.civilization.foodNeededForGrowth, farmer: state.farmer  }),
-    { growPopulation, consumeFood, addCitizen, updateFoodPerSecond }
+    (state:any) => ({
+        population: state.civilization.population,
+        food: state.food,
+        foodNeededForGrowth: state.civilization.foodNeededForGrowth,
+        farmer: state.farmer,
+        flags: state.flags,
+    }),
+    {
+        growPopulation,
+        consumeFood,
+        addCitizen,
+        updateFoodPerSecond,
+        turnOnFlag,
+        addNotification
+    }
 )(PopulationButtonBase as any);
