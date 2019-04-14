@@ -41,6 +41,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
         return (
             <Screen
                 type='Citizens'
+                style={{position: 'relative'}}
                 color={colors.get('citizens')}
                 infoComponent={<div style={{
                     position: 'absolute',
