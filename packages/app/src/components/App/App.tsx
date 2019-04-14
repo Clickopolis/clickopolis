@@ -173,7 +173,7 @@ export class AppBase extends React.Component<AppProps> {
                         justifyContent: 'center',
                         // justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
                         height: 'calc(100%)',
-                        width: `calc(600px * ${countScreens})`
+                        width: `calc(700px * ${countScreens})`
                     }}>
                         {
                             HAS_STARTED_GAME ?
