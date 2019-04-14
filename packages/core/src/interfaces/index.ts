@@ -168,6 +168,18 @@ export enum Era {
 }
 
 export interface Influence {
+    domesticPerMinute: {
+        domesticPerMinuteFromBuildings: number;
+        domesticPerMinuteFromPolicies: number;
+        domesticPerMinuteFromAdvancements: number;
+        domesticPerMinuteFromWonders: number;
+    }
+    internationalPerMinute: {
+        internationalPerMinuteFromBuildings: number;
+        internationalPerMinuteFromPolicies: number;
+        internationalMinuteFromAdvancements: number;
+        internationalPerMinuteFromWonders: number;
+    }
     domestic: number;
     international: number;
 }

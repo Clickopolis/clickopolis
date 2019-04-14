@@ -27,6 +27,7 @@
     "access": "public"
   },
   "dependencies": {
+    "@tippy.js/react": "^2.1.2",
     "@types/chai": "^4.1.0",
     "@types/classnames": "^2.2.3",
     "@types/jasmine": "^2.8.3",

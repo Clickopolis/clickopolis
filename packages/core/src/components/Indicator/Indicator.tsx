@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as classNames from 'classnames';
-// @ts-ignore: no types
-import { Tooltip } from 'react-tippy';
+import Tippy, { TippyProps } from '@tippy.js/react'
 
 export interface IndicatorProps {
     className?: any;
@@ -11,7 +10,7 @@ export interface IndicatorProps {
     onClick?: (e:any) => void;
     style?: any;
     id?: string;
-    description?: string;
+    description?: TippyProps['content'];
     label?: string;
     formatFunction?: (v: string | number | React.ReactNode) => string | number | React.ReactNode;
     positiveColor?: string;
@@ -61,13 +60,9 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
             style,
             value
         } = this.props;
-        return (
-            <Tooltip
-                title={description}
-                position={'top'}
-                followCursor={true}
-            >
-                { label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{this.props.label}</div> : null }
+
+        const indicator = (
+            <>{ label != null ? <div style={{ color: 'white', textAlign: 'center' }} className='clickopolis-indicator-label'>{this.props.label}</div> : null }
                 <div
                     id={id}
                     onClick={onClick}
@@ -88,7 +83,16 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                     }
                     {value && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ this.formatFunction(value) }</span>}
                 </div>
-            </Tooltip>
+            </>
+        )
+
+        return (
+            description ? <Tippy
+                content={description}
+                followCursor={true}
+            >
+                {indicator}
+            </Tippy> : indicator
         );
     }
 }
