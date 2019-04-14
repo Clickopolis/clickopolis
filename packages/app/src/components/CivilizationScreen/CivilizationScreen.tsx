@@ -131,7 +131,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                             color: 'white',
                             background: `linear-gradient(to right, ${colors.get('goldenAge')} 10%, ${colors.get('goldenAgeDark')} 10%, ${colors.get('goldenAgeDark')})`,
                         }}
-                        icon={'./images/gold.svg'}
+                        icon={'./images/golden-age.svg'}
                         description={`Your progress towards a Golden Age`}
                         onClick={this.onClick('land')}
                     />
