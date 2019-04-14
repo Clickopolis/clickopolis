@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.14.0...@clickopolis/app@0.15.0) (2019-04-14)
+
+
+### Features
+
+* add Indicators to Research screen ([0cdc6b7](https://github.com/Clickopolis/clickopolis/commit/0cdc6b7))
+* litany of features ([89a63d5](https://github.com/Clickopolis/clickopolis/commit/89a63d5))
+* mock up Trade Routes UI ([5013216](https://github.com/Clickopolis/clickopolis/commit/5013216))
+
+
+
+
+
 # [0.14.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.13.0...@clickopolis/app@0.14.0) (2019-04-07)
 
 

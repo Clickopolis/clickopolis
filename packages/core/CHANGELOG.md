@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.3...@clickopolis/core@0.12.0) (2019-04-14)
+
+
+### Features
+
+* litany of features ([89a63d5](https://github.com/Clickopolis/clickopolis/commit/89a63d5))
+* mock up Trade Routes UI ([5013216](https://github.com/Clickopolis/clickopolis/commit/5013216))
+
+
+
+
+
 ## [0.11.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.2...@clickopolis/core@0.11.3) (2019-04-07)
 
 
