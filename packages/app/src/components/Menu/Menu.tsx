@@ -3,10 +3,10 @@ import * as React from 'react';
 import { Tooltip } from 'react-tippy';
 
 // @ts-ignore: importing core
-import { Indicator } from '@clickopolis/core';
+import { Indicator, Resource, Leader } from '@clickopolis/core';
 
 import { UserMenu } from 'components';
-import { CONSTANTS } from 'utils';
+import { colors } from 'utils';
 
 import './Menu.scss';
 import { EraIndicator } from 'components/EraIndicator';
@@ -14,38 +14,37 @@ import { connect } from 'react-redux';
 
 export interface MenuProps {
     ac?: number;
+    food?: Resource;
+    production?: Resource;
+    leader: Leader;
 }
 
+const margin = {margin: '0 .5rem', color: '#111'}
+
 export class MenuBase extends React.Component<MenuProps> {
-    private generateMenu() {
-        return CONSTANTS.screenData.map((i:string) => {
-            return (
-                <li key={i}>
-                    <a href={'#' + i} title={i}>
-                        <Tooltip
-                            title={i}
-                            position={'top'}
-                            followCursor={true}
-                        >
-                            <img alt={i} src={'./images/' + i.toLowerCase() + '.svg'} style={{ height: '2rem' }} />
-                        </Tooltip>
-                    </a>
-                </li>
-            );
-        });
-    }
 
     public render() {
-        const {ac} = this.props
+        const {ac, food, leader, production} = this.props
 
         return (
             <nav className='clickopolis-menu'>
                 <div className='clickopolis-menu-text'>menu</div>
-                <ul>
-                    {
-                        this.generateMenu()
-                    }
-                </ul>
+                <Indicator
+                    value={food.total}
+                    positiveColor={colors.get('resources')}
+                    neutralColor={colors.get('resources')}
+                    icon={'./images/food.svg'}
+                    description='Total Food in your empire'
+                    style={margin}
+                />
+                <Indicator
+                    value={production.total}
+                    positiveColor={colors.get('production')}
+                    neutralColor={colors.get('production')}
+                    icon={'./images/production.svg'}
+                    description='Total Productivity of your empire'
+                    style={margin}
+                />
                 <EraIndicator />
                 <Indicator
                     value={`${ac} AC`}
@@ -53,13 +52,18 @@ export class MenuBase extends React.Component<MenuProps> {
                     neutralColor='#333'
                     style={ { margin: '0 .33rem' }}
                 />
-                <UserMenu username='Emma' userCivName='Clickopolis' />
+                <UserMenu username={leader.name} userCivName={leader.defaultCivName} />
             </nav>
         );
     }
 }
 
 export const Menu: React.ComponentClass<{}> = connect(
-    (state: any) => ({ac: state.civilization.ac})
+    (state: any) => ({
+        ac: state.civilization.ac,
+        food: state.food,
+        production: state.production,
+        leader: state.leader,
+    })
 )(MenuBase as any)
 

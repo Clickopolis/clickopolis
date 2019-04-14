@@ -38,7 +38,14 @@ export const calculateAnger = (civ: Civilization) => {
 }
 
 export const calculatePollution = (civ: Civilization) => {
-    return civ.pollution.fromPopulation
+    const {pollution} = civ
+    
+    return (
+        (pollution.fromPopulation || 0) +
+        (pollution.fromBuildings || 0) +
+        (pollution.fromEvents || 0) +
+        (pollution.fromCorporations || 0)
+    ) * (pollution.mulitiplier || 1);
 }
 
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
@@ -86,7 +93,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         onClick={this.onClick('health')}
                     />
                     <Indicator
-                        value={0}
+                        value={calculatePollution(this.props.civilization)}
                         positiveColor='lightgreen'
                         neutralColor='lightgreen'
                         icon={'./images/pollution.svg'}
@@ -179,7 +186,6 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
 
         // @ts-ignore
         const propMap: [keyof Civilization, any][] = Object.entries(civilization[selectedIndicator])
-        console.log(propMap)
         return propMap.map(item => {
             return <li style={{marginBottom: '.25rem', listStyleType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
                 <span style={{fontWeight: 'bold'}}>{item[0]}</span><span>{item[1]}</span>

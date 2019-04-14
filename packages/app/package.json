@@ -10,6 +10,7 @@
     "clean": "rm -rf ./dist",
     "create-component": "ts-node ./create-component.ts",
     "start": "npm run serve",
+    "start:loop": "while true; do npm start && break; done",
     "build:watch": "npm run build -- --watch",
     "update:inner": "npm i @clickopolis/core@latest @clickopolis/webpack-build-scripts@latest"
   },

@@ -222,6 +222,7 @@ export interface Pollution {
     fromBuildings: number;
     fromWonders: number;
     fromCorporations: number;
+    fromEvents: number;
     mulitiplier: number;
 }
 

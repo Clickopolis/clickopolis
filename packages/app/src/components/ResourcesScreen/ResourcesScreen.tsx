@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 // @ts-ignore: importing core
-import { Screen, Button, Indicator, Resource } from '@clickopolis/core';
+import { Screen, Button, Indicator, Resource, Flags } from '@clickopolis/core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
 import { ResourcesMatrix } from '../ResourcesMatrix';
-import { growFood, createProduction } from 'actions';
+import { growFood, createProduction, turnOnFlag, addNotification } from 'actions';
 import { colors } from 'utils';
 
 import './ResourcesScreen.scss';
@@ -15,6 +15,7 @@ import { BiomeIcon } from 'components/BiomeIcon';
 const indicatorStyle = {
     alignItems: 'center',
     display: 'flex',
+    fontSize: '90%',
     height: '2rem',
     justifyContent: 'center',
     margin: '.25rem',
@@ -32,6 +33,9 @@ export interface ResourcesScreenProps {
     growFood?: growFood;
     production?: Resource;
     createProduction?: createProduction;
+    flags?: Flags;
+    turnOnFlag: turnOnFlag;
+    addNotification: addNotification;
 }
 
 export type XYCoordsWithOpacity = { x: number, y: number, c: string, o: number };
@@ -100,6 +104,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
     }
 
     growFood = (_:any) => {
+        const {addNotification} = this.props
         let gotRandomBonus: boolean;
         const randomBonusN = Math.floor(Math.random() * 1000);
 
@@ -110,6 +115,14 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
         } else {
             this.props.growFood(this.props.food.perClick);
             gotRandomBonus = false;
+        }
+
+        if (this.props.food.total > 10 && !this.props.flags.HAS_UNLOCKED_CIVILIZATION) {
+            this.props.turnOnFlag('HAS_UNLOCKED_CIVILIZATION')
+            this.props.addNotification({
+                content: <div>You've unlocked the Civilization panel!</div>,
+                id: 'unlock-civ',
+            })
         }
 
         this.addPlusElement({ resourceType: 'food', gotRandomBonus });
@@ -166,7 +179,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                         <Button
                             icon='./images/food.svg'
                             id='food-btn'
-                            iconHeight='1rem'
+                            iconHeight='1.5rem'
                             value='Grow Food'
                             onClick={this.growFood}
                             className='food-button'
@@ -177,6 +190,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                                 return <PlusSign key={key} resourceType={'food'} perClick={this.props.food.perClick} {...coords} />;
                             })
                         }
+                    </div>
+                    <div className='resources-main-buttons-row'>
                         <Indicator
                             value={food.total}
                             positiveColor={colors.get('resources')}
@@ -215,7 +230,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                         <Button
                             icon='./images/production.svg'
                             id='production-btn'
-                            iconHeight='1rem'
+                            iconHeight='1.5rem'
                             value='Create Production'
                             onClick={this.createProduction}
                             className='prod-button'
@@ -226,6 +241,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                                 return <PlusSign key={key} resourceType={'production'} perClick={this.props.production.perClick} {...coords} />;
                             })
                         }
+                    </div>
+                    <div className='resources-main-buttons-row'>
                         <Indicator
                             value={this.props.production.total}
                             positiveColor={colors.get('production')}
@@ -289,9 +306,12 @@ export const ResourcesScreen = connect(
     (state:any) => ({
         food: state.food,
         production: state.production,
+        flags: state.flags,
     }),
     {
         growFood,
-        createProduction
+        createProduction,
+        turnOnFlag,
+        addNotification,
     }
 )(ResourcesScreenBase as any);

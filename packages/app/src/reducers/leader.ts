@@ -1,33 +1,11 @@
 import { Action, MODIFY_LEADER, SELECT_LEADER } from 'actions';
 import { Leader } from '@clickopolis/core';
+import { leaders } from 'data/leaders'
 
-const leaders:Map<string, Leader> = new Map([
-    ['Abraham Lincoln', {
-        name: 'Abraham Lincoln',
-        defaultName: 'Abraham Lincoln',
-        defaultCivName: 'United States of America',
-        traits: []
-    }],
-    ['Mao Zedong', {
-        name: 'Mao Zedong',
-        defaultName: 'Mao Zedong',
-        defaultCivName: 'China',
-        traits: []
-    }],
-    ['George Washington', {
-        name: 'George Washington',
-        defaultName: 'George Washington',
-        defaultCivName: 'United States of America',
-        traits: []
-    }]
-]);
-
-export function leader(state:Map<string, Leader> | null = null, action: Action<MODIFY_LEADER | SELECT_LEADER>) {
+export function leader(state: Leader = leaders[0], action: Action<MODIFY_LEADER | SELECT_LEADER>) {
     switch (action.type) {
         case SELECT_LEADER:
-            return leaders.get(action.leader);
-        case MODIFY_LEADER:
-            return { ...state, ...action.modifications };
+            return leaders.find(l => l.name === action.leader);
         default:
             return state;
     }

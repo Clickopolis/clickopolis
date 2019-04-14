@@ -41,7 +41,8 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
             border: '1px solid rgba(0, 0, 0, 0.8)',
             borderRadius: '.25rem',
             position: 'relative',
-            pointerEvents: build.disabled ? 'none' : undefined,
+            filter: build.unlocked ? undefined : 'grayscale(85%)',
+            pointerEvents: (build.disabled || !build.unlocked) ? 'none' : undefined,
             opacity: build.disabled ? 0.8 : undefined,
         }}>
             {build.requirements.length ?

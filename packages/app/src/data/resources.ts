@@ -223,7 +223,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         visible: true,
         unlocked: true,
         pollutionBonus: 0,
-        faithBonus: 0.1,
+        faithBonus: 1,
     }],
     ['gold', {
         name: 'gold',
@@ -264,10 +264,11 @@ export const resources:Map<ResourceName, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: ``,
+        description: `A marine invertebrate coveted by collectors.`,
         category: ResourceCategory.power,
         visible: true,
         unlocked: true,
+        cultureBonus: 1,
     }],
     ['fossils', {
         name: 'fossils',

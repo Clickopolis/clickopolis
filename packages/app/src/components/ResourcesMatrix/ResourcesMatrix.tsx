@@ -51,6 +51,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                     style={{
                         ...vis,
                         ...lock,
+                        padding: '.25rem .75rem',
                     }}
                 />
             }
@@ -79,6 +80,10 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                             <img style={{ height: '1rem' }} src='./images/faith.svg' />
                             &nbsp;+{resource.faithBonus} per {resource.name}, {(resource.faithBonus * resource.total).toFixed(0)} total
                         </div> : null }
+                        { resource.cultureBonus ? <div>
+                            <img style={{ height: '1rem' }} src='./images/culture.svg' />
+                            &nbsp;+{resource.cultureBonus} per {resource.name}, {(resource.cultureBonus * resource.total).toFixed(0)} total
+                        </div> : null }
                     </div>
                 </div>
             </div>
@@ -86,20 +91,18 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
     }
 
     public render() {
+        const resources:Resource[] = Object.values(this.props)
+
         return (
             <div className='resources-matrix'>
                 <div className='resources-matrix-row'>
-                    <div className='resources-matrix-category'>
-                        <img src='./images/health.svg' />
-                        <span>Health</span>
-                    </div>
                     {
                         this.renderResourceRow(
-                            this.getResources(this.props)['health']
+                            resources
                         )
                     }
                 </div>
-                <div className='resources-matrix-row'>
+                {/* <div className='resources-matrix-row'>
                     <div className='resources-matrix-category'>
                         <img src='./images/buildings.svg' />
                         <span>Building</span>
@@ -142,7 +145,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                             this.getResources(this.props)['power']
                         )
                     }
-                </div>
+                </div> */}
 
                 <div className='resources-matrix-row'>
                     { this.state.info ? this.renderInfo(this.state.info as any) : null }

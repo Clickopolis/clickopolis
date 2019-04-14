@@ -1,6 +1,18 @@
 import { Advancement } from "components/AdvancementScreen";
 import { Era } from 'utils';
 
+export enum AdvName {
+    pottery = 'Pottery',
+    bartering = 'Bartering',
+    clothing = 'Clothing',
+    irrigation = 'Irrigation',
+    painting = 'Painting',
+    mysticism = 'Mysticism',
+    sailing = 'Sailing',
+    woodcutting = 'Wood Cutting',
+    writing = 'Writing',
+}
+
 export const advancements: Advancement[] = [
     {
         name: 'Pottery',
@@ -29,8 +41,7 @@ export const advancements: Advancement[] = [
         era: Era.Ancient,
         cost: 20,
         categories: ['culture'],
-        purchased: true,
-        purchaseDate: 30,
+        purchased: false,
         unlocked: true,
         results: [
             '+2 Happiness',
@@ -102,7 +113,7 @@ export const advancements: Advancement[] = [
         cost: 20,
         categories: ['research'],
         unlocked: false,
-        requirements: ['Pottery'],
+        requirements: ['Pottery', 'Wood Cutting'],
         results: [
             'Can build Library',
             'Can build The Great Library World Wonder',

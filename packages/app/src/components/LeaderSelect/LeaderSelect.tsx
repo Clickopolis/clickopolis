@@ -9,7 +9,6 @@ export interface LeaderSelectProps {
 }
 
 export interface LeaderSelectState {
-    isOpen: boolean;
     selectedItem: string;
 }
 
@@ -17,7 +16,6 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
     constructor(props:LeaderSelectProps) {
         super(props);
         this.state = {
-            isOpen: false,
             selectedItem: this.props.options[0]
         };
     }
@@ -28,7 +26,6 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
 
     private openSelect (leader: string, _: number) {
         this.setState({
-            isOpen: this.state.selectedItem === leader ? true : false,
             selectedItem: leader
         });
         this.props.onSelect(this.toTitleCase(this.state.selectedItem));
@@ -37,17 +34,11 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
     private renderOptions():JSX.Element[] {
         return this.props.options.map((o:string, idx: number) => {
             const isSelected = this.state.selectedItem === o;
-            const isHidden = this.state.isOpen ? '' : isSelected ? '' : 'hidden';
+            const isHidden = isSelected ? 'selected' : '';
             return (
                 <div onClick={this.openSelect.bind(this, o, idx)} key={o} className={`leader-option ${isHidden}`}>
                     <LeaderIcon style={{ marginLeft: '.5rem' }} height='2rem' width='2rem' icon={o} />
                     <span style={{ marginLeft: '2rem' }} className='leader-option-name'>{ this.toTitleCase(o) }</span>
-                    {
-                        idx === 0 ?
-                        <span style={{ color: '#333', marginLeft: 'auto' }}>▼</span>
-                        :
-                        <span style={{ marginLeft: 'auto' }}></span>
-                    }
                 </div>
             );
         });
@@ -55,7 +46,7 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
 
     public render() {
         return (
-            <div className={`leader-select ${this.state.isOpen ? 'open' : ''}`}>
+            <div className={`leader-select open`}>
                 { this.renderOptions() }
             </div>
         );

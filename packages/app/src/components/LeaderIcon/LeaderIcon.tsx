@@ -17,8 +17,8 @@ export class LeaderIcon extends React.PureComponent<LeaderIconProps> {
     public render() {
         const { icon } = this.props;
         return (
-            <div style={{ ...this.props.style, height: this.props.height, width: this.props.width }} className={`leader-icon leader-${icon}`}>
-                <img src={`./images/${icon}.svg`} />
+            <div style={{ ...this.props.style, height: this.props.height, width: this.props.width, borderRadius: '50%', }} className={`leader-icon leader-${icon}`}>
+                <img src={`./images/${icon}.png`} />
             </div>
         );
     }

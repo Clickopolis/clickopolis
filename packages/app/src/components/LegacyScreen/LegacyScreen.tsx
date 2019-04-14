@@ -2,7 +2,7 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { colors } from 'utils';
-import { Screen, Button, Indicator } from '@clickopolis/core';
+import { Screen, Indicator } from '@clickopolis/core';
 
 import './LegacyScreen.scss';
 

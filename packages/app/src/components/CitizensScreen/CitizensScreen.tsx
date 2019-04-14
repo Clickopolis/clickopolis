@@ -66,7 +66,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                     amount={this.state.amount}
                 />
                 <div className='citizens-note'>
-                    Each citizen produces 1 <img className='tiny-image' src='./images/cash.svg' />, 1 <img className='tiny-image' src='./images/research.svg' />, 1 <img className='tiny-image' src='./images/anger.svg' />, and 1 <img className='tiny-image' src='./images/pollution.svg' />.<br/>
+                    Each citizen produces 1 <img className='tiny-image' src='./images/cash.svg' />/min, .25 <img className='tiny-image' src='./images/research.svg' />/min, 1 <img className='tiny-image' src='./images/anger.svg' />, and 1 <img className='tiny-image' src='./images/pollution.svg' />.<br/>
                     Each citizen also consumes 1 <img className='tiny-image' src='./images/food.svg' />PS
                 </div>
             </Screen>

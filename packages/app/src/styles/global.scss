@@ -32,6 +32,7 @@ body,
     height: 85vh;
     margin: .5rem;
     padding: 1rem;
+    padding-top: 0;
     transition: 350ms all;
     width: 700px;
 }
@@ -42,6 +43,7 @@ body,
     display: flex;
     justify-content: center;
     letter-spacing: 2px;
+    margin-bottom: .5rem;
     padding: 1rem;
     text-align: center;
     text-transform: uppercase;

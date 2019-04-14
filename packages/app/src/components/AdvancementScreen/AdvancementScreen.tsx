@@ -1,17 +1,16 @@
 import * as React from 'react';
-import { Screen, Button, Indicator } from '@clickopolis/core';
+import { Screen, Button, Indicator, noop } from '@clickopolis/core';
 import { connect } from 'react-redux';
-import { Era, colors } from 'utils';
-
-import { Civilization } from '@clickopolis/core'
+import { Era, colors, getResearchPerMinute } from 'utils';
+import { purchaseAdvancement } from 'actions';
 
 import './AdvancementScreen.scss'
-import { civilization } from 'reducers/civilization';
-import { CivilizationScreen } from 'components/CivilizationScreen';
+import omit from 'ramda/es/omit';
 
 export interface AdvancmentScreenProps {
-    civilization: Civilization;
+    civilization: any;
     advancements: Advancement[];
+    purchaseAdvancement: typeof purchaseAdvancement;
 }
 
 export interface Advancement {
@@ -22,25 +21,32 @@ export interface Advancement {
     unlocked: boolean;
     results: string[];
     purchased?: boolean;
-    purchaseDate?: number;
+    purchasedDate?: number;
     requirements?: string[];
 }
 
-export const AdvancementDisplay = (adv: Advancement) => {
+export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvancement: typeof purchaseAdvancement, disabled: boolean}) => {
     return (
-        <div className='advancement' style={{
-            background: adv.purchased ? colors.get('advancementPurchased') : colors.get('advancement'),
-            cursor: 'pointer',
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: '.25rem',
-            margin: '.25rem',
-            border: '1px solid rgba(0, 0, 0, 0.8)',
-            borderRadius: '.25rem',
-            position: 'relative',
-            pointerEvents: adv.unlocked ? undefined : 'none',
-            opacity: adv.unlocked ? undefined : 0.25,
-        }}>
+        <div className='advancement'
+            onClick={e => {
+                adv.disabled ?
+                    noop() :
+                    adv.purchaseAdvancement(omit(['purchaseAdvancement', 'ac', 'disabled'], adv), adv.ac)
+            }}
+            style={{
+                background: adv.purchased ? colors.get('advancementPurchased') : colors.get('advancement'),
+                cursor: 'pointer',
+                display: 'flex',
+                justifyContent: 'space-between',
+                padding: '.25rem',
+                margin: '.25rem',
+                border: '1px solid rgba(0, 0, 0, 0.8)',
+                borderRadius: '.25rem',
+                position: 'relative',
+                filter: adv.disabled && !adv.purchased ? 'grayscale(80%)' : undefined,
+                opacity: adv.unlocked ? undefined : 0.25,
+            }}
+        >
             {!adv.unlocked && adv.requirements.length &&
                 <div className='advancement-requirements' style={{
                     position: 'absolute',
@@ -85,7 +91,7 @@ export const AdvancementDisplay = (adv: Advancement) => {
                 letterSpacing: adv.purchased ? '4px' : undefined,
             }}>
                 <div style={{ textAlign: 'center' }} className='advancement-name'>{adv.name}</div>
-                {adv.purchased && <div style={{fontSize: '12px', textAlign: 'center'}}>Discovered in {adv.purchaseDate} AC</div>}
+                {adv.purchased && <div style={{fontSize: '12px', textAlign: 'center'}}>Discovered in {adv.purchasedDate} AC</div>}
                 {!adv.purchased && <ul style={{ fontSize: '12px' }}>
                     {adv.results.map(res => <li key={res}>{res}</li>)}
                 </ul>}
@@ -106,7 +112,9 @@ export const AdvancementDisplay = (adv: Advancement) => {
 }
 
 export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps> {
+
     public render() {
+        const {civilization, purchaseAdvancement} = this.props;
 
         return (
             <Screen
@@ -125,13 +133,13 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                     />
                     <Indicator
                         label={'per minute'}
-                        value={40}
+                        value={getResearchPerMinute(this.props.civilization)}
                         positiveColor={colors.get('advancement')}
                         icon='./images/research.svg'
                         description={`Your total research generated per minute.`}
                     />
                 </div>
-                <div style={{margin: '.5rem 0', borderBottom: '1px solid #ccc', width: '100%', height: '1px'}} />
+                <div style={{margin: '.5rem 0', borderBottom: '1px solid #ccc', width: '100%', height: '2px'}} />
                 <div style={{display: 'flex', padding: '.25rem', justifyContent: 'space-around', alignItems: 'center' }}>
                     <Button style={{background: colors.get('advancement'), border: '1px solid #222', color: '#222', padding: '.25rem', borderRadius: '.25rem'}}>View Tree</Button>
                     <>
@@ -140,7 +148,7 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                     </>
                     <input style={{borderRadius: '.25rem', padding: '.25rem .5rem', border: '1px solid #eee'}} type='search' />
                 </div>
-                {this.props.advancements.map(adv => <AdvancementDisplay key={adv.name} {...adv} />)}
+                {this.props.advancements.map(adv => <AdvancementDisplay disabled={adv.cost > civilization.research.total} purchaseAdvancement={purchaseAdvancement} ac={civilization.ac} key={adv.name} {...adv} />)}
             </Screen>
         );
     }
@@ -151,5 +159,7 @@ export const AdvancementScreen: React.ComponentClass<{}> = connect(
         civilization: state.civilization,
         advancements: state.advancements,
     }),
-    null
-)(AdvancementScreenBase);
+    {
+        purchaseAdvancement,
+    }
+)(AdvancementScreenBase as any);

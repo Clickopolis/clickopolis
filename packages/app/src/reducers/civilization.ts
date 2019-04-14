@@ -47,6 +47,7 @@ const civDefault:any = {
         fromBuildings: 0,
         fromWonders: 0,
         fromCorporations: 0,
+        fromEvents: 0,
         multiplier: 1,
     },
 
@@ -113,15 +114,19 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                 angerFromPopulation: population,
                 research: {
                     ...state.research,
-                    total: state.research.total + action.amount,
+                    perMinuteFromCitizens: state.research.perMinuteFromCitizens + (action.amount / 4),
+                },
+                anger: {
+                    ...state.anger,
+                    fromPopulation: state.anger.fromPopulation + action.amount,
                 },
                 pollution: {
                     ...state.pollution,
-                    total: state.pollution.total + action.amount,
+                    fromPopulation: state.pollution.fromPopulation + action.amount,
                 },
                 cash: {
                     ...state.cash,
-                    total: state.cash.total + action.amount,
+                    perMinuteFromCitizens: state.cash.perMinuteFromCitizens + action.amount,
                 }
             };
         case GAIN_CASH:

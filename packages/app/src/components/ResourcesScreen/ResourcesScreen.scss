@@ -17,8 +17,13 @@ $prod-button-color: #e6d83e;
         align-items: flex-end;
         display: flex;
         height: 64px;
+        justify-content: center;
         flex-direction: row;
     }
+}
+
+.clickopolis-indicator-label {
+    font-size: 90%;
 }
 
 .food-button {
@@ -31,10 +36,13 @@ $prod-button-color: #e6d83e;
     color: #222;
     cursor: pointer;
     display: flex;
-    margin: .25rem;
-    padding: .5rem;
+    font-size: 1.25rem;
+    justify-content: center;
+    margin: .5rem;
+    margin-top: .75rem;
+    padding: .75rem;
     vertical-align: middle;
-    width: 12rem;
+    width: 14rem;
 
     span {
         display: inline-block;
@@ -48,6 +56,7 @@ $prod-button-color: #e6d83e;
 
     &:active {
         border-bottom: 0 solid transparent;
+        background: lighten($food-button-color, 10%);
         transform: translateY(4px);
         transition: 200ms all;
     }

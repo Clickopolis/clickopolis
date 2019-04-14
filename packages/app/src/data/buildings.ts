@@ -40,7 +40,7 @@ export const buildings: Building[] = [
         name: 'Granary',
         era: Era.Ancient,
         cost: 25,
-        unlocked: true,
+        unlocked: false,
         results: [
             {icon: 'food', description: '+1/click'},
             {icon: 'food', description: '+200 Max'},

@@ -18,3 +18,4 @@ export * from './updateCivilization';
 export * from './deleteData';
 export * from './addResource';
 export * from './buildings';
+export * from './advancements';

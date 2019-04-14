@@ -74,7 +74,6 @@ export class Indicator extends React.PureComponent<IndicatorProps> {
                     className={classNames('clickopolis-indicator', className)}
                     style={{
                         backgroundColor: this.determineSignColor(value, positiveColor, negativeColor, neutralColor),
-                        border: '1px solid rgba(0, 0, 0, 0.3)',
                         borderRadius: '.25rem',
                         textAlign: 'center',
                         padding: '.25rem',

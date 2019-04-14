@@ -14,6 +14,11 @@ export const UPDATE_BUILDING_COST: UPDATE_BUILDING_COST = 'UPDATE_BUILDING_COST'
 export const updateBuildingCost = (name: string) =>
     ({ type: UPDATE_BUILDING_COST, name })
 
+export type UNLOCK_BUILDING = 'UNLOCK_BUILDING';
+export const UNLOCK_BUILDING: UNLOCK_BUILDING = 'UNLOCK_BUILDING';
+export const unlockBuilding = (name: string) =>
+    ({ type: UNLOCK_BUILDING, name })
+
 export function purchaseBuilding(building: Building) {
     switch (building.name) {
         case 'Hut':
@@ -24,6 +29,6 @@ export function purchaseBuilding(building: Building) {
                 dispatch(updateCivilization(['happiness', 'fromBuildings'], getState().civilization.happiness.fromBuildings + 1))
             }
         default:
-            return
+            return undefined;
     }
 }

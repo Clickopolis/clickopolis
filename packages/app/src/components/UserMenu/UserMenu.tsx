@@ -22,7 +22,7 @@ export class UserMenu extends React.Component<UserMenuProps> {
                     <div className='user-info-civ'>{ userCivName }</div>
                 </div>
                 <div className='user-profile'>
-                    <img src='./images/avatar.png' />
+                    <img src={`./images/${username.toLowerCase().replace(/\s/g, '-')}.png`} />
                 </div>
             </div>
         );
