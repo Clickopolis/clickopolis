@@ -181,6 +181,7 @@ export const ResourcesMatrix = connect(
         fossils: state.fossils,
         spaghetti: state.spaghetti,
         chihuahuas: state.chihuahuas,
+        eagles: state.eagles,
     }),
     null
 )(ResourcesMatrixBase);

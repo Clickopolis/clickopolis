@@ -1,5 +1,5 @@
 import { Resource } from '@clickopolis/core';
-import { Action, CREATE_PRODUCTION, UPDATE_PRODUCTION_PER_SECOND, UPDATE_PRODUCTION_PER_CLICK } from '../actions';
+import { Action, CREATE_PRODUCTION, UPDATE_PRODUCTION_PER_SECOND, UPDATE_PRODUCTION_PER_CLICK, UPDATE_MAX_PRODUCTION } from '../actions';
 
 const productionState:Resource = {
     name: 'Production',
@@ -10,7 +10,7 @@ const productionState:Resource = {
     description: 'Prod',
 };
 
-export function production(state = productionState, action: Action<CREATE_PRODUCTION | UPDATE_PRODUCTION_PER_SECOND | UPDATE_PRODUCTION_PER_CLICK>) {
+export function production(state = productionState, action: Action<CREATE_PRODUCTION | UPDATE_PRODUCTION_PER_SECOND | UPDATE_PRODUCTION_PER_CLICK | UPDATE_MAX_PRODUCTION>) {
     switch (action.type) {
         case CREATE_PRODUCTION:
             return {
@@ -26,6 +26,11 @@ export function production(state = productionState, action: Action<CREATE_PRODUC
             return {
                 ...state,
                 perClick: action.amount
+            }
+        case UPDATE_MAX_PRODUCTION:
+            return {
+                ...state,
+                max: state.max + action.amount,
             }
         default:
             return state;

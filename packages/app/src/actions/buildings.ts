@@ -1,7 +1,7 @@
 import { updateCivilization } from './updateCivilization';
 import { Dispatch, Store } from 'redux';
 import { Building } from 'components/BuildingsScreen';
-import { createProduction } from './production';
+import { createProduction, updateProductionPerClick, updateMaxProduction } from './production';
 import { BuildingName } from 'data/buildings';
 import { updateFoodPerClick, updateMaxFood } from './food';
 
@@ -37,6 +37,32 @@ export function purchaseBuilding(building: Building) {
                 dispatch(createProduction(building.cost * -1))
                 dispatch(updateFoodPerClick(1))
                 dispatch(updateMaxFood(250))
+            }
+        case BuildingName.tent:
+            return function (dispatch: Dispatch<any>, _: Store<any>['getState']) {
+                dispatch(addBuilding(BuildingName.tent))
+                dispatch(updateBuildingCost(BuildingName.tent))
+                dispatch(createProduction(building.cost * -1))
+            }
+        case BuildingName.obelisk:
+            return function (dispatch: Dispatch<any>, _: Store<any>['getState']) {
+                dispatch(addBuilding(BuildingName.obelisk))
+                dispatch(updateBuildingCost(BuildingName.obelisk))
+                dispatch(createProduction(building.cost * -1))
+            }
+        case BuildingName.furnace:
+            return function (dispatch: Dispatch<any>, _: Store<any>['getState']) {
+                dispatch(addBuilding(BuildingName.furnace))
+                dispatch(updateBuildingCost(BuildingName.furnace))
+                dispatch(createProduction(building.cost * -1))
+                dispatch(updateProductionPerClick(1))
+                dispatch(updateMaxProduction(250))
+            }
+        case BuildingName.pyramid:
+            return function (dispatch: Dispatch<any>, _: Store<any>['getState']) {
+                dispatch(addBuilding(BuildingName.pyramid))
+                dispatch(updateBuildingCost(BuildingName.pyramid))
+                dispatch(createProduction(building.cost * -1))
             }
         default:
             return undefined;

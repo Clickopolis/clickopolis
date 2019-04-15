@@ -21,3 +21,13 @@ export function updateProductionPerClick (amount:number) {
         amount
     };
 }
+
+export type UPDATE_MAX_PRODUCTION = 'UPDATE_MAX_PRODUCTION'
+export const UPDATE_MAX_PRODUCTION: UPDATE_MAX_PRODUCTION = 'UPDATE_MAX_PRODUCTION';
+export type updateMaxProduction = (a: number) => Action<UPDATE_MAX_PRODUCTION>;
+export function updateMaxProduction (amount:number) {
+    return {
+        type: UPDATE_MAX_PRODUCTION,
+        amount
+    };
+}

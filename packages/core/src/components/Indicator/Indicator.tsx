@@ -16,6 +16,7 @@ export interface IndicatorProps {
     positiveColor?: string;
     negativeColor?: string;
     neutralColor?: string;
+    tooltipProps?: Partial<TippyProps>;
 }
 
 function determineSignColor (v:any, positiveColor: string, negativeColor: string = '#ff6347', neutralColor: string = '#222') {
@@ -55,8 +56,11 @@ export function Indicator (props: IndicatorProps) {
         onClick,
         positiveColor,
         style,
+        tooltipProps,
         value
     } = props;
+
+    const ttp = tooltipProps ? tooltipProps : {}
 
     const indicator = (
         <div>
@@ -88,6 +92,7 @@ export function Indicator (props: IndicatorProps) {
         description ? <Tippy
             content={description}
             followCursor={true}
+            {...ttp}
         >
             {indicator}
         </Tippy> : indicator

@@ -272,7 +272,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
         const propMap: [keyof Civilization, any][] = Object.entries(civilization[selectedIndicator])
         return propMap.map(item => {
             return <li style={{marginBottom: '.25rem', listStyleType: 'none', fontSize: '.9rem', display: 'flex', justifyContent: 'space-between'}}>
-                <span style={{fontWeight: 'bold'}}>{item[0]}</span><span>{item[1]}</span>
+                <span style={{fontWeight: 'bold'}}>{item[0].replace(/[A-Z]/g, " $&")}</span><span>{item[1]}</span>
             </li>
         })
     }

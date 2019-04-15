@@ -1,15 +1,16 @@
 import { Contribution, Citizen } from '@clickopolis/core'
 
-export const getContributionFor = ({ consumptionFunction, findFunction, citizens }: {
+export const getContributionFor = ({ consumptionFunction, findFunction, citizens, amount }: {
     consumptionFunction: () => number,
     findFunction: (c: Contribution) => boolean,
     citizens: Citizen[],
+    amount?: number,
 }): number => {
     const contributionTotal = citizens.map(citizen => {
         if (citizen.name === 'ruler') return { citizenAmount: 0, contributionAmount: 0 };
         const contrib = citizen.contribution.find(findFunction);
         return {
-            citizenAmount: citizen.amount,
+            citizenAmount: citizen.amount + (amount || 0),
             contributionAmount: contrib ? contrib.amount : 0
         };
     }).reduce((prev, curr) => {

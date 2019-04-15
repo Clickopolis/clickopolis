@@ -30,6 +30,9 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
     return (
         <div className='building'
             onClick={e => {console.log(e); build.purchaseBuilding(build)}}
+            onMouseDown={e => {
+                setTimeout(build.purchaseBuilding(build), 100)
+            }}
         style={{
             background: colors.get('buildings'),
             cursor: 'pointer',
@@ -42,7 +45,7 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
             position: 'relative',
             filter: build.unlocked ? undefined : 'grayscale(85%)',
             pointerEvents: (build.disabled || !build.unlocked) ? 'none' : undefined,
-            opacity: build.disabled ? 0.8 : undefined,
+            opacity: build.disabled ? 0.5 : undefined,
         }}>
             {build.requirements.length ?
                 <div className='advancement-requirements' style={{
@@ -112,7 +115,9 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
                 <Indicator
                     value={build.cost}
                     icon={'./images/production.svg'}
-                    style={{marginBottom: '.25rem'}}
+                    positiveColor={colors.get('production')}
+                    neutralColor={colors.get('production')}
+                    style={{color: '#111', marginBottom: '.25rem'}}
                     description={`Production cost`}
                 />
                 <Indicator

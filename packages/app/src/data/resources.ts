@@ -99,6 +99,17 @@ export const resources:Map<ResourceName, Resource> = new Map([
         visible: true,
         unlocked: false,
     }],
+    ['eagles', {
+        name: 'eagles',
+        total: 0,
+        max: Infinity,
+        perSecond: null,
+        perClick: null,
+        description: `CAWWW`,
+        category: ResourceCategory.power,
+        visible: true,
+        unlocked: false,
+    }],
     ['wine', {
         name: 'wine',
         total: 0,

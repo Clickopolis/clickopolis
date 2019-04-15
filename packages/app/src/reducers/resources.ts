@@ -44,6 +44,10 @@ export function stone(state = defaults.get('stone')) {
     return state;
 }
 
+export function eagles(state = defaults.get('eagles')) {
+    return state;
+}
+
 export function marble(state = defaults.get('marble')) {
     return state;
 }

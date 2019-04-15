@@ -20,8 +20,8 @@ export class Contribution extends React.Component<Contribution> {
 
     public render() {
         const { type, amount, resource } = this.props;
-        return <span className='contribution'>
+        return <div className='contribution'>
             { amount } <img style={{ height: '.75rem' }} src={`./images/${resource}.svg`} /> { type }
-        </span>;
+        </div>;
     }
 }

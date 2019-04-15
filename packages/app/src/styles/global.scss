@@ -20,8 +20,18 @@ body,
     height: 100%;
 }
 
+@keyframes appear {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .tippy-tooltip {
-    background: #222 !important;
+    animation: 300ms appear 1;
+    background: #0e0d0d !important;
     transition: 500ms all;
 }
 

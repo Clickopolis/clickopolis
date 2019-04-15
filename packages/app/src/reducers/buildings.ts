@@ -20,7 +20,7 @@ export function buildings(state = initialState, action: Action<ADD_BUILDING | UP
             {
                 const building = state.find(b => b.name === action.name);
                 const indexOf = state.indexOf(building)
-                const newCost = Math.floor(Math.pow(building.cost, 1.07))
+                const newCost = Math.ceil(Math.pow(building.cost, 1.01))
                 if (building) {
                     const buildingUpdated = {...building, cost: newCost }
                     const newState = state;
