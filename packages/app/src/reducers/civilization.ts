@@ -38,6 +38,7 @@ const civDefault:any = {
         fromPopulation: 0,
         fromWar: 0,
         fromEvents: 0,
+        fromSlavery: 0,
         multiplier: 1,
     },
 

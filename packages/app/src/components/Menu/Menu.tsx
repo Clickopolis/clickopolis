@@ -57,6 +57,9 @@ export class MenuBase extends React.Component<MenuProps> {
                     icon={'./images/quests.svg'}
                     positiveColor={colors.get('quests')}
                     neutralColor={colors.get('quests')}
+                    tooltipProps={{
+                        
+                    }}
                     description={<div>
                         (1) Gain 20/30 Population
                         <br/>

@@ -48,7 +48,7 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
         }, 0) === 0;
 
         const foodPerSecond = getContributionFor({
-            consumptionFunction: () => this.props.civilization.population - 2,
+            consumptionFunction: () => this.props.civilization.population - 3,
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens,
             amount,
@@ -80,7 +80,7 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
         const {citizens} = this.props
 
         const foodPerSecond = getContributionFor({
-            consumptionFunction: () => this.props.civilization.population - 1,
+            consumptionFunction: () => this.props.civilization.population - 2,
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens,
             amount,

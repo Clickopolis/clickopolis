@@ -35,7 +35,12 @@ export const calculateHappiness = (civ: Civilization) => {
 }
 
 export const calculateAnger = (civ: Civilization) => {
-    return ((civ.anger.fromPopulation || 0) + (civ.anger.fromWar || 0) * (civ.anger.multiplier || 1))
+    return (
+        (civ.anger.fromPopulation || 0) + 
+        (civ.anger.fromSlavery || 0) +
+        (civ.anger.fromWar || 0) * 
+        (civ.anger.multiplier || 1)
+    )
 }
 
 export const calculatePollution = (civ: Civilization) => {

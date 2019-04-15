@@ -17,6 +17,7 @@ export interface Anger {
     fromPopulation: number;
     fromWar: number;
     fromEvents: number;
+    fromSlavery: number;
     multiplier: number;
 }
 

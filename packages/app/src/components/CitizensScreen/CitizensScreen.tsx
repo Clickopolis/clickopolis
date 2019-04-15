@@ -85,6 +85,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                         value={this.props.food.perSecond}
                         positiveColor={colors.get('resources')}
                         neutralColor={colors.get('resources')}
+                        negativeColor={colors.get('negative')}
                         label={'food/s'}
                         formatFunction={(v:number) => v.toFixed(1)}
                     />
@@ -92,6 +93,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                         value={this.props.production.perSecond}
                         positiveColor={colors.get('production')}
                         neutralColor={colors.get('production')}
+                        negativeColor={colors.get('negative')}
                         label={'prod/s'}
                         formatFunction={(v:number) => v.toFixed(1)}
                     />

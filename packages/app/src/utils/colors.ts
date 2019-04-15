@@ -13,6 +13,7 @@ export type colorKeys = 'citizens' |
                   'land' |
                   'goldenAge' |
                   'goldenAgeDark' |
+                  'negative' |
                   'advancement' |
                   'advancementPurchased'
 ;
@@ -32,6 +33,7 @@ export const colors: Map<colorKeys, string> = new Map<colorKeys, string>([
     ['advancement', '#7cdef0'],
     ['advancementPurchased', '#13d14e'],
     ['quests', '#f4d742'],
+    ['negative', 'tomato'],
     ['land', '#4286f4'],
     ['goldenAge', '#f9d57a'],
     ['goldenAgeDark', '#282316']
