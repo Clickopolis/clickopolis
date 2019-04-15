@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.6...@clickopolis/app@0.17.0) (2019-04-15)
+
+
+### Bug Fixes
+
+* add GoldenAge icon/indicator ([be23bb2](https://github.com/Clickopolis/clickopolis/commit/be23bb2))
+* tweaks to Tooltip usage ([4ccf9a8](https://github.com/Clickopolis/clickopolis/commit/4ccf9a8))
+* work through resource consumption/creation ([efb2fb5](https://github.com/Clickopolis/clickopolis/commit/efb2fb5))
+
+
+### Features
+
+* add more Metrics to civilizatoin panel ([18f0cd3](https://github.com/Clickopolis/clickopolis/commit/18f0cd3))
+* better Leader selection screen, more useful metrics ([fe169b6](https://github.com/Clickopolis/clickopolis/commit/fe169b6))
+
+
+
+
+
 ## [0.16.6](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.5...@clickopolis/app@0.16.6) (2019-04-14)
 
 **Note:** Version bump only for package @clickopolis/app

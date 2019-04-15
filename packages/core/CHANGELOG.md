@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.12.11](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.10...@clickopolis/core@0.12.11) (2019-04-15)
+
+
+### Bug Fixes
+
+* tweaks to Tooltip usage ([4ccf9a8](https://github.com/Clickopolis/clickopolis/commit/4ccf9a8))
+* work through resource consumption/creation ([efb2fb5](https://github.com/Clickopolis/clickopolis/commit/efb2fb5))
+
+
+
+
+
 ## [0.12.10](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.9...@clickopolis/core@0.12.10) (2019-04-14)
 
 
