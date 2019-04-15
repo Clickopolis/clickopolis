@@ -5,7 +5,7 @@ import { Resource, Flags, Citizen, Civilization } from '@clickopolis/core';
 
 import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
-import { CivilizationScreen } from 'components/CivilizationScreen';
+import { CivilizationScreen, calculateHappiness, calculateAnger } from 'components/CivilizationScreen';
 import { CitizensScreen } from 'components/CitizensScreen';
 import { AdvancementScreen } from 'components/AdvancementScreen';
 import {
@@ -17,7 +17,8 @@ import {
     updateCivilization,
     gainCash,
     addNotification,
-    addResource
+    addResource,
+    updateGAProgress
 } from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
@@ -50,6 +51,7 @@ export interface AppProps {
     ac: number;
     cashPerMin: number;
     miners: Citizen;
+    updateGAProgress: updateGAProgress;
 }
 
 const visibilityTransformer = (f:number) => {
@@ -90,14 +92,16 @@ export class AppBase extends React.Component<AppProps> {
     }
 
     timer = () => {
-        const {flags, createProduction, growFood, food, production, timeStatus} = this.props;
+        const {flags, createProduction, growFood, food, production, timeStatus, civilization} = this.props;
         // const minerContrib = miners.contribution.find(c => c.type === 'PS')
         // const minerProd = minerContrib ? minerContrib.amount * miners.amount : 0;
 
+        console.log( calculateHappiness(civilization) - calculateAnger(civilization) )
+
         if (flags.HAS_STARTED_GAME && timeStatus === TimeStatus.Playing) {
+            updateGAProgress(civilization.goldenAge.progress + (calculateHappiness(civilization) - calculateAnger(civilization)))
             growFood(visibilityTransformer(food.perSecond));
             createProduction(visibilityTransformer(production.perSecond));
-            // createProduction(visibilityTransformer(minerProd))
             console.log('%c 1s Timer set off.', 'color: #8942f4');
         }
     }
@@ -173,7 +177,7 @@ export class AppBase extends React.Component<AppProps> {
                         justifyContent: 'center',
                         // justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
                         height: 'calc(100%)',
-                        width: `calc(700px * ${countScreens})`
+                        width: HAS_STARTED_GAME ? `calc(700px * ${countScreens})` : '100%',
                     }}>
                         {
                             HAS_STARTED_GAME ?
@@ -220,5 +224,6 @@ export const App = connect(
         addNotification,
         gainCash,
         addResource,
+        updateGAProgress,
     }
 )(AppBase);

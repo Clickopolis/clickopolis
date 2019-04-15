@@ -62,82 +62,82 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
             };
         case AdvName.clothing:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.clothing);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.clothing);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                }
+            };
         case AdvName.irrigation:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.irrigation);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.irrigation);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                }
+            };
         case AdvName.mysticism:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.mysticism);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.mysticism);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                }
+            };
         case AdvName.pottery:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.pottery);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.pottery);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                }
+            };
         case AdvName.sailing:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.sailing);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.sailing);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                }
+            };
         case AdvName.woodcutting:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.woodcutting);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-                dispatch(unlockAdvancement(AdvName.sailing))
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.woodcutting);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                    dispatch(unlockAdvancement(AdvName.sailing))
+                }
+            };
         case AdvName.writing:
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
-            const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.writing);
-            const name = adv.name
-            const research = getState().civilization.research.total
-            if (!path(['purchased'], adv)) {
-                dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                dispatch(addAdvancement(name, ac))
-                dispatch(updateAdvancementCosts())
-            }
-        };
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.writing);
+                const name = adv.name
+                const research = getState().civilization.research.total
+                if (!path(['purchased'], adv)) {
+                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
+                    dispatch(addAdvancement(name, ac))
+                    dispatch(updateAdvancementCosts())
+                }
+            };
         default:
             return undefined;
     }

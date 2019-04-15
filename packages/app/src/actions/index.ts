@@ -19,3 +19,4 @@ export * from './deleteData';
 export * from './addResource';
 export * from './buildings';
 export * from './advancements';
+export * from './land';

@@ -27,8 +27,6 @@ export interface Building {
 }
 
 export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purchaseBuilding: typeof purchaseBuilding}) => {
-    console.log(build.purchaseBuilding)
-
     return (
         <div className='building'
             onClick={e => {console.log(e); build.purchaseBuilding(build)}}
@@ -107,11 +105,23 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
                 color: 'white',
                 padding: '1rem',
                 textAlign: 'center',
+                width: '33%',
+                display: 'flex',
+                flexDirection: 'column',
             }}>
-                <span className='advancement-cost-text'>
-                    {build.cost}
-                </span>
-                <img style={{marginTop: '.5rem'}} src='./images/production.svg' />
+                <Indicator
+                    value={build.cost}
+                    icon={'./images/production.svg'}
+                    style={{marginBottom: '.25rem'}}
+                    description={`Production cost`}
+                />
+                <Indicator
+                    value={build.landCost}
+                    positiveColor={colors.get('land')}
+                    neutralColor={colors.get('land')}
+                    icon={'./images/land.svg'}
+                    description={`Land cost`}
+                />
             </div>}
         </div>
     )
@@ -130,14 +140,25 @@ export class BuildingsScreenBase extends React.Component<BuildingScreenProps> {
                 type='Buildings'
                 color={colors.get('buildings')}
             >
-                 <Indicator
-                    value={this.props.production.total}
-                    positiveColor={colors.get('buildings')}
-                    negativeColor={colors.get('buildings')}
-                    neutralColor={colors.get('buildings')}
-                    style={{margin: '.25rem auto', width: '200px'}}
-                    icon={'./images/production.svg'}
-                />
+                <div style={{display: 'flex', justifyContent: 'center'}}>
+                    <Indicator
+                        value={this.props.production.total}
+                        positiveColor={colors.get('buildings')}
+                        negativeColor={colors.get('buildings')}
+                        neutralColor={colors.get('buildings')}
+                        style={{margin: '.25rem', width: '200px'}}
+                        icon={'./images/production.svg'}
+                    />
+
+                    <Indicator
+                        value={`2555 km`}
+                        positiveColor={colors.get('land')}
+                        neutralColor={colors.get('land')}
+                        icon={'./images/land.svg'}
+                        style={{margin: '.25rem', width: '200px'}}
+                        description={`The total land in your empire`}
+                    />
+                </div>
 
                 {buildings.map(build => <BuildingsDisplay
                     purchaseBuilding={this.props.purchaseBuilding}

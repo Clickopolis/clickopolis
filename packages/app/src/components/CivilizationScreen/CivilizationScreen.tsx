@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Indicator, Civilization, Resource } from '@clickopolis/core';
+import { Screen, Indicator, Civilization, Resource, abbrNum } from '@clickopolis/core';
 import { PopulationButton } from '../PopulationButton';
 import { colors, getCashPerMinute } from 'utils';
 
 import './CivilizationScreen.scss';
+import { civilization } from 'reducers/civilization';
 
 const indicatorStyle = {
     margin: '.25rem',
@@ -48,9 +49,53 @@ export const calculatePollution = (civ: Civilization) => {
     ) * (pollution.mulitiplier || 1);
 }
 
+export const calculateHealth = (civ: Civilization, cattle: Resource) => {
+    return (
+        (civ.health.base) + 
+        (civ.health.fromResources || 0) + 
+        ((cattle.healthBonus * cattle.total) || 0) +
+        (civ.health.fromBuildings || 0) * 
+        (civ.health.multiplier || 1)
+    )
+}
+
 export class CivilizationScreenBase extends React.Component<CivilizationScreenProps, CivilizationScreenState> {
     state: CivilizationScreenState = {
         selectedIndicator: null,
+    }
+
+    private getHappinessPercentages() {
+        const {civilization} = this.props
+
+        const happiness = calculateHappiness(civilization)
+        const anger = calculateAnger(civilization)
+        const total = happiness + anger
+
+        return {
+            happiness: ((happiness / total) * 100) + '%',
+            anger: ((anger / total) * 100) + '%'
+        }
+    }
+
+    private getHealthPercentages() {
+        const {civilization} = this.props
+        const {cattle} = this.props
+
+        const health = calculateHealth(civilization, cattle)
+        const pollution = calculatePollution(civilization)
+        const total = health + pollution
+
+        return {
+            health: ((health / total) * 100) + '%',
+            pollution: ((pollution / total) * 100) + '%'
+        }
+    }
+
+    private getGoldenAgeProgress(civ: Civilization) {
+        const gp = civ.goldenAge.progress
+        const gg = civ.goldenAge.goal
+
+        return ((gp/gg) * 100) + '%'
     }
 
     public render() {
@@ -59,6 +104,9 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
             display: 'flex',
             marginTop: '1rem'
         }
+
+        const {civilization} = this.props
+        const goldenAgePercent = this.getGoldenAgeProgress(civilization)
 
         return (
             <Screen
@@ -74,8 +122,8 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 }}>
                     <div style={{display: 'flex', flexDirection: 'column' }}>
                         <div style={{width: '80%', height: '.5rem', borderRadius: '.25rem', display: 'flex', margin: '.5rem 1rem', overflow: 'hidden' }}>
-                            <div style={{background: 'yellow', height: '.5rem', width: '50%'}}></div>
-                            <div style={{background: 'red', height: '.5rem', width: '50%'}}></div>
+                            <div style={{background: 'yellow', height: '.5rem', width: this.getHappinessPercentages().happiness}}></div>
+                            <div style={{background: 'red', height: '.5rem', width: this.getHappinessPercentages().anger}}></div>
                         </div>
                         <div style={{display: 'flex'}}>
                             <Indicator
@@ -100,12 +148,12 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     </div>
                     <div style={{display: 'flex', flexDirection: 'column' }}>
                         <div style={{width: '80%', height: '.5rem', borderRadius: '.25rem', display: 'flex', margin: '.5rem 1rem', overflow: 'hidden' }}>
-                            <div style={{background: 'white', height: '.5rem', width: '50%'}}></div>
-                            <div style={{background: 'lightgreen', height: '.5rem', width: '50%'}}></div>
+                            <div style={{background: 'white', height: '.5rem', width: this.getHealthPercentages().health}}></div>
+                            <div style={{background: 'lightgreen', height: '.5rem', width: this.getHealthPercentages().pollution}}></div>
                         </div>
                         <div style={{display: 'flex'}}>
                             <Indicator
-                                value={this.calculateHealth(this.props.civilization)}
+                                value={calculateHealth(this.props.civilization, this.props.cattle)}
                                 positiveColor='white'
                                 neutralColor='white'
                                 icon={'./images/health.svg'}
@@ -129,10 +177,11 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         style={{
                             ...indicatorStyle,
                             color: 'white',
-                            background: `linear-gradient(to right, ${colors.get('goldenAge')} 10%, ${colors.get('goldenAgeDark')} 10%, ${colors.get('goldenAgeDark')})`,
+                            border: '1px solid rgba(255, 255, 255, 0.8)',
+                            background: `linear-gradient(to right, ${colors.get('goldenAge')} ${goldenAgePercent}, ${colors.get('goldenAgeDark')} ${goldenAgePercent}, ${colors.get('goldenAgeDark')})`,
                         }}
                         icon={'./images/golden-age.svg'}
-                        description={`Your progress towards a Golden Age`}
+                        description={`Your progress towards a Golden Age ${civilization.goldenAge.progress}/${abbrNum(civilization.goldenAge.goal)}`}
                         onClick={this.onClick('land')}
                     />
                 </div>
@@ -207,18 +256,6 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 </div>}
             </Screen>
         );
-    }
-
-    private calculateHealth = (civ: Civilization) => {
-        const {cattle} = this.props
-    
-        return (
-            (civ.health.base) + 
-            (civ.health.fromResources || 0) + 
-            ((cattle.healthBonus * cattle.total) || 0) +
-            (civ.health.fromBuildings || 0) * 
-            (civ.health.multiplier || 1)
-        )
     }
 
     private onClick = (selectedIndicator: string) => () => {

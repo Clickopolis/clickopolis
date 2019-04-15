@@ -10,3 +10,14 @@ export function updateProductionPerSecond (amount:number) {
         amount
     };
 }
+
+export type UPDATE_PRODUCTION_PER_CLICK = 'UPDATE_PRODUCTION_PER_CLICK';
+export const UPDATE_PRODUCTION_PER_CLICK:UPDATE_PRODUCTION_PER_CLICK = 'UPDATE_PRODUCTION_PER_CLICK';
+
+export type updateProductionPerClick = (a: number) => Action<UPDATE_PRODUCTION_PER_CLICK>;
+export function updateProductionPerClick (amount:number) {
+    return {
+        type: UPDATE_PRODUCTION_PER_CLICK,
+        amount
+    };
+}

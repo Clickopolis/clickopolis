@@ -31,8 +31,14 @@ export const citizens = new Map<CitizenType, Citizen>([
             {
                 type: 'PS',
                 interval: 1000,
-                amount: 2,
+                amount: 1,
                 resource: 'production'
+            },
+            {
+                type: 'PC',
+                interval: 1000,
+                amount: 2,
+                resource: 'production',
             }
         ],
         amount: 0,

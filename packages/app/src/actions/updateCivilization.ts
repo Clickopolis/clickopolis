@@ -11,3 +11,14 @@ export function updateCivilization (key: string | string[], value: any) {
         value
     };
 }
+
+export type UPDATE_GA_PROGRESS = 'UPDATE_GA_PROGRESS'
+export const UPDATE_GA_PROGRESS: UPDATE_GA_PROGRESS = 'UPDATE_GA_PROGRESS'
+
+export type updateGAProgress = (amount: number) => Action<UPDATE_GA_PROGRESS>
+export function updateGAProgress (amount: number) {
+    return {
+        type: UPDATE_GA_PROGRESS,
+        amount,
+    }
+}

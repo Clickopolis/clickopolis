@@ -15,7 +15,7 @@ export enum AdvName {
 
 export const advancements: Advancement[] = [
     {
-        name: 'Pottery',
+        name: AdvName.pottery,
         era: Era.Ancient,
         cost: 20,
         categories: ['culture', 'buildings'],
@@ -25,7 +25,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Bartering',
+        name: AdvName.bartering,
         era: Era.Ancient,
         cost: 20,
         categories: ['economy'],
@@ -37,7 +37,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Clothing',
+        name: AdvName.clothing,
         era: Era.Ancient,
         cost: 20,
         categories: ['culture'],
@@ -49,7 +49,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Irrigation',
+        name: AdvName.irrigation,
         era: Era.Ancient,
         cost: 20,
         categories: [
@@ -62,7 +62,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Painting',
+        name: AdvName.clothing,
         era: Era.Ancient,
         cost: 20,
         categories: ['culture'],
@@ -72,7 +72,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Mysticism',
+        name: AdvName.mysticism,
         era: Era.Ancient,
         cost: 20,
         categories: ['faith'],
@@ -83,7 +83,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Sailing',
+        name: AdvName.sailing,
         era: Era.Ancient,
         cost: 20,
         categories: ['military', 'economy'],
@@ -93,11 +93,11 @@ export const advancements: Advancement[] = [
             'Can discover Coast and Island biomes',
         ],
         requirements: [
-            'Wood Cutting',
+            AdvName.woodcutting,
         ]
     },
     {
-        name: 'Wood Cutting',
+        name: AdvName.woodcutting,
         era: Era.Ancient,
         cost: 20,
         categories: ['military'],
@@ -108,7 +108,7 @@ export const advancements: Advancement[] = [
         ]
     },
     {
-        name: 'Writing',
+        name: AdvName.writing,
         era: Era.Ancient,
         cost: 20,
         categories: ['research'],

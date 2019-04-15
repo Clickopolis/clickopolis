@@ -1,5 +1,5 @@
 import { Resource } from '@clickopolis/core';
-import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND } from 'actions';
+import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND, UPDATE_FOOD_PER_CLICK, UPDATE_MAX_FOOD} from 'actions';
 
 const foodState:Resource = {
     name: 'Food',
@@ -10,7 +10,7 @@ const foodState:Resource = {
     description: 'Food',
 };
 
-export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD | UPDATE_FOOD_PER_SECOND>) {
+export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD | UPDATE_FOOD_PER_SECOND | UPDATE_FOOD_PER_CLICK | UPDATE_MAX_FOOD>) {
     switch (action.type) {
         case GROW_FOOD:
             return {
@@ -27,6 +27,16 @@ export function food(state = foodState, action: Action<GROW_FOOD | CONSUME_FOOD 
                 ...state,
                 perSecond: action.amount
             };
+        case UPDATE_FOOD_PER_CLICK:
+            return {
+                ...state,
+                perClick: state.perClick + action.amount
+            }
+        case UPDATE_MAX_FOOD:
+            return {
+                ...state,
+                max: state.max + action.amount,
+            }
         default:
             return state;
     }

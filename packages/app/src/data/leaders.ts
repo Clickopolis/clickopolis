@@ -10,6 +10,8 @@ export enum LeaderName {
     AbrahamLincoln = 'Abraham Lincoln',
     MansaMusa = 'Mansa Musa',
     Victoria = 'Victoria',
+    AnaNzinga = 'Ana Nzinga',
+    BenitoJuarez = 'Benito Juarez',
 }
 
 export const leaders: (Leader & Enhancements)[] = [
@@ -41,8 +43,16 @@ export const leaders: (Leader & Enhancements)[] = [
         traits: [],
         abilities: [
             {
-                name: `Wealth of the Desert`,
-                description: ``
+                name: `Lord of the Mines`,
+                description: `Miner output increased 100%`
+            },
+            {
+                name: `The Great Pilgrimage`,
+                description: `+100% time to complete Trade Routes, but +300% Money when completed`,
+            },
+            {
+                name: `Griot Tradition`,
+                description: `Removes ability to have Great Writers. Musicians produce +3 Culture, +4 Faith, +1 Money`,
             }
         ]
     },
@@ -54,7 +64,55 @@ export const leaders: (Leader & Enhancements)[] = [
         abilities: [
             {
                 name: `Royal Navy`,
-                description: ``,
+                description: `+50% Navy strength. +1 Navy unit when discovering Sailing.`,
+            },
+            {
+                name: `The Big Smoke`,
+                description: `+0.1 Production/click per citizen but +1.5 Pollution per citizen`
+            },
+            {
+                name: `Warehouse City`,
+                description: `+100% Production from Workshops and Factories`
+            },
+        ]
+    },
+    {
+        name: LeaderName.AnaNzinga,
+        defaultCivName: 'Congo',
+        defaultName: LeaderName.AnaNzinga,
+        traits: [],
+        abilities: [
+            {
+                name: `Queen of Many Names`,
+                description: `Gains +1 Spy when espionage is enabled. Spies' automatically gain 1 rank upon creation.`
+            },
+            {
+                name: `Entourage`,
+                description: `+.1 domestic influence/min per citizen after building your first Courthouse.`
+            },
+            {
+                name: `Syncretic Church`,
+                description: `Can worship one Pantheon beyond the normal limit and gains one faith bonus based on your closest neighboring nation.`
+            },
+        ]
+    },
+    {
+        name: LeaderName.BenitoJuarez,
+        defaultCivName: 'Mexico',
+        defaultName: LeaderName.BenitoJuarez,
+        traits: [],
+        abilities: [
+            {
+                name: `La Reforma Del Norte`,
+                description: `Temples and Churches do not cost land to build but Clerics produce -10% less faith.`,
+            },
+            {
+                name: `Biodiverse Lands`,
+                description: `Gains +5% culture/min per biome discovered. Can unlock the Eagle resource, which earns 1 culture/min per Eagle discovered. Can only be earned by Explorers.`,
+            },
+            {
+                name: `Columbian Exchange`,
+                description: `Trade Routes award a bonus resource when completed, but plague chance increases by 1% with each completed trade. Plauge chance penalty removed after discovering Germ Theory.`
             }
         ]
     }

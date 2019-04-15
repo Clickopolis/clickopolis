@@ -1,9 +1,18 @@
 import { Building } from 'components/BuildingsScreen'
 import { Era } from 'utils';
 
+export enum BuildingName {
+    hut = 'Hut',
+    tent = 'Tent',
+    obelisk = 'Obelisk',
+    granary = 'Granary',
+    furnace = 'Furnace',
+    pyramid = 'Pyramid'
+}
+
 export const buildings: Building[] = [
     {
-        name: 'Hut',
+        name: BuildingName.hut,
         era: Era.Ancient,
         cost: 10,
         landCost: 1,
@@ -15,7 +24,7 @@ export const buildings: Building[] = [
         requirements: []
     },
     {
-        name: 'Tent',
+        name: BuildingName.tent,
         era: Era.Ancient,
         cost: 30,
         landCost: 1,
@@ -28,7 +37,7 @@ export const buildings: Building[] = [
         requirements: [],
     },
     {
-        name: 'Obelisk',
+        name: BuildingName.obelisk,
         era: Era.Ancient,
         cost: 20,
         unlocked: true,
@@ -40,7 +49,7 @@ export const buildings: Building[] = [
         requirements: [],
     },
     {
-        name: 'Granary',
+        name: BuildingName.granary,
         era: Era.Ancient,
         cost: 25,
         unlocked: false,
@@ -53,7 +62,7 @@ export const buildings: Building[] = [
         requirements: [],
     },
     {
-        name: 'Furnace',
+        name: BuildingName.furnace,
         era: Era.Ancient,
         landCost: 1,
         cost: 25,
@@ -66,7 +75,7 @@ export const buildings: Building[] = [
         requirements: [],
     },
     {
-        name: 'Pyramid',
+        name: BuildingName.pyramid,
         era: Era.Ancient,
         landCost: 3,
         cost: 200,

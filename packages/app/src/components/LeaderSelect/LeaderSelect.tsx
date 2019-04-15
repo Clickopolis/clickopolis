@@ -3,8 +3,13 @@ import * as React from 'react';
 import { LeaderIcon } from 'components/LeaderIcon';
 import './LeaderSelect.scss';
 
+interface LeadOption {
+    name: string;
+    civ: string;
+}
+
 export interface LeaderSelectProps {
-    options: string[];
+    options: LeadOption[];
     onSelect: (item: string) => void;
 }
 
@@ -16,7 +21,7 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
     constructor(props:LeaderSelectProps) {
         super(props);
         this.state = {
-            selectedItem: this.props.options[0]
+            selectedItem: this.props.options[0].name
         };
     }
 
@@ -32,13 +37,19 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
     }
 
     private renderOptions():JSX.Element[] {
-        return this.props.options.map((o:string, idx: number) => {
-            const isSelected = this.state.selectedItem === o;
+        return this.props.options.map((o: LeadOption, idx: number) => {
+            const isSelected = this.state.selectedItem === o.name;
             const isHidden = isSelected ? 'selected' : '';
             return (
-                <div onClick={this.openSelect.bind(this, o, idx)} key={o} className={`leader-option ${isHidden}`}>
-                    <LeaderIcon style={{ marginLeft: '.5rem' }} height='2rem' width='2rem' icon={o} />
-                    <span style={{ marginLeft: '2rem' }} className='leader-option-name'>{ this.toTitleCase(o) }</span>
+                <div style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                }} onClick={this.openSelect.bind(this, o.name, idx)} key={o.name} className={`leader-option ${isHidden}`}>
+                    <LeaderIcon style={{ marginLeft: '.5rem', overflow: 'hidden' }} height='2rem' width='2rem' icon={o.name} />
+                    <span style={{ marginLeft: '2rem' }} className='leader-option-name'>{
+                        this.toTitleCase(o.name)
+                    }</span>
+                    <em style={{marginRight: '.5rem', fontSize: '90%'}}>{o.civ}</em>
                 </div>
             );
         });

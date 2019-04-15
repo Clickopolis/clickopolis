@@ -1,6 +1,6 @@
 // import { Civilization } from '../../../core';
 
-import { Action, GROW_POPULATION, UPDATE_CIVILIZATION, GAIN_CASH } from '../actions';
+import { Action, GROW_POPULATION, UPDATE_CIVILIZATION, GAIN_CASH, UPDATE_GA_PROGRESS } from '../actions';
 import { assocPath } from 'ramda';
 
 // @NOTE: Replace any with Civilization
@@ -13,6 +13,13 @@ const civDefault:any = {
 
     population: 1,
     foodNeededForGrowth: 20,
+
+    goldenAge: {
+        isActive: false,
+        progress: 1000,
+        goal: 10000,
+        multiplier: 0,
+    },
 
     happiness: {
         base: 50,
@@ -35,7 +42,7 @@ const civDefault:any = {
     },
 
     health: {
-        base: 15,
+        base: 50,
         fromResources: 0,
         fromBuildings: 0,
         multiplier: 1,
@@ -103,7 +110,7 @@ const civDefault:any = {
     },
 };
 
-export function civilization(state = civDefault, action: Action<GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH>) {
+export function civilization(state = civDefault, action: Action<GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH | UPDATE_GA_PROGRESS>) {
     switch (action.type) {
         case GROW_POPULATION:
             const population = state.population + action.amount
@@ -136,6 +143,14 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                     total: state.cash.total + action.amount
                 }
             };
+        case UPDATE_GA_PROGRESS:
+            return {
+                ...state,
+                goldenAge: {
+                    ...state.goldenAge,
+                    progress: state.goldenAge.progress + action.amount,
+                }
+            }
         case UPDATE_CIVILIZATION:
             return assocPath([...action.key], action.value, state);
         default:

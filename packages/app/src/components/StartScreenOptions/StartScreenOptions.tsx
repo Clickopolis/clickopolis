@@ -30,26 +30,31 @@ export class StartScreenOptionsBase extends React.Component<StartScreenOptionsPr
                     height: '100%',
                 }}>
                     <LeaderSelect options={[
-                        'abraham-lincoln',
-                        'victoria',
-                        'mansa-musa',
+                        {name: 'abraham-lincoln', civ: 'USA'},
+                        {name: 'victoria', civ: 'England'},
+                        {name: 'mansa-musa', civ: 'Mali'},
+                        {name: 'ana-nzinga', civ: 'Congo'},
+                        {name: 'benito-juarez', civ: 'Mexico'}
                     ]} onSelect={leaderName => this.props.selectLeader(leaderName)} />
                 </div>
 
                 <div className='option-wrapper-2' style={{
 
                 }}>
+                    <h2 style={{textAlign: 'center'}}>{leader.name}</h2>
                     <div style={{
                         display: 'flex',
+                        padding: '1rem',
+                        alignItems: 'center',
                     }}>
                         {leader ? 
                          <>
-                            <img style={{borderRadius: '50%', height: '128px', margin: '.5rem auto'}} src={`./images/${leader.name.toLowerCase().replace(/\s/g, '-')}.png`} />
+                            <img style={{border: '1px solid gold', borderRadius: '50%', height: '128px', margin: '.5rem auto'}} src={`./images/${leader.name.toLowerCase().replace(/\s/g, '-')}.png`} />
                             
                             <div style={{display: 'flex', flexDirection: 'column'}}>
                                 {leader.abilities.map((ab: any) => {
                                     return <div style={{margin: '.5rem', marginBottom: '.25rem'}}>
-                                        <strong>{ab.name}</strong>
+                                        <strong style={{fontSize: '110%', letterSpacing: '3px', textTransform: 'uppercase'}}>{ab.name}</strong>
                                         <p style={{margin: '0'}}>{ab.description}</p>
                                     </div>
                                 })}
@@ -61,6 +66,7 @@ export class StartScreenOptionsBase extends React.Component<StartScreenOptionsPr
                     <div style={{
                         width: '50%',
                         margin: '0 auto',
+                        marginTop: '2rem',
                     }}>
                         <div className='option-wrapper'>
                             <span className='option-name'>Name</span>

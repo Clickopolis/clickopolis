@@ -28,7 +28,7 @@ export interface Advancement {
 export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvancement: typeof purchaseAdvancement, disabled: boolean}) => {
     return (
         <div className='advancement'
-            onClick={e => {
+            onClick={_ => {
                 adv.disabled ?
                     noop() :
                     adv.purchaseAdvancement(omit(['purchaseAdvancement', 'ac', 'disabled'], adv), adv.ac)
@@ -135,6 +135,8 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                         label={'per minute'}
                         value={getResearchPerMinute(this.props.civilization)}
                         positiveColor={colors.get('advancement')}
+                        neutralColor={colors.get('advancement')}
+                        negativeColor={colors.get('advancement')}
                         icon='./images/research.svg'
                         description={`Your total research generated per minute.`}
                     />
