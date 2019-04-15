@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.13.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.11...@clickopolis/core@0.13.0) (2019-04-15)
+
+
+### Features
+
+* add Classical 'dvncmements ([c614de2](https://github.com/Clickopolis/clickopolis/commit/c614de2))
+
+
+
+
+
 ## [0.12.11](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.10...@clickopolis/core@0.12.11) (2019-04-15)
 
 
