@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Screen, Button, Indicator, noop } from '@clickopolis/core';
+import { Screen, Button, Indicator, noop, abbrNum } from '@clickopolis/core';
 import { connect } from 'react-redux';
 import { Era, colors, getResearchPerMinute } from 'utils';
 import { purchaseAdvancement } from 'actions';
@@ -43,6 +43,7 @@ export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvan
                 border: '1px solid rgba(0, 0, 0, 0.8)',
                 borderRadius: '.25rem',
                 position: 'relative',
+                pointerEvents: adv.unlocked ? undefined : 'none',
                 filter: adv.disabled && !adv.purchased ? 'grayscale(80%)' : undefined,
                 opacity: adv.unlocked ? undefined : 0.25,
             }}
@@ -103,7 +104,7 @@ export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvan
                 textAlign: 'center',
             }}>
                 <span className='advancement-cost-text'>
-                    {adv.cost}
+                    {abbrNum(adv.cost)}
                 </span>
                 <img style={{marginTop: '.5rem'}} src='./images/research.svg' />
             </div>}
@@ -127,6 +128,7 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                         value={this.props.civilization.research.total}
                         positiveColor={colors.get('advancement')}
                         neutralColor={colors.get('advancement')}
+                        formatFunction={f => abbrNum(f)}
                         icon='./images/research.svg'
                         label={'total'}
                         description={`The total amount of research in your empire.`}
@@ -139,6 +141,15 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                         negativeColor={colors.get('advancement')}
                         icon='./images/research.svg'
                         description={`Your total research generated per minute.`}
+                    />
+                    <Indicator
+                        label={'owned'}
+                        value={this.props.advancements.filter(f => f.purchased).length}
+                        positiveColor={colors.get('advancement')}
+                        neutralColor={colors.get('advancement')}
+                        negativeColor={colors.get('advancement')}
+                        icon='./images/research.svg'
+                        description={`Your total advancements.`}
                     />
                 </div>
                 <div style={{margin: '.5rem 0', borderBottom: '1px solid #ccc', width: '100%', height: '2px'}} />

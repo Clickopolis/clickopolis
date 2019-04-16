@@ -2,7 +2,7 @@ import * as React from 'react';
 // @ts-ignore: no @types defintion
 import { Tooltip } from 'react-tippy';
 
-import { Indicator, Resource, Leader } from '@clickopolis/core';
+import { Indicator, Resource, Leader, Button } from '@clickopolis/core';
 import { UserMenu } from 'components';
 import { colors } from 'utils';
 import { EraIndicator } from 'components/EraIndicator';
@@ -58,16 +58,19 @@ export class MenuBase extends React.Component<MenuProps> {
                     positiveColor={colors.get('quests')}
                     neutralColor={colors.get('quests')}
                     tooltipProps={{
-                        
+                        arrow: true,
+                        followCursor: false,
+                        interactive: true,
                     }}
+                    style={{color: '#222'}}
                     description={<div>
                         (1) Gain 20/30 Population
                         <br/>
                         (2) Have 3/6 Advancements
                         <br />
                         (3) Gain 40 Population
+                        <Button>Claim Treasure</Button>
                     </div>}
-                    style={{color: '#222'}}
                     onClick={this.displayQuests}
                 />
                 <UserMenu username={leader.name} userCivName={leader.defaultCivName} />

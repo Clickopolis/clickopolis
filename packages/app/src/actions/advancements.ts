@@ -19,7 +19,7 @@ export const ADD_ADVANCEMENT: ADD_ADVANCEMENT = 'ADD_ADVANCEMENT';
 export const addAdvancement = (name: string, ac: number) =>
     ({ type: ADD_ADVANCEMENT, name, ac })
 
-const advancementPurchaseBasics = (dispatch: any, getState: any, adv: Advancement, ac: number) => {
+const advancementPurchaseBasics = (dispatch: any, getState: any, adv: Advancement, ac: number, name) => {
     const research = getState().civilization.research.total
     dispatch(updateCivilization(['research', 'total'], research - adv.cost))
     dispatch(addAdvancement(name, ac))
@@ -33,9 +33,37 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
             return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.pottery);
                 if (!path(['purchased'], adv)) {
-                    advancementPurchaseBasics(dispatch, getState, adv, ac)
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.pottery)
                     dispatch(unlockBuilding('Granary'))
                     dispatch(unlockAdvancement(AdvName.writing))
+                }
+            }
+        case AdvName.fishing:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.fishing);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.fishing)
+                }
+            }
+        case AdvName.law:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.law);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.law)
+                }
+            }
+        case AdvName.mining:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.mining);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.mining)
+                }
+            }
+        case AdvName.paper:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.paper);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.paper)
                 }
             }
         case AdvName.painting:
@@ -132,7 +160,8 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.writing);
                 const name = adv.name
                 const research = getState().civilization.research.total
-                if (!path(['purchased'], adv)) {
+
+                if (!path(['purchased'], adv) && path(['unlocked'], adv)) {
                     dispatch(updateCivilization(['research', 'total'], research - adv.cost))
                     dispatch(addAdvancement(name, ac))
                     dispatch(updateAdvancementCosts())

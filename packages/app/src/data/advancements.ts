@@ -1,11 +1,13 @@
 import { Advancement } from "components/AdvancementScreen";
 import { Era } from 'utils';
+import { Category } from 'utils/Category';
 
 export enum AdvName {
-    animalDomestication = 'Animal Domestiction',
+    animalDomestication = 'Animal Domestication',
     archery = 'Archery',
     bartering = 'Bartering',
     clothing = 'Clothing',
+    fishing = 'Fishing',
     irrigation = 'Irrigation',
     law = 'Law',
     mining = 'Mining',
@@ -43,12 +45,11 @@ export const advancements: Advancement[] = [
         name: AdvName.animalDomestication,
         era: Era.Ancient,
         cost: 20,
-        categories: ['economy'],
+        categories: ['resources'],
         unlocked: true,
         results: [
-            'Can create Trade Routes',
-            'Citizens award +1 Gold',
-            'Unlocks Economy panel',
+            'Can gain Land resources',
+            '+500 Max food',
         ]
     },
     {
@@ -81,6 +82,17 @@ export const advancements: Advancement[] = [
         unlocked: true,
         results: [
             'Unlocks culture panel',
+            'Can build Tents',
+        ]
+    },
+    {
+        name: AdvName.fishing,
+        era: Era.Ancient,
+        cost: 20,
+        categories: ['resources'],
+        unlocked: true,
+        results: [
+            'Can gain Ocean resources',
         ]
     },
     {
@@ -103,7 +115,7 @@ export const advancements: Advancement[] = [
         categories: ['culture'],
         unlocked: true,
         results: [
-
+            '+10 Happiness'
         ]
     },
     {
@@ -114,6 +126,8 @@ export const advancements: Advancement[] = [
         unlocked: true,
         results: [
             'Can hire Miners',
+            '+500 Max Production',
+            'Can build Furnaces',
         ]
     },
     {
@@ -123,7 +137,8 @@ export const advancements: Advancement[] = [
         categories: ['faith'],
         unlocked: true,
         results: [
-            'Can build Temple, Graveyard',
+            'Unlocks Faith panel',
+            'Can build Shrine, Graveyard, Obelisk',
             'Can build Stonehedge World Wonder'
         ]
     },
@@ -135,7 +150,7 @@ export const advancements: Advancement[] = [
         unlocked: true,
         requirements: [AdvName.woodcutting],
         results: [
-            'Allows construction of Granary'
+            'Can build Pyramid',
         ]
     },
     {
@@ -192,7 +207,7 @@ export const advancements: Advancement[] = [
         name: AdvName.astronomy,
         era: Era.Classical,
         cost: 40,
-        categories: ['research'],
+        categories: [Category.research, Category.military],
         unlocked: true,
         results: [
             '+1 Navy unit strength',
@@ -202,30 +217,31 @@ export const advancements: Advancement[] = [
         name: AdvName.calendar,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.culture],
         unlocked: true,
         results: [
-
+            ''
         ]
     },
     {
         name: AdvName.construction,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.buildings],
         unlocked: true,
         results: [
-
+            ''
         ]
     },
     {
         name: AdvName.currency,
         era: Era.Classical,
         cost: 40,
-        categories: ['economy'],
+        categories: [Category.economy],
         unlocked: true,
         results: [
-
+            'Awards 3 Trade Routes',
+            'Can build Market',
         ]
     },
     {
@@ -242,7 +258,7 @@ export const advancements: Advancement[] = [
         name: AdvName.demokratia,
         era: Era.Classical,
         cost: 40,
-        categories: [],
+        categories: [Category.culture],
         unlocked: true,
         results: [],
     },
@@ -250,7 +266,7 @@ export const advancements: Advancement[] = [
         name: AdvName.engineering,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.buildings],
         unlocked: true,
         results: [
 
@@ -260,38 +276,38 @@ export const advancements: Advancement[] = [
         name: AdvName.fortifications,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.buildings],
         unlocked: true,
         results: [
-
+            'Can build Forts',
         ]
     },
     {
         name: AdvName.instruments,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.culture],
         unlocked: true,
         results: [
-
+            
         ]
     },
     {
         name: AdvName.ironWorking,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.military],
         unlocked: true,
         results: [
             '+1 Food/ps from farmers',
-
+            'Can train Swordsmen'
         ]
     },
     {
         name: AdvName.mathematics,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.buildings],
         unlocked: true,
         results: [
 
@@ -301,17 +317,17 @@ export const advancements: Advancement[] = [
         name: AdvName.medicine,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.resources],
         unlocked: true,
         results: [
-
+            '+1 Health from Mushrooms',
         ]
     },
     {
         name: AdvName.philosophy,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.research, Category.culture],
         unlocked: true,
         results: [
 
@@ -321,7 +337,7 @@ export const advancements: Advancement[] = [
         name: AdvName.poetics,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.culture],
         unlocked: true,
         results: [
 
@@ -331,7 +347,7 @@ export const advancements: Advancement[] = [
         name: AdvName.saddles,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.military],
         unlocked: true,
         results: [
 
@@ -341,7 +357,7 @@ export const advancements: Advancement[] = [
         name: AdvName.shipbuilding,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.resources, Category.military],
         unlocked: true,
         results: [
 
@@ -351,7 +367,7 @@ export const advancements: Advancement[] = [
         name: AdvName.standingArmies,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.military],
         unlocked: true,
         results: [
 
@@ -361,7 +377,7 @@ export const advancements: Advancement[] = [
         name: AdvName.theology,
         era: Era.Classical,
         cost: 40,
-        categories: ['culture'],
+        categories: [Category.faith],
         unlocked: true,
         results: [
 

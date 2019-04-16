@@ -7,3 +7,4 @@ export * from './createMap';
 export * from './getPerMinute';
 export * from './debounce';
 export * from './getContributionFor';
+export * from './createGradient';

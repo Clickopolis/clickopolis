@@ -5,7 +5,7 @@
     top: 3.5rem;
     right: 1rem;
     width: 30rem;
-    max-height: 10rem;
+    height: 10rem;
     overflow-y: auto;
     font-size: 1.1rem;
     background: #222;
@@ -34,7 +34,7 @@
 }
 
 .notification-close {
-    position: fixed;
+    position: absolute;
     top: 3.7rem;
     right: 1.2rem;
     padding: .3rem;

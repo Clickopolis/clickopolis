@@ -30,9 +30,6 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
     return (
         <div className='building'
             onClick={e => {console.log(e); build.purchaseBuilding(build)}}
-            onMouseDown={e => {
-                setTimeout(build.purchaseBuilding(build), 100)
-            }}
         style={{
             background: colors.get('buildings'),
             cursor: 'pointer',

@@ -80,13 +80,14 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                         className='citizens-input'
                     />
                 </div>
-                <div className='citizens-top-bar'>
+                <div className='citizens-top-bar' style={{justifyContent: 'center'}}>
                     <Indicator
                         value={this.props.food.perSecond}
                         positiveColor={colors.get('resources')}
                         neutralColor={colors.get('resources')}
                         negativeColor={colors.get('negative')}
                         label={'food/s'}
+                        style={{margin: '0 .5rem'}}
                         formatFunction={(v:number) => v.toFixed(1)}
                     />
                     <Indicator
@@ -95,6 +96,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                         neutralColor={colors.get('production')}
                         negativeColor={colors.get('negative')}
                         label={'prod/s'}
+                        style={{margin: '0.5rem'}}
                         formatFunction={(v:number) => v.toFixed(1)}
                     />
                 </div>

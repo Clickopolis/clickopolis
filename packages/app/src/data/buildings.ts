@@ -7,6 +7,7 @@ export enum BuildingName {
     obelisk = 'Obelisk',
     granary = 'Granary',
     furnace = 'Furnace',
+    shrine = 'Shrine',
     pyramid = 'Pyramid'
 }
 
@@ -28,7 +29,7 @@ export const buildings: Building[] = [
         era: Era.Ancient,
         cost: 30,
         landCost: 1,
-        unlocked: true,
+        unlocked: false,
         results: [
            {icon: 'food', description: '+0.5/s'},
            {icon: 'culture', description: '+0.5/min'}
@@ -40,7 +41,19 @@ export const buildings: Building[] = [
         name: BuildingName.obelisk,
         era: Era.Ancient,
         cost: 20,
-        unlocked: true,
+        unlocked: false,
+        landCost: 1,
+        results: [
+            {icon: 'faith', description: '+1/min'},
+        ],
+        total: 0,
+        requirements: [],
+    },
+    {
+        name: BuildingName.shrine,
+        era: Era.Ancient,
+        cost: 20,
+        unlocked: false,
         landCost: 1,
         results: [
             {icon: 'faith', description: '+1/min'},
@@ -66,7 +79,7 @@ export const buildings: Building[] = [
         era: Era.Ancient,
         landCost: 1,
         cost: 25,
-        unlocked: true,
+        unlocked: false,
         results: [
             {icon: 'production', description: '+1/click'},
             {icon: 'production', description: '+200 Max'},
@@ -79,7 +92,7 @@ export const buildings: Building[] = [
         era: Era.Ancient,
         landCost: 3,
         cost: 200,
-        unlocked: true,
+        unlocked: false,
         results: [
             {icon: 'culture', description: '+3/min'},
         ],

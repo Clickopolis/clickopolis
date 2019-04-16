@@ -1,5 +1,12 @@
+@import 'mixins';
 @import 'normalize';
-@import '~react-tippy/dist/tippy.css';
+
+
+$placements: 'top', 'bottom', 'left', 'right';
+$origins: bottom, top, right, left;
+$backdrop-origins: 0% 25%, 0% -50%, 50% 0%, -50% 0%;
+$backdrop-border-radii: 40% 40% 0 0, 0 0 30% 30%, 50% 0 0 50%, 0 50% 50% 0;
+
 
 *,
 *::before,
@@ -20,20 +27,20 @@ body,
     height: 100%;
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+// @keyframes appear {
+//     from {
+//         opacity: 0;
+//     }
+//     to {
+//         opacity: 1;
+//     }
+// }
 
-.tippy-tooltip {
-    animation: 300ms appear 1;
-    background: #0e0d0d !important;
-    transition: 500ms all;
-}
+// .tippy-tooltip {
+//     animation: 300ms appear 1;
+//     background: #0e0d0d !important;
+//     transition: 500ms all;
+// }
 
 .clickopolis-app.paused {
     pointer-events: none !important;
@@ -71,3 +78,219 @@ body,
 .hidden {
     display: none !important;
 }
+
+.tippy-iOS {
+    cursor: pointer !important;
+  }
+  
+  .tippy-notransition {
+    transition: none !important;
+  }
+  
+  .tippy-popper {
+    perspective: 700px;
+    z-index: 9999;
+    outline: 0;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    pointer-events: none;
+    line-height: 1.4;
+  
+    @each $placement in $placements {
+      &[x-placement^='#{$placement}'] {
+        .tippy-backdrop {
+          border-radius: nth(
+            $backdrop-border-radii,
+            index($placements, $placement)
+          );
+        }
+  
+        .tippy-roundarrow {
+          @include arrow-position($placement, 8px, true);
+          @include roundarrow-transform-origin($placement);
+  
+          svg {
+            position: absolute;
+            left: 0;
+            @include roundarrow-transform($placement);
+          }
+        }
+  
+        .tippy-arrow {
+          @include arrow($placement, 8px, #333);
+          @include arrow-position($placement, 7px, false);
+          @include arrow-margin($placement);
+          @include arrow-transform-origin($placement);
+        }
+  
+        .tippy-backdrop {
+          transform-origin: nth(
+            $backdrop-origins,
+            index($placements, $placement)
+          );
+  
+          &[data-state='visible'] {
+            @include backdrop-transform-enter($placement);
+            opacity: 1;
+          }
+  
+          &[data-state='hidden'] {
+            @include backdrop-transform-leave($placement);
+            opacity: 0;
+          }
+        }
+  
+        [data-animation='shift-toward'] {
+          &[data-state='visible'] {
+            opacity: 1;
+            @include enter-transform($placement, 'fade');
+          }
+          &[data-state='hidden'] {
+            opacity: 0;
+            @include leave-transform($placement, 'shift-toward');
+          }
+        }
+  
+        [data-animation='perspective'] {
+          transform-origin: nth($origins, index($placements, $placement));
+  
+          &[data-state='visible'] {
+            opacity: 1;
+            @include enter-transform($placement, 'perspective');
+          }
+          &[data-state='hidden'] {
+            opacity: 0;
+            @include leave-transform($placement, 'perspective');
+          }
+        }
+  
+        [data-animation='fade'] {
+          &[data-state='visible'] {
+            opacity: 1;
+            @include enter-transform($placement, 'fade');
+          }
+          &[data-state='hidden'] {
+            opacity: 0;
+            @include enter-transform($placement, 'fade');
+          }
+        }
+  
+        [data-animation='shift-away'] {
+          &[data-state='visible'] {
+            opacity: 1;
+            @include enter-transform($placement, 'fade');
+          }
+          &[data-state='hidden'] {
+            opacity: 0;
+            @include leave-transform($placement, 'shift-away');
+          }
+        }
+  
+        [data-animation='scale'] {
+          &[data-state='visible'] {
+            opacity: 1;
+            @include enter-transform($placement, 'scale');
+          }
+          &[data-state='hidden'] {
+            opacity: 0;
+            @include leave-transform($placement, 'scale');
+          }
+        }
+      }
+    }
+  }
+  
+  .tippy-tooltip {
+    position: relative;
+    color: white;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.6rem;
+    max-width: 350px;
+    text-align: center;
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #111;
+  
+    &[data-size='small'] {
+      padding: 0.2rem 0.4rem;
+      font-size: 0.75rem;
+    }
+  
+    &[data-size='large'] {
+      padding: 0.4rem 0.8rem;
+      font-size: 1rem;
+    }
+  
+    &[data-animatefill] {
+      overflow: hidden;
+      background-color: transparent;
+    }
+  
+    &[data-interactive] {
+      pointer-events: auto;
+  
+      path {
+        pointer-events: auto;
+      }
+    }
+  
+    &[data-inertia] {
+      &[data-state='visible'] {
+        transition-timing-function: cubic-bezier(0.53, 2, 0.36, 0.85);
+      }
+      &[data-state='hidden'] {
+        transition-timing-function: ease;
+      }
+    }
+  }
+  
+  .tippy-arrow,
+  .tippy-roundarrow {
+    position: absolute;
+    width: 0;
+    height: 0;
+  }
+  
+  .tippy-roundarrow {
+    width: 24px;
+    height: 8px;
+    fill: #111;
+    pointer-events: none;
+  }
+  
+  .tippy-backdrop {
+    position: absolute;
+    will-change: transform;
+    background-color: #111;
+    border-radius: 50%;
+    width: calc(110% + 2rem);
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+    transition: all cubic-bezier(0.46, 0.1, 0.52, 0.98);
+    backface-visibility: hidden;
+  
+    &::after {
+      content: '';
+      float: left;
+      padding-top: 100%;
+    }
+  }
+  
+  .tippy-backdrop + .tippy-content {
+    transition-property: opacity;
+    &[data-state='visible'] {
+      opacity: 1;
+    }
+    &[data-state='hidden'] {
+      opacity: 0;
+    }
+  }
+  
+  @media (max-width: 360px) {
+    .tippy-popper {
+      max-width: 96%;
+      max-width: calc(100% - 20px);
+    }
+  }
