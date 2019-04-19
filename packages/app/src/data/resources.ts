@@ -15,7 +15,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         category: ResourceCategory.health,
         healthBonus: 0.1,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['maize', {
         name: 'maize',
@@ -39,7 +39,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         category: ResourceCategory.health,
         healthBonus: 0.1,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['fish', {
         name: 'fish',
@@ -51,7 +51,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         category: ResourceCategory.health,
         healthBonus: 0.1,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['crabs', {
         name: 'crabs',
@@ -63,7 +63,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         category: ResourceCategory.health,
         healthBonus: 0.1,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['urchin', {
         name: 'urchin',
@@ -74,7 +74,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `Do you have an urgin for urchins?`,
         category: ResourceCategory.power,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['banana', {
         name: 'banana',
@@ -131,7 +131,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: 'Woo! Wood provides wood. Woohoo!',
         category: ResourceCategory.building,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['stone', {
         name: 'stone',
@@ -142,7 +142,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `A stoners dream. Wait, that's not what stoner means?`,
         category: ResourceCategory.building,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['marble', {
         name: 'marble',
@@ -153,7 +153,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `A mineral befit the most gorgeous works.`,
         category: ResourceCategory.building,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['horses', {
         name: 'horses',
@@ -164,7 +164,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: 'Giddy up, pony. An important resource for military leaders.',
         category: ResourceCategory.strategic,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['copper', {
         name: 'copper',
@@ -175,7 +175,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `A soft, malleable metal for pennies and swords.`,
         category: ResourceCategory.strategic,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['oil', {
         name: 'oil',
@@ -198,7 +198,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `Cans and planes, the name of the game.`,
         category: ResourceCategory.strategic,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['uranium', {
         name: 'uranium',
@@ -221,7 +221,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: 'Probably not a good idea to snort.',
         category: ResourceCategory.luxury,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['tobacco',{
         name: 'tobacco',
@@ -232,7 +232,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `C'est une tobacco resource`,
         category: ResourceCategory.luxury,
         visible: true,
-        unlocked: true,
+        unlocked: false,
         pollutionBonus: 0,
         faithBonus: 1,
     }],
@@ -245,7 +245,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `Clickopolis's most yearned after metal`,
         category: ResourceCategory.luxury,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['silver', {
         name: 'silver',
@@ -256,7 +256,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `Gold's nerdy cousin`,
         category: ResourceCategory.luxury,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['gems', {
         name: 'gems',
@@ -267,7 +267,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `Not all that glitters is gold`,
         category: ResourceCategory.luxury,
         visible: true,
-        unlocked: true,
+        unlocked: false,
     }],
     ['coral', {
         name: 'coral',
@@ -278,7 +278,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `A marine invertebrate coveted by collectors.`,
         category: ResourceCategory.power,
         visible: true,
-        unlocked: true,
+        unlocked: false,
         cultureBonus: 1,
     }],
     ['fossils', {
@@ -312,6 +312,6 @@ export const resources:Map<ResourceName, Resource> = new Map([
         description: `Pint-sized dog with full-sized sass`,
         category: ResourceCategory.power,
         visible: false,
-        unlocked: true,
+        unlocked: false,
     }]
 ]);

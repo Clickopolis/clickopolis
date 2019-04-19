@@ -18,7 +18,7 @@ import {
     gainCash,
     addNotification,
     addResource,
-    updateGAProgress
+    updateGAProgress,
 } from 'actions';
 import { StartScreen } from 'components/StartScreen';
 import { EconomyScreen } from 'components/EconomyScreen';
@@ -30,6 +30,8 @@ import { TimeStatus, getResearchPerMinute } from 'utils';
 import { PositionProperty } from 'csstype';
 import { LegacyScreen } from 'components/LegacyScreen';
 import { Events } from 'components/Events';
+import { CultureScreen } from 'components/CultureScreen';
+import { EraNotification } from 'components/Notification/EraNotification';
 
 export interface AppProps {
     growFood: growFood;
@@ -62,9 +64,30 @@ const visibilityTransformer = (f:number) => {
     }
 };
 
+const requestInterval = function (fn: Function, delay: number) {			
+	let start = new Date().getTime(),
+		handle: any = {value: undefined}
+		
+	function loop() {
+		var current = new Date().getTime(),
+			delta = current - start;
+			
+		if(delta >= delay) {
+			fn.call(arguments);
+			start = new Date().getTime();
+		}
+
+		handle.value = requestAnimationFrame(loop);
+	};
+	
+	handle.value = requestAnimationFrame(loop);
+	return handle;
+}
+
 export class AppBase extends React.Component<AppProps> {
     public intervalId: any;
     public intervalIdMin: any;
+    public intervalIdDecisecond: any;
     public scrollElement: HTMLElement;
 
     constructor(props:any) {
@@ -72,12 +95,24 @@ export class AppBase extends React.Component<AppProps> {
     }
 
     componentDidMount() {
-        this.intervalId = setInterval(this.timer, 1000);
-        this.intervalIdMin = setInterval(this.minuteTimer, 1000 * 60);
+        this.intervalId = requestInterval(this.timer, 1000);
+        this.intervalIdMin = requestInterval(this.minuteTimer, 1000 * 60);
+        this.intervalIdDecisecond = requestInterval(this.decisecondTimer, 1000 / 10);
     }
 
     componentWillUnmount() {
-        clearInterval(this.intervalId);
+        cancelAnimationFrame(this.intervalId);
+        cancelAnimationFrame(this.intervalIdMin);
+        cancelAnimationFrame(this.intervalIdDecisecond);
+    }
+
+    decisecondTimer = () => {
+        const {food, production, createProduction, growFood, flags, timeStatus} = this.props;
+
+        if (flags.HAS_STARTED_GAME && timeStatus === TimeStatus.Playing) {
+            growFood(visibilityTransformer(food.perSecond / 10));
+            createProduction(visibilityTransformer(production.perSecond / 10));
+        }
     }
 
     minuteTimer = () => {
@@ -87,12 +122,11 @@ export class AppBase extends React.Component<AppProps> {
             gainCash(this.props.cashPerMin || 0)
             updateCivilization(['ac'], this.props.ac + 1);
             updateCivilization(['research', 'total'], civilization.research.total + getResearchPerMinute(civilization))
-            console.log('%c 1m Timer set off.', 'color: #8924a1');
         }
     }
 
     timer = () => {
-        const {flags, createProduction, growFood, food, production, timeStatus, civilization} = this.props;
+        const {flags, timeStatus, civilization} = this.props;
         // const minerContrib = miners.contribution.find(c => c.type === 'PS')
         // const minerProd = minerContrib ? minerContrib.amount * miners.amount : 0;
 
@@ -100,9 +134,6 @@ export class AppBase extends React.Component<AppProps> {
 
         if (flags.HAS_STARTED_GAME && timeStatus === TimeStatus.Playing) {
             updateGAProgress(civilization.goldenAge.progress + (calculateHappiness(civilization) - calculateAnger(civilization)))
-            growFood(visibilityTransformer(food.perSecond));
-            createProduction(visibilityTransformer(production.perSecond));
-            console.log('%c 1s Timer set off.', 'color: #8942f4');
         }
     }
 
@@ -169,6 +200,7 @@ export class AppBase extends React.Component<AppProps> {
                 {this.props.notifications.map((note: Note, idx: number) => (
                     note && note.id && Boolean(note.content) && <Notification key={note.id} id={note.id} posId={idx} content={note.content} />
                 ))}
+                <EraNotification />
                 <div id='app' className={`clickopolis-app ${timeStatus === TimeStatus.Paused && 'paused'}`}>
                     { HAS_STARTED_GAME ? <Menu /> : null }
                     <div data-scroll id='screen-container' style={{
@@ -188,6 +220,7 @@ export class AppBase extends React.Component<AppProps> {
                                 {HAS_UNLOCKED_BUILDINGS && <BuildingsScreen />}
                                 {HAS_UNLOCKED_ADVANCEMENTS && <AdvancementScreen />}
                                 {HAS_UNLOCKED_ECONOMY && <EconomyScreen />}
+                                {HAS_UNLOCKED_CULTURE && <CultureScreen />}
                                 {HAS_UNLOCKED_LEGACY && <LegacyScreen />}
                                 {HAS_UNLOCKED_CIVILIZATION && <SettingsScreen />}
                             </>

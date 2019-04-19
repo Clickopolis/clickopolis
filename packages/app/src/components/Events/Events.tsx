@@ -40,7 +40,7 @@ export class EventsBase extends React.Component<EventsProps> {
                         content: <div>
                             One of your farmers has domesticated a cow. Say hi to {choose(['Bessy', 'Betty', 'Martha', 'Jumbo', 'Mac', 'Beeferino'])}!
                             <br />
-                            +1 <img style={{height: '1.5rem'}} src='./images/cattle.svg' />
+                            +1 <img src='./images/cattle.svg' />
                         </div>,
                         id: `${rand()}`,
                     })

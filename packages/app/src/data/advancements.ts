@@ -208,7 +208,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: [Category.research, Category.military],
-        unlocked: true,
+        unlocked: false,
+        requirements: [AdvName.mysticism, AdvName.writing],
         results: [
             '+1 Navy unit strength',
         ]
@@ -218,7 +219,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: [Category.culture],
-        unlocked: true,
+        unlocked: false,
+        requirements: [AdvName.mysticism, AdvName.pottery],
         results: [
             ''
         ]
@@ -228,7 +230,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: [Category.buildings],
-        unlocked: true,
+        unlocked: false,
+        requirements: [AdvName.mining],
         results: [
             ''
         ]
@@ -238,7 +241,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: [Category.economy],
-        unlocked: true,
+        requirements: [AdvName.bartering, AdvName.writing],
+        unlocked: false,
         results: [
             'Awards 3 Trade Routes',
             'Can build Market',
@@ -249,7 +253,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: ['culture'],
-        unlocked: true,
+        requirements: [AdvName.writing, AdvName.clothing],
+        unlocked: false,
         results: [
 
         ]
@@ -259,7 +264,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: [Category.culture],
-        unlocked: true,
+        requirements: [AdvName.law, AdvName.bartering],
+        unlocked: false,
         results: [],
     },
     {
@@ -267,7 +273,8 @@ export const advancements: Advancement[] = [
         era: Era.Classical,
         cost: 40,
         categories: [Category.buildings],
-        unlocked: true,
+        requirements: [AdvName.mining, AdvName.mathematics],
+        unlocked: false,
         results: [
 
         ]

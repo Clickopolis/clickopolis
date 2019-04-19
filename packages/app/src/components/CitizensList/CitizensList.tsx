@@ -123,29 +123,32 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     }
 
     private renderCitizens() {
-        const fullEmployment = this.props.civilization.population - this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
+        const unemployed = this.props.civilization.population - this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
             return prev + curr;
-        }, 0) === 0;
+        }, 0)
+        const fullEmployment = unemployed === 0;
 
         return this.props.citizens.map((c:Citizen, idx: number) => {
             return (
                 <div className='citizens-list-item' key={idx}>
-                    <div className='citizen-amount'>{c.amount}</div>
-                    { c.name !== 'ruler' ? <Button
-                        className='citizen-amount-button'
-                        value={`-${abbrNum(this.props.amount)}`}
-                        disabled={!c.amount}
-                        onClick={(_:any) => this.removeCitizen(this.props.amount * -1, c)}
-                    /> : null }
-                    <img className='citizen-image' src={`./images/${c.name}.svg`} />
-                    { c.name !== 'ruler' ? <Button
-                        className='citizen-amount-button'
-                        value={`+${abbrNum(this.props.amount)}`}
-                        disabled={fullEmployment}
-                        onClick={(_:any) => this.addCitizen(this.props.amount, c)}
-                    /> : null }
-                    <div className='citizen-description'>{c.description}</div>
-                    <div className='citizen-contribution'>
+                    <div style={{display: 'flex', alignItems: 'center'}}>
+                        <div className='citizen-amount'>{c.amount}</div>
+                        { c.name !== 'ruler' ? <Button
+                            className='citizen-amount-button'
+                            value={`-${abbrNum(this.props.amount)}`}
+                            disabled={!c.amount || ((c.amount - this.props.amount) < 0)}
+                            onClick={(_:any) => this.removeCitizen(this.props.amount * -1, c)}
+                        /> : null }
+                        <img className='citizen-image' src={`./images/${c.name}.svg`} />
+                        { c.name !== 'ruler' ? <Button
+                            className='citizen-amount-button'
+                            value={`+${abbrNum(this.props.amount)}`}
+                            disabled={fullEmployment || (c.amount - this.props.amount >= unemployed)}
+                            onClick={(_:any) => this.addCitizen(this.props.amount, c)}
+                        /> : null }
+                        <div className='citizen-description'>{c.description}</div>
+                    </div>
+                    <div className='citizen-contribution' style={{display: 'flex', justifyContent: 'center' }}>
                         {
                             Array.isArray(c.contribution)
                             ? c.contribution.map((contrib:Contribution, index: number) => <ContributionComponent key={index} type={contrib.type} interval={contrib.interval} amount={contrib.amount} resource={contrib.resource}  />)

@@ -19,6 +19,16 @@ export interface MenuProps {
 
 const margin = {margin: '0 .5rem', color: '#111'}
 
+const ProgressBar = () => {
+    return <div style={{
+        height: '.5rem',
+        borderRadius: '.25rem',
+        margin: '2px',
+        width: '100%',
+        background: `linear-gradient(to right, skyblue 33%, #222 33%, #222)`
+    }} />
+}
+
 export class MenuBase extends React.Component<MenuProps> {
 
     private displayQuests = (_:any) => ({})
@@ -64,12 +74,13 @@ export class MenuBase extends React.Component<MenuProps> {
                     }}
                     style={{color: '#222'}}
                     description={<div>
-                        (1) Gain 20/30 Population
-                        <br/>
-                        (2) Have 3/6 Advancements
-                        <br />
-                        (3) Gain 40 Population
-                        <Button>Claim Treasure</Button>
+                        Gain 20/30 Population
+                        <ProgressBar />
+                        Have 3/6 Advancements
+                        <ProgressBar />
+                        Gain 40 Population
+                        <ProgressBar />
+                        <Button style={{background: '#111', color: 'white'}} value={'Claim Treasure'} />
                     </div>}
                     onClick={this.displayQuests}
                 />

@@ -27,7 +27,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
         };
     }
 
-    private onChange = (e:any) => this.setState({ amount: e.target.value });
+    private onChange = (e:any) => this.setState({ amount: e.target.value || 0 });
 
     private getTotalEmployed () {
         return this.props.citizens.map(c => c.amount).reduce((prev, curr) => {
@@ -76,11 +76,12 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                         type='number'
                         value={this.state.amount}
                         onChange={this.onChange}
+                        step={1}
                         min={1}
                         className='citizens-input'
                     />
                 </div>
-                <div className='citizens-top-bar' style={{justifyContent: 'center'}}>
+                <div className='citizens-top-bar' style={{justifyContent: 'space-evenly', alignItems: 'center'}}>
                     <Indicator
                         value={this.props.food.perSecond}
                         positiveColor={colors.get('resources')}

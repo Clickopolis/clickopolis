@@ -11,6 +11,7 @@ export type colorKeys = 'citizens' |
                   'biomes' |
                   'quests' |
                   'land' |
+                  'pollution' |
                   'goldenAge' |
                   'goldenAgeDark' |
                   'negative' |
@@ -30,6 +31,7 @@ export const colors: Map<colorKeys, string> = new Map<colorKeys, string>([
     ['faith', '#e5d48a'],
     ['settings', '#96bbce'],
     ['biomes', '#c3d463'],
+    ['pollution', 'lightgreen'],
     ['advancement', '#7cdef0'],
     ['advancementPurchased', '#13d14e'],
     ['quests', '#f4d742'],

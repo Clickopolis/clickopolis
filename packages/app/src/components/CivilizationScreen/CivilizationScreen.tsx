@@ -168,8 +168,8 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                             />
                             <Indicator
                                 value={calculatePollution(this.props.civilization)}
-                                positiveColor='lightgreen'
-                                neutralColor='lightgreen'
+                                positiveColor={colors.get('pollution')}
+                                neutralColor={colors.get('pollution')}
                                 icon={'./images/pollution.svg'}
                                 description={`Pollution`}
                                 style={indicatorStyle}
@@ -210,7 +210,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         positiveColor='skyblue'
                         neutralColor='skyblue'
                         icon={'./images/research.svg'}
-                        formatFunction={(v: number) => v.toFixed(1)}
+                        formatFunction={(v: number) => abbrNum(v, 2)}
                         description={`The total science in your empire`}
                         style={indicatorStyle}
                         onClick={this.onClick('research')}
@@ -241,6 +241,20 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         description={`The total land in your empire`}
                         style={indicatorStyle}
                         onClick={this.onClick('land')}
+                    />
+                </div>
+                <div className='civilization-indicator' style={{
+                    alignItems: 'center',
+                    display: 'flex',
+                    marginTop: '.5rem'
+                }}>
+                    <Indicator
+                        value={`1%`}
+                        positiveColor={colors.get('pollution')}
+                        neutralColor={colors.get('pollution')}
+                        icon={'./images/plague.svg'}
+                        description={`Your current chance of a plague.`}
+                        style={indicatorStyle}
                     />
                 </div>
                 {this.state.selectedIndicator && <div className='civilization-indicator-breakdown' style={{

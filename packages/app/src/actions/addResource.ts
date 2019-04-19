@@ -11,3 +11,14 @@ export function addResource (name: string, amount:number) {
         amount
     };
 }
+
+export type UNLOCK_RESOURCE = 'UNLOCK_RESOURCE';
+export const UNLOCK_RESOURCE:UNLOCK_RESOURCE = 'UNLOCK_RESOURCE';
+
+export type unlockResource = (name: string) => Action<UNLOCK_RESOURCE>;
+export function unlockResource (name: string) {
+    return {
+        type: UNLOCK_RESOURCE,
+        name,
+    };
+}

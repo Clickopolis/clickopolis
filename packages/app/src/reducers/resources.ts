@@ -1,16 +1,28 @@
-import { Action, ADD_RESOURCE  } from '../actions';
+import { Action, ADD_RESOURCE, UNLOCK_RESOURCE  } from '../actions';
 import { resources as defaults } from 'data/resources';
+import { Resource } from '@clickopolis/core';
 
-export function cattle(state = defaults.get('cattle'), action: Action<ADD_RESOURCE>) {
+
+const handleCases = (state: Resource, action: Action<ADD_RESOURCE | UNLOCK_RESOURCE>, name: string) => {
     switch (action.type) {
         case ADD_RESOURCE:
             return {
                 ...state,
-                total: action.name === 'cattle' ? state.total + action.amount : state.total,
+                total: action.name === name ? state.total + action.amount : state.total,
+            }
+        case UNLOCK_RESOURCE:
+            return {
+                ...state,
+                unlocked: action.name === name ? true : state.unlocked,
             }
         default:
             return state;
     }
+}
+
+
+export function cattle(state = defaults.get('cattle'), action: Action<ADD_RESOURCE>) {
+    return handleCases(state, action, 'cattle')
 }
 
 export function fish(state = defaults.get('fish'), action: Action<any>) {
@@ -97,12 +109,7 @@ export function fossils(state = defaults.get('fossils')) {
 }
 
 export function horses(state = defaults.get('horses'), action: Action<any>) {
-    switch (action.type) {
-        case '_':
-            return state;
-        default:
-            return state;
-    }
+    return handleCases(state, action, 'horses')
 }
 
 export function wine(state = defaults.get('wine')) {

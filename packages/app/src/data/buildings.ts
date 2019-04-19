@@ -8,7 +8,19 @@ export enum BuildingName {
     granary = 'Granary',
     furnace = 'Furnace',
     shrine = 'Shrine',
-    pyramid = 'Pyramid'
+    library = 'Library',
+    pyramid = 'Pyramid',
+
+    theatre = 'Theatre',
+    walls = 'Walls',
+    stable = 'Stable',
+    temple = 'Temple',
+    market = 'Market',
+    lighthouse = 'Lighthouse',
+    courthouse = 'Courthouse',
+    mint = 'Mint',
+
+    
 }
 
 export const buildings: Building[] = [
@@ -88,6 +100,18 @@ export const buildings: Building[] = [
         requirements: [],
     },
     {
+        name: BuildingName.library,
+        era: Era.Ancient,
+        landCost: 1,
+        cost: 100,
+        unlocked: false,
+        results: [
+            {icon: 'research', description: '+10 one-time'},
+        ],
+        total: 0,
+        requirements: [],
+    },
+    {
         name: BuildingName.pyramid,
         era: Era.Ancient,
         landCost: 3,
@@ -98,5 +122,43 @@ export const buildings: Building[] = [
         ],
         total: 0,
         requirements: [],
-    }
+    },
+
+    {
+        name: BuildingName.theatre,
+        era: Era.Ancient,
+        landCost: 2,
+        cost: 2000,
+        unlocked: false,
+        results: [
+            {icon: 'culture', description: '+10/min'},
+        ],
+        total: 0,
+        requirements: [],
+    },
+    {
+        name: BuildingName.walls,
+        era: Era.Ancient,
+        landCost: 3,
+        cost: 1200,
+        unlocked: false,
+        results: [
+            {icon: 'defense', description: '+20'},
+        ],
+        total: 0,
+        requirements: [],
+    },
+    {
+        name: BuildingName.stable,
+        era: Era.Ancient,
+        landCost: 3,
+        cost: 1800,
+        unlocked: false,
+        results: [
+            {icon: 'production', description: '+0.1/sec per horse'},
+        ],
+        total: 0,
+        requirements: [],
+    },
+
 ]

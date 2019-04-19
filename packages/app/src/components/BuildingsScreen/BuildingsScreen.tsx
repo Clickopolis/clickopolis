@@ -141,6 +141,7 @@ export class BuildingsScreenBase extends React.Component<BuildingScreenProps> {
             <Screen
                 type='Buildings'
                 color={colors.get('buildings')}
+                style={{overflowY: 'auto'}}
             >
                 <div style={{display: 'flex', justifyContent: 'center'}}>
                     <Indicator

@@ -38,15 +38,15 @@ export class NotificationBase extends React.Component<NotificationProps> {
     }
 
     public render() {
-        const {content, posId} = this.props;
-        console.log(posId)
+        const {content, posId, type} = this.props;
+
         const style  = {
-            top: `calc(3.5rem + (10rem * (${posId}))`,
+            top: `calc(3.5rem + (4.25rem * (${posId}))`,
         };
 
-        return <div className='notification' style={style}>
-            <div onClick={this.disappear} className='notification-close'>×</div>
+        return <div className={`notification ${type}`} style={style}>
             <div className='notification-inner'>{content}</div>
+            <div onClick={this.disappear} className='notification-close'>×</div>
         </div>
     }
 

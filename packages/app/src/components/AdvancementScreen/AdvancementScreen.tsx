@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Screen, Button, Indicator, noop, abbrNum } from '@clickopolis/core';
 import { connect } from 'react-redux';
-import { Era, colors, getResearchPerMinute } from 'utils';
+import { Era, colors, getResearchPerMinute, getEraName } from 'utils';
 import { purchaseAdvancement } from 'actions';
 
 import './AdvancementScreen.scss'
@@ -27,14 +27,14 @@ export interface Advancement {
 
 export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvancement: typeof purchaseAdvancement, disabled: boolean}) => {
     return (
-        <div className='advancement'
+        <div className={`advancement advancement-${getEraName(adv.era).toLowerCase()}`}
             onClick={_ => {
                 adv.disabled ?
                     noop() :
                     adv.purchaseAdvancement(omit(['purchaseAdvancement', 'ac', 'disabled'], adv), adv.ac)
             }}
             style={{
-                background: adv.purchased ? colors.get('advancementPurchased') : colors.get('advancement'),
+                backgroundColor: adv.purchased ? colors.get('advancementPurchased') : colors.get('advancement'),
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'space-between',
