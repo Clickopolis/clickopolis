@@ -1,6 +1,9 @@
 export const abbrNum = (num:any, decPlaces:number = 2):string => {
     decPlaces = Math.pow(10, decPlaces);
-    let abbrev = [ 'K', 'M', 'B', 'T', 'Q', 'Qt', 'S', 'St', 'O', 'N', 'D' ];
+    let abbrev = [ 'K', 'M', 'B', 'T', 'Q', 'AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH', 'II', 'JJ', 'KK', 'LL', 'MM', 'NN', 'OO', 'PP', 'QQ', 'RR', 'SS', 'TT', 'UU', 'VV', 'WW', 'XX', 'YY', 'ZZ' ];
+    if (num > 1000) {
+        return num.toFixed(decPlaces)
+    }
     for (let i = abbrev.length - 1; i >= 0; i--) {
         let size = Math.pow(10, (i + 1) * 3);
         if (size <= num) {

@@ -14,7 +14,7 @@ export interface ButtonProps {
     style?: object;
 }
 
-export class Button extends React.PureComponent<ButtonProps> {
+export class Button extends React.Component<ButtonProps> {
     constructor(props:ButtonProps) {
         super(props);
     }
