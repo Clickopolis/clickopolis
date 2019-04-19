@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 // @ts-ignore: importing core
-import { Screen, Button, Indicator, Resource, Flags } from '@clickopolis/core';
+import { Screen, Button, Indicator, Resource, Flags, abbrNum } from '@clickopolis/core';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
@@ -196,6 +196,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={food.total}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
+                            formatFunction={v => abbrNum(v, 1)}
                             style={indicatorStyle}
                             label='total'
                             description='Food is used for feeding your citizens, even Jim.'
@@ -247,6 +248,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={this.props.production.total}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
+                            formatFunction={v => abbrNum(v, 1)}
                             style={indicatorStyle}
                             label='total'
                             description='Production lets you build.'

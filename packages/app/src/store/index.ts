@@ -34,7 +34,7 @@ export const store:any = createStore(
   persistReducers,
   applyMiddleware(
     thunkMiddleware,
-    loggerMiddleware,
+    // loggerMiddleware,
     sagaMiddleware,
     routerMiddleware
   )
