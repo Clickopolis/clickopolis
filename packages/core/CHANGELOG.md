@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.14.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.13.0...@clickopolis/core@0.14.0) (2019-04-19)
+
+
+### Bug Fixes
+
+* make Buttons not pure ([28496cf](https://github.com/Clickopolis/clickopolis/commit/28496cf))
+
+
+### Features
+
+* update Advancements ([7b0b2ab](https://github.com/Clickopolis/clickopolis/commit/7b0b2ab))
+
+
+
+
+
 # [0.13.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.11...@clickopolis/core@0.13.0) (2019-04-15)
 
 

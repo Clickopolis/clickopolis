@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.19.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.18.0...@clickopolis/app@0.19.0) (2019-04-19)
+
+
+### Features
+
+* add more advancements, buildings, flesh out citizens ([3cb99f5](https://github.com/Clickopolis/clickopolis/commit/3cb99f5))
+* update Advancements ([7b0b2ab](https://github.com/Clickopolis/clickopolis/commit/7b0b2ab))
+
+
+
+
+
 # [0.18.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.17.0...@clickopolis/app@0.18.0) (2019-04-15)
 
 
