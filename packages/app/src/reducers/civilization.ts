@@ -145,6 +145,8 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                 }
             };
         case UPDATE_GA_PROGRESS:
+            console.log(action)
+
             return {
                 ...state,
                 goldenAge: {

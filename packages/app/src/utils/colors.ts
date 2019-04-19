@@ -27,7 +27,7 @@ export const colors: Map<colorKeys, string> = new Map<colorKeys, string>([
     ['economy', '#5ea556'],
     ['buildings', '#e7ad31'],
     ['legacy', '#db6e52'],
-    ['culture', 'ff006d'],
+    ['culture', '#ff006d'],
     ['faith', '#e5d48a'],
     ['settings', '#96bbce'],
     ['biomes', '#c3d463'],

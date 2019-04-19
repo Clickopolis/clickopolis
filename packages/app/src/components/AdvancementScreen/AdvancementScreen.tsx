@@ -128,7 +128,7 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                         value={this.props.civilization.research.total}
                         positiveColor={colors.get('advancement')}
                         neutralColor={colors.get('advancement')}
-                        formatFunction={f => abbrNum(f)}
+                        formatFunction={(f: number) => f.toFixed(1)}
                         icon='./images/research.svg'
                         label={'total'}
                         description={`The total amount of research in your empire.`}

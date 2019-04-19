@@ -186,9 +186,10 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                             background: `linear-gradient(to right, ${colors.get('goldenAge')} ${goldenAgePercent}, ${colors.get('goldenAgeDark')} ${goldenAgePercent}, ${colors.get('goldenAgeDark')})`,
                         }}
                         icon={'./images/golden-age.svg'}
-                        description={`Your progress towards a Golden Age ${civilization.goldenAge.progress}/${abbrNum(civilization.goldenAge.goal)}`}
+                        description={`Your progress towards a Golden Age ${civilization.goldenAge.progress}/${civilization.goldenAge.goal}`}
                         onClick={this.onClick('land')}
                     />
+                    {civilization.goldenAge.progress}
                 </div>
                 <div className='civilization-indicator' style={{
                     alignItems: 'center',
@@ -210,7 +211,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         positiveColor='skyblue'
                         neutralColor='skyblue'
                         icon={'./images/research.svg'}
-                        formatFunction={(v: number) => abbrNum(v, 2)}
+                        formatFunction={(v: number) => v.toFixed(1)}
                         description={`The total science in your empire`}
                         style={indicatorStyle}
                         onClick={this.onClick('research')}
@@ -254,6 +255,14 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         neutralColor={colors.get('pollution')}
                         icon={'./images/plague.svg'}
                         description={`Your current chance of a plague.`}
+                        style={indicatorStyle}
+                    />
+                    <Indicator
+                        value={`1%`}
+                        positiveColor={'#faffe5'}
+                        neutralColor={'#faffe5'}
+                        icon={'./images/luck.svg'}
+                        description={`Your current luck.`}
                         style={indicatorStyle}
                     />
                 </div>
