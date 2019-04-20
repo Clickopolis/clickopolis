@@ -35,7 +35,6 @@ export function purchaseBuilding(building: Building) {
                 dispatch(addBuilding(BuildingName.granary))
                 dispatch(updateBuildingCost(BuildingName.granary))
                 dispatch(createProduction(building.cost * -1))
-                dispatch(updateFoodPerClick(1))
                 dispatch(updateMaxFood(250))
             }
         case BuildingName.tent:
@@ -55,7 +54,6 @@ export function purchaseBuilding(building: Building) {
                 dispatch(addBuilding(BuildingName.furnace))
                 dispatch(updateBuildingCost(BuildingName.furnace))
                 dispatch(createProduction(building.cost * -1))
-                dispatch(updateProductionPerClick(1))
                 dispatch(updateMaxProduction(250))
             }
         case BuildingName.pyramid:

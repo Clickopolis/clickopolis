@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 // @ts-ignore: importing core
-import { Screen, Button, Indicator, Resource, Flags, abbrNum } from '@clickopolis/core';
+import { Screen, Button, Indicator, Resource, Flags } from '@clickopolis/core';
+import { abbrNum } from 'utils';
 //@ts-ignore: no @types def
 import * as classNames from 'classnames';
 
@@ -196,7 +197,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={food.total}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
-                            formatFunction={(v: number) => v.toFixed(1)}
+                            formatFunction={(v: number) => abbrNum(v)}
                             style={indicatorStyle}
                             label='total'
                             description='Food is used for feeding your citizens, even Jim.'
@@ -205,7 +206,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={food.perClick}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
-                            formatFunction={(v: number) => v.toFixed(1)}
+                            formatFunction={(v: number) => abbrNum(v)}
                             style={indicatorStyle}
                             label='per click'
                             description='Use your clicks to amass corn!'
@@ -215,7 +216,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
                             style={indicatorStyle}
-                            formatFunction={(v: number) => v.toFixed(1)}
+                            formatFunction={(v: number) => abbrNum(v)}
                             label='per second'
                             description='Food will naturally accumulate over time!'
                         />
@@ -249,7 +250,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={this.props.production.total}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
-                            formatFunction={(v: number) => v.toFixed(1)}
+                            formatFunction={(v: number) => abbrNum(v)}
                             style={indicatorStyle}
                             label='total'
                             description='Production lets you build.'
@@ -258,7 +259,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={production.perClick}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
-                            formatFunction={(v: number) => v.toFixed(1)}
+                            formatFunction={(v: number) => abbrNum(v)}
                             style={indicatorStyle}
                             label='per click'
                             description='Use your clicks to amass corn!'
@@ -267,7 +268,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             value={production.perSecond}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
-                            formatFunction={(v: number) => v.toFixed(1)}
+                            formatFunction={(v: number) => abbrNum(v)}
                             style={indicatorStyle}
                             label='per second'
                             description='Use your clicks to amass corn!'

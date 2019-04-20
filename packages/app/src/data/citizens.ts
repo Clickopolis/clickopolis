@@ -31,19 +31,32 @@ export const citizens = new Map<CitizenType, Citizen>([
         amount: 0,
         description: `Soldiers form your military enterprise.`
     }],
+    ['merchant', {
+        name: 'merchant',
+        contribution: [
+            {
+                type: 'PM',
+                interval: 1000,
+                amount: 10,
+                resource: 'cash'
+            },
+        ],
+        amount: 0,
+        description: `Merchants provide you wealth and riches.`
+    }],
     ['miner', {
         name: 'miner',
         contribution: [
             {
                 type: 'PS',
                 interval: 1000,
-                amount: 1,
+                amount: 0.5,
                 resource: 'production'
             },
             {
                 type: 'PC',
                 interval: null,
-                amount: 2,
+                amount: 1,
                 resource: 'production',
             }
         ],

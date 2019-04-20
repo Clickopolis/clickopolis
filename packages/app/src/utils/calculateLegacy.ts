@@ -26,7 +26,7 @@ export const calculateLegacy = (legacyOpts: CalcLegacyOption) => {
                     cash + 
                     faith +
                     culture
-                ) / 10000)
+                ) / 100000)
 
     return legacy
 }

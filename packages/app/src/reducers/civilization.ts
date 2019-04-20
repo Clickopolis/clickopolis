@@ -16,8 +16,8 @@ const civDefault:any = {
 
     goldenAge: {
         isActive: false,
-        progress: 1000,
-        goal: 10000,
+        progress: 0,
+        goal: 100000,
         multiplier: 0,
     },
 
@@ -145,15 +145,15 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
                 }
             };
         case UPDATE_GA_PROGRESS:
-            console.log(action)
-
-            return {
-                ...state,
-                goldenAge: {
-                    ...state.goldenAge,
-                    progress: state.goldenAge.progress + action.amount,
+            return state.goldenAge.isActive ?
+                state :
+                {
+                    ...state,
+                    goldenAge: {
+                        ...state.goldenAge,
+                        progress: state.goldenAge.progress + action.amount,
+                    }
                 }
-            }
         case UPDATE_CIVILIZATION:
             return assocPath([...action.key], action.value, state);
         default:

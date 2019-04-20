@@ -43,7 +43,6 @@ export const buildings: Building[] = [
         landCost: 1,
         unlocked: false,
         results: [
-           {icon: 'food', description: '+0.5/s'},
            {icon: 'culture', description: '+0.5/min'}
         ],
         total: 0,
@@ -80,7 +79,6 @@ export const buildings: Building[] = [
         unlocked: false,
         landCost: 1,
         results: [
-            {icon: 'food', description: '+1/click'},
             {icon: 'food', description: '+200 Max'},
         ],
         total: 0,
@@ -93,7 +91,6 @@ export const buildings: Building[] = [
         cost: 25,
         unlocked: false,
         results: [
-            {icon: 'production', description: '+1/click'},
             {icon: 'production', description: '+200 Max'},
         ],
         total: 0,
@@ -106,7 +103,7 @@ export const buildings: Building[] = [
         cost: 100,
         unlocked: false,
         results: [
-            {icon: 'research', description: '+10 one-time'},
+            {icon: 'research', description: '+10'},
         ],
         total: 0,
         requirements: [],

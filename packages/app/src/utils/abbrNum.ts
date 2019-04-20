@@ -12,19 +12,18 @@ const getIfZeroes = (n1: string, n2: string) => {
 }
 
 export function abbrNum (n: number, decimals: number = 2) {
+    const isNegative = n.toString().charAt(0) === '-';
     const str = n.toString().split('.')[0]
-
     const places = str.length / 3;
     const left = str.length % 3;
-
     const abbrs = ['K', 'M', 'B', 'T', 'Q', 'AA', 'BB', 'CC', 'DD', 'EE', 'FF'];
 
-    if (places < 1) {
-        return n.toFixed(1);
+    if (n < 999) {
+        return Number.isInteger(n) ? n : n.toFixed(1);
     }
 
     const placesRound = Math.floor(places);
-    const abb = abbrs[placesRound - 1];
+    const abb = (placesRound - 1) >= 0 ? abbrs[placesRound - 1] : '';
 
     switch (left) {
         case 1:

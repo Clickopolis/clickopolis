@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond, turnOnFlag, addNotification } from 'actions';
-// @ts-ignore: no types
-import { Tooltip } from 'react-tippy';
-import { abbrNum, Citizen, Flags, Contribution } from '@clickopolis/core';
+import { Citizen, Flags, Contribution, Indicator } from '@clickopolis/core';
+import { abbrNum } from 'utils';
 
 import './PopulationButton.scss';
 import { getContributionFor } from 'utils';
@@ -98,15 +97,13 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
             <div className={`population-button ${this.state.isGrowthPossible ? '' : 'disabled'}`} onClick={this.handleGrowth}>
                 <div className='pop-growth-text'>+1 POP</div>
                 <div className='population-text'>{ 'Population: ' + population }</div>
-                <Tooltip
-                    title={'The total amount of food needed to grow your pouplation by 1.'}
-                    position={'top'}
-                    style={{ marginLeft: 'auto' }}
-                >
-                    <div className='population-to-growth'>
-                        { abbrNum(foodNeededForGrowth) }<img style={{ height: '1rem' }} src='./images/food.svg' />
-                    </div>
-                </Tooltip>
+                <Indicator
+                    style={{background: 'unset', marginLeft: '1rem'}}
+                    className='population-to-growth'
+                    value={abbrNum(foodNeededForGrowth)}
+                    icon={'./images/food.svg'}
+                    description={'The total amount of food needed to grow your pouplation by 1.'}
+                />
             </div>
         );
     }

@@ -35,3 +35,30 @@ export function getCashPerMinute (civ: Civilization) {
 
     return cashArray.reduce(sum, 0)
 }
+
+export function getCulturePerMinute (civ: Civilization) {
+    const {culture} = civ;
+    const cultureArray = [
+        culture.perMinuteFromCitizens,
+        culture.perMinuteFromSocialPolicies,
+        culture.perMinuteFromResources,
+        culture.perMinuteFromLegacy,
+        culture.perMinuteFromWonders,
+        culture.perMinuteFromAdvancements,
+    ];
+
+    return cultureArray.reduce(sum, 0)
+}
+
+export function getFaithPerMinute (civ: Civilization) {
+    const {faith} = civ;
+    const faithArray = [
+        faith.perMinuteFromBuildings,
+        faith.perMinuteFromSocialPolicies,
+        faith.perMinuteFromResources,
+        faith.perMinuteFromLegacy,
+        faith.perMinuteFromWonders,
+    ];
+
+    return faithArray.reduce(sum, 0)
+}

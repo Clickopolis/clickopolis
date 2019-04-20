@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Indicator, Civilization, Resource, abbrNum } from '@clickopolis/core';
+import { Screen, Indicator, Civilization, Resource } from '@clickopolis/core';
+import { abbrNum } from 'utils/abbrNum';
 import { PopulationButton } from '../PopulationButton';
 import { colors, getCashPerMinute } from 'utils';
 
 import './CivilizationScreen.scss';
-import { civilization } from 'reducers/civilization';
 
 const indicatorStyle = {
     margin: '.25rem',
@@ -186,10 +186,9 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                             background: `linear-gradient(to right, ${colors.get('goldenAge')} ${goldenAgePercent}, ${colors.get('goldenAgeDark')} ${goldenAgePercent}, ${colors.get('goldenAgeDark')})`,
                         }}
                         icon={'./images/golden-age.svg'}
-                        description={`Your progress towards a Golden Age ${civilization.goldenAge.progress}/${civilization.goldenAge.goal}`}
+                        description={`Your progress towards a Golden Age ${civilization.goldenAge.progress}/${abbrNum(civilization.goldenAge.goal)}`}
                         onClick={this.onClick('land')}
                     />
-                    {civilization.goldenAge.progress}
                 </div>
                 <div className='civilization-indicator' style={{
                     alignItems: 'center',
@@ -208,10 +207,10 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     />
                     <Indicator
                         value={this.props.civilization.research.total}
-                        positiveColor='skyblue'
-                        neutralColor='skyblue'
+                        positiveColor={colors.get('advancement')}
+                        neutralColor={colors.get('advancement')}
                         icon={'./images/research.svg'}
-                        formatFunction={(v: number) => v.toFixed(1)}
+                        formatFunction={(v: number) => abbrNum(v)}
                         description={`The total science in your empire`}
                         style={indicatorStyle}
                         onClick={this.onClick('research')}

@@ -48,7 +48,7 @@ export const advancements: Advancement[] = [
         categories: ['resources'],
         unlocked: true,
         results: [
-            'Can gain Land resources',
+            'Unlocks: Horses, Cattle',
             '+500 Max food',
         ]
     },
