@@ -85,6 +85,14 @@ export type CitizenType = 'farmer'
                         | 'cleric'
                         | 'artist'
                         | 'ruler'
+                        | 'doctor'
+                        | 'musician'
+                        | 'writer'
+                        | 'astronaut'
+                        | 'scientist'
+                        | 'woodcutter'
+                        | 'spy'
+                        | 'general'
                         | 'soldier';
 
 export interface Civilization {
@@ -123,7 +131,7 @@ export interface Civilization {
 
 /* The contribution a citizen provides */
 export interface Contribution {
-    type: 'PS' | 'PC' | 'PM' | 'PH';
+    type: 'PS' | 'PC' | 'PM' | 'PH' | 'constant';
     /* Interval of contribution, in ms */
     interval: number;
     /* Amount of contribution */

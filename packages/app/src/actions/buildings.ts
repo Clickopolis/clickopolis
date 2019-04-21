@@ -49,6 +49,12 @@ export function purchaseBuilding(building: Building) {
                 dispatch(updateBuildingCost(BuildingName.obelisk))
                 dispatch(createProduction(building.cost * -1))
             }
+        case BuildingName.shrine:
+            return function (dispatch: Dispatch<any>, _: Store<any>['getState']) {
+                dispatch(addBuilding(BuildingName.shrine))
+                dispatch(updateBuildingCost(BuildingName.shrine))
+                dispatch(createProduction(building.cost * -1))
+            }
         case BuildingName.furnace:
             return function (dispatch: Dispatch<any>, _: Store<any>['getState']) {
                 dispatch(addBuilding(BuildingName.furnace))

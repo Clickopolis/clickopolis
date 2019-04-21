@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Screen, Button, Indicator, noop, abbrNum } from '@clickopolis/core';
+import { Screen, Button, Indicator, noop } from '@clickopolis/core';
 import { connect } from 'react-redux';
-import { Era, colors, getResearchPerMinute, getEraName } from 'utils';
+import { Era, colors, getResearchPerMinute, getEraName, abbrNum } from 'utils';
 import { purchaseAdvancement } from 'actions';
 
 import './AdvancementScreen.scss'

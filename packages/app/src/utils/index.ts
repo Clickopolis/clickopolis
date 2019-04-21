@@ -9,3 +9,4 @@ export * from './debounce';
 export * from './getContributionFor';
 export * from './createGradient';
 export * from './abbrNum';
+export * from './addImages';

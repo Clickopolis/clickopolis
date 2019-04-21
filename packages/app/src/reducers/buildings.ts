@@ -6,12 +6,15 @@ export function buildings(state = initialState, action: Action<ADD_BUILDING | UP
         case ADD_BUILDING:
             {
                 const building = state.find(b => b.name === action.name);
-                const indexOf = state.indexOf(building)
                 if (building) {
                     const buildingUpdated = {...building, total: building.total + action.amount }
-                    const newState = state;
-                    newState[indexOf] = buildingUpdated
-                    return newState
+                    return state.map((b) => {
+                        if (b.name === action.name) {
+                            return buildingUpdated;
+                        } else {
+                            return b;
+                        }
+                    })
                 } else {
                     return state;
                 }
@@ -19,13 +22,16 @@ export function buildings(state = initialState, action: Action<ADD_BUILDING | UP
         case UPDATE_BUILDING_COST:
             {
                 const building = state.find(b => b.name === action.name);
-                const indexOf = state.indexOf(building)
                 const newCost = Math.ceil(Math.pow(building.cost, 1.01))
                 if (building) {
                     const buildingUpdated = {...building, cost: newCost }
-                    const newState = state;
-                    newState[indexOf] = buildingUpdated
-                    return newState
+                    return state.map((b) => {
+                        if (b.name === action.name) {
+                            return buildingUpdated;
+                        } else {
+                            return b;
+                        }
+                    })
                 } else {
                     return state;
                 }
@@ -33,12 +39,15 @@ export function buildings(state = initialState, action: Action<ADD_BUILDING | UP
         case UNLOCK_BUILDING:
             {
                 const building = state.find(b => b.name === action.name);
-                const indexOf = state.indexOf(building)
                 if (building) {
                     const buildingUpdated = {...building, unlocked: true }
-                    const newState = state;
-                    newState[indexOf] = buildingUpdated
-                    return newState
+                    return state.map((b) => {
+                        if (b.name === action.name) {
+                            return buildingUpdated;
+                        } else {
+                            return b;
+                        }
+                    })
                 } else {
                     return state;
                 }

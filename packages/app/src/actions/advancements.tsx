@@ -32,6 +32,7 @@ const advancementPurchaseBasics = (dispatch: any, getState: any, adv: Advancemen
     dispatch(updateAdvancementCosts())  
 }
 
+const getAdv = (advancments: Advancement[], name: AdvName) => advancments.find((a: Advancement) => a.name === name)
 
 export function purchaseAdvancement(advancement: Advancement, ac: number) {
     switch (advancement.name) {
@@ -65,6 +66,8 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
             return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.fishing);
                 if (!path(['purchased'], adv)) {
+                    dispatch(unlockResource('fish'))
+                    dispatch(unlockResource('crabs'))
                     advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.fishing)
                 }
             }
@@ -105,7 +108,8 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.bartering);
                 const name = adv.name
                 if (!path(['purchased'], adv)) {
-                    dispatch(unlockBuilding('HAS_UNLOCKED_ECONOMY'))
+                    dispatch(turnOnFlag('HAS_UNLOCKED_ECONOMY'))
+                    dispatch(turnOnFlag('CAN_CITIZENS_PRODUCE_CASH'))
                     advancementPurchaseBasics(dispatch, getState, adv, ac, name)
                 }
             };
@@ -142,6 +146,9 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                     dispatch(turnOnFlag('HAS_UNLOCKED_FAITH'))
                     dispatch(unlockBuilding(BuildingName.obelisk))
                     dispatch(unlockBuilding(BuildingName.shrine))
+                    if (getAdv(getState().advancements, AdvName.writing).unlocked) {
+                        unlockAdvancement(AdvName.astronomy)
+                    }
                     advancementPurchaseBasics(dispatch, getState, adv, ac, name)
                 }
             };
@@ -160,12 +167,10 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.woodcutting);
                 const name = adv.name
-                const research = getState().civilization.research.total
                 if (!path(['purchased'], adv)) {
-                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                    dispatch(addAdvancement(name, ac))
-                    dispatch(updateAdvancementCosts())
+                    dispatch(unlockResource('wood'))
                     dispatch(unlockAdvancement(AdvName.sailing))
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, name)
                 }
             };
         case AdvName.writing:
@@ -178,6 +183,9 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                     dispatch(updateCivilization(['research', 'total'], research - adv.cost))
                     dispatch(addAdvancement(name, ac))
                     dispatch(updateAdvancementCosts())
+                    if (getAdv(getState().advancements, AdvName.mysticism).unlocked) {
+                        unlockAdvancement(AdvName.astronomy)
+                    }
                 }
             };
         case AdvName.astronomy:

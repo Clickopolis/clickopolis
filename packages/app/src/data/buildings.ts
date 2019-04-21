@@ -51,7 +51,7 @@ export const buildings: Building[] = [
     {
         name: BuildingName.obelisk,
         era: Era.Ancient,
-        cost: 20,
+        cost: 60,
         unlocked: false,
         landCost: 1,
         results: [
@@ -63,7 +63,7 @@ export const buildings: Building[] = [
     {
         name: BuildingName.shrine,
         era: Era.Ancient,
-        cost: 20,
+        cost: 60,
         unlocked: false,
         landCost: 1,
         results: [

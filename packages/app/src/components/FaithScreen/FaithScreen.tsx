@@ -32,6 +32,6 @@ export class FaithScreenBase extends React.Component<FaithScreenprops> {
 }
 
 export const FaithScreen = connect(
-    (state: any) => ({ Faith: state.civilization.faith }),
+    (state: any) => ({ faith: state.civilization.faith }),
     null
 )(FaithScreenBase as any);

@@ -27,7 +27,7 @@ import { SettingsScreen } from 'components/SettingsScreen';
 import { Notification} from 'components/Notification';
 import { BuildingsScreen } from 'components/BuildingsScreen';
 import { Notification as Note } from 'reducers/notifications';
-import { TimeStatus, getResearchPerMinute } from 'utils';
+import { TimeStatus, getResearchPerMinute, getCashPerMinute } from 'utils';
 import { PositionProperty } from 'csstype';
 import { LegacyScreen } from 'components/LegacyScreen';
 import { Events } from 'components/Events';
@@ -124,6 +124,12 @@ export class AppBase extends React.Component<AppProps> {
             gainCash(this.props.civilization.population - 1)
             updateCivilization(['ac'], this.props.ac + 1);
             updateCivilization(['research', 'total'], civilization.research.total + getResearchPerMinute(civilization))
+            if (flags.CAN_CITIZENS_PRODUCE_CASH) {
+                updateCivilization(
+                    ['cash', 'total'],
+                    getCashPerMinute(civilization)
+                )
+            }
         }
     }
 

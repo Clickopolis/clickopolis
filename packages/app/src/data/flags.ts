@@ -12,4 +12,5 @@ export const defaultFlags: Flags = {
     HAS_UNLOCKED_BUILDINGS: false,
     HAS_UNLOCKED_WONDERS: false,
     HAS_UNLOCKED_MILITARY: false,
+    CAN_CITIZENS_PRODUCE_CASH: false,
 };
