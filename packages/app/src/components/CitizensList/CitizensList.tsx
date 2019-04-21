@@ -48,7 +48,7 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
         }, 0) === 0;
 
         const foodPerSecond = getContributionFor({
-            consumptionFunction: () => this.props.civilization.population - 3,
+            consumptionFunction: () => this.props.civilization.population,
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens,
             amount,
@@ -143,7 +143,7 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                         { c.name !== 'ruler' ? <Button
                             className='citizen-amount-button'
                             value={`+${abbrNum(this.props.amount)}`}
-                            disabled={fullEmployment || (c.amount - this.props.amount >= unemployed)}
+                            disabled={fullEmployment || (this.props.amount > unemployed)}
                             onClick={(_:any) => this.addCitizen(this.props.amount, c)}
                         /> : null }
                         <div className='citizen-description'>{c.description}</div>
@@ -181,6 +181,7 @@ export const CitizensList:any = connect(
             state.farmer,
             state.miner,
             state.soldier,
+            state.merchant,
         ],
         civilization: state.civilization
     }),

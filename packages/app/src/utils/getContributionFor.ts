@@ -10,7 +10,7 @@ export const getContributionFor = ({ consumptionFunction, findFunction, citizens
         if (citizen.name === 'ruler') return { citizenAmount: 0, contributionAmount: 0 };
         const contrib = citizen.contribution.find(findFunction);
         return {
-            citizenAmount: citizen.amount + (amount || 0),
+            citizenAmount: citizen.amount + (amount || 1),
             contributionAmount: contrib ? contrib.amount : 0
         };
     }).reduce((prev, curr) => {

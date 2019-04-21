@@ -123,7 +123,7 @@ export interface Civilization {
 
 /* The contribution a citizen provides */
 export interface Contribution {
-    type: 'PS' | 'PC';
+    type: 'PS' | 'PC' | 'PM' | 'PH';
     /* Interval of contribution, in ms */
     interval: number;
     /* Amount of contribution */

@@ -7,6 +7,7 @@ import {
     farmer,
     miner,
     soldier,
+    merchant,
 } from './citizens';
 import { civilization } from './civilization';
 import { era } from './era';
@@ -72,6 +73,7 @@ export const reducers = {
     leader,
     maize,
     marble,
+    merchant,
     miner,
     mushrooms,
     notifications,

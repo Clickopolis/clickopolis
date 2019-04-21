@@ -42,7 +42,7 @@ export const citizens = new Map<CitizenType, Citizen>([
             },
         ],
         amount: 0,
-        description: `Merchants provide you wealth and riches.`
+        description: `Merchants travel the lands to seek out riches.`
     }],
     ['miner', {
         name: 'miner',
@@ -62,5 +62,17 @@ export const citizens = new Map<CitizenType, Citizen>([
         ],
         amount: 0,
         description: `Miners are your earliest source of industry & luxury.`
+    }],
+    ['doctor', {
+        name: 'doctor',
+        contribution: [
+            {
+                type: 'constant',
+                amount: 10,
+                resource: 'health',
+            }
+        ],
+        amount: 0,
+        description: `Doctors keep your civilization healthy and not-dead.`
     }]
 ]);

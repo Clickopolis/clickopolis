@@ -66,7 +66,7 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
         this.props.consumeFood(this.props.foodNeededForGrowth);
 
         const foodPerSecond = getContributionFor({
-            consumptionFunction: () => population - 2,
+            consumptionFunction: () => population,
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens: [farmer]
         })

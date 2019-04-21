@@ -122,6 +122,8 @@ export const CitizensScreen = connect(
             state.ruler,
             state.farmer,
             state.miner,
+            state.soldier,
+            state.merchant,
         ]
     }),
 )(CitizensScreenBase as any);

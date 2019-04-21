@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 import { colors } from 'utils';
 import { Screen, Indicator, Civilization } from '@clickopolis/core';
 
-import './FaithScreen.scss';
-
 export interface FaithScreenprops {
     faith?: Civilization['faith'];
 }

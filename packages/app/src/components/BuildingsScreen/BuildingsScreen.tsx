@@ -29,7 +29,7 @@ export interface Building {
 export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purchaseBuilding: typeof purchaseBuilding}) => {
     return (
         <div className='building'
-            onClick={e => {console.log(e); build.purchaseBuilding(build)}}
+            onClick={() => build.purchaseBuilding(build)}
         style={{
             background: colors.get('buildings'),
             cursor: 'pointer',

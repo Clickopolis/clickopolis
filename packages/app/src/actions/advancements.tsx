@@ -9,6 +9,7 @@ import { unlockResource } from './addResource';
 import { BuildingName } from 'data/buildings';
 import { turnOnFlag } from './turnOnFlag';
 import { addNotification } from './notifications';
+import { updateMaxFood } from './food';
 
 export type UNLOCK_ADVANCEMENT = 'UNLOCK_ADVANCEMENT';
 export const UNLOCK_ADVANCEMENT: UNLOCK_ADVANCEMENT = 'UNLOCK_ADVANCEMENT';
@@ -40,6 +41,7 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                 if (!path(['purchased'], adv)) {
                     dispatch(unlockResource('cattle'))
                     dispatch(unlockResource('horses'))
+                    dispatch(updateMaxFood(500))
                     advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.animalDomestication)
                 }
             }
@@ -102,11 +104,9 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
             return (dispatch: Dispatch<any>, getState: Store<any>['getState']) => {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.bartering);
                 const name = adv.name
-                const research = getState().civilization.research.total
                 if (!path(['purchased'], adv)) {
-                    dispatch(updateCivilization(['research', 'total'], research - adv.cost))
-                    dispatch(addAdvancement(name, ac))
-                    dispatch(updateAdvancementCosts())
+                    dispatch(unlockBuilding('HAS_UNLOCKED_ECONOMY'))
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, name)
                 }
             };
         case AdvName.clothing:
@@ -140,6 +140,8 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                 const name = adv.name
                 if (!path(['purchased'], adv)) {
                     dispatch(turnOnFlag('HAS_UNLOCKED_FAITH'))
+                    dispatch(unlockBuilding(BuildingName.obelisk))
+                    dispatch(unlockBuilding(BuildingName.shrine))
                     advancementPurchaseBasics(dispatch, getState, adv, ac, name)
                 }
             };
