@@ -47,6 +47,18 @@ export class EventsBase extends React.Component<EventsProps> {
                     addResource('cattle', 1)
                 }
             }
+            if (rand() < 61 && rand() > 90) {
+                addNotification({
+                    content: <div>
+                        Your farmers have grown an abundant crop of maize!
+                        <br />
+                        +1 <img src='./images/maize.svg' />
+                    </div>,
+                    id: `${rand()}`,
+                })
+                addResource('maize', farmer.amount)
+            }
+
         } else if (rand() < 800) {
 
         } else if (rand() < 900) {

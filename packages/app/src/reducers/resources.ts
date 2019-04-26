@@ -2,6 +2,7 @@ import { Action, ADD_RESOURCE, UNLOCK_RESOURCE  } from '../actions';
 import { resources as defaults } from 'data/resources';
 import { Resource } from '@clickopolis/core';
 
+type ResourceAction = Action<ADD_RESOURCE | UNLOCK_RESOURCE>
 
 const handleCases = (state: Resource, action: Action<ADD_RESOURCE | UNLOCK_RESOURCE>, name: string) => {
     switch (action.type) {
@@ -26,50 +27,35 @@ export function cattle(state = defaults.get('cattle'), action: Action<ADD_RESOUR
 }
 
 export function fish(state = defaults.get('fish'), action: Action<any>) {
-    switch (action.type) {
-        case '_':
-            return state;
-        default:
-            return state;
-    }
+    return handleCases(state, action, 'fish')
 }
 
 export function banana(state = defaults.get('banana'), action: Action<any>) {
-    switch (action.type) {
-        case '_':
-            return state;
-        default:
-            return state;
-    }
+    return handleCases(state, action, 'banana')
 }
 
 export function wood(state = defaults.get('wood'), action: Action<any>) {
-    switch (action.type) {
-        case '_':
-            return state;
-        default:
-            return state;
-    }
+    return handleCases(state, action, 'wood')
 }
 
-export function stone(state = defaults.get('stone')) {
-    return state;
+export function stone(state = defaults.get('stone'), action: ResourceAction) {
+    return handleCases(state, action, 'stone')
 }
 
-export function eagles(state = defaults.get('eagles')) {
-    return state;
+export function eagles(state = defaults.get('eagles'), action: ResourceAction) {
+    return handleCases(state, action, 'eagles')
 }
 
-export function marble(state = defaults.get('marble')) {
-    return state;
+export function marble(state = defaults.get('marble'), action: ResourceAction) {
+    return handleCases(state, action, 'marble')
 }
 
-export function mushrooms(state = defaults.get('mushrooms')) {
-    return state;
+export function mushrooms(state = defaults.get('mushrooms'), action: ResourceAction) {
+    return handleCases(state, action, 'mushrooms')
 }
 
-export function crabs(state = defaults.get('crabs')) {
-    return state;
+export function crabs(state = defaults.get('crabs'), action: ResourceAction) {
+    return handleCases(state, action, 'crabs')
 }
 
 export function tobacco(state = defaults.get('tobacco')) {
@@ -92,8 +78,8 @@ export function copper(state = defaults.get('copper')) {
     return state;
 }
 
-export function maize(state = defaults.get('maize')) {
-    return state;
+export function maize(state = defaults.get('maize'), action: ResourceAction) {
+    return handleCases(state, action, 'maize')
 }
 
 export function coral(state = defaults.get('coral')) {
