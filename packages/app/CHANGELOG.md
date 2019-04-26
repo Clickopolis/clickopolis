@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.20.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.19.0...@clickopolis/app@0.20.0) (2019-04-26)
+
+
+### Bug Fixes
+
+* add more calculations/start Faith panel ([73aaf34](https://github.com/Clickopolis/clickopolis/commit/73aaf34))
+* add more citizen classes, fixes ([806aacf](https://github.com/Clickopolis/clickopolis/commit/806aacf))
+
+
+### Features
+
+* add Social Policy cards ([af3c471](https://github.com/Clickopolis/clickopolis/commit/af3c471))
+
+
+
+
+
 # [0.19.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.18.0...@clickopolis/app@0.19.0) (2019-04-19)
 
 

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.15.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.14.0...@clickopolis/core@0.15.0) (2019-04-26)
+
+
+### Bug Fixes
+
+* add more citizen classes, fixes ([806aacf](https://github.com/Clickopolis/clickopolis/commit/806aacf))
+
+
+### Features
+
+* add Social Policy cards ([af3c471](https://github.com/Clickopolis/clickopolis/commit/af3c471))
+
+
+
+
+
 # [0.14.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.13.0...@clickopolis/core@0.14.0) (2019-04-19)
 
 
