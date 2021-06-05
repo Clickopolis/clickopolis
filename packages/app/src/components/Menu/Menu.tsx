@@ -15,6 +15,7 @@ export interface MenuProps {
     food?: Resource;
     production?: Resource;
     leader: Leader;
+    population: number;
 }
 
 const margin = {margin: '0 .5rem', color: '#111'}
@@ -34,35 +35,90 @@ export class MenuBase extends React.Component<MenuProps> {
     private displayQuests = (_:any) => ({})
 
     public render() {
-        const {ac, food, leader, production} = this.props
+        const {ac, food, leader, production, population} = this.props
 
         return (
             <nav className='clickopolis-menu'>
-                <div className='clickopolis-menu-text'>menu</div>
-                <Indicator
-                    value={food.total}
-                    positiveColor={colors.get('resources')}
-                    neutralColor={colors.get('resources')}
-                    icon={'./images/food.svg'}
-                    description='Total Food in your empire'
-                    style={margin}
-                />
-                <Indicator
-                    value={production.total}
-                    positiveColor={colors.get('production')}
-                    neutralColor={colors.get('production')}
-                    icon={'./images/production.svg'}
-                    description='Total Productivity of your empire'
-                    style={margin}
-                />
-                <EraIndicator />
-                <Indicator
-                    value={`${ac} AC`}
-                    description={'AC: After Click'}
-                    neutralColor='#333'
-                    style={ { margin: '0 .33rem' }}
-                />
-                <Indicator
+                <UserMenu username={leader.name} userCivName={leader.defaultCivName} />
+
+                <div className='at-a-glance'>
+                    <h3 style={{
+                        textTransform: 'lowercase',
+                        textAlign: 'center',
+                        fontWeight: 'lighter',
+                        fontSize: '0.75rem',
+                        margin: 0,
+                    }}>At A Glance</h3>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
+                        margin: '0.25rem',
+                    }}>
+                        <Indicator
+                            value={food.total}
+                            positiveColor={colors.get('resources')}
+                            neutralColor={colors.get('resources')}
+                            icon={'./images/food.svg'}
+                            description='Total Food in your empire'
+                            style={margin}
+                        />
+                        <Indicator
+                            value={production.total}
+                            positiveColor={colors.get('production')}
+                            neutralColor={colors.get('production')}
+                            icon={'./images/production.svg'}
+                            description='Total Productivity of your empire'
+                            style={margin}
+                        />
+                        <Indicator
+                            value={population}
+                            positiveColor={colors.get('citizens')}
+                            neutralColor={colors.get('citizens')}
+                            icon={'./images/citizens.svg'}
+                            description='Total population'
+                            style={margin}
+                        />
+                    </div>
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
+                        margin: '0.25rem',
+                    }}>
+                        <EraIndicator />
+                        <Indicator
+                            value={`${ac} AC`}
+                            description={'AC: After Click'}
+                            neutralColor='#333'
+                            style={ { margin: '0 .33rem' }}
+                        />
+                    </div>
+                </div>
+
+                <nav className='main-nav'>
+                    <ul>
+                        <li>
+                            <img src='./images/civilization.svg' />
+                            <span>Civilization</span>
+                        </li>
+                        <li style={{background: colors.get('resources')}}>
+                            <img src='./images/resources.svg' />
+                            <span>Resources</span>
+                        </li>
+                        <li>
+                            <img src='./images/citizens.svg' />
+                            <span>Citizens</span>
+                        </li>
+                        <li style={{background: colors.get('legacy')}}>
+                            <img src='./images/legacy.svg' />
+                            <span>Legacy</span>
+                        </li>
+                    </ul>
+
+                </nav>
+
+                {/* <Indicator
                     value={`${3} Quests`}
                     icon={'./images/quests.svg'}
                     positiveColor={colors.get('quests')}
@@ -83,8 +139,7 @@ export class MenuBase extends React.Component<MenuProps> {
                         <Button style={{background: '#111', color: 'white'}} value={'Claim Treasure'} />
                     </div>}
                     onClick={this.displayQuests}
-                />
-                <UserMenu username={leader.name} userCivName={leader.defaultCivName} />
+                /> */}
             </nav>
         );
     }
@@ -96,6 +151,7 @@ export const Menu: React.ComponentClass<{}> = connect(
         food: state.food,
         production: state.production,
         leader: state.leader,
+        population: state.civilization.population,
     })
 )(MenuBase as any)
 

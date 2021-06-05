@@ -1,11 +1,8 @@
 import { applyMiddleware, createStore } from 'redux';
-import { createLogger } from 'redux-logger';
+// import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 import createSagaMiddleware from 'redux-saga';
 // @ts-ignore no @types module
-import createHistory from 'history/createBrowserHistory';
-// @ts-ignore no @types module
-import { routerMiddleware as createRouterMiddleware } from 'react-router-redux';
 // @ts-ignore no @types module
 import { persistCombineReducers, persistStore } from 'redux-persist';
 // @ts-ignore no @types module
@@ -20,15 +17,12 @@ const config = {
   storage
 };
 
-const history = createHistory();
-
 const persistReducers = persistCombineReducers(config, reducers);
 
-const loggerMiddleware = createLogger({
-  predicate: (_, action) => action.type !== 'GROW_FOOD' || action.type === 'CREATE_PRODUCTION'
-});
+// const loggerMiddleware = createLogger({
+//   predicate: (_, action) => action.type !== 'GROW_FOOD' || action.type === 'CREATE_PRODUCTION'
+// });
 const sagaMiddleware = createSagaMiddleware();
-const routerMiddleware = createRouterMiddleware(history);
 
 export const store:any = createStore(
   persistReducers,
@@ -37,7 +31,6 @@ export const store:any = createStore(
     // (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
     // loggerMiddleware,
     sagaMiddleware,
-    routerMiddleware
   )
 );
 

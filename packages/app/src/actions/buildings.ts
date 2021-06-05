@@ -1,9 +1,9 @@
 import { updateCivilization } from './updateCivilization';
 import { Dispatch, Store } from 'redux';
 import { Building } from 'components/BuildingsScreen';
-import { createProduction, updateProductionPerClick, updateMaxProduction } from './production';
+import { createProduction, updateMaxProduction } from './production';
 import { BuildingName } from 'data/buildings';
-import { updateFoodPerClick, updateMaxFood } from './food';
+import { updateMaxFood } from './food';
 
 
 export type ADD_BUILDING = 'ADD_BUILDING';

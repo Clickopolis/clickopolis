@@ -7,6 +7,17 @@ $origins: bottom, top, right, left;
 $backdrop-origins: 0% 25%, 0% -50%, 50% 0%, -50% 0%;
 $backdrop-border-radii: 40% 40% 0 0, 0 0 30% 30%, 50% 0 0 50%, 0 50% 50% 0;
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #333;
+  padding: 2px;
+  border-radius: .25rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #666;
+}
 
 *,
 *::before,
@@ -15,7 +26,6 @@ $backdrop-border-radii: 40% 40% 0 0, 0 0 30% 30%, 50% 0 0 50%, 0 50% 50% 0;
 }
 
 body {
-    background: linear-gradient(#222, #444);
     font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
     user-select: none;
 }
@@ -51,21 +61,20 @@ body,
 .clickopolis-screen {
     background: #222;
     box-shadow: 0 0 1px rgba(black, 0.7);
-    height: 85vh;
     margin: .5rem;
     padding: 1rem;
     padding-top: 0;
     transition: 350ms all;
-    width: 700px;
 }
 
 .screen-header {
     align-content: center;
     align-items: center;
+    border-radius: .25rem;
     display: flex;
     justify-content: center;
     letter-spacing: 2px;
-    margin-bottom: .5rem;
+    margin: .5rem;
     padding: 1rem;
     text-align: center;
     text-transform: uppercase;

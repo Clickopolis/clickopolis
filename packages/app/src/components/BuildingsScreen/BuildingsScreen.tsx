@@ -55,7 +55,6 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
                     padding: '.5rem',
                     textAlign: 'center',
                     zIndex: 1,
-                    opactiy: 1,
                 }}>
                     Requirements: {build.requirements.join(', ')}
                 </div>

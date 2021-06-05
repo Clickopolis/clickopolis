@@ -9,7 +9,7 @@ export interface MapOptions {
     
 }
 
-export const createMap = (opt: MapOptions): Map[] => {
+export const createMap = (_opt: MapOptions): Map[] => {
 
 
 

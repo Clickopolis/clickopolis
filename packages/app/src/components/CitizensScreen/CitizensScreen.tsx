@@ -60,7 +60,7 @@ export class CitizensScreenBase extends React.Component<CitizensScreenProps, Cit
                     <div>Here's some info</div>
                 </div>}
             >
-                <div className='citizens-top-bar'>
+                <div className='citizens-top-bar' style={{height: '64px'}}>
                     <Indicator
                         value={`${this.getTotalEmployed()} / ${this.props.population}`}
                         neutralColor='#666'

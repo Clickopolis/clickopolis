@@ -13,4 +13,4 @@ if (process.env.NODE_ENV !== 'production') {
     app.use('/', express.static('./dist'));
 }
 
-app.listen(port, () => console.log(`Running at port ${port}`))
+app.listen(port, () => console.log(`Running at port ${port}`));

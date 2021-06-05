@@ -1,5 +1,6 @@
 import { Citizen, CitizenType } from '@clickopolis/core'
 
+// @ts-expect-error
 export const citizens = new Map<CitizenType, Citizen>([
     ['ruler', {
         name: 'ruler',

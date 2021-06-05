@@ -139,7 +139,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         max: Infinity,
         perSecond: null,
         perClick: null,
-        description: `A stoners dream. Wait, that's not what stoner means?`,
+        description: `A stoner's dream. Wait, that's not what stoner means?`,
         category: ResourceCategory.building,
         visible: true,
         unlocked: false,

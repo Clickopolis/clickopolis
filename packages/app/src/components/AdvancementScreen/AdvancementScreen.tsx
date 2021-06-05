@@ -59,7 +59,7 @@ export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvan
                     padding: '.5rem',
                     textAlign: 'center',
                     zIndex: 1,
-                    opactiy: 1,
+                    opacity: 1,
                 }}>
                     Requirements: {adv.requirements.join(', ')}
                 </div>
@@ -93,7 +93,7 @@ export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvan
             }}>
                 <div style={{ textAlign: 'center' }} className='advancement-name'>{adv.name}</div>
                 {adv.purchased && <div style={{fontSize: '12px', textAlign: 'center'}}>Discovered in {adv.purchasedDate} AC</div>}
-                {!adv.purchased && <ul style={{ fontSize: '12px' }}>
+                {<ul style={{ fontSize: '12px' }}>
                     {adv.results.map(res => <li key={res}>{res}</li>)}
                 </ul>}
             </div>

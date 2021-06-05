@@ -8,7 +8,7 @@ import * as process from 'process';
 
 const DEFAULT_DIR = './src/components';
 
-const component = (name) => `import * as React from 'react';
+const component = (name: any) => `import * as React from 'react';
 
 import './${name}.scss';
 
@@ -27,7 +27,7 @@ export class ${name} extends React.Component<${name}Props> {
 }
 `;
 
-const componentConnected = (name) => `import * as React from 'react';
+const componentConnected = (name: any) => `import * as React from 'react';
 import { connect } from 'react-redux';
 
 import './${name}.scss';
@@ -56,7 +56,7 @@ export const ${name} = connect(
 )(${name}Base);
 `;
 
-const exporter = (name) => `export * from './${name}';
+const exporter = (name: any) => `export * from './${name}';
 `;
 
 const rl = readline.createInterface({
@@ -68,7 +68,7 @@ rl.question('Component name:\n> ', answer => {
     askConnected(answer);
 });
 
-const askConnected = name => {
+const askConnected = (name: any) => {
     rl.question('Make a connected component? [y/n]\n> ', answer => {
         if (answer === 'y' || answer === 'yes') {
             writeComponent(name, true);
@@ -78,7 +78,7 @@ const askConnected = name => {
     });
 };
 
-const writeComponent = (name, isConnected) => {
+const writeComponent = (name: any, isConnected: any) => {
     const componentString = isConnected ? componentConnected(name) : component(name);
 
     fs.mkdir(`${DEFAULT_DIR}/${name}`, err => {

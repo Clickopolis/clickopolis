@@ -16,7 +16,7 @@ const LegacyIcon = (leg: Legacy) => {
     return (
         <div style={{height: '8rem', width: '8rem', display: 'flex', justifyContent: 'center',
             alignItems: 'center', clipPath: `polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)`,
-            background: colors.get('legacy'), position: 'relative', pointer: 'cursor',
+            background: colors.get('legacy'), position: 'relative', cursor: 'pointer',
             ...leg.style,
             }} className='legacy-item'>
             <img style={{margin: '.5rem', height: '5rem'}} src={`./images/${leg.name}.svg`} />
@@ -54,21 +54,21 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
     private renderLegacyIcons(legs: Legacy[]) {
         return legs.map((leg: Legacy, idx) => {
             
-            let style = {};
-            if (idx === 5) {
-                style = {marginLeft: '4rem', marginTop: '-2rem'}
-            }
-            if (idx === 6 || idx === 6 || idx === 7 || idx === 8) {
-                style = {marginTop: '-2rem'}
-            }
-            if (idx === 9) {
-                style = {marginLeft: '8rem', marginTop: '-2rem'}
-            }
-            if (idx === 10 || idx === 11) {
-                style = {marginTop: '-2rem'}
-            }
+            // let style = {};
+            // if (idx === 5) {
+            //     style = {marginLeft: '4rem', marginTop: '-2rem'}
+            // }
+            // if (idx === 6 || idx === 6 || idx === 7 || idx === 8) {
+            //     style = {marginTop: '-2rem'}
+            // }
+            // if (idx === 9) {
+            //     style = {marginLeft: '8rem', marginTop: '-2rem'}
+            // }
+            // if (idx === 10 || idx === 11) {
+            //     style = {marginTop: '-2rem'}
+            // }
 
-            return <LegacyIcon style={style} {...leg} />
+            return <LegacyIcon {...leg} />
         })
     }
 
@@ -104,9 +104,9 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
                             justifyContent: 'space-between',
                             borderRadius: '.25rem',
                             cursor: 'pointer',
-                            ':hover': {
-                                opacity: 0.9
-                            }
+                            // ':hover': {
+                            //     opacity: 0.9
+                            // }
                         }}
                         
                     >

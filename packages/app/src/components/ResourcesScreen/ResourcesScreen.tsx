@@ -234,7 +234,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                             icon='./images/production.svg'
                             id='production-btn'
                             iconHeight='1.5rem'
-                            value='Create Production'
+                            value='Break Stone'
                             onClick={this.createProduction}
                             className='prod-button'
                             layout={null}

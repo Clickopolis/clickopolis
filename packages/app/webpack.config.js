@@ -1,21 +1,15 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin');
-const { baseConfig, COMMON_EXTERNALS } = require('@clickopolis/webpack-build-scripts');
 const path = require('path');
 
-module.exports = {
-    ...baseConfig,
-
-    entry: './src/index.tsx',
-
-    resolve: {
-        ...baseConfig.resolve,
-        modules: [
-            path.resolve(__dirname, 'src'),
-            'node_modules'
-        ],
+const scssLoaders = [
+    {
+        loader: require.resolve('css-loader'),
     },
+    require.resolve('sass-loader'),
+];
+
+module.exports = {
+    entry: './src/index.tsx',
 
     output: {
         filename: 'bundle.js',
@@ -23,20 +17,44 @@ module.exports = {
         publicPath: '/'
     },
 
+    module: {
+        rules: [
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            },
+            {
+                test: /\.scss$/,
+                use: [ require.resolve('style-loader'), ...scssLoaders ],
+            },
+            {
+                test: /\.(eot|ttf|woff|woff2|svg|png|gif|jpe?g)$/,
+                loader: require.resolve('file-loader'),
+                options: {
+                    name: './images/[name].[ext]'
+                }
+            },
+        ],
+    },
+
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+        modules: [
+            path.resolve(__dirname, 'src'),
+            'node_modules'
+        ],
+    },
+
     devtool: 'source-map',
 
     plugins: [
-        ...baseConfig.plugins,
-        new CopyWebpackPlugin([
-            { from: './src/index.html', to: '.' },
-            { from: './src/images', to: './images' }
-        ]),
-        // new HtmlWebpackPlugin({
-        //     title: 'Clickopolis'
-        // }),
-        // new ScriptExtHtmlWebpackPlugin({
-        //     defaultAttribute: 'async'
-        // })
-    ]
+        new CopyWebpackPlugin({
+          patterns: [
+            { from: "./src/index.html", to: "./dist/index.html" },
+            { from: "./src/images", to: "./dist/images" },
+          ],
+        }),
+      ],
 
 };

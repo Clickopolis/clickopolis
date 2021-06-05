@@ -23,7 +23,7 @@ export interface CivilizationScreenState {
 }
 
 export const calculateHappiness = (civ: Civilization) => {
-    return ((civ.happiness.base) + 
+    return ((civ.happiness.base) +
     (civ.happiness.fromBuildings || 0) +
     (civ.happiness.fromWonders || 0) +
     (civ.happiness.fromCitizens || 0) +
@@ -45,7 +45,7 @@ export const calculateAnger = (civ: Civilization) => {
 
 export const calculatePollution = (civ: Civilization) => {
     const {pollution} = civ
-    
+
     return (
         (pollution.fromPopulation || 0) +
         (pollution.fromBuildings || 0) +
@@ -100,7 +100,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
         const gp = civ.goldenAge.progress
         const gg = civ.goldenAge.goal
 
-        return ((gp/gg) * 100) + '%'
+        return ((gp / gg) * 100) + '%'
     }
 
     public render() {
@@ -187,7 +187,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         }}
                         icon={'./images/golden-age.svg'}
                         description={`Your progress towards a Golden Age ${civilization.goldenAge.progress}/${abbrNum(civilization.goldenAge.goal)}`}
-                        onClick={this.onClick('land')}
+                        
                     />
                 </div>
                 <div className='civilization-indicator' style={{
@@ -240,7 +240,6 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                         icon={'./images/land.svg'}
                         description={`The total land in your empire`}
                         style={indicatorStyle}
-                        onClick={this.onClick('land')}
                     />
                 </div>
                 <div className='civilization-indicator' style={{

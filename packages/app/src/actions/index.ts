@@ -20,3 +20,4 @@ export * from './addResource';
 export * from './buildings';
 export * from './advancements';
 export * from './land';
+export * from './menus';

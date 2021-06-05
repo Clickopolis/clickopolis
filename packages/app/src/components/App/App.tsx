@@ -2,7 +2,6 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { Resource, Flags, Citizen, Civilization } from '@clickopolis/core';
-import { abbrNum } from 'utils/abbrNum';
 
 import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';
@@ -28,7 +27,6 @@ import { Notification} from 'components/Notification';
 import { BuildingsScreen } from 'components/BuildingsScreen';
 import { Notification as Note } from 'reducers/notifications';
 import { TimeStatus, getResearchPerMinute, getCashPerMinute } from 'utils';
-import { PositionProperty } from 'csstype';
 import { LegacyScreen } from 'components/LegacyScreen';
 import { Events } from 'components/Events';
 import { CultureScreen } from 'components/CultureScreen';
@@ -170,7 +168,7 @@ export class AppBase extends React.Component<AppProps> {
             color: '#111',
             cursor: 'pointer',
             borderRadius: '50%',
-            position: 'fixed' as PositionProperty,
+            position: 'fixed',
             bottom: '1em',
             left: '1em',
             opactiy: '0.95',
@@ -199,6 +197,7 @@ export class AppBase extends React.Component<AppProps> {
         return (
             <>
                 <Events />
+                {/*@ts-expect-error*/}
                 <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
                     {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
                 </div>
@@ -209,12 +208,9 @@ export class AppBase extends React.Component<AppProps> {
                 <div id='app' className={`clickopolis-app ${timeStatus === TimeStatus.Paused && 'paused'}`}>
                     { HAS_STARTED_GAME ? <Menu /> : null }
                     <div data-scroll id='screen-container' style={{
-                        alignItems: 'center',
-                        display: 'flex',
-                        justifyContent: 'center',
                         // justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
                         height: 'calc(100%)',
-                        width: HAS_STARTED_GAME ? `calc(700px * ${countScreens})` : '100%',
+                        marginLeft: '30%'
                     }}>
                         {
                             HAS_STARTED_GAME ?
@@ -222,12 +218,13 @@ export class AppBase extends React.Component<AppProps> {
                                 <ResourcesScreen />
                                 {HAS_UNLOCKED_CIVILIZATION && <CivilizationScreen />}     
                                 {HAS_UNLOCKED_CITIZENS && <CitizensScreen />}
+                                {<LegacyScreen />}
                                 {HAS_UNLOCKED_BUILDINGS && <BuildingsScreen />}
                                 {HAS_UNLOCKED_ADVANCEMENTS && <AdvancementScreen />}
                                 {HAS_UNLOCKED_ECONOMY && <EconomyScreen />}
                                 {HAS_UNLOCKED_CULTURE && <CultureScreen />}
                                 {HAS_UNLOCKED_FAITH && <FaithScreen />}
-                                {HAS_UNLOCKED_LEGACY && <LegacyScreen />}
+                                
                                 {HAS_UNLOCKED_CIVILIZATION && <SettingsScreen />}
                             </>
                             :
