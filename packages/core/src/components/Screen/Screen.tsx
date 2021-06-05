@@ -23,7 +23,7 @@ export class Screen extends React.Component<ScreenProps, {showInfo: boolean}> {
         const { children, color, className, style, type, infoComponent } = this.props;
 
         return (
-            <section style={{ ...style, borderTop: `4px solid ${color}`}} className={classNames('clickopolis-screen', `${type.toLowerCase()}-screen`, className)} id={type}>
+            <section style={{ ...style }} className={classNames('clickopolis-screen', `${type.toLowerCase()}-screen`, className)} id={type}>
                 <header style={{ backgroundColor: color }} className={classNames(`${type.toLowerCase()}-screen-header`, 'screen-header')}>
                     <img alt={type} src={'./images/' + type.toLowerCase() + '.svg'} style={{ height: '2rem', marginRight: '8px' }} />
                     <h2>{ type }</h2>
