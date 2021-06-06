@@ -14,6 +14,7 @@ const imgStyle = {height: '1rem'};
 const okButton = {
     margin: '0 auto',
     padding: '1rem',
+    border: '1px solid white',
     borderRadius: '34px',
     background: '#dfc990',
     color: '#111',
@@ -67,7 +68,7 @@ export class EraNotificationBase extends React.Component<EraNotificationProps, {
                 </div>
             </div>
             <Button onClick={this.disappear} style={okButton} value={'Neat.'} />
-            <div style={{position: 'fixed', right: '12.5%', top: '12.5%', fontSize: '2rem', textShadow: '2px 2px 2px black'}} onClick={this.disappear} className='notification-close'>×</div>
+            <div style={{position: 'fixed', right: '12.5%', top: '12.5%', fontSize: '2rem', textShadow: '2px 2px 2px black'}} onClick={this.disappear} className='notification-close'></div>
         </div>
     }
 

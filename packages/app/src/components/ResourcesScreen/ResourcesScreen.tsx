@@ -12,6 +12,7 @@ import { colors } from 'utils';
 
 import './ResourcesScreen.scss';
 import { BiomeIcon } from 'components/BiomeIcon';
+import { biomes } from 'data/biomes';
 
 const indicatorStyle = {
     alignItems: 'center',
@@ -295,8 +296,8 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                         flexWrap: 'wrap',
                     }}>
                         {
-                            ['desert', 'mountains', 'plains'].map(
-                                biome => <BiomeIcon key={biome} biome={biome} />
+                            biomes.map(
+                                biome => <BiomeIcon key={biome.name} biome={biome} />
                             )
                         }
                     </div>

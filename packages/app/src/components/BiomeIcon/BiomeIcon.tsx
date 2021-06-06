@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Indicator } from '@clickopolis/core';
+import { Indicator, Biome } from '@clickopolis/core';
 import { colors } from 'utils';
 
 const biomeIconStyle = {
@@ -13,7 +13,7 @@ const biomeIconStyle = {
 }
 
 export interface BiomeIconProps {
-    biome: string;
+    biome: Biome;
 }
 
 export class BiomeIcon extends React.Component<BiomeIconProps> {
@@ -26,8 +26,8 @@ export class BiomeIcon extends React.Component<BiomeIconProps> {
                 ...biomeIconStyle,
             }}
             iconHeight='2.3rem'
-            icon={`./images/${biome}.svg`}
-            description='Description for biome'
+            icon={`./images/${biome.name}.svg`}
+            description={biome.description}
         />
     }
 }
