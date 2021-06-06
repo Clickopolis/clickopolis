@@ -283,6 +283,7 @@ export interface Resource {
     influenceBonus?: number;
     faithBonus?: number;
     cultureBonus?: number;
+    foodBonus?: number;
 
     /* Amount of $ it can be sold for */
     exchangeRate?: number;
