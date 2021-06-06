@@ -25,7 +25,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         perClick: null,
         description: 'Insert corny joke here.',
         category: ResourceCategory.health,
-        foodBonus: 1,
+        foodBonus: 0.1,
         visible: true,
         unlocked: true,
     }],
