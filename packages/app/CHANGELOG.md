@@ -3,301 +3,78 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.20.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.19.0...@clickopolis/app@0.20.0) (2019-04-26)
-
-
-### Bug Fixes
-
-* add more calculations/start Faith panel ([73aaf34](https://github.com/Clickopolis/clickopolis/commit/73aaf34))
-* add more citizen classes, fixes ([806aacf](https://github.com/Clickopolis/clickopolis/commit/806aacf))
-
-
-### Features
-
-* add Social Policy cards ([af3c471](https://github.com/Clickopolis/clickopolis/commit/af3c471))
-
-
-
-
-
-# [0.19.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.18.0...@clickopolis/app@0.19.0) (2019-04-19)
-
-
-### Features
-
-* add more advancements, buildings, flesh out citizens ([3cb99f5](https://github.com/Clickopolis/clickopolis/commit/3cb99f5))
-* update Advancements ([7b0b2ab](https://github.com/Clickopolis/clickopolis/commit/7b0b2ab))
-
-
-
-
-
-# [0.18.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.17.0...@clickopolis/app@0.18.0) (2019-04-15)
-
-
-### Features
-
-* add Classical 'dvncmements ([c614de2](https://github.com/Clickopolis/clickopolis/commit/c614de2))
-
-
-
-
-
-# [0.17.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.6...@clickopolis/app@0.17.0) (2019-04-15)
+<a name="0.21.0"></a>
+# [0.21.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.6.0...@clickopolis/app@0.21.0) (2021-06-06)
 
 
 ### Bug Fixes
 
 * add GoldenAge icon/indicator ([be23bb2](https://github.com/Clickopolis/clickopolis/commit/be23bb2))
-* tweaks to Tooltip usage ([4ccf9a8](https://github.com/Clickopolis/clickopolis/commit/4ccf9a8))
-* work through resource consumption/creation ([efb2fb5](https://github.com/Clickopolis/clickopolis/commit/efb2fb5))
-
-
-### Features
-
-* add more Metrics to civilizatoin panel ([18f0cd3](https://github.com/Clickopolis/clickopolis/commit/18f0cd3))
-* better Leader selection screen, more useful metrics ([fe169b6](https://github.com/Clickopolis/clickopolis/commit/fe169b6))
-
-
-
-
-
-## [0.16.6](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.5...@clickopolis/app@0.16.6) (2019-04-14)
-
-**Note:** Version bump only for package @clickopolis/app
-
-
-
-
-
-## [0.16.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.4...@clickopolis/app@0.16.5) (2019-04-14)
-
-
-### Bug Fixes
-
-* another update for tippy usage ([6f125c8](https://github.com/Clickopolis/clickopolis/commit/6f125c8))
-
-
-
-
-
-## [0.16.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.3...@clickopolis/app@0.16.4) (2019-04-14)
-
-
-### Bug Fixes
-
-* try rolling back to 1.1.1 ([b517b14](https://github.com/Clickopolis/clickopolis/commit/b517b14))
-
-
-
-
-
-## [0.16.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.2...@clickopolis/app@0.16.3) (2019-04-14)
-
-
-### Bug Fixes
-
-* cleanup Indicator to function ([09de096](https://github.com/Clickopolis/clickopolis/commit/09de096))
-
-
-
-
-
-## [0.16.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.1...@clickopolis/app@0.16.2) (2019-04-14)
-
-
-### Bug Fixes
-
-* update react versions ([3e5d142](https://github.com/Clickopolis/clickopolis/commit/3e5d142))
-
-
-
-
-
-## [0.16.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.16.0...@clickopolis/app@0.16.1) (2019-04-14)
-
-
-### Bug Fixes
-
-* add quests indicator, update CPM ([7e91fa7](https://github.com/Clickopolis/clickopolis/commit/7e91fa7))
-* removeCitizen button, getContribution is now a util ([a1a4563](https://github.com/Clickopolis/clickopolis/commit/a1a4563))
-
-
-
-
-
-# [0.16.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.3...@clickopolis/app@0.16.0) (2019-04-14)
-
-
-### Bug Fixes
-
-* make screen position relative ([1666130](https://github.com/Clickopolis/clickopolis/commit/1666130))
-
-
-### Features
-
-* add unlocking citizens ([4e90df5](https://github.com/Clickopolis/clickopolis/commit/4e90df5))
-
-
-
-
-
-## [0.15.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.2...@clickopolis/app@0.15.3) (2019-04-14)
-
-
-### Bug Fixes
-
-* CivilizationScreen breakdown icons ([826cc05](https://github.com/Clickopolis/clickopolis/commit/826cc05))
-
-
-
-
-
-## [0.15.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.1...@clickopolis/app@0.15.2) (2019-04-14)
-
-
-### Bug Fixes
-
 * add icons for Civ screens ([60739f8](https://github.com/Clickopolis/clickopolis/commit/60739f8))
-
-
-
-
-
-## [0.15.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.15.0...@clickopolis/app@0.15.1) (2019-04-14)
-
-
-### Bug Fixes
-
 * add Info state to Screens ([67664e0](https://github.com/Clickopolis/clickopolis/commit/67664e0))
-
-
-
-
-
-# [0.15.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.14.0...@clickopolis/app@0.15.0) (2019-04-14)
+* add more calculations/start Faith panel ([73aaf34](https://github.com/Clickopolis/clickopolis/commit/73aaf34))
+* add more citizen classes, fixes ([806aacf](https://github.com/Clickopolis/clickopolis/commit/806aacf))
+* add quests indicator, update CPM ([7e91fa7](https://github.com/Clickopolis/clickopolis/commit/7e91fa7))
+* add webpack-dev-middleware to [@app](https://github.com/app) ([2273077](https://github.com/Clickopolis/clickopolis/commit/2273077))
+* another update for tippy usage ([6f125c8](https://github.com/Clickopolis/clickopolis/commit/6f125c8))
+* CivilizationScreen breakdown icons ([826cc05](https://github.com/Clickopolis/clickopolis/commit/826cc05))
+* cleanup Indicator to function ([09de096](https://github.com/Clickopolis/clickopolis/commit/09de096))
+* fix error where createProductionw as assigning food ([ad779f3](https://github.com/Clickopolis/clickopolis/commit/ad779f3))
+* food is now constrained to 0 ([dd44da6](https://github.com/Clickopolis/clickopolis/commit/dd44da6))
+* include AngerFromPopulation in growth action ([c87f829](https://github.com/Clickopolis/clickopolis/commit/c87f829))
+* make screen position relative ([1666130](https://github.com/Clickopolis/clickopolis/commit/1666130))
+* make sure server runs webpack only in dev ([05d6aec](https://github.com/Clickopolis/clickopolis/commit/05d6aec))
+* Notifications work now ([d3ef4d1](https://github.com/Clickopolis/clickopolis/commit/d3ef4d1))
+* package.json fixes, better styling on Delete button again ([1f54081](https://github.com/Clickopolis/clickopolis/commit/1f54081))
+* remove borderTop from screen ([762e45b](https://github.com/Clickopolis/clickopolis/commit/762e45b))
+* removeCitizen button, getContribution is now a util ([a1a4563](https://github.com/Clickopolis/clickopolis/commit/a1a4563))
+* Resources now have visibile and unlocked statuses ([de5999e](https://github.com/Clickopolis/clickopolis/commit/de5999e))
+* try rolling back to 1.1.1 ([b517b14](https://github.com/Clickopolis/clickopolis/commit/b517b14))
+* tweaks to Tooltip usage ([4ccf9a8](https://github.com/Clickopolis/clickopolis/commit/4ccf9a8))
+* update Adv color, add dep ([2dad235](https://github.com/Clickopolis/clickopolis/commit/2dad235))
+* update app/server.ts to use webpack ([ddeb31d](https://github.com/Clickopolis/clickopolis/commit/ddeb31d))
+* update biomeIcon, update types for things ([442b29e](https://github.com/Clickopolis/clickopolis/commit/442b29e))
+* update depencies to fix build ([673a027](https://github.com/Clickopolis/clickopolis/commit/673a027))
+* update indicators, add deleteData action, add AC ([94f2725](https://github.com/Clickopolis/clickopolis/commit/94f2725))
+* update react versions ([3e5d142](https://github.com/Clickopolis/clickopolis/commit/3e5d142))
+* use process.env.PORT for server.ts ([4ba2eb4](https://github.com/Clickopolis/clickopolis/commit/4ba2eb4))
+* wire in indicator refactor ([8feeefb](https://github.com/Clickopolis/clickopolis/commit/8feeefb))
+* wire things into redux ([bcd929b](https://github.com/Clickopolis/clickopolis/commit/bcd929b))
+* work through resource consumption/creation ([efb2fb5](https://github.com/Clickopolis/clickopolis/commit/efb2fb5))
+* **design:** modify start screen button ([0013401](https://github.com/Clickopolis/clickopolis/commit/0013401))
+* **design:** style delete button ([692b9c4](https://github.com/Clickopolis/clickopolis/commit/692b9c4))
 
 
 ### Features
 
+* **Biomes:** add biomes data ([6f6a174](https://github.com/Clickopolis/clickopolis/commit/6f6a174))
+* add  component ([19d52fb](https://github.com/Clickopolis/clickopolis/commit/19d52fb))
+* add Chihuahuas as Power resource ([b5773d6](https://github.com/Clickopolis/clickopolis/commit/b5773d6))
+* add Classical 'dvncmements ([c614de2](https://github.com/Clickopolis/clickopolis/commit/c614de2))
+* add game pausing & resuming ([6bb6aef](https://github.com/Clickopolis/clickopolis/commit/6bb6aef))
+* add in Legacy UI ([e63701c](https://github.com/Clickopolis/clickopolis/commit/e63701c))
 * add Indicators to Research screen ([0cdc6b7](https://github.com/Clickopolis/clickopolis/commit/0cdc6b7))
+* add more advancements, buildings, flesh out citizens ([3cb99f5](https://github.com/Clickopolis/clickopolis/commit/3cb99f5))
+* add more Advancements, fleshout UI ([8e58ae1](https://github.com/Clickopolis/clickopolis/commit/8e58ae1))
+* add more Metrics to civilizatoin panel ([18f0cd3](https://github.com/Clickopolis/clickopolis/commit/18f0cd3))
+* add New Resources ([4372897](https://github.com/Clickopolis/clickopolis/commit/4372897))
+* add SettingsScreen into <App /> ([0d36d88](https://github.com/Clickopolis/clickopolis/commit/0d36d88))
+* add Social Policy cards ([af3c471](https://github.com/Clickopolis/clickopolis/commit/af3c471))
+* add Soldier as citizen type in UI ([62b4340](https://github.com/Clickopolis/clickopolis/commit/62b4340))
+* add Soldier to citizens list ([a8fe05b](https://github.com/Clickopolis/clickopolis/commit/a8fe05b))
+* add Stone & Marble as resources ([fb4f9b5](https://github.com/Clickopolis/clickopolis/commit/fb4f9b5))
+* add time Pause/Play button ([94b6ab7](https://github.com/Clickopolis/clickopolis/commit/94b6ab7))
+* add unlocking citizens ([4e90df5](https://github.com/Clickopolis/clickopolis/commit/4e90df5))
+* Advancements & Buildings ([0590169](https://github.com/Clickopolis/clickopolis/commit/0590169))
+* AdvancementScreen and technologies ([457a536](https://github.com/Clickopolis/clickopolis/commit/457a536))
+* better Leader selection screen, more useful metrics ([fe169b6](https://github.com/Clickopolis/clickopolis/commit/fe169b6))
+* calculate Anger in Civilization Screen ([c440e50](https://github.com/Clickopolis/clickopolis/commit/c440e50))
 * litany of features ([89a63d5](https://github.com/Clickopolis/clickopolis/commit/89a63d5))
 * mock up Trade Routes UI ([5013216](https://github.com/Clickopolis/clickopolis/commit/5013216))
-
-
-
-
-
-# [0.14.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.13.0...@clickopolis/app@0.14.0) (2019-04-07)
-
-
-### Bug Fixes
-
-* add webpack-dev-middleware to [@app](https://github.com/app) ([2273077](https://github.com/Clickopolis/clickopolis/commit/2273077))
-* update Adv color, add dep ([2dad235](https://github.com/Clickopolis/clickopolis/commit/2dad235))
-* wire things into redux ([bcd929b](https://github.com/Clickopolis/clickopolis/commit/bcd929b))
-
-
-### Features
-
-* add in Legacy UI ([e63701c](https://github.com/Clickopolis/clickopolis/commit/e63701c))
-* add New Resources ([4372897](https://github.com/Clickopolis/clickopolis/commit/4372897))
-* Advancements & Buildings ([0590169](https://github.com/Clickopolis/clickopolis/commit/0590169))
-
-
-
-
-
-# [0.13.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.12.0...@clickopolis/app@0.13.0) (2019-04-03)
-
-
-### Features
-
-* add more Advancements, fleshout UI ([8e58ae1](https://github.com/Clickopolis/clickopolis/commit/8e58ae1))
-* add Soldier as citizen type in UI ([62b4340](https://github.com/Clickopolis/clickopolis/commit/62b4340))
-* add Stone & Marble as resources ([fb4f9b5](https://github.com/Clickopolis/clickopolis/commit/fb4f9b5))
-* AdvancementScreen and technologies ([457a536](https://github.com/Clickopolis/clickopolis/commit/457a536))
-
-
-
-
-
-# [0.12.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.11.0...@clickopolis/app@0.12.0) (2019-03-31)
-
-
-### Bug Fixes
-
-* update depencies to fix build ([673a027](https://github.com/Clickopolis/clickopolis/commit/673a027))
-
-
-### Features
-
-* add Soldier to citizens list ([a8fe05b](https://github.com/Clickopolis/clickopolis/commit/a8fe05b))
-
-
-
-
-
-# [0.11.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.2...@clickopolis/app@0.11.0) (2019-03-30)
-
-
-### Bug Fixes
-
-* Notifications work now ([d3ef4d1](https://github.com/Clickopolis/clickopolis/commit/d3ef4d1))
-* Resources now have visibile and unlocked statuses ([de5999e](https://github.com/Clickopolis/clickopolis/commit/de5999e))
-* update biomeIcon, update types for things ([442b29e](https://github.com/Clickopolis/clickopolis/commit/442b29e))
-
-
-### Features
-
-* add  component ([19d52fb](https://github.com/Clickopolis/clickopolis/commit/19d52fb))
-
-
-
-
-
-## [0.10.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.1...@clickopolis/app@0.10.2) (2019-03-29)
-
-**Note:** Version bump only for package @clickopolis/app
-
-
-
-
-
-## [0.10.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.10.0...@clickopolis/app@0.10.1) (2019-03-29)
-
-
-### Bug Fixes
-
-* make sure server runs webpack only in dev ([05d6aec](https://github.com/Clickopolis/clickopolis/commit/05d6aec))
-
-
-
-
-
-# [0.10.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.5...@clickopolis/app@0.10.0) (2019-03-28)
-
-
-### Bug Fixes
-
-* update app/server.ts to use webpack ([ddeb31d](https://github.com/Clickopolis/clickopolis/commit/ddeb31d))
-
-
-### Features
-
+* Notification design ([23a0a40](https://github.com/Clickopolis/clickopolis/commit/23a0a40))
+* update Advancements ([7b0b2ab](https://github.com/Clickopolis/clickopolis/commit/7b0b2ab))
 * wire in LegacyScreen/EconomyScreen ([cd78c33](https://github.com/Clickopolis/clickopolis/commit/cd78c33))
-
-
-
-
-
-## [0.9.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.9.4...@clickopolis/app@0.9.5) (2019-03-27)
-
-
-### Bug Fixes
-
-* wire in indicator refactor ([8feeefb](https://github.com/Clickopolis/clickopolis/commit/8feeefb))
-
+* **notifications:** add Notifications ([43df61c](https://github.com/Clickopolis/clickopolis/commit/43df61c))
 
 
 

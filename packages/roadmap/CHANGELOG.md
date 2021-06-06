@@ -3,13 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.1.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/roadmap@0.0.5...@clickopolis/roadmap@0.1.0) (2019-04-07)
+<a name="0.2.0"></a>
+# [0.2.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/roadmap@0.0.3...@clickopolis/roadmap@0.2.0) (2021-06-06)
+
+
+### Bug Fixes
+
+* add notes on Economy management, update Citizens to in progress ([6e617da](https://github.com/Clickopolis/clickopolis/commit/6e617da))
 
 
 ### Features
 
 * add in Legacy UI ([e63701c](https://github.com/Clickopolis/clickopolis/commit/e63701c))
-
 
 
 

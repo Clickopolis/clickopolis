@@ -3,21 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [0.0.12](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/server@0.0.11...@clickopolis/server@0.0.12) (2019-03-31)
+<a name="0.0.13"></a>
+## [0.0.13](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/server@0.0.6...@clickopolis/server@0.0.13) (2021-06-06)
 
 
 ### Bug Fixes
 
 * update depencies to fix build ([673a027](https://github.com/Clickopolis/clickopolis/commit/673a027))
-
-
-
-
-
-## [0.0.11](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/server@0.0.10...@clickopolis/server@0.0.11) (2019-03-29)
-
-**Note:** Version bump only for package @clickopolis/server
-
+* update Procfile ([6ebd2e4](https://github.com/Clickopolis/clickopolis/commit/6ebd2e4))
 
 
 

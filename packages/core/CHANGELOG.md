@@ -3,259 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.15.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.14.0...@clickopolis/core@0.15.0) (2019-04-26)
-
-
-### Bug Fixes
-
-* add more citizen classes, fixes ([806aacf](https://github.com/Clickopolis/clickopolis/commit/806aacf))
-
-
-### Features
-
-* add Social Policy cards ([af3c471](https://github.com/Clickopolis/clickopolis/commit/af3c471))
-
-
-
-
-
-# [0.14.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.13.0...@clickopolis/core@0.14.0) (2019-04-19)
-
-
-### Bug Fixes
-
-* make Buttons not pure ([28496cf](https://github.com/Clickopolis/clickopolis/commit/28496cf))
-
-
-### Features
-
-* update Advancements ([7b0b2ab](https://github.com/Clickopolis/clickopolis/commit/7b0b2ab))
-
-
-
-
-
-# [0.13.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.11...@clickopolis/core@0.13.0) (2019-04-15)
-
-
-### Features
-
-* add Classical 'dvncmements ([c614de2](https://github.com/Clickopolis/clickopolis/commit/c614de2))
-
-
-
-
-
-## [0.12.11](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.10...@clickopolis/core@0.12.11) (2019-04-15)
-
-
-### Bug Fixes
-
-* tweaks to Tooltip usage ([4ccf9a8](https://github.com/Clickopolis/clickopolis/commit/4ccf9a8))
-* work through resource consumption/creation ([efb2fb5](https://github.com/Clickopolis/clickopolis/commit/efb2fb5))
-
-
-
-
-
-## [0.12.10](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.9...@clickopolis/core@0.12.10) (2019-04-14)
-
-
-### Bug Fixes
-
-* update tippy js version ([7e8652e](https://github.com/Clickopolis/clickopolis/commit/7e8652e))
-
-
-
-
-
-## [0.12.9](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.8...@clickopolis/core@0.12.9) (2019-04-14)
-
-
-### Bug Fixes
-
-* another update for tippy usage ([6f125c8](https://github.com/Clickopolis/clickopolis/commit/6f125c8))
-
-
-
-
-
-## [0.12.8](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.7...@clickopolis/core@0.12.8) (2019-04-14)
-
-
-### Bug Fixes
-
-* try rolling back to 1.1.1 ([b517b14](https://github.com/Clickopolis/clickopolis/commit/b517b14))
-
-
-
-
-
-## [0.12.7](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.6...@clickopolis/core@0.12.7) (2019-04-14)
-
-
-### Bug Fixes
-
-* cleanup Indicator to function ([09de096](https://github.com/Clickopolis/clickopolis/commit/09de096))
-
-
-
-
-
-## [0.12.6](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.5...@clickopolis/core@0.12.6) (2019-04-14)
-
-
-### Bug Fixes
-
-* update react versions ([3e5d142](https://github.com/Clickopolis/clickopolis/commit/3e5d142))
-
-
-
-
-
-## [0.12.5](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.4...@clickopolis/core@0.12.5) (2019-04-14)
-
-
-### Bug Fixes
-
-* add quests indicator, update CPM ([7e91fa7](https://github.com/Clickopolis/clickopolis/commit/7e91fa7))
-* replace Tooltip with Tippy ([e327684](https://github.com/Clickopolis/clickopolis/commit/e327684))
-
-
-
-
-
-## [0.12.4](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.3...@clickopolis/core@0.12.4) (2019-04-14)
-
-
-### Bug Fixes
-
-* make info image smaller ([d5ef03d](https://github.com/Clickopolis/clickopolis/commit/d5ef03d))
-
-
-
-
-
-## [0.12.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.2...@clickopolis/core@0.12.3) (2019-04-14)
-
-
-### Bug Fixes
-
-* update Screen info, consolidate props ([7a15b1f](https://github.com/Clickopolis/clickopolis/commit/7a15b1f))
-
-
-
-
-
-## [0.12.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.1...@clickopolis/core@0.12.2) (2019-04-14)
-
-
-### Bug Fixes
-
-* make InfoComponent optional ([ba6a417](https://github.com/Clickopolis/clickopolis/commit/ba6a417))
-
-
-
-
-
-## [0.12.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.12.0...@clickopolis/core@0.12.1) (2019-04-14)
-
-
-### Bug Fixes
-
-* add Info state to Screens ([67664e0](https://github.com/Clickopolis/clickopolis/commit/67664e0))
-
-
-
-
-
-# [0.12.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.3...@clickopolis/core@0.12.0) (2019-04-14)
-
-
-### Features
-
-* litany of features ([89a63d5](https://github.com/Clickopolis/clickopolis/commit/89a63d5))
-* mock up Trade Routes UI ([5013216](https://github.com/Clickopolis/clickopolis/commit/5013216))
-
-
-
-
-
-## [0.11.3](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.2...@clickopolis/core@0.11.3) (2019-04-07)
-
-
-### Bug Fixes
-
-* add webpack-dev-middleware to [@app](https://github.com/app) ([2273077](https://github.com/Clickopolis/clickopolis/commit/2273077))
-
-
-
-
-
-## [0.11.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.1...@clickopolis/core@0.11.2) (2019-04-03)
-
-
-### Bug Fixes
-
-* add margin to Icon when appropriate ([d4ab3ff](https://github.com/Clickopolis/clickopolis/commit/d4ab3ff))
-
-
-
-
-
-## [0.11.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.11.0...@clickopolis/core@0.11.1) (2019-03-31)
+<a name="0.16.0"></a>
+# [0.16.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.2...@clickopolis/core@0.16.0) (2021-06-06)
 
 
 ### Bug Fixes
 
 * add  as CitizenType ([847ab8b](https://github.com/Clickopolis/clickopolis/commit/847ab8b))
-
-
-
-
-
-# [0.11.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.10.0...@clickopolis/core@0.11.0) (2019-03-29)
-
-
-### Bug Fixes
-
-* update styling in Indicator ([9631296](https://github.com/Clickopolis/clickopolis/commit/9631296))
-
-
-### Features
-
-* add more biomes ([e7ce72c](https://github.com/Clickopolis/clickopolis/commit/e7ce72c))
-
-
-
-
-
-# [0.10.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.8...@clickopolis/core@0.10.0) (2019-03-29)
-
-
-### Features
-
-* add cultureBonus to Resources ([f644de3](https://github.com/Clickopolis/clickopolis/commit/f644de3))
-
-
-
-
-
-## [0.9.8](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.7...@clickopolis/core@0.9.8) (2019-03-28)
-
-**Note:** Version bump only for package @clickopolis/core
-
-
-
-
-
-## [0.9.7](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.6...@clickopolis/core@0.9.7) (2019-03-27)
-
-
-### Bug Fixes
-
+* add Info state to Screens ([67664e0](https://github.com/Clickopolis/clickopolis/commit/67664e0))
+* add margin to Icon when appropriate ([d4ab3ff](https://github.com/Clickopolis/clickopolis/commit/d4ab3ff))
+* add more citizen classes, fixes ([806aacf](https://github.com/Clickopolis/clickopolis/commit/806aacf))
+* add quests indicator, update CPM ([7e91fa7](https://github.com/Clickopolis/clickopolis/commit/7e91fa7))
+* add webpack-dev-middleware to [@app](https://github.com/app) ([2273077](https://github.com/Clickopolis/clickopolis/commit/2273077))
+* another update for tippy usage ([6f125c8](https://github.com/Clickopolis/clickopolis/commit/6f125c8))
 * apply Happiness treatment to other indicators ([6ba3336](https://github.com/Clickopolis/clickopolis/commit/6ba3336))
+* change how happiness is structured ([6fe1b08](https://github.com/Clickopolis/clickopolis/commit/6fe1b08))
+* cleanup Indicator to function ([09de096](https://github.com/Clickopolis/clickopolis/commit/09de096))
+* make Buttons not pure ([28496cf](https://github.com/Clickopolis/clickopolis/commit/28496cf))
+* make info image smaller ([d5ef03d](https://github.com/Clickopolis/clickopolis/commit/d5ef03d))
+* make InfoComponent optional ([ba6a417](https://github.com/Clickopolis/clickopolis/commit/ba6a417))
+* remove borderTop from screen ([762e45b](https://github.com/Clickopolis/clickopolis/commit/762e45b))
+* replace Tooltip with Tippy ([e327684](https://github.com/Clickopolis/clickopolis/commit/e327684))
+* try rolling back to 1.1.1 ([b517b14](https://github.com/Clickopolis/clickopolis/commit/b517b14))
+* tweaks to Tooltip usage ([4ccf9a8](https://github.com/Clickopolis/clickopolis/commit/4ccf9a8))
+* update react versions ([3e5d142](https://github.com/Clickopolis/clickopolis/commit/3e5d142))
+* update Screen info, consolidate props ([7a15b1f](https://github.com/Clickopolis/clickopolis/commit/7a15b1f))
+* update styling in Indicator ([9631296](https://github.com/Clickopolis/clickopolis/commit/9631296))
+* update tippy js version ([7e8652e](https://github.com/Clickopolis/clickopolis/commit/7e8652e))
+* work through resource consumption/creation ([efb2fb5](https://github.com/Clickopolis/clickopolis/commit/efb2fb5))
 
+
+### Features
+
+* **Resources:** add foodBonus attribute ([b76725e](https://github.com/Clickopolis/clickopolis/commit/b76725e))
+* add Classical 'dvncmements ([c614de2](https://github.com/Clickopolis/clickopolis/commit/c614de2))
+* add cultureBonus to Resources ([f644de3](https://github.com/Clickopolis/clickopolis/commit/f644de3))
+* add more biomes ([e7ce72c](https://github.com/Clickopolis/clickopolis/commit/e7ce72c))
+* add Social Policy cards ([af3c471](https://github.com/Clickopolis/clickopolis/commit/af3c471))
+* litany of features ([89a63d5](https://github.com/Clickopolis/clickopolis/commit/89a63d5))
+* mock up Trade Routes UI ([5013216](https://github.com/Clickopolis/clickopolis/commit/5013216))
+* update Advancements ([7b0b2ab](https://github.com/Clickopolis/clickopolis/commit/7b0b2ab))
 
 
 
