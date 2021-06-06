@@ -9,7 +9,7 @@ jobs:
       - echo -e "$NPM_USER\n$NPM_PASS\n$NPM_EMAIL" | npm login
       - echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
     docker:
-      - image: circleci/node:9
+      - image: circleci/node:14
     steps:
       - checkout
       - restore_cache:
@@ -28,7 +28,7 @@ jobs:
   test:
     parallelism: 4
     docker:
-      - image: circleci/node:9
+      - image: circleci/node:14
     steps:
       - checkout
       - attach_workspace:
@@ -41,13 +41,12 @@ jobs:
             case $CIRCLE_NODE_INDEX in \
             0) npm test -- --scope '@clickopolis/app' ;;\
             1) npm test -- --scope '@clickopolis/core' ;;\
-            2) npm test -- --scope '@clickopolis/mobile' ;;\
             3) npm test -- --scope '@clickopolis/server' ;;\
             4) npm test -- --scope '@clickopolis/webpack-build-scripts' ;;\
             esac
   deploy_npm:
     docker:
-      - image: circleci/node:9
+      - image: circleci/node:14
     steps:
       - checkout
       - run: npm i semver
