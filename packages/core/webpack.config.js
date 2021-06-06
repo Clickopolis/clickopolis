@@ -1,8 +1,6 @@
-const { baseConfig, COMMON_EXTERNALS } = require('../webpack-build-scripts');
 const path = require('path');
 
 module.exports = {
-    ...baseConfig,
     entry: {
         core: [
             './src/index.ts'
@@ -10,7 +8,6 @@ module.exports = {
     },
 
     resolve: {
-        ...baseConfig.resolve,
         modules: [
             path.resolve(__dirname, 'src'),
             'node_modules'
