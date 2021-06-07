@@ -1,14 +1,14 @@
 #!/bin/bash
 
 if [[ -z "${CIRCLECI}" ]]; then
-    npm i -g ts-node lerna webpack@3 webpack-cli@3 &&\
+    npm i -g ts-node lerna webpack webpack-cli &&\
     lerna init &&\
      npm run bootstrap &&\
       cd ./packages/roadmap &&\
        mkdir ./dist &&\
         touch ./dist/index.html
 else
-    sudo npm i -g ts-node lerna webpack@3 webpack-cli@3 &&\
+    sudo npm i -g ts-node lerna webpack webpack-cli &&\
     sudo lerna init &&\
      npm run bootstrap &&\
       cd ./packages/roadmap &&\
