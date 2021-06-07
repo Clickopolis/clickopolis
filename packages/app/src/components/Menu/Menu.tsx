@@ -7,8 +7,11 @@ import { UserMenu } from 'components';
 import { colorKeys, colors } from 'utils';
 import { EraIndicator } from 'components/EraIndicator';
 import { connect } from 'react-redux';
+import { persistor } from 'store';
+import { v4 as uuid } from 'uuid';
 
 import './Menu.scss';
+import { addNotification } from 'actions';
 
 export interface MenuProps {
     ac?: number;
@@ -16,6 +19,7 @@ export interface MenuProps {
     production?: Resource;
     leader: Leader;
     population: number;
+    addNotification: addNotification;
 }
 
 const margin = {margin: '0 .5rem', color: '#111'}
@@ -60,6 +64,9 @@ export class MenuBase extends React.Component<MenuProps> {
                 name: 'Advancements',
             },
             {
+                name: 'Military',
+            },
+            {
                 name: 'Faith',
             },
             {
@@ -74,13 +81,16 @@ export class MenuBase extends React.Component<MenuProps> {
             <nav className='clickopolis-menu'>
                 <UserMenu username={leader.name} userCivName={leader.defaultCivName} />
 
-                <div className='at-a-glance'>
+                <div className='at-a-glance' style={{
+                    padding: '0.5rem',
+                }}>
                     <h3 style={{
                         textTransform: 'lowercase',
-                        textAlign: 'center',
+                        textAlign: 'left',
                         fontWeight: 'lighter',
                         fontSize: '0.75rem',
                         margin: 0,
+                        marginLeft: '0.5rem',
                     }}>At A Glance</h3>
                     <div style={{
                         display: 'flex',
@@ -135,16 +145,50 @@ export class MenuBase extends React.Component<MenuProps> {
                             return <li style={{
                                 //background: colors.get(menu.name.toLowerCase() as colorKeys),
                                 //background: '#ccc',
-                                borderBottom: '1px solid #ccc',
+                                borderBottom: '1px solid #222',
                                 cursor: 'pointer',
                             }}>
-                                <img src={`./images/${menu.name}.svg`} />
+                                <div style={{
+                                    height: '2rem',
+                                    width: '4rem',
+                                    background: colors.get(menu.name.toLowerCase() as colorKeys),
+                                    //borderRadius: '50%',
+                                    display: 'flex',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    clipPath: `polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)`,
+                                    WebkitMask: `url(linear-gradient(104deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 4%, rgba(255,255,255,1) 4%, rgba(255,255,255,1) 8%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 12%, rgba(255,255,255,1) 12%, rgba(255,255,255,1) 85%, rgba(0,0,0,1) 85%, rgba(0,0,0,1) 89%, rgba(255,255,255,1) 89%, rgba(255,255,255,1) 93%, rgba(0,0,0,1) 93%, rgba(0,0,0,1) 97%, rgba(255,255,255,1) 97%))`,
+
+                                }}
+                                >
+                                    <img src={`./images/${menu.name}.svg`} />
+                                </div>
                                 <span>{menu.name}</span>
                             </li>
                         })}
                     </ul>
 
                 </nav>
+
+
+
+
+                <div className='delete-all-data' style={{marginTop: '2rem'}} onClick={() => {
+                    persistor.purge();
+                }}>
+                    Delete All Data
+                </div>
+
+                <Button
+                    style={{background: 'black'}}
+                    onClick={() => this.props.addNotification({
+                        content: `Triggered a notification.`,
+                        id: uuid(),
+                    })}
+                >
+                    Trigger Notification
+                </Button>
+
 
                 {/* <Indicator
                     value={`${3} Quests`}
@@ -180,6 +224,9 @@ export const Menu: React.ComponentClass<{}> = connect(
         production: state.production,
         leader: state.leader,
         population: state.civilization.population,
-    })
+    }),
+    {
+        addNotification
+    }
 )(MenuBase as any)
 
