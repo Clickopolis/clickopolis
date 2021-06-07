@@ -1,6 +1,6 @@
 import * as React from 'react';
 // @ts-ignore: no @types def
-import * as classNames from 'classnames';
+import classNames from 'classnames';
 
 export interface ScreenProps {
     className?: string | string[];
