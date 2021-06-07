@@ -59,6 +59,7 @@
     flex-direction: column;
     padding: .5rem;
     width: 100%;
+    position: relative;
 
     h3 {
         align-self: stretch;
@@ -132,6 +133,10 @@
 
 .image-cattle {
     background: #ccb7ac;
+}
+
+.image-cactus {
+    background: #adbd68;
 }
 
 .image-gems {

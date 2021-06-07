@@ -177,132 +177,138 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                 style={{overflowY: 'auto'}}
             >
                 <div className='resources-main-buttons'>
-                    <div className='resources-main-buttons-row'>
-                        <Button
-                            icon='./images/food.svg'
-                            id='food-btn'
-                            iconHeight='1.5rem'
-                            value='Grow Food'
-                            onClick={this.growFood}
-                            className='food-button'
-                            layout={null}
-                        />
-                        {
-                            this.state.growFoodPlusElementCoords.map((coords, key) => {
-                                return <PlusSign key={key} resourceType={'food'} perClick={this.props.food.perClick} {...coords} />;
-                            })
-                        }
+                    <div>
+                        <div className='resources-main-buttons-row'>
+                            <Button
+                                icon='./images/food.svg'
+                                id='food-btn'
+                                iconHeight='1.5rem'
+                                value='Grow Food'
+                                onClick={this.growFood}
+                                className='food-button'
+                                layout={null}
+                            />
+                            {
+                                this.state.growFoodPlusElementCoords.map((coords, key) => {
+                                    return <PlusSign key={key} resourceType={'food'} perClick={this.props.food.perClick} {...coords} />;
+                                })
+                            }
+                        </div>
+                        <div className='resources-main-buttons-row'>
+                            <Indicator
+                                value={food.total}
+                                positiveColor={colors.get('resources')}
+                                neutralColor={colors.get('resources')}
+                                formatFunction={(v: number) => abbrNum(v)}
+                                style={indicatorStyle}
+                                label='total'
+                                description='Food is used for feeding your citizens, even Jim.'
+                            />
+                            <Indicator
+                                value={food.perClick}
+                                positiveColor={colors.get('resources')}
+                                neutralColor={colors.get('resources')}
+                                formatFunction={(v: number) => abbrNum(v)}
+                                style={indicatorStyle}
+                                label='per click'
+                                description='Use your clicks to amass corn!'
+                            />
+                            <Indicator
+                                value={food.perSecond}
+                                positiveColor={colors.get('resources')}
+                                neutralColor={colors.get('resources')}
+                                style={indicatorStyle}
+                                formatFunction={(v: number) => abbrNum(v)}
+                                label='per second'
+                                description='Food will naturally accumulate over time!'
+                            />
+                            <Indicator
+                                value={food.max}
+                                positiveColor={colors.get('resources')}
+                                neutralColor={colors.get('resources')}
+                                style={indicatorStyle}
+                                label='max'
+                                description='Make sure to reserve some for times of famine.'
+                            />
+                        </div>
                     </div>
-                    <div className='resources-main-buttons-row'>
-                        <Indicator
-                            value={food.total}
-                            positiveColor={colors.get('resources')}
-                            neutralColor={colors.get('resources')}
-                            formatFunction={(v: number) => abbrNum(v)}
-                            style={indicatorStyle}
-                            label='total'
-                            description='Food is used for feeding your citizens, even Jim.'
-                        />
-                        <Indicator
-                            value={food.perClick}
-                            positiveColor={colors.get('resources')}
-                            neutralColor={colors.get('resources')}
-                            formatFunction={(v: number) => abbrNum(v)}
-                            style={indicatorStyle}
-                            label='per click'
-                            description='Use your clicks to amass corn!'
-                        />
-                        <Indicator
-                            value={food.perSecond}
-                            positiveColor={colors.get('resources')}
-                            neutralColor={colors.get('resources')}
-                            style={indicatorStyle}
-                            formatFunction={(v: number) => abbrNum(v)}
-                            label='per second'
-                            description='Food will naturally accumulate over time!'
-                        />
-                        <Indicator
-                            value={food.max}
-                            positiveColor={colors.get('resources')}
-                            neutralColor={colors.get('resources')}
-                            style={indicatorStyle}
-                            label='max'
-                            description='Make sure to reserve some for times of famine.'
-                        />
-                    </div>
-                    <div className='resources-main-buttons-row'>
-                        <Button
-                            icon='./images/production.svg'
-                            id='production-btn'
-                            iconHeight='1.5rem'
-                            value='Break Stone'
-                            onClick={this.createProduction}
-                            className='prod-button'
-                            layout={null}
-                        />
-                        {
-                            this.state.growProdPlusElementCoords.map((coords, key) => {
-                                return <PlusSign key={key} resourceType={'production'} perClick={this.props.production.perClick} {...coords} />;
-                            })
-                        }
-                    </div>
-                    <div className='resources-main-buttons-row'>
-                        <Indicator
-                            value={this.props.production.total}
-                            positiveColor={colors.get('production')}
-                            neutralColor={colors.get('production')}
-                            formatFunction={(v: number) => abbrNum(v)}
-                            style={indicatorStyle}
-                            label='total'
-                            description='Production lets you build.'
-                        />
-                        <Indicator
-                            value={production.perClick}
-                            positiveColor={colors.get('production')}
-                            neutralColor={colors.get('production')}
-                            formatFunction={(v: number) => abbrNum(v)}
-                            style={indicatorStyle}
-                            label='per click'
-                            description='Use your clicks to amass corn!'
-                        />
-                        <Indicator
-                            value={production.perSecond}
-                            positiveColor={colors.get('production')}
-                            neutralColor={colors.get('production')}
-                            formatFunction={(v: number) => abbrNum(v)}
-                            style={indicatorStyle}
-                            label='per second'
-                            description='Use your clicks to amass corn!'
-                        />
-                        <Indicator
-                            value={production.max}
-                            positiveColor={colors.get('production')}
-                            neutralColor={colors.get('production')}
-                            style={indicatorStyle}
-                            label='max'
-                            description='Use your clicks to amass corn!'
-                        />
-                    </div>
-                </div>
-                <div className='resources-main-buttons-row biomes-row' style={{ display: 'flex', alignItems: 'center', }}>
-                    <Indicator
-                        value={'Biomes'}
-                        style={biomeStyle}
-                        description='The types of ecosystems your civlization has access to'
-                    />
-                    <div style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        flexWrap: 'wrap',
-                    }}>
-                        {
-                            biomes.map(
-                                biome => <BiomeIcon key={biome.name} biome={biome} />
-                            )
-                        }
+                    <div>
+                        <div className='resources-main-buttons-row'>
+                            <Button
+                                icon='./images/production.svg'
+                                id='production-btn'
+                                iconHeight='1.5rem'
+                                value='Break Stone'
+                                onClick={this.createProduction}
+                                className='prod-button'
+                                layout={null}
+                            />
+                            {
+                                this.state.growProdPlusElementCoords.map((coords, key) => {
+                                    return <PlusSign key={key} resourceType={'production'} perClick={this.props.production.perClick} {...coords} />;
+                                })
+                            }
+                        </div>
+                            
+                        <div className='resources-main-buttons-row'>
+                            <Indicator
+                                value={this.props.production.total}
+                                positiveColor={colors.get('production')}
+                                neutralColor={colors.get('production')}
+                                formatFunction={(v: number) => abbrNum(v)}
+                                style={indicatorStyle}
+                                label='total'
+                                description='Production lets you build.'
+                            />
+                            <Indicator
+                                value={production.perClick}
+                                positiveColor={colors.get('production')}
+                                neutralColor={colors.get('production')}
+                                formatFunction={(v: number) => abbrNum(v)}
+                                style={indicatorStyle}
+                                label='per click'
+                                description='Use your clicks to amass corn!'
+                            />
+                            <Indicator
+                                value={production.perSecond}
+                                positiveColor={colors.get('production')}
+                                neutralColor={colors.get('production')}
+                                formatFunction={(v: number) => abbrNum(v)}
+                                style={indicatorStyle}
+                                label='per second'
+                                description='Use your clicks to amass corn!'
+                            />
+                            <Indicator
+                                value={production.max}
+                                positiveColor={colors.get('production')}
+                                neutralColor={colors.get('production')}
+                                style={indicatorStyle}
+                                label='max'
+                                description='Use your clicks to amass corn!'
+                            />
+                        </div>
                     </div>
                 </div>
-                <ResourcesMatrix />
+
+                <div style={{display: 'flex'}}>
+                    <div className='biomes-screen'>
+                        <h3 className='biomes-screen-title'>Biomes</h3>
+                        <div style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            flexWrap: 'wrap',
+                        }}>
+                            {
+                                biomes.map(
+                                    biome => <BiomeIcon key={biome.name} biome={biome} />
+                                )
+                            }
+                        </div>
+
+                    </div>
+
+                    <ResourcesMatrix />
+                </div>
             </Screen>
         );
     }

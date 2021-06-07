@@ -46,7 +46,12 @@ export class NotificationBase extends React.Component<NotificationProps> {
 
         return <div className={`notification ${type}`} style={style}>
             <div className='notification-inner'>{content}</div>
-            <div onClick={this.disappear} className='notification-close'>×</div>
+            <div onClick={this.disappear} className='notification-close'>
+                <img src='./images/close.svg' style={{
+                    height: '1rem',
+                    filter: 'invert(100%)',
+                }} />
+            </div>
         </div>
     }
 

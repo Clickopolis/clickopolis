@@ -61,6 +61,17 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
     renderInfo = (resource:Resource) => {
         return (
             <div className='resource-info'>
+                <div onClick={() =>
+                    this.setState({info: null})
+                } style={{
+                    position: 'absolute',
+                    top: '0.25rem',
+                    right: '0.25rem',
+                    filter: 'invert(100%)',
+                    cursor: 'pointer',
+                }}>
+                    <img style={{height: '1rem'}} src='./images/close.svg' />
+                </div>
                 <div className='resource-info-row center-row'>
                     <h3>{ resource.name }</h3>
                 </div>
@@ -73,16 +84,20 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                             { resource.description }
                         </div>
                         { resource.healthBonus ? <div>
+                            <img style={{ height: '1rem' }} src='./images/food.svg' />
+                            +{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total
+                        </div> : null }
+                        { resource.healthBonus ? <div>
                             <img style={{ height: '1rem' }} src='./images/health.svg' />
-                            &nbsp;+{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total
+                            +{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total
                         </div> : null }
                         { resource.faithBonus ? <div>
                             <img style={{ height: '1rem' }} src='./images/faith.svg' />
-                            &nbsp;+{resource.faithBonus} per {resource.name}, {(resource.faithBonus * resource.total).toFixed(0)} total
+                            +{resource.faithBonus} per {resource.name}, {(resource.faithBonus * resource.total).toFixed(0)} total
                         </div> : null }
                         { resource.cultureBonus ? <div>
                             <img style={{ height: '1rem' }} src='./images/culture.svg' />
-                            &nbsp;+{resource.cultureBonus} per {resource.name}, {(resource.cultureBonus * resource.total).toFixed(0)} total
+                            +{resource.cultureBonus} per {resource.name}, {(resource.cultureBonus * resource.total).toFixed(0)} total
                         </div> : null }
                     </div>
                 </div>
@@ -94,7 +109,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
         const resources:Resource[] = Object.values(this.props)
 
         return (
-            <div className='resources-matrix'>
+            <div className='other-resources-screen'>
                 <div className='resources-matrix-row'>
                     {
                         this.renderResourceRow(

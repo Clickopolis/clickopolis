@@ -88,6 +88,17 @@ export const resources:Map<ResourceName, Resource> = new Map([
         visible: true,
         unlocked: false,
     }],
+    ['cactus', {
+        name: 'cactus',
+        total: 0,
+        max: Infinity,
+        perSecond: null,
+        perClick: null,
+        description: 'Stop it you prick!',
+        category: ResourceCategory.health,
+        visible: true,
+        unlocked: false,
+    }],
     ['sheep', {
         name: 'sheep',
         total: 0,

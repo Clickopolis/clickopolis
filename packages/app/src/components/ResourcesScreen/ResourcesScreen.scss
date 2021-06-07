@@ -11,8 +11,9 @@ $prod-button-color: #e6d83e;
 
 .resources-main-buttons {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1rem;
     .resources-main-buttons-row {
         align-content: center;
         align-items: flex-end;
@@ -87,4 +88,28 @@ $prod-button-color: #e6d83e;
         background: lighten($prod-button-color, 5%);
         transition: 200ms all;
     }
+}
+
+.other-resources-screen {
+    border: 1px solid #333;
+    border-radius: .25rem;
+    color: white;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    width: 400px;
+}
+
+.biomes-screen {
+    border: 1px solid #333;
+    border-radius: .25rem;
+    color: white;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    width: 400px;
+}
+
+.biomes-screen h3 {
+    display: block;
+    margin: 0;
+    font-weight: lighter;
 }

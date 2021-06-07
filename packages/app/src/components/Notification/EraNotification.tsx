@@ -68,7 +68,12 @@ export class EraNotificationBase extends React.Component<EraNotificationProps, {
                 </div>
             </div>
             <Button onClick={this.disappear} style={okButton} value={'Neat.'} />
-            <div style={{position: 'fixed', right: '12.5%', top: '12.5%', fontSize: '2rem', textShadow: '2px 2px 2px black'}} onClick={this.disappear} className='notification-close'></div>
+            <div style={{position: 'fixed', right: '12.5%', top: '12.5%', height: '2rem', textShadow: '2px 2px 2px black'}} onClick={this.disappear} className='notification-close'>
+                <img src='./images/close.svg' style={{
+                    height: '1rem',
+                    filter: 'invert(100%)',
+                }} />
+            </div>
         </div>
     }
 

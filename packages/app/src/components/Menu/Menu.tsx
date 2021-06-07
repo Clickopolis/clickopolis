@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tippy';
 
 import { Indicator, Resource, Leader, Button } from '@clickopolis/core';
 import { UserMenu } from 'components';
-import { colors } from 'utils';
+import { colorKeys, colors } from 'utils';
 import { EraIndicator } from 'components/EraIndicator';
 import { connect } from 'react-redux';
 
@@ -35,7 +35,40 @@ export class MenuBase extends React.Component<MenuProps> {
     private displayQuests = (_:any) => ({})
 
     public render() {
-        const {ac, food, leader, production, population} = this.props
+        const {ac, food, leader, production, population} = this.props;
+
+        const menus = [
+            {
+                name: 'Civilization',
+            },
+            {
+                name: 'Resources',
+            },
+            {
+                name: 'Citizens',
+            },
+            {
+                name: 'Buildings',
+            },
+            {
+                name: 'Economy',
+            },
+            {
+                name: 'Culture',
+            },
+            {
+                name: 'Advancements',
+            },
+            {
+                name: 'Faith',
+            },
+            {
+                name: 'Legacy',
+            },
+            {
+                name: 'Settings',
+            },
+        ];
 
         return (
             <nav className='clickopolis-menu'>
@@ -98,22 +131,17 @@ export class MenuBase extends React.Component<MenuProps> {
 
                 <nav className='main-nav'>
                     <ul>
-                        <li>
-                            <img src='./images/civilization.svg' />
-                            <span>Civilization</span>
-                        </li>
-                        <li style={{background: colors.get('resources')}}>
-                            <img src='./images/resources.svg' />
-                            <span>Resources</span>
-                        </li>
-                        <li>
-                            <img src='./images/citizens.svg' />
-                            <span>Citizens</span>
-                        </li>
-                        <li style={{background: colors.get('legacy')}}>
-                            <img src='./images/legacy.svg' />
-                            <span>Legacy</span>
-                        </li>
+                        {menus.map(menu => {
+                            return <li style={{
+                                //background: colors.get(menu.name.toLowerCase() as colorKeys),
+                                //background: '#ccc',
+                                borderBottom: '1px solid #ccc',
+                                cursor: 'pointer',
+                            }}>
+                                <img src={`./images/${menu.name}.svg`} />
+                                <span>{menu.name}</span>
+                            </li>
+                        })}
                     </ul>
 
                 </nav>
