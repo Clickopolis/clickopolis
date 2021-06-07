@@ -3,8 +3,76 @@ import { connect } from 'react-redux';
 
 import { colors } from 'utils';
 import { Screen, Indicator } from '@clickopolis/core';
+import { stylesheet, keyframes } from 'typestyle';
+import { State } from 'utils/State';
 
-import './LegacyScreen.scss';
+const SunsetAnimation = keyframes({
+    '0%': {backgroundPosition: `0% 50%`},
+    '50%': {backgroundPosition: `100% 50%`},
+    '100%': {backgroundPosition: `0% 50%`},
+});
+
+const css = stylesheet({
+    legacyItemWrapper: {
+        position: 'relative',
+        margin: '1rem 2rem',
+    },
+    legacyItem: {
+        clipPath: `polygon(0% 0%, 96% 4%, 100% 50%, 95% 100%, 0% 100%)`,
+        background: colors.get('legacy'),
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '20rem',
+        height: '4rem',
+        $nest: {
+            '&:hover': {
+                background: `linear-gradient(255deg, #e8d271, #db6e52)`,
+                backgroundSize: `400% 400%`,
+
+                animationName: SunsetAnimation,
+                animationDuration: '3s',
+                animationTimingFunction: 'ease-in-out',
+                animationIterationCount: 'infinite',
+            }
+        }
+    },
+    
+    legacyIconWrapper: {
+        background: '#333',
+        borderRadius: '50%',
+        //padding: '0.25rem',
+        height: '4rem',
+        width: '4rem',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'absolute',
+        top: '0',
+        left: '-2rem',
+        zIndex: 1,
+    },
+    legacyIcon: {
+        height: '3rem',
+        width: '3rem',
+    },
+    legacyName: {
+        textAlign: 'center',
+        color: 'white',
+        textTransform: 'uppercase',
+        marginLeft: '3rem',
+        marginRight: '1rem',
+        letterSpacing: '2px',
+    },
+    legacyLevel: {
+        background: '#222',
+        color: 'white',
+        padding: '0.5rem 1rem',
+        //borderRadius: '0.25rem',
+        marginLeft: 'auto',
+    },
+});
 
 export interface Legacy {
     name: string;
@@ -14,36 +82,27 @@ export interface Legacy {
 
 const LegacyIcon = (leg: Legacy) => {
     return (
-        <div style={{height: '8rem', width: '8rem', display: 'flex', justifyContent: 'center',
-            alignItems: 'center', clipPath: `polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)`,
-            background: colors.get('legacy'), position: 'relative', cursor: 'pointer',
-            ...leg.style,
-            }} className='legacy-item'>
-            <img style={{margin: '.5rem', height: '5rem'}} src={`./images/${leg.name}.svg`} />
-            <div className='legacy-level' style={{
-                background: 'rgba(0, 0, 0, 0.7)',
-                color: 'white',
-                fontWeight: 'bold',
-                fontSize: '2rem',
-                textAlign: 'center',
-                display: 'none',
-                justifyContent: 'center',
-                alignItems: 'center',
-                position: 'absolute',
-                height: '3rem',
-                width: '3rem',
-                clipPath: `polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)`,
-                top: '2.5rem',
-                left: '2.5rem',
-            }}>
-                {leg.level}
+        <div className={css.legacyItemWrapper}>
+            <div className={css.legacyIconWrapper}>
+                <img className={css.legacyIcon} src={`./images/${leg.name}.svg`} />
+            </div>
+            <div className={css.legacyItem}>
+
+                <div className={css.legacyName}>
+                    {leg.name.replace(/-/g, ' ')}
+                </div>
+
+                <div className={css.legacyLevel}>
+                    {leg.level}
+                </div>
             </div>
         </div>
-    )
+    );
 }
 
 export interface LegacyScreenProps {
-
+    population?: number;
+    ac?: number;
 }
 
 export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
@@ -70,6 +129,12 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
 
             return <LegacyIcon {...leg} />
         })
+    }
+
+    private calculateLegacyPoints() {
+        const {population, ac} = this.props;
+
+        return population + ac;
     }
 
     public render() {
@@ -118,7 +183,7 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
                             padding: '.5rem',
                             textAlign: 'center',
                         }}>
-                            earn 420 points
+                            earn {this.calculateLegacyPoints()} points
                         </div>
                     </div>
 
@@ -129,7 +194,7 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
                         description={`Your current legacy points`}
                     />
                 </div>
-                <div style={{display: 'flex', flexWrap: 'wrap'}}>
+                <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center', }}>
                     {this.renderLegacyIcons(legs)}
                 </div>
 
@@ -139,6 +204,9 @@ export class LegacyScreenBase extends React.Component<LegacyScreenProps> {
 }
 
 export const LegacyScreen = connect(
-    null,
+    (state: any) => ({
+        population: state.civilization.population,
+        ac: state.civilization.ac,
+    }),
     null
 )(LegacyScreenBase);
