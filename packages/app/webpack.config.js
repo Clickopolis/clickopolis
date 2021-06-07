@@ -1,4 +1,5 @@
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
 const path = require('path');
 
 const scssLoaders = [
@@ -16,6 +17,8 @@ module.exports = {
         path: path.join(__dirname, './dist'),
         publicPath: '/'
     },
+
+    mode: 'development',
 
     module: {
         rules: [
@@ -55,6 +58,7 @@ module.exports = {
             { from: "./src/images", to: "./dist/images" },
           ],
         }),
+        new WebpackNotifierPlugin(),
       ],
 
 };
