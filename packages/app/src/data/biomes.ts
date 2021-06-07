@@ -8,34 +8,29 @@ export const biomes:any[] = [
         rankBonuses: [
             {
                 rank: 1,
-                bonuses: [
-                    'Unlocks Cactus resource',
-                ]
+                bonus: 'Unlocks [cactus] resource',
+                unlocked: true,
             },
             {
                 rank: 2,
-                bonuses: [
-                    'Cactus now gives +1% food per Cactus',
-                ]
+                bonus:  '[cactus] now gives +1% food per [cactus]',
+                unlocked: true,
 
             },
             {
                 rank: 3,
-                bonuses: [
-                    'Trade Routes through deserts earn +10% Gold',
-                ]
+                bonus: 'Trade Routes through deserts earn +10% [cash]',
+                unlocked: true,
             },
             {
                 rank: 4,
-                bonuses: [
-                    'Unlocks Solar Panel building',
-                ]
+                bonus: 'Unlocks Solar Panel building upgrades',
+                unlocked: true,
             },
             {
                 rank: 5,
-                bonuses: [
-                    
-                ]
+                bonus: 'Unlocks Desert Cult',
+                unlocked: false,
             }
         ]
     },

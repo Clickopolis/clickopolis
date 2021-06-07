@@ -11,24 +11,27 @@ const biomeIconStyle = {
     width: '3.5rem',
     margin: '.25rem',
     //padding: '.25rem',
-    border: '2px solid transparent',
-    borderColor: colors.get('biomes'),
+    border: '4px solid transparent',
     borderRadius: '50%',
     cursor: 'pointer',
 }
 
+const isSelectedStyle = {border: `4px solid ${colors.get('biomes')}` };
+
 export interface BiomeIconProps {
     biome: Biome;
-    onClick?: (e?: any) => React.MouseEvent<HTMLElement>;
+    isSelected?: boolean;
+    onClick?: (e?: React.MouseEvent<HTMLElement>) => void;
 }
 
 export class BiomeIcon extends React.Component<BiomeIconProps> {
 
     public render() {
-        const {biome, onClick} = this.props
+        const {biome, onClick, isSelected} = this.props
 
         return <Indicator
             style={{
+                ...(isSelected && isSelectedStyle),
                 ...biomeIconStyle,
             }}
             iconHeight='3.5rem'
