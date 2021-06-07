@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.23.0"></a>
+# [0.23.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.22.2...@clickopolis/app@0.23.0) (2021-06-07)
+
+
+### Bug Fixes
+
+* **Events:** use proper mechanism for picking events ([54e00c4](https://github.com/Clickopolis/clickopolis/commit/54e00c4))
+* **Menu:** make Menu UI prettier ([51effaa](https://github.com/Clickopolis/clickopolis/commit/51effaa))
+* **utils:** addImages function now handles up to 2 [] ([9cf2b19](https://github.com/Clickopolis/clickopolis/commit/9cf2b19))
+
+
+### Features
+
+* **Biomes:** update Biomes UI with rank info ([4cff069](https://github.com/Clickopolis/clickopolis/commit/4cff069))
+* **CitizensList:** show total contributions from citizens ([116ba01](https://github.com/Clickopolis/clickopolis/commit/116ba01))
+* **Legacy:** rework legacy screen UI ([2fb804f](https://github.com/Clickopolis/clickopolis/commit/2fb804f))
+* **Resources:** rework Resources screen UI ([7610725](https://github.com/Clickopolis/clickopolis/commit/7610725))
+
+
+
+
 <a name="0.22.2"></a>
 ## [0.22.2](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.22.1...@clickopolis/app@0.22.2) (2021-06-07)
 
