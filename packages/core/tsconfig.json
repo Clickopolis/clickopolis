@@ -25,7 +25,7 @@
         "stripInternal": true,
         "target": "es6",
         "baseUrl": "./src",
-        "outDir": "../dist",
+        "outDir": "./dist",
     },
     "exclude": [
         "node_modules",
