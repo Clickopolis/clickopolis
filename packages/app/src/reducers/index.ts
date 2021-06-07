@@ -21,6 +21,7 @@ import { advancements } from './advancements';
 import {
     cattle,
     crabs,
+    cactus,
     fish,
     banana,
     wood,
@@ -54,6 +55,7 @@ export const reducers = {
     aluminum,
     banana,
     buildings,
+    cactus,
     cattle,
     chihuahuas,
     civilization,

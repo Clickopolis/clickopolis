@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { addCitizen, removeCitizen, updateFoodPerSecond, updateProductionPerSecond, updateProductionPerClick } from 'actions';
+import { addCitizen, removeCitizen, updateFoodPerSecond, updateFoodPerClick, updateProductionPerSecond, updateProductionPerClick } from 'actions';
 import { Citizen, Contribution, Button, abbrNum, Civilization } from '@clickopolis/core';
 import { Contribution as CC } from '../Contribution';
 // @ts-ignore: no types
@@ -18,6 +18,7 @@ export interface CitizensListProps {
     updateFoodPerSecond?: updateFoodPerSecond;
     updateProductionPerSecond?: updateProductionPerSecond;
     updateProductionPerClick: updateProductionPerClick;
+    updateFoodPerClick: updateFoodPerClick;
     civilization?: Civilization;
     citizens?: Citizen[];
 }
@@ -40,6 +41,22 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
         return map[name]
     }
 
+    private calculateAllContributions() {
+        const {citizens} = this.props;
+
+        const findContribs = (type: string, resource: string) => citizens.map(citizen => {
+            return citizen.amount * (citizen?.contribution?.find(contrib => contrib.type === type && contrib.resource === resource)?.amount || 0)
+        }).reduce((prev, curr) => prev + curr, 0);
+        
+
+        return {
+            foodPerClick: findContribs('PC', 'food'),
+            foodPerSecond: findContribs('PS', 'food'),
+            productionPerSecond: findContribs('PS', 'production'),
+            productionPerClick: findContribs('PC', 'production'),
+        };
+    }
+
     private addCitizen (amount: number, c: Citizen) {
         const {citizens} = this.props
 
@@ -52,25 +69,33 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens,
             amount,
-        })
+        });
 
         const productionPerSecond = getContributionFor({
             consumptionFunction: () => 0,
             findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
             citizens,
             amount,
-        })
+        });
+
+        const foodPerClick = getContributionFor({
+            consumptionFunction: () => 0,
+            findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PC',
+            citizens,
+            amount,
+        });
 
         const productionPerClick = getContributionFor({
             consumptionFunction: () => 0,
             findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PC',
             citizens,
             amount,
-        })
+        });
 
         if (!fullEmployment) {
             this.props.addCitizen(amount, c.name);
             this.props.updateFoodPerSecond(foodPerSecond);
+            this.props.updateFoodPerClick(foodPerClick);
             this.props.updateProductionPerSecond(productionPerSecond);
             this.props.updateProductionPerClick(productionPerClick);
         }
@@ -84,24 +109,32 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens,
             amount,
-        })
+        });
+
+        const foodPerClick = getContributionFor({
+            consumptionFunction: () => 0,
+            findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PC',
+            citizens,
+            amount,
+        });
 
         const productionPerSecond = getContributionFor({
             consumptionFunction: () => 0,
             findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PS',
             citizens,
             amount,
-        })
+        });
 
         const productionPerClick = getContributionFor({
             consumptionFunction: () => 0,
             findFunction: (c: Contribution) => c.resource === 'production' && c.type === 'PC',
             citizens,
             amount,
-        })
+        });
 
         this.props.addCitizen(amount, c.name);
         this.props.updateFoodPerSecond(foodPerSecond);
+        this.props.updateFoodPerClick(foodPerClick);
         this.props.updateProductionPerSecond(productionPerSecond);
         this.props.updateProductionPerClick(productionPerClick);
     }
@@ -161,6 +194,8 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
     }
 
     public render() {
+        const contributions = this.calculateAllContributions();
+
         return (
             <div className='citizens-list-wrapper'>
                 <div className='citizens-list-bar' style={{display: 'flex', margin: '.5rem', borderRadius: '.25rem', overflow: 'hidden'}}>
@@ -168,6 +203,16 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                 </div>
                 <div className='citizens-list'>
                     { this.renderCitizens() }
+                </div>
+                <div className='total-citizen-contributions' style={{color: 'white'}}>
+                    <span>Total Citizen Contributions</span>
+
+                    <div>{contributions.foodPerClick} <img style={{height: '1rem'}} src='./images/food.svg' /> PC</div>
+
+                    <div>{contributions.foodPerSecond} <img style={{height: '1rem'}} src='./images/food.svg' /> PS</div>
+
+                    <div>{contributions.productionPerSecond} <img style={{height: '1rem'}} src='./images/production.svg' /> PS</div>
+
                 </div>
             </div>
         );
@@ -189,6 +234,7 @@ export const CitizensList:any = connect(
         addCitizen,
         removeCitizen,
         updateFoodPerSecond,
+        updateFoodPerClick,
         updateProductionPerSecond,
         updateProductionPerClick,
     }

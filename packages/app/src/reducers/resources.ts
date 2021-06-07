@@ -26,6 +26,10 @@ export function cattle(state = defaults.get('cattle'), action: Action<ADD_RESOUR
     return handleCases(state, action, 'cattle')
 }
 
+export function cactus(state = defaults.get('cactus'), action: Action<ADD_RESOURCE>) {
+    return handleCases(state, action, 'cactus')
+}
+
 export function fish(state = defaults.get('fish'), action: Action<any>) {
     return handleCases(state, action, 'fish')
 }

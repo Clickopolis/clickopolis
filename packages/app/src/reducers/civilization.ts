@@ -62,16 +62,16 @@ const civDefault:any = {
     cash: {
         total: 0,
         perMinute: 0,
-        perMinuteCitizens: 0,
-        perMinuteBuildings: 0,
-        perMinuteBuildingMaintenance: 0,
-        perMinuteMilitary: 0,
-        perMinuteTradeRoutes: 0,
-        perMinuteTradeDeals: 0,
-        perMinuteSocialPolicies: 0,
-        perMinuteFaith: 0,
-        perMinuteLegacy: 0,
-        perMinuteWonders: 0,
+        perMinuteFromCitizens: 0,
+        perMinuteFromBuildings: 0,
+        perMinuteFromBuildingMaintenance: 0,
+        perMinuteFromMilitary: 0,
+        perMinuteFromTradeRoutes: 0,
+        perMinuteFromTradeDeals: 0,
+        perMinuteFromSocialPolicies: 0,
+        perMinuteFromFaith: 0,
+        perMinuteFromLegacy: 0,
+        perMinuteFromWonders: 0,
         multiplier: 1,
     },
 
@@ -141,7 +141,8 @@ export function civilization(state = civDefault, action: Action<GROW_POPULATION 
             return {
                 ...state,
                 cash: {
-                    total: state.cash.total + action.amount
+                    ...state.cash,
+                    total: state.cash.total + action.amount,
                 }
             };
         case UPDATE_GA_PROGRESS:

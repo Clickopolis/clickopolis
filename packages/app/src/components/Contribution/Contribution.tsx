@@ -4,7 +4,7 @@ import * as React from 'react';
 import './Contribution.scss';
 
 export interface Contribution {
-    type: 'PS' | 'PC';
+    type: 'PS' | 'PC' | 'PM';
     /* Interval of contribution, in ms */
     interval: number;
     /* Amount of contribution */
