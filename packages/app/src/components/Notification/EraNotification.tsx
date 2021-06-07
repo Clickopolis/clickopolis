@@ -27,7 +27,7 @@ const okButton = {
 
 export class EraNotificationBase extends React.Component<EraNotificationProps, {gone: boolean}> {
     public state = {
-        gone:false
+        gone: true
     }
 
     public render() {
@@ -45,7 +45,7 @@ export class EraNotificationBase extends React.Component<EraNotificationProps, {
             fontFamily: `'Merriweather', serif`,
             border: '1px solid gold',
             borderRadius: '.25rem',
-            zIndex: 100,
+            zIndex: 10005,
             display: this.state.gone ? 'none' : 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
