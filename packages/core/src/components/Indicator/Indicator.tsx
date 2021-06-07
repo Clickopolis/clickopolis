@@ -83,7 +83,7 @@ export function Indicator (props: IndicatorProps) {
                         height: iconHeight || '1rem'
                     }} /> : null
                 }
-                {value && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ ff(value, formatFunction) }</span>}
+                {(value != null) && <span style={{ margin: '.25rem' }} className='clickopolis-indicator-value'>{ ff(value, formatFunction) }</span>}
             </div>
         </div>
     )
