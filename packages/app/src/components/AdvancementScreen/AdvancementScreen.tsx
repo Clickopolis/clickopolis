@@ -34,7 +34,7 @@ export const AdvancementDisplay = (adv: Advancement & {ac: number, purchaseAdvan
                     adv.purchaseAdvancement(omit(['purchaseAdvancement', 'ac', 'disabled'], adv), adv.ac)
             }}
             style={{
-                backgroundColor: adv.purchased ? colors.get('advancementPurchased') : colors.get('advancement'),
+                backgroundColor: adv.purchased ? colors.get('advancementPurchased') : colors.get('advancements'),
                 cursor: 'pointer',
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -120,14 +120,14 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
         return (
             <Screen
                 type='Advancements'
-                color={colors.get('advancement')}
+                color={colors.get('advancements')}
                 style={{overflowY: 'auto'}}
             >
                 <div style={{display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
                     <Indicator
                         value={this.props.civilization.research.total}
-                        positiveColor={colors.get('advancement')}
-                        neutralColor={colors.get('advancement')}
+                        positiveColor={colors.get('advancements')}
+                        neutralColor={colors.get('advancements')}
                         formatFunction={(f: number) => f.toFixed(1)}
                         icon='./images/research.svg'
                         label={'total'}
@@ -136,25 +136,25 @@ export class AdvancementScreenBase extends React.Component<AdvancmentScreenProps
                     <Indicator
                         label={'per minute'}
                         value={getResearchPerMinute(this.props.civilization)}
-                        positiveColor={colors.get('advancement')}
-                        neutralColor={colors.get('advancement')}
-                        negativeColor={colors.get('advancement')}
+                        positiveColor={colors.get('advancements')}
+                        neutralColor={colors.get('advancements')}
+                        negativeColor={colors.get('advancements')}
                         icon='./images/research.svg'
                         description={`Your total research generated per minute.`}
                     />
                     <Indicator
                         label={'owned'}
                         value={this.props.advancements.filter(f => f.purchased).length}
-                        positiveColor={colors.get('advancement')}
-                        neutralColor={colors.get('advancement')}
-                        negativeColor={colors.get('advancement')}
+                        positiveColor={colors.get('advancements')}
+                        neutralColor={colors.get('advancements')}
+                        negativeColor={colors.get('advancements')}
                         icon='./images/research.svg'
                         description={`Your total advancements.`}
                     />
                 </div>
                 <div style={{margin: '.5rem 0', borderBottom: '1px solid #ccc', width: '100%', height: '2px'}} />
                 <div style={{display: 'flex', padding: '.25rem', justifyContent: 'space-around', alignItems: 'center' }}>
-                    <Button style={{background: colors.get('advancement'), border: '1px solid #222', color: '#222', padding: '.25rem', borderRadius: '.25rem'}}>View Tree</Button>
+                    <Button style={{background: colors.get('advancements'), border: '1px solid #222', color: '#222', padding: '.25rem', borderRadius: '.25rem'}}>View Tree</Button>
                     <>
                         <input className='styled-checkbox' type='checkbox' />
                         <label style={{color: 'white'}} htmlFor='styled-checkbox-1'>show discovered</label>

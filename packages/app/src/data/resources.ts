@@ -96,6 +96,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         perClick: null,
         description: 'Stop it you prick!',
         category: ResourceCategory.health,
+        foodBonus: 0.1,
         visible: true,
         unlocked: false,
     }],

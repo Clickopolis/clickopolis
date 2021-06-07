@@ -207,8 +207,8 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                     />
                     <Indicator
                         value={this.props.civilization.research.total}
-                        positiveColor={colors.get('advancement')}
-                        neutralColor={colors.get('advancement')}
+                        positiveColor={colors.get('advancements')}
+                        neutralColor={colors.get('advancements')}
                         icon={'./images/research.svg'}
                         formatFunction={(v: number) => abbrNum(v)}
                         description={`The total science in your empire`}
