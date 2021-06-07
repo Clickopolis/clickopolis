@@ -10,6 +10,7 @@
 .resources-matrix-row {
     align-items: flex-end;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     //justify-content: space-evenly;
     & > div {

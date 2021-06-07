@@ -9,10 +9,9 @@ import * as classNames from 'classnames';
 import { ResourcesMatrix } from '../ResourcesMatrix';
 import { growFood, createProduction, turnOnFlag, addNotification } from 'actions';
 import { colors } from 'utils';
+import { BiomesScreen } from 'components/BiomesScreen';
 
 import './ResourcesScreen.scss';
-import { BiomeIcon } from 'components/BiomeIcon';
-import { biomes } from 'data/biomes';
 
 const indicatorStyle = {
     alignItems: 'center',
@@ -49,7 +48,7 @@ export interface ResourcesScreenState {
 }
 
 const PlusSign = ({ x, y, o, c, perClick }: XYCoordsWithOpacity & { perClick: number, resourceType: string }) => <div className='plus-sign' style={{
-    position: 'absolute',
+    position: 'fixed',
     top: `${y}px`,
     left: `${x}px`,
     display: 'flex',
@@ -152,7 +151,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
 
         const baseX = ((rect.left + rect.right) / 2);
         const x = baseX - Math.floor(Math.random() * 50) + Math.floor(Math.random() * 50)
-        const y = rect.top - 24;
+        const y = rect.top - 0;
 
         const coordString = resourceType === 'food' ? 'growFoodPlusElementCoords' : 'growProdPlusElementCoords';
 
@@ -179,6 +178,14 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                 <div className='resources-main-buttons'>
                     <div>
                         <div className='resources-main-buttons-row'>
+                            <img className='pointer-animated' src='./images/pointer.svg' style={{
+                                height: '2.5rem',
+                                transform: 'rotate(90deg)',
+                                position: 'absolute',
+                                left: '2rem',
+                                top: '0.75rem',
+                                zIndex: 10001,
+                            }} />
                             <Button
                                 icon='./images/food.svg'
                                 id='food-btn'
@@ -291,21 +298,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                 </div>
 
                 <div style={{display: 'flex'}}>
-                    <div className='biomes-screen'>
-                        <h3 className='biomes-screen-title'>Biomes</h3>
-                        <div style={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            flexWrap: 'wrap',
-                        }}>
-                            {
-                                biomes.map(
-                                    biome => <BiomeIcon key={biome.name} biome={biome} />
-                                )
-                            }
-                        </div>
-
-                    </div>
+                    <BiomesScreen />
 
                     <ResourcesMatrix />
                 </div>

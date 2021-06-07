@@ -110,6 +110,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
 
         return (
             <div className='other-resources-screen'>
+                <h3 className='biomes-screen-title'>Other Resources</h3>
                 <div className='resources-matrix-row'>
                     {
                         this.renderResourceRow(
@@ -197,6 +198,7 @@ export const ResourcesMatrix = connect(
         spaghetti: state.spaghetti,
         chihuahuas: state.chihuahuas,
         eagles: state.eagles,
+        cactus: state.cactus,
     }),
     null
 )(ResourcesMatrixBase);

@@ -21,11 +21,28 @@ $prod-button-color: #e6d83e;
         height: 64px;
         justify-content: center;
         flex-direction: row;
+        position: relative;
     }
 }
 
 .clickopolis-indicator-label {
     font-size: 90%;
+}
+
+.pointer-animated {
+    animation: alternate infinite cubic-bezier(0.39, 0.575, 0.565, 1) 1s;
+    animation-name: pointer;
+    filter: drop-shadow(0 0 1px white);
+}
+
+@keyframes pointer {
+    // It's rotated by 90deg so our Y axis is actually our "X" axis
+    0% {
+        transform: rotate(90deg) translateY(10px);
+    }
+    100% {
+        transform: rotate(90deg) translateY(-10px);
+    }
 }
 
 .food-button {
@@ -108,7 +125,7 @@ $prod-button-color: #e6d83e;
     width: 400px;
 }
 
-.biomes-screen h3 {
+.biomes-screen-title {
     display: block;
     margin: 0;
     font-weight: lighter;
