@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.16.1"></a>
+## [0.16.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.16.0...@clickopolis/core@0.16.1) (2021-06-07)
+
+
+
+
+**Note:** Version bump only for package @clickopolis/core
+
 <a name="0.16.0"></a>
 # [0.16.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/core@0.9.2...@clickopolis/core@0.16.0) (2021-06-06)
 

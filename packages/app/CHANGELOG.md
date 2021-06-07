@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.22.0"></a>
+# [0.22.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.21.0...@clickopolis/app@0.22.0) (2021-06-07)
+
+
+### Features
+
+* **Biome:** update the way biomes work ([f407bf5](https://github.com/Clickopolis/clickopolis/commit/f407bf5))
+
+
+
+
 <a name="0.21.0"></a>
 # [0.21.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.6.0...@clickopolis/app@0.21.0) (2021-06-06)
 
