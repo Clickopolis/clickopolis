@@ -122,6 +122,7 @@ export class AppBase extends React.Component<AppProps> {
             gainCash(this.props.civilization.population - 1)
             updateCivilization(['ac'], this.props.ac + 1);
             updateCivilization(['research', 'total'], civilization.research.total + getResearchPerMinute(civilization))
+            
             if (flags.CAN_CITIZENS_PRODUCE_CASH) {
                 updateCivilization(
                     ['cash', 'total'],
@@ -173,6 +174,7 @@ export class AppBase extends React.Component<AppProps> {
             left: '1em',
             opactiy: '0.95',
             filter: 'invert(100%)',
+            zIndex: 1002,
         }
         const timeControlIconStyle = {
             height: '3rem',
