@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.22.1"></a>
+## [0.22.1](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.22.0...@clickopolis/app@0.22.1) (2021-06-07)
+
+
+
+
+**Note:** Version bump only for package @clickopolis/app
+
 <a name="0.22.0"></a>
 # [0.22.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.21.0...@clickopolis/app@0.22.0) (2021-06-07)
 
