@@ -41,7 +41,7 @@ export class NotificationBase extends React.Component<NotificationProps> {
         const {content, posId, type} = this.props;
 
         const style  = {
-            top: `calc(3.5rem + (4.25rem * (${posId}))`,
+            bottom: `calc(3.5rem + (4.25rem * (${posId}))`,
         };
 
         return <div className={`notification ${type}`} style={style}>
