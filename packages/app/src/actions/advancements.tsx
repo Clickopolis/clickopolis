@@ -10,6 +10,7 @@ import { BuildingName } from 'data/buildings';
 import { turnOnFlag } from './turnOnFlag';
 import { addNotification } from './notifications';
 import { updateMaxFood } from './food';
+import { updateMaxProduction } from './production';
 
 export type UNLOCK_ADVANCEMENT = 'UNLOCK_ADVANCEMENT';
 export const UNLOCK_ADVANCEMENT: UNLOCK_ADVANCEMENT = 'UNLOCK_ADVANCEMENT';
@@ -36,6 +37,13 @@ const getAdv = (advancments: Advancement[], name: AdvName) => advancments.find((
 
 export function purchaseAdvancement(advancement: Advancement, ac: number) {
     switch (advancement.name) {
+        case AdvName.fireMaking:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.fireMaking);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.fireMaking);
+                }
+            }
         case AdvName.animalDomestication:
             return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.animalDomestication);
@@ -82,7 +90,9 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
             return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.mining);
                 if (!path(['purchased'], adv)) {
-                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.mining)
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.mining);
+                    dispatch(unlockBuilding(BuildingName.furnace));
+                    dispatch(updateMaxProduction(500));
                 }
             }
         case AdvName.paper:

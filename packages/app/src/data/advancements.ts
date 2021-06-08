@@ -3,6 +3,8 @@ import { Era } from 'utils';
 import { Category } from 'utils/Category';
 
 export enum AdvName {
+    fireMaking = 'Fire Making',
+
     animalDomestication = 'Animal Domestication',
     archery = 'Archery',
     bartering = 'Bartering',
@@ -40,6 +42,16 @@ export enum AdvName {
 }
 
 export const advancements: Advancement[] = [
+    {
+        name: AdvName.fireMaking,
+        era: Era.Ancient,
+        cost: 1,
+        categories: ['resources'],
+        unlocked: true,
+        results: [
+
+        ]
+    },
     // ANCIENT
     {
         name: AdvName.animalDomestication,
