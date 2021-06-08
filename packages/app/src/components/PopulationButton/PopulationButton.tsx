@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond, turnOnFlag, addNotification } from 'actions';
+import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond, turnOnFlag, addNotification, updateFoodPerClick } from 'actions';
 import { Citizen, Flags, Contribution, Indicator } from '@clickopolis/core';
 import { abbrNum } from 'utils';
 
@@ -15,6 +15,7 @@ export interface PopulationButtonProps {
     consumeFood: Function;
     addCitizen: addCitizen;
     updateFoodPerSecond: updateFoodPerSecond;
+    updateFoodPerClick: updateFoodPerClick;
     farmer: Citizen;
     turnOnFlag: turnOnFlag;
     flags: Flags;
@@ -69,13 +70,21 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
             consumptionFunction: () => population,
             findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PS',
             citizens: [farmer]
-        })
+        });
+
+        // @TODO: refactor the fuck out of this shit
+        const foodPerClick = getContributionFor({
+            consumptionFunction: () => 0,
+            findFunction: (c: Contribution) => c.resource === 'food' && c.type === 'PC',
+            citizens: [farmer]
+        });
 
         this.props.updateFoodPerSecond(foodPerSecond);
+        this.props.updateFoodPerClick(0.1);
     }
 
     private isGrowthPossible (foodTotal?: number, growth?:number):boolean {
-        if ((foodTotal || this.props.food.total) - (growth || this.props.foodNeededForGrowth) > 0) return true;
+        if ((foodTotal || this.props.food.total) - (growth || this.props.foodNeededForGrowth) >= 0) return true;
         return false;
     }
 
@@ -122,6 +131,7 @@ export const PopulationButton = connect(
         consumeFood,
         addCitizen,
         updateFoodPerSecond,
+        updateFoodPerClick,
         turnOnFlag,
         addNotification
     }
