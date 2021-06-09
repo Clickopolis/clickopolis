@@ -10,6 +10,7 @@ import { ResourcesMatrix } from '../ResourcesMatrix';
 import { growFood, createProduction, turnOnFlag, addNotification } from 'actions';
 import { colors } from 'utils';
 import { BiomesScreen } from 'components/BiomesScreen';
+import { PopulationButton } from 'components/PopulationButton';
 
 import './ResourcesScreen.scss';
 
@@ -22,12 +23,6 @@ const indicatorStyle = {
     margin: '.25rem',
     width: '5rem'
 };
-
-const biomeStyle = {
-    ...indicatorStyle,
-    background: colors.get('biomes'),
-    height: '3rem',
-}
 
 export interface ResourcesScreenProps {
     food?: Resource;
@@ -57,7 +52,7 @@ const PlusSign = ({ x, y, o, c, perClick }: XYCoordsWithOpacity & { perClick: nu
     color: c,
     textAlign: 'center',
     opacity: o,
-}}>+{c === 'gold' ? (perClick * 100).toFixed(0) : perClick.toFixed(0)}</div>;
+}}>+{c === 'gold' ? (perClick * 100).toFixed(1) : perClick.toFixed(1)}</div>;
 
 export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, ResourcesScreenState> {
     private intervalId: any;
@@ -150,7 +145,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
         const rect = document.getElementById(element).getBoundingClientRect();
 
         const baseX = ((rect.left + rect.right) / 2);
-        const x = baseX - Math.floor(Math.random() * 50) + Math.floor(Math.random() * 50)
+        const x = baseX - (Math.random() * 64);
         const y = rect.top - 0;
 
         const coordString = resourceType === 'food' ? 'growFoodPlusElementCoords' : 'growProdPlusElementCoords';
@@ -218,7 +213,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                                 formatFunction={(v: number) => abbrNum(v)}
                                 style={indicatorStyle}
                                 label='per click'
-                                description='Use your clicks to amass corn!'
+                                description='Use your clicks to amass food!'
                             />
                             <Indicator
                                 value={food.perSecond}
@@ -274,7 +269,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                                 formatFunction={(v: number) => abbrNum(v)}
                                 style={indicatorStyle}
                                 label='per click'
-                                description='Use your clicks to amass corn!'
+                                description='Keep that productivity up!'
                             />
                             <Indicator
                                 value={production.perSecond}
@@ -283,7 +278,7 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                                 formatFunction={(v: number) => abbrNum(v)}
                                 style={indicatorStyle}
                                 label='per second'
-                                description='Use your clicks to amass corn!'
+                                description='Productivity on easy mode'
                             />
                             <Indicator
                                 value={production.max}
@@ -291,17 +286,21 @@ export class ResourcesScreenBase extends React.Component<ResourcesScreenProps, R
                                 neutralColor={colors.get('production')}
                                 style={indicatorStyle}
                                 label='max'
-                                description='Use your clicks to amass corn!'
+                                description='Total amount of productivity your citizens can achieve'
                             />
                         </div>
+                    </div>
+                    <div className='resources-main-buttons-row'>
+                        <PopulationButton />
                     </div>
                 </div>
 
                 <div style={{display: 'flex'}}>
-                    <BiomesScreen />
 
                     <ResourcesMatrix />
                 </div>
+
+                <BiomesScreen />
             </Screen>
         );
     }

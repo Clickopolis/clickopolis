@@ -26,7 +26,7 @@ export interface NotificationProps {
 export class NotificationBase extends React.Component<NotificationProps> {
     public intervalId: any;
     public static defaultProps = {
-        timeout: 60000,
+        timeout: 1000,
     }
 
     public componentWillMount() {

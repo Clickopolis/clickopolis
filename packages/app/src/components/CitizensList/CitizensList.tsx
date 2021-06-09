@@ -2,11 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { addCitizen, removeCitizen, updateFoodPerSecond, updateFoodPerClick, updateProductionPerSecond, updateProductionPerClick } from 'actions';
-import { Citizen, Contribution, Button, abbrNum, Civilization } from '@clickopolis/core';
+import { Citizen, Contribution, Button, Civilization } from '@clickopolis/core';
 import { Contribution as CC } from '../Contribution';
 // @ts-ignore: no types
 import { Tooltip } from 'react-tippy';
-import { getContributionFor } from 'utils'
+import { getContributionFor, abbrNum } from 'utils'
 
 import './CitizensList.scss';
 import { colors } from 'utils';
@@ -207,11 +207,11 @@ export class CitizensListBase extends React.PureComponent<CitizensListProps> {
                 <div className='total-citizen-contributions' style={{color: 'white'}}>
                     <span>Total Citizen Contributions</span>
 
-                    <div>{contributions.foodPerClick} <img style={{height: '1rem'}} src='./images/food.svg' /> PC</div>
+                    <div>{abbrNum(contributions.foodPerClick)} <img style={{height: '1rem'}} src='./images/food.svg' /> PC</div>
 
-                    <div>{contributions.foodPerSecond} <img style={{height: '1rem'}} src='./images/food.svg' /> PS</div>
+                    <div>{abbrNum(contributions.foodPerSecond)} <img style={{height: '1rem'}} src='./images/food.svg' /> PS</div>
 
-                    <div>{contributions.productionPerSecond} <img style={{height: '1rem'}} src='./images/production.svg' /> PS</div>
+                    <div>{abbrNum(contributions.productionPerSecond)} <img style={{height: '1rem'}} src='./images/production.svg' /> PS</div>
 
                 </div>
             </div>

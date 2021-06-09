@@ -19,7 +19,7 @@ interface EventsProps {
 
 const events = [
     {
-        weight: 3,
+        weight: 1,
         name: 'GAIN_COW',
     },
     {
@@ -27,11 +27,11 @@ const events = [
         name: 'GAIN_CORN',
     },
     {
-        weight: 2,
+        weight: 1,
         name: 'GAIN_STONE',
     },
     {
-        weight: 2,
+        weight: 0.5,
         name: 'CITIZEN_KILLED',
     },
 

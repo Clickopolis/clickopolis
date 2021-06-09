@@ -13,6 +13,7 @@ $prod-button-color: #e6d83e;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     padding: 1rem;
     .resources-main-buttons-row {
         align-content: center;
@@ -114,19 +115,4 @@ $prod-button-color: #e6d83e;
     margin: 0.25rem;
     padding: 0.25rem;
     width: 400px;
-}
-
-.biomes-screen {
-    border: 1px solid #333;
-    border-radius: .25rem;
-    color: white;
-    margin: 0.25rem;
-    padding: 0.25rem;
-    width: 400px;
-}
-
-.biomes-screen-title {
-    display: block;
-    margin: 0;
-    font-weight: lighter;
 }

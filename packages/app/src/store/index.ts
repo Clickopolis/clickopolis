@@ -1,7 +1,6 @@
-import { applyMiddleware, createStore } from 'redux';
-// import { createLogger } from 'redux-logger';
+import { applyMiddleware, createStore, compose } from 'redux';
+import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
-import createSagaMiddleware from 'redux-saga';
 // @ts-ignore no @types module
 // @ts-ignore no @types module
 import { persistCombineReducers, persistStore } from 'redux-persist';
@@ -9,7 +8,6 @@ import { persistCombineReducers, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { reducers } from '../reducers';
-import { rootSaga } from '../sagas';
 
 const config = {
   key: 'root',
@@ -20,24 +18,23 @@ const config = {
 const persistReducers = persistCombineReducers(config, reducers);
 
 // const loggerMiddleware = createLogger({
-//   predicate: (_, action) => action.type !== 'GROW_FOOD' || action.type === 'CREATE_PRODUCTION'
+//   predicate: (_, action) => action.type != 'GROW_FOOD' || action.type != 'CREATE_PRODUCTION'
 // });
-const sagaMiddleware = createSagaMiddleware();
 
-export const store:any = createStore(
-  persistReducers,
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+export const store = createStore(persistReducers, /* preloadedState, */ composeEnhancers(
   applyMiddleware(
+    
     thunkMiddleware,
-    // (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__(),
-    // loggerMiddleware,
-    sagaMiddleware,
+    
+    //loggerMiddleware,
+    //(window as any).__REDUX_DEVTOOLS_EXTENSION  && (window as any).__REDUX_DEVTOOLS_EXTENSION(),
   )
-);
+));
 
 export const persistor = persistStore(
   store,
   null,
   () => store.getState()
 );
-
-sagaMiddleware.run(rootSaga);

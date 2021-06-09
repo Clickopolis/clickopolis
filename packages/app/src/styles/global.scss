@@ -61,22 +61,20 @@ body,
 .clickopolis-screen {
     background: #222;
     box-shadow: 0 0 1px rgba(black, 0.7);
-    margin: .5rem;
-    padding: 1rem;
-    padding-top: 0;
+    //margin: .5rem;
+    //padding: 1rem;
+    //padding-top: 0;
     transition: 350ms all;
+    min-height: 100vh;
 }
 
 .screen-header {
     align-content: center;
     align-items: center;
-    border-radius: .25rem;
     display: flex;
     justify-content: center;
     letter-spacing: 2px;
-    margin: .5rem;
-    padding: 0.5rem;
-    text-align: center;
+    text-align: left !important;
     text-transform: uppercase;
     h2 {
         color: white;

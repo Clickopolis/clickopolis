@@ -3,6 +3,41 @@ import { connect } from 'react-redux';
 import { Indicator, Resource } from '@clickopolis/core';
 
 import './ResourcesMatrix.scss';
+import { abbrNum, addImages } from 'utils';
+import { stylesheet } from 'typestyle';
+
+const css = stylesheet({
+    subresourcesScreen: {
+        color: `white`,
+        padding:` 0.25rem`,
+        width: `100%`,
+        position: `relative`,
+        background: '#141414',
+        minHeight: '400px',
+        marginTop: '1rem',
+    },
+    subresourcesHeader: {
+        display: 'flex',
+        alignItems: 'center',
+        fontSize: '125%',
+    },
+    subresourcesHeaderImage: {
+        height: '1.5rem',
+        margin: '2px',
+    },
+    subresourcesScreenTitle: {
+        display: 'block',
+        margin: '0',
+        fontWeight: 'lighter',
+        marginLeft: '.5rem',
+    },
+    subresourcesScreenIcon: {
+        marginLeft: '1rem',
+        marginRight: '1rem',
+        marginTop: '-1rem',
+        height: '2rem',
+    },
+});
 
 export interface ResourcesMatrixProps {
     [resource: string]: Resource;
@@ -38,14 +73,15 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
 
     renderResourceRow(resources:Resource[]) {
         return resources.map((r, k) => {
-            const vis = r.visible ? {display: 'flex'} : {display: 'none'}
+            const vis = {display: 'flex'};
             const lock = r.unlocked ? {opacity: '1'} : {opacity: '0.5'}
         
-            return <Indicator
+            return r.visible && <Indicator
                     key={k}
                     value={r.total}
                     icon={`./images/${r.name}.svg`}
                     description={r.description}
+                    formatFunction={(v: number) => abbrNum(v)}
                     onClick={(_:any) => this.setState({ info: r })}
                     className='resources-matrix-item'
                     style={{
@@ -56,6 +92,39 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                 />
             }
         );
+    }
+
+    renderUnlocked = (resource:Resource) => {
+        return <>
+            <div style={{ marginBottom: '1rem' }}>
+                { resource.total } owned
+            </div>
+            <div style={{ marginBottom: '0.5rem' }}>
+                { resource.description }
+            </div>
+            { resource.foodBonus ? <div>
+                <img style={{ height: '1rem' }} src='./images/food.svg' />
+                +{resource.foodBonus} per {resource.name}, {(resource.foodBonus * resource.total).toFixed(0)} total
+            </div> : null }
+            { resource.healthBonus ? <div>
+                <img style={{ height: '1rem' }} src='./images/health.svg' />
+                +{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total
+            </div> : null }
+            { resource.faithBonus ? <div>
+                <img style={{ height: '1rem' }} src='./images/faith.svg' />
+                +{resource.faithBonus} per {resource.name}, {(resource.faithBonus * resource.total).toFixed(0)} total
+            </div> : null }
+            { resource.cultureBonus ? <div>
+                <img style={{ height: '1rem' }} src='./images/culture.svg' />
+                +{resource.cultureBonus} per {resource.name}, {(resource.cultureBonus * resource.total).toFixed(0)} total
+            </div> : null }
+        </>
+    }
+
+    renderLocked = (resource:Resource) => {
+        return <div>
+            {addImages((resource as any).unlockRequirements)}
+        </div>
     }
 
     renderInfo = (resource:Resource) => {
@@ -80,25 +149,7 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                         <img src={`./images/${resource.name}.svg`} />
                     </div>
                     <div className='info-description'>
-                        <div style={{ marginBottom: '1rem' }}>
-                            { resource.description }
-                        </div>
-                        { resource.foodBonus ? <div>
-                            <img style={{ height: '1rem' }} src='./images/food.svg' />
-                            +{resource.foodBonus} per {resource.name}, {(resource.foodBonus * resource.total).toFixed(0)} total
-                        </div> : null }
-                        { resource.healthBonus ? <div>
-                            <img style={{ height: '1rem' }} src='./images/health.svg' />
-                            +{resource.healthBonus} per {resource.name}, {(resource.healthBonus * resource.total).toFixed(0)} total
-                        </div> : null }
-                        { resource.faithBonus ? <div>
-                            <img style={{ height: '1rem' }} src='./images/faith.svg' />
-                            +{resource.faithBonus} per {resource.name}, {(resource.faithBonus * resource.total).toFixed(0)} total
-                        </div> : null }
-                        { resource.cultureBonus ? <div>
-                            <img style={{ height: '1rem' }} src='./images/culture.svg' />
-                            +{resource.cultureBonus} per {resource.name}, {(resource.cultureBonus * resource.total).toFixed(0)} total
-                        </div> : null }
+                        {resource.unlocked ? this.renderUnlocked(resource) : this.renderUnlocked(resource) }
                     </div>
                 </div>
             </div>
@@ -109,8 +160,12 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
         const resources:Resource[] = Object.values(this.props)
 
         return (
-            <div className='other-resources-screen'>
-                <h3 className='biomes-screen-title'>Other Resources</h3>
+            <div className={css.subresourcesScreen}>
+                <h3 className={css.subresourcesScreenTitle}>
+                    <img className={css.subresourcesScreenIcon} src='./images/subresources.svg' />
+                    Subresources
+                </h3>
+
                 <div className='resources-matrix-row'>
                     {
                         this.renderResourceRow(
@@ -118,50 +173,6 @@ export class ResourcesMatrixBase extends React.Component<ResourcesMatrixProps, {
                         )
                     }
                 </div>
-                {/* <div className='resources-matrix-row'>
-                    <div className='resources-matrix-category'>
-                        <img src='./images/buildings.svg' />
-                        <span>Building</span>
-                    </div>
-                    {
-                        this.renderResourceRow(
-                            this.getResources(this.props)['building']
-                        )
-                    }
-                </div>
-                <div className='resources-matrix-row'>
-                    <div className='resources-matrix-category'>
-                        <img src='./images/strategic.svg' />
-                        <span>Strategic</span>
-                    </div>
-                    {
-                        this.renderResourceRow(
-                            this.getResources(this.props)['strategic']
-                        )
-                    }
-                </div>
-                <div className='resources-matrix-row'>
-                    <div className='resources-matrix-category'>
-                        <img src='./images/luxury.svg' />
-                        <span>Luxury</span>
-                    </div>
-                    {
-                        this.renderResourceRow(
-                            this.getResources(this.props)['luxury']
-                        )
-                    }
-                </div>
-                <div className='resources-matrix-row'>
-                    <div className='resources-matrix-category'>
-                        <img src='./images/power.svg' />
-                        <span>Power</span>
-                    </div>
-                    {
-                        this.renderResourceRow(
-                            this.getResources(this.props)['power']
-                        )
-                    }
-                </div> */}
 
                 <div className='resources-matrix-row'>
                     { this.state.info ? this.renderInfo(this.state.info as any) : null }
