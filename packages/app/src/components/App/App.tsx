@@ -54,6 +54,7 @@ export interface AppProps {
     cashPerMin: number;
     miners: Citizen;
     updateGAProgress: updateGAProgress;
+    currentMenu: string;
 }
 
 const visibilityTransformer = (f:number) => {
@@ -123,6 +124,7 @@ export class AppBase extends React.Component<AppProps> {
             updateCivilization(['ac'], this.props.ac + 1);
             updateCivilization(['research', 'total'], civilization.research.total + getResearchPerMinute(civilization))
             
+
             if (flags.CAN_CITIZENS_PRODUCE_CASH) {
                 updateCivilization(
                     ['cash', 'total'],
@@ -150,6 +152,7 @@ export class AppBase extends React.Component<AppProps> {
     }
 
     public render() {
+        const { timeStatus, currentMenu } = this.props;
         const {
             HAS_STARTED_GAME,
             HAS_UNLOCKED_CIVILIZATION,
@@ -163,7 +166,7 @@ export class AppBase extends React.Component<AppProps> {
             HAS_UNLOCKED_FAITH,
             HAS_UNLOCKED_MILITARY,
         } = this.props.flags;
-        const { timeStatus } = this.props;
+        
         const timeControlStyle = {
             background: '#fff',
             color: '#111',
@@ -194,7 +197,8 @@ export class AppBase extends React.Component<AppProps> {
             HAS_UNLOCKED_CULTURE,
             HAS_UNLOCKED_FAITH,
             HAS_UNLOCKED_MILITARY,
-        ].filter(s => s).length
+        ].filter(s => s).length;
+
         
         return (
             <>
@@ -212,22 +216,22 @@ export class AppBase extends React.Component<AppProps> {
                     <div data-scroll id='screen-container' style={{
                         // justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
                         height: 'calc(100%)',
-                        marginLeft: '30%'
+                        marginLeft: HAS_STARTED_GAME ? '30%' : '0%'
                     }}>
                         {
                             HAS_STARTED_GAME ?
                             <>
-                                <ResourcesScreen />
-                                {HAS_UNLOCKED_CIVILIZATION && <CivilizationScreen />}     
-                                {HAS_UNLOCKED_CITIZENS && <CitizensScreen />}
-                                {<LegacyScreen />}
-                                {HAS_UNLOCKED_BUILDINGS && <BuildingsScreen />}
-                                {HAS_UNLOCKED_ADVANCEMENTS && <AdvancementScreen />}
-                                {HAS_UNLOCKED_ECONOMY && <EconomyScreen />}
-                                {HAS_UNLOCKED_CULTURE && <CultureScreen />}
-                                {HAS_UNLOCKED_FAITH && <FaithScreen />}
+                                {currentMenu === 'Resources' && <ResourcesScreen />}
+                                {currentMenu === 'Civilization' && <CivilizationScreen />}     
+                                {currentMenu === 'Citizens' && <CitizensScreen />}
+                                {currentMenu === 'Legacy' && <LegacyScreen />}
+                                {currentMenu === 'Buildings' && <BuildingsScreen />}
+                                {currentMenu === 'Advancements' && <AdvancementScreen />}
+                                {currentMenu === 'Economy' && <EconomyScreen />}
+                                {currentMenu === 'Culture' && <CultureScreen />}
+                                {currentMenu === 'Faith' && <FaithScreen />}
                                 
-                                {HAS_UNLOCKED_CIVILIZATION && <SettingsScreen />}
+                                {currentMenu === 'Settings' && <SettingsScreen />}
                             </>
                             :
                             <StartScreen />
@@ -251,6 +255,7 @@ export const App = connect(
         ac: state.civilization.ac,
         cashPerMin: state.civilization.cash.perMinute,
         miner: state.miner,
+        currentMenu: state.currentMenu,
     }),
     {
         growFood,

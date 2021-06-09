@@ -1,6 +1,4 @@
 import { combineReducers } from 'redux';
-// @ts-ignore no @types module
-import { routerReducer } from 'react-router-redux';
 
 import {
     ruler,
@@ -49,6 +47,7 @@ import {
     coral,
 } from './resources';
 import { notifications } from './notifications';
+import { currentMenu } from './currentMenu';
 
 export const reducers = {
     advancements,
@@ -62,6 +61,7 @@ export const reducers = {
     copper,
     coral,
     crabs,
+    currentMenu,
     eagles,
     era,
     farmer,
@@ -94,7 +94,6 @@ export const reducers = {
     urchin,
     wine,
     wood,
-    router: routerReducer
 };
 
 export const appReducers = combineReducers(reducers);

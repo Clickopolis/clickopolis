@@ -11,10 +11,11 @@ import { persistor } from 'store';
 import { v4 as uuid } from 'uuid';
 
 import './Menu.scss';
-import { addNotification } from 'actions';
+import { addNotification, showMenu } from 'actions';
 import { calculateHappiness } from 'components';
 import { calculateAnger } from 'components/CivilizationScreen';
-import { cssRaw, stylesheet } from 'typestyle';
+import { classes, stylesheet } from 'typestyle';
+import { menus } from 'data/menus';
 
 export interface MenuProps {
     ac?: number;
@@ -23,7 +24,9 @@ export interface MenuProps {
     leader: Leader;
     population: number;
     addNotification: addNotification;
+    showMenu: showMenu;
     civilization: any;
+    currentMenu: string;
 }
 
 const css = stylesheet({
@@ -39,7 +42,10 @@ const css = stylesheet({
                 transition: '250ms backgroundColor',
             }
         }
-    }
+    },
+    menuItemSelected: {
+        background: 'rgb(66,66,66)'
+    },
 });
 
 const margin = {margin: '0 .5rem', color: '#111'}
@@ -92,46 +98,7 @@ export class MenuBase extends React.Component<MenuProps> {
     }
 
     public render() {
-        const {ac, food, leader, production, population, civilization} = this.props;
-
-        const menus = [
-            {
-                name: 'Civilization',
-            },
-            {
-                name: 'Resources',
-            },
-            {
-                name: 'Citizens',
-            },
-            {
-                name: 'Buildings',
-            },
-            {
-                name: 'Economy',
-            },
-            {
-                name: 'Culture',
-            },
-            {
-                name: 'Advancements',
-            },
-            {
-                name: 'Military',
-            },
-            {
-                name: 'Faith',
-            },
-            {
-                name: 'Legacy',
-            },
-            {
-                name: 'Stats',
-            },
-            {
-                name: 'Settings',
-            },
-        ];
+        const {ac, food, leader, production, population, currentMenu, civilization, showMenu} = this.props;
 
         return (
             <nav className='clickopolis-menu'>
@@ -210,12 +177,16 @@ export class MenuBase extends React.Component<MenuProps> {
                 <nav className='main-nav'>
                     <ul>
                         {menus.map(menu => {
-                            return <li key={menu.name} className={css.menuItem}>
+                            return <li onClick={() => {
+                                showMenu(menu.name);
+                            }}
+                            key={menu.id} className={classes(css.menuItem, this.props.currentMenu === menu.name && css.menuItemSelected)}>
                                 <img style={{height: '1.25rem'}} src={`./images/${menu.name}.svg`} />
                                 <span>{menu.name}</span>
                             </li>
                         })}
                     </ul>
+                    <span>debug: {this.props.currentMenu}</span>
 
                 </nav>
 
@@ -276,9 +247,11 @@ export const Menu: React.ComponentClass<{}> = connect(
         leader: state.leader,
         population: state.civilization.population,
         civilization: state.civilization,
+        currentMenu: state.currentMenu,
     }),
     {
-        addNotification
+        addNotification,
+        showMenu,
     }
 )(MenuBase as any)
 

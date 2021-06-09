@@ -21,3 +21,14 @@ export function removeMenu (menuId:number) {
         menuId
     };
 }
+
+export type SHOW_MENU = 'SHOW_MENU';
+export const SHOW_MENU:SHOW_MENU = 'SHOW_MENU';
+
+export type showMenu = (menuName: string) => Action<SHOW_MENU>;
+export function showMenu(menuName: string) {
+    return {
+        type: SHOW_MENU,
+        menuName,
+    };
+}
