@@ -16,6 +16,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         healthBonus: 0.1,
         visible: true,
         unlocked: false,
+        unlockRequirements: `Requires [advancements/animal-domestication] technology`, 
     }],
     ['maize', {
         name: 'maize',
@@ -144,6 +145,7 @@ export const resources:Map<ResourceName, Resource> = new Map([
         category: ResourceCategory.building,
         visible: true,
         unlocked: false,
+        unlockRequirements: `Requires [advancements/wood-cutting] technology`,
     }],
     ['stone', {
         name: 'stone',

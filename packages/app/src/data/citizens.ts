@@ -19,7 +19,7 @@ export const citizens = new Map<CitizenType, Citizen>([
             {
                 type: 'PC',
                 interval: null,
-                amount: 0.5,
+                amount: 0.1,
                 resource: 'food',
             }
         ],
