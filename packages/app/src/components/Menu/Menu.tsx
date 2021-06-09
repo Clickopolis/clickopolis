@@ -4,7 +4,7 @@ import { Tooltip } from 'react-tippy';
 
 import { Indicator, Resource, Leader, Button } from '@clickopolis/core';
 import { UserMenu } from 'components';
-import { colorKeys, colors } from 'utils';
+import { abbrNum, colorKeys, colors } from 'utils';
 import { EraIndicator } from 'components/EraIndicator';
 import { connect } from 'react-redux';
 import { persistor } from 'store';
@@ -12,6 +12,9 @@ import { v4 as uuid } from 'uuid';
 
 import './Menu.scss';
 import { addNotification } from 'actions';
+import { calculateHappiness } from 'components';
+import { calculateAnger } from 'components/CivilizationScreen';
+import { cssRaw, stylesheet } from 'typestyle';
 
 export interface MenuProps {
     ac?: number;
@@ -20,7 +23,24 @@ export interface MenuProps {
     leader: Leader;
     population: number;
     addNotification: addNotification;
+    civilization: any;
 }
+
+const css = stylesheet({
+    menuItem: {
+        //borderBottom: '1px solid #222',
+        cursor: 'pointer',
+        padding: '0.25rem',
+        display: 'flex',
+        alignItems: 'center',
+        $nest: {
+            '&:hover': {
+                backgroundColor: 'rgb(66,66,66)',
+                transition: '250ms backgroundColor',
+            }
+        }
+    }
+});
 
 const margin = {margin: '0 .5rem', color: '#111'}
 
@@ -36,10 +56,43 @@ const ProgressBar = () => {
 
 export class MenuBase extends React.Component<MenuProps> {
 
-    private displayQuests = (_:any) => ({})
+    private displayQuests = (_:any) => ({});
+
+    private getHappinessRating = () => {
+        const {civilization} = this.props;
+        const delta = calculateHappiness(civilization) - calculateAnger(civilization);
+
+        if (delta > 100) {
+            return 'Ecstatic';
+        }
+
+        if (delta <= 100 && delta > 75) {
+            return 'Joyous';
+        }
+
+        if (delta <= 75 && delta > 50) {
+            return 'Happy';
+        }
+
+        if (delta <= 50 && delta > 0) {
+            return 'Content';
+        }
+
+        if (delta === 0) return 'Neutral';
+
+        if (delta < 0 && delta >= -30) {
+            return 'Upset';
+        }
+
+        if (delta < -30 && delta >= -50) {
+            return 'Furious';
+        }
+
+        return 'Uncertain';
+    }
 
     public render() {
-        const {ac, food, leader, production, population} = this.props;
+        const {ac, food, leader, production, population, civilization} = this.props;
 
         const menus = [
             {
@@ -73,6 +126,9 @@ export class MenuBase extends React.Component<MenuProps> {
                 name: 'Legacy',
             },
             {
+                name: 'Stats',
+            },
+            {
                 name: 'Settings',
             },
         ];
@@ -102,6 +158,7 @@ export class MenuBase extends React.Component<MenuProps> {
                             value={food.total}
                             positiveColor={colors.get('resources')}
                             neutralColor={colors.get('resources')}
+                            formatFunction={(v: number) => abbrNum(v)}
                             icon={'./images/food.svg'}
                             description='Total Food in your empire'
                             style={margin}
@@ -110,6 +167,7 @@ export class MenuBase extends React.Component<MenuProps> {
                             value={production.total}
                             positiveColor={colors.get('production')}
                             neutralColor={colors.get('production')}
+                            formatFunction={(v: number) => abbrNum(v)}
                             icon={'./images/production.svg'}
                             description='Total Productivity of your empire'
                             style={margin}
@@ -118,6 +176,7 @@ export class MenuBase extends React.Component<MenuProps> {
                             value={population}
                             positiveColor={colors.get('citizens')}
                             neutralColor={colors.get('citizens')}
+                            formatFunction={(v: number) => abbrNum(v)}
                             icon={'./images/citizens.svg'}
                             description='Total population'
                             style={margin}
@@ -137,32 +196,22 @@ export class MenuBase extends React.Component<MenuProps> {
                             style={ { margin: '0 .33rem' }}
                         />
                     </div>
+                    <div>
+                        
+                        <Indicator
+                            icon={`./images/${this.getHappinessRating().toLowerCase()}.svg`}
+                            value={`Your citizens are ${this.getHappinessRating()}`}
+                            neutralColor='#333'
+                        />
+
+                    </div>
                 </div>
 
                 <nav className='main-nav'>
                     <ul>
                         {menus.map(menu => {
-                            return <li style={{
-                                //background: colors.get(menu.name.toLowerCase() as colorKeys),
-                                //background: '#ccc',
-                                borderBottom: '1px solid #222',
-                                cursor: 'pointer',
-                            }}>
-                                <div style={{
-                                    height: '2rem',
-                                    width: '4rem',
-                                    background: colors.get(menu.name.toLowerCase() as colorKeys),
-                                    //borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    clipPath: `polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%)`,
-                                    WebkitMask: `url(linear-gradient(104deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 4%, rgba(255,255,255,1) 4%, rgba(255,255,255,1) 8%, rgba(0,0,0,1) 8%, rgba(0,0,0,1) 12%, rgba(255,255,255,1) 12%, rgba(255,255,255,1) 85%, rgba(0,0,0,1) 85%, rgba(0,0,0,1) 89%, rgba(255,255,255,1) 89%, rgba(255,255,255,1) 93%, rgba(0,0,0,1) 93%, rgba(0,0,0,1) 97%, rgba(255,255,255,1) 97%))`,
-
-                                }}
-                                >
-                                    <img src={`./images/${menu.name}.svg`} />
-                                </div>
+                            return <li key={menu.name} className={css.menuItem}>
+                                <img style={{height: '1.25rem'}} src={`./images/${menu.name}.svg`} />
                                 <span>{menu.name}</span>
                             </li>
                         })}
@@ -212,6 +261,8 @@ export class MenuBase extends React.Component<MenuProps> {
                     </div>}
                     onClick={this.displayQuests}
                 /> */}
+
+                <div>{'<<'}</div>
             </nav>
         );
     }
@@ -224,6 +275,7 @@ export const Menu: React.ComponentClass<{}> = connect(
         production: state.production,
         leader: state.leader,
         population: state.civilization.population,
+        civilization: state.civilization,
     }),
     {
         addNotification
