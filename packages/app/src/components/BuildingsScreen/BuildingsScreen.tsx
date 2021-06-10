@@ -7,6 +7,7 @@ import { purchaseBuilding } from 'actions';
 import { Civilization } from '@clickopolis/core'
 
 import './BuildingsScreen.scss';
+import { Subscreen } from 'components/Subscreen';
 
 export interface BuildingScreenProps {
     civilization: Civilization;
@@ -43,6 +44,7 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
             filter: build.unlocked ? undefined : 'grayscale(85%)',
             pointerEvents: (build.disabled || !build.unlocked) ? 'none' : undefined,
             opacity: build.disabled ? 0.5 : undefined,
+            width: '20rem',
         }}>
             {build.requirements.length ?
                 <div className='advancement-requirements' style={{
@@ -64,6 +66,7 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
+                flexDirection: 'column',
             }}>
                 <img style={{height: '3rem', margin: '.25rem'}} src={`./images/buildings/${
                     build.name.toLowerCase().replace(/\s/, '-')
@@ -100,9 +103,9 @@ export const BuildingsDisplay = (build: Building & {disabled: boolean} & {purcha
                 </ul>}
             </div>
             {<div className='advancement-cost' style={{
-                background: 'rgba(0, 0, 0, 0.33)',
+                //background: 'rgba(0, 0, 0, 0.33)',
                 color: 'white',
-                padding: '1rem',
+                padding: '0.25rem',
                 textAlign: 'center',
                 width: '33%',
                 display: 'flex',
@@ -162,12 +165,24 @@ export class BuildingsScreenBase extends React.Component<BuildingScreenProps> {
                     />
                 </div>
 
-                {buildings.map(build => <BuildingsDisplay
-                    purchaseBuilding={this.props.purchaseBuilding}
-                    disabled={build.cost > production.total}
-                    key={build.name}
-                    {...build}
-                />)}
+                <div style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                }}>
+                    {buildings.map(build => <BuildingsDisplay
+                        purchaseBuilding={this.props.purchaseBuilding}
+                        disabled={build.cost > production.total}
+                        key={build.name}
+                        {...build}
+                    />)}
+                </div>
+
+                <Subscreen
+                    name='Wonders'
+                    includeMarginTop
+                >
+                    {''}
+                </Subscreen>
             </Screen>
         );
     }

@@ -99,6 +99,41 @@ export class AppBase extends React.Component<AppProps> {
         this.intervalId = requestInterval(this.timer, 1000);
         this.intervalIdMin = requestInterval(this.minuteTimer, 1000 * 60);
         this.intervalIdDecisecond = requestInterval(this.decisecondTimer, 1000 / 10);
+
+        // @TODO: implement Gamepad Support
+        // const gamepads = navigator?.getGamepads();
+
+        // console.log(gamepads);
+
+        // window.addEventListener("gamepadconnected", function(e) {
+        //     // @ts-ignore Gamepad API support issue
+        //     const idx = e?.gamepad?.index;
+        //     const gp = this.navigator?.getGamepads()?.[idx];
+        //     console.log(gp);
+            
+        //     const buttonPresscheck = setInterval(() => {
+        //         console.log(gp?.buttons);
+        //         const hapticActuator = (gp as any)?.vibrationActuator;
+
+        //         if (gp?.buttons?.[0]?.pressed) {
+        //             (hapticActuator as any)?.playEffect("dual-rumble", {
+        //                 startDelay: 0,
+        //                 duration: 1000,
+        //                 weakMagnitude: 1.0,
+        //                 strongMagnitude: 1.0
+        //             });
+        //         }
+
+                
+        //     }, 100);
+
+            
+        // });
+
+        window.addEventListener("gamepaddisconnected", function(e) {
+            console.log('Gamepad disconnected :(');
+        });
+
     }
 
     componentWillUnmount() {

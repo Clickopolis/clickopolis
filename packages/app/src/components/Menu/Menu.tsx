@@ -11,7 +11,7 @@ import { persistor } from 'store';
 import { v4 as uuid } from 'uuid';
 
 import './Menu.scss';
-import { addNotification, showMenu } from 'actions';
+import { addNotification, showMenu, resetAdvancements } from 'actions';
 import { calculateHappiness } from 'components';
 import { calculateAnger } from 'components/CivilizationScreen';
 import { classes, stylesheet } from 'typestyle';
@@ -24,6 +24,7 @@ export interface MenuProps {
     leader: Leader;
     population: number;
     addNotification: addNotification;
+    resetAdvancements: typeof resetAdvancements;
     showMenu: showMenu;
     civilization: any;
     currentMenu: string;
@@ -46,6 +47,12 @@ const css = stylesheet({
     menuItemSelected: {
         background: 'rgb(66,66,66)'
     },
+    debugPanel: {
+        border: '1px solid #ccc',
+        borderRadius: '.25rem',
+        padding: '0.25rem',
+        margin: '0.5rem',
+    }
 });
 
 const margin = {margin: '0 .5rem', color: '#111'}
@@ -61,6 +68,7 @@ const ProgressBar = () => {
 }
 
 export class MenuBase extends React.Component<MenuProps> {
+
 
     private displayQuests = (_:any) => ({});
 
@@ -90,7 +98,7 @@ export class MenuBase extends React.Component<MenuProps> {
             return 'Upset';
         }
 
-        if (delta < -30 && delta >= -50) {
+        if (delta < -30) {
             return 'Furious';
         }
 
@@ -186,28 +194,34 @@ export class MenuBase extends React.Component<MenuProps> {
                             </li>
                         })}
                     </ul>
-                    <span>debug: {this.props.currentMenu}</span>
+                    
+                    <div className={css.debugPanel}>
+                        <span>debug: {this.props.currentMenu}</span>
+                        <br/>
+                        <Button
+                            style={{background: '#333'}}
+                            onClick={() => this.props.resetAdvancements()}
+                        >
+                            Reset Advancements
+                        </Button>
+                        <div className='delete-all-data' style={{marginTop: '2rem'}} onClick={() => {
+                            persistor.purge();
+                        }}>
+                            Delete All Data
+                        </div>
 
+                        <Button
+                            style={{background: 'black'}}
+                            onClick={() => this.props.addNotification({
+                                content: `Triggered a notification.`,
+                                id: uuid(),
+                            })}
+                        >
+                            Trigger Notification
+                        </Button>
+
+                    </div>
                 </nav>
-
-
-
-
-                <div className='delete-all-data' style={{marginTop: '2rem'}} onClick={() => {
-                    persistor.purge();
-                }}>
-                    Delete All Data
-                </div>
-
-                <Button
-                    style={{background: 'black'}}
-                    onClick={() => this.props.addNotification({
-                        content: `Triggered a notification.`,
-                        id: uuid(),
-                    })}
-                >
-                    Trigger Notification
-                </Button>
 
 
                 {/* <Indicator
@@ -252,6 +266,7 @@ export const Menu: React.ComponentClass<{}> = connect(
     {
         addNotification,
         showMenu,
+        resetAdvancements,
     }
 )(MenuBase as any)
 

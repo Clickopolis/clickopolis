@@ -22,6 +22,7 @@ export enum AdvName {
     sailing = 'Sailing',
     woodcutting = 'Wood Cutting',
     writing = 'Writing',
+    wheel = 'Wheel',
 
     astronomy = 'Astronomy',
     calendar = 'Calendar',
@@ -259,6 +260,20 @@ export const advancements: Advancement[] = [
         tier: 3,
         subtier: 0,
         parents: [AdvName.fishing],
+    },
+    {
+        name: AdvName.wheel,
+        era: Era.Ancient,
+        cost: 20,
+        categories: ['research'],
+        unlocked: true,
+        requirements: [],
+        results: [
+            
+        ],
+        tier: 4,
+        subtier: 3,
+        parents: [],
     },
     {
         name: AdvName.woodcutting,

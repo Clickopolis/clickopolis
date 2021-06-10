@@ -26,6 +26,11 @@ export const ADD_ADVANCEMENT: ADD_ADVANCEMENT = 'ADD_ADVANCEMENT';
 export const addAdvancement = (name: string, ac: number) =>
     ({ type: ADD_ADVANCEMENT, name, ac })
 
+export type RESET_ADVANCEMENTS = 'RESET_ADVANCEMENTS';
+export const RESET_ADVANCEMENTS: RESET_ADVANCEMENTS = 'RESET_ADVANCEMENTS';
+export const resetAdvancements = () =>
+    ({ type: RESET_ADVANCEMENTS })
+
 const advancementPurchaseBasics = (dispatch: any, getState: any, adv: Advancement, ac: number, name: string) => {
     const research = getState().civilization.research.total
     dispatch(updateCivilization(['research', 'total'], research - adv.cost))
@@ -42,6 +47,20 @@ export function purchaseAdvancement(advancement: Advancement, ac: number) {
                 const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.fireMaking);
                 if (!path(['purchased'], adv)) {
                     advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.fireMaking);
+                }
+            }
+        case AdvName.tools:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.tools);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.tools);
+                }
+            }
+        case AdvName.art:
+            return function (dispatch: Dispatch<any>, getState: Store<any>['getState']) {
+                const adv: Advancement = getState().advancements.find((a: Advancement) => a.name === AdvName.art);
+                if (!path(['purchased'], adv)) {
+                    advancementPurchaseBasics(dispatch, getState, adv, ac, AdvName.art);
                 }
             }
         case AdvName.animalDomestication:

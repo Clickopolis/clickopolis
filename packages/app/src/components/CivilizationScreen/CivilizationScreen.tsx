@@ -118,6 +118,7 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                 type='Civilization'
                 color={colors.get('civilization')}
             >
+                
                 <div className='civilization-indicator' style={center}>
                     <PopulationButton />
                 </div>
@@ -157,15 +158,17 @@ export class CivilizationScreenBase extends React.Component<CivilizationScreenPr
                             <div style={{background: 'lightgreen', height: '.5rem', width: this.getHealthPercentages().pollution}}></div>
                         </div>
                         <div style={{display: 'flex'}}>
-                            <Indicator
-                                value={calculateHealth(this.props.civilization, this.props.cattle)}
-                                positiveColor='white'
-                                neutralColor='white'
-                                icon={'./images/health.svg'}
-                                description={`Health`}
-                                style={indicatorStyle}
-                                onClick={this.onClick('health')}
-                            />
+                            
+                                <Indicator
+                                    value={calculateHealth(this.props.civilization, this.props.cattle)}
+                                    positiveColor='white'
+                                    neutralColor='white'
+                                    icon={'./images/health.svg'}
+                                    description={`Health`}
+                                    style={indicatorStyle}
+                                    onClick={this.onClick('health')}
+                                />
+                            
                             <Indicator
                                 value={calculatePollution(this.props.civilization)}
                                 positiveColor={colors.get('pollution')}

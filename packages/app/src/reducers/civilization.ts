@@ -100,7 +100,7 @@ const civDefault:any = {
     },
 
     research: {
-        total: 0,
+        total: 1000000,
         perMinuteFromCitizens: 0,
         perMinuteFromCultureBonuses: 0,
         perMinuteFromFaithBonuses: 0,

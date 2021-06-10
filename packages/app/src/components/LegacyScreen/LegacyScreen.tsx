@@ -35,6 +35,7 @@ const css = stylesheet({
                 animationDuration: '3s',
                 animationTimingFunction: 'ease-in-out',
                 animationIterationCount: 'infinite',
+                animationFillMode: 'forwards',
                 animationDelay: '-1s',
             }
         }

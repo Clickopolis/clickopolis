@@ -4,8 +4,8 @@ import { Action, CREATE_PRODUCTION, UPDATE_PRODUCTION_PER_SECOND, UPDATE_PRODUCT
 const productionState:Resource = {
     name: 'Production',
     total: 0,
-    max: 500,
-    perSecond: 0,
+    max: 1000000,
+    perSecond: 10000,
     perClick: 1,
     description: 'Prod',
 };

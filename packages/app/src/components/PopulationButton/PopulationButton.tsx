@@ -109,7 +109,8 @@ export class PopulationButtonBase extends React.Component<PopulationButtonProps,
                 <Indicator
                     style={{background: 'unset', marginLeft: '1rem'}}
                     className='population-to-growth'
-                    value={abbrNum(foodNeededForGrowth)}
+                    value={foodNeededForGrowth}
+                    formatFunction={(v: number) => abbrNum(v)}
                     icon={'./images/food.svg'}
                     description={'The total amount of food needed to grow your pouplation by 1.'}
                 />

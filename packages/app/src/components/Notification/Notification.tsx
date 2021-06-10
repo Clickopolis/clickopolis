@@ -29,7 +29,7 @@ export class NotificationBase extends React.Component<NotificationProps> {
         timeout: 1000,
     }
 
-    public componentWillMount() {
+    public componentDidMount() {
         this.intervalId = setTimeout(this.disappear, this.props.timeout);
     }
 

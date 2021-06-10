@@ -4,8 +4,8 @@ import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND, UPDATE_FOOD_PE
 const foodState:Resource = {
     name: 'Food',
     total: 0,
-    max: 500,
-    perSecond: 0,
+    max: 10000000,
+    perSecond: 100000,
     perClick: 1,
     description: 'Food',
 };
