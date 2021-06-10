@@ -1,5 +1,5 @@
 import { advancements as initialState } from 'data/advancements';
-import { ADD_ADVANCEMENT, UPDATE_ADVANCEMENT_COSTS, UNLOCK_ADVANCEMENT } from 'actions/advancements';
+import { ADD_ADVANCEMENT, UPDATE_ADVANCEMENT_COSTS, UNLOCK_ADVANCEMENT, RESET_ADVANCEMENTS } from 'actions/advancements';
 import { Action } from 'actions';
 import pathOr from 'ramda/es/pathOr';
 import { Advancement } from 'components/AdvancementScreen';
@@ -15,7 +15,7 @@ const editAdv = (state: Advancement[], action: Action<any>, object: object) => {
     return newState;
 }
 
-export function advancements(state = initialState, action: Action<ADD_ADVANCEMENT | UPDATE_ADVANCEMENT_COSTS | UNLOCK_ADVANCEMENT>) {
+export function advancements(state = initialState, action: Action<ADD_ADVANCEMENT | UPDATE_ADVANCEMENT_COSTS | RESET_ADVANCEMENTS | UNLOCK_ADVANCEMENT>) {
     switch (action.type) {
         case UNLOCK_ADVANCEMENT:
             return editAdv(state, action, {unlocked: true})
@@ -31,7 +31,9 @@ export function advancements(state = initialState, action: Action<ADD_ADVANCEMEN
         case UPDATE_ADVANCEMENT_COSTS:
             return state.map(advancement => 
                 ({ ...advancement, cost : Math.floor(Math.pow(advancement.cost, 1.07)) })
-            )
+            );
+        case RESET_ADVANCEMENTS:
+            return initialState;
         default:
             return state;
     }
