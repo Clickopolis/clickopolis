@@ -2,7 +2,8 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { colors } from 'utils';
-import { Screen, Indicator } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
 import { stylesheet, keyframes } from 'typestyle';
 import { State } from 'utils/State';
 

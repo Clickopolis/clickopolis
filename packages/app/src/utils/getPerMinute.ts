@@ -1,4 +1,4 @@
-import { Civilization } from '@clickopolis/core';
+import { Civilization } from 'interfaces';
 
 export const sum = (p: number, c: number) => p + c;
 

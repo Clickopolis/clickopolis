@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Indicator } from '@clickopolis/core';
+import { Indicator } from 'components/Indicator';
 import { Era, getEraName } from 'utils';
 
 import './EraIndicator.scss';

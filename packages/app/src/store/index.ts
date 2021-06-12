@@ -2,7 +2,6 @@ import { applyMiddleware, createStore, compose } from 'redux';
 import { createLogger } from 'redux-logger';
 import thunkMiddleware from 'redux-thunk';
 // @ts-ignore no @types module
-// @ts-ignore no @types module
 import { persistCombineReducers, persistStore } from 'redux-persist';
 // @ts-ignore no @types module
 import storage from 'redux-persist/lib/storage';

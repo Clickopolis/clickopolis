@@ -1,7 +1,10 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { growPopulation, consumeFood, addCitizen, updateFoodPerSecond, turnOnFlag, addNotification, updateFoodPerClick } from 'actions';
-import { Citizen, Flags, Contribution, Indicator } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Contribution, Citizen, Flags } from 'interfaces';
 import { abbrNum } from 'utils';
 
 import './PopulationButton.scss';

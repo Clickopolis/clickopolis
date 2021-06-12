@@ -1,7 +1,10 @@
 import * as React from 'react';
 
 import { colors } from 'utils';
-import { Screen, Button } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Resource } from 'interfaces';
 
 import './SettingsScreen.scss';
 

@@ -1,6 +1,6 @@
 import { Action, ADD_RESOURCE, UNLOCK_RESOURCE  } from '../actions';
 import { resources as defaults } from 'data/resources';
-import { Resource } from '@clickopolis/core';
+import { Resource } from 'interfaces';
 
 type ResourceAction = Action<ADD_RESOURCE | UNLOCK_RESOURCE>
 

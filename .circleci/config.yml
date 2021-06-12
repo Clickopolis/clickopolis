@@ -40,8 +40,7 @@ jobs:
           command: |
             case $CIRCLE_NODE_INDEX in \
             0) npm test -- --scope '@clickopolis/app' ;;\
-            1) npm test -- --scope '@clickopolis/core' ;;\
-            3) npm test -- --scope '@clickopolis/server' ;;\
+            1) npm test -- --scope '@clickopolis/server' ;;\
             esac
   deploy_npm:
     docker:

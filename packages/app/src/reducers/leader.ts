@@ -1,5 +1,5 @@
 import { Action, MODIFY_LEADER, SELECT_LEADER } from 'actions';
-import { Leader } from '@clickopolis/core';
+import { Leader } from 'interfaces';
 import { leaders } from 'data/leaders'
 
 export function leader(state: Leader = leaders[0], action: Action<MODIFY_LEADER | SELECT_LEADER>) {

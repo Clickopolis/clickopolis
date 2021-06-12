@@ -1,8 +1,7 @@
 import * as React from 'react';
-// @ts-ignore: no @types defintion
-import { Tooltip } from 'react-tippy';
-
-import { Indicator, Resource, Leader, Button } from '@clickopolis/core';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Resource, Leader } from 'interfaces';
 import { UserMenu } from 'components';
 import { abbrNum, colorKeys, colors } from 'utils';
 import { EraIndicator } from 'components/EraIndicator';

@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Screen, Button, Indicator, noop } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+
 import { connect } from 'react-redux';
 import { Era, colors, getResearchPerMinute, getEraName, abbrNum, addImages } from 'utils';
 import { purchaseAdvancement } from 'actions';
@@ -13,6 +15,8 @@ import { AdvName } from 'data/advancements';
 import { linearGradient } from 'csx';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+
+const noop = () => {};
 
 const dash = keyframes({
     'to': {

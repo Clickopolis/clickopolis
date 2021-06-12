@@ -1,5 +1,5 @@
-import { Leader } from '@clickopolis/core'
-import { ReactNode } from 'react-redux';
+import { Leader } from 'interfaces';
+import { ReactNode } from 'react';
 
 
 type Enhancements = {

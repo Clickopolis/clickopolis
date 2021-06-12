@@ -4,7 +4,6 @@
 
 |  Package     |   version   |  build  | details |
 |-------|-----|----|-----|
-| [@core](https://github.com/Clickopolis/clickopolis/tree/master/packages/core)   |  [![npm (scoped)](https://img.shields.io/npm/v/@clickopolis/core.svg?style=flat-square)]()    |        | core set of components and interfaces |
 | [@app](https://github.com/Clickopolis/clickopolis/tree/master/packages/app)    |   [![npm (scoped)](https://img.shields.io/npm/v/@clickopolis/app.svg?style=flat-square)]()   |           | webapp for clickopolis |
 | [@server](https://github.com/Clickopolis/clickopolis/tree/master/packages/server) | [![npm (scoped)](https://img.shields.io/npm/v/@clickopolis/server.svg?style=flat-square)]()    |        | API server |
 | [@roadmap](https://github.com/Clickopolis/clickopolis/tree/master/packages/roadmap) | [![npm (scoped)](https://img.shields.io/npm/v/@clickopolis/roadmap.svg?style=flat-square)]()    |        | roadmap microsite |

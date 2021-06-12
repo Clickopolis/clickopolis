@@ -2,7 +2,10 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { colors } from 'utils';
-import { Screen, Indicator, Civilization } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Civilization } from 'interfaces';
 
 export interface FaithScreenprops {
     faith?: Civilization['faith'];

@@ -1,4 +1,4 @@
-import { Flags } from '@clickopolis/core';
+import { Flags } from 'interfaces';
 
 export const defaultFlags: Flags = {
     HAS_STARTED_GAME: false,

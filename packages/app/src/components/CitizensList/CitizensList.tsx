@@ -2,9 +2,11 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { addCitizen, removeCitizen, updateFoodPerSecond, updateFoodPerClick, updateProductionPerSecond, updateProductionPerClick } from 'actions';
-import { Citizen, Contribution, Button, Civilization } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Resource, Civilization, Contribution, Citizen } from 'interfaces';
 import { Contribution as CC } from '../Contribution';
-// @ts-ignore: no types
 import { Tooltip } from 'react-tippy';
 import { getContributionFor, abbrNum } from 'utils'
 

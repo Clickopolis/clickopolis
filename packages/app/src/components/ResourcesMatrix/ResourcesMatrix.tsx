@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Indicator, Resource } from '@clickopolis/core';
+import { Resource } from 'interfaces';
+import { Indicator } from 'components/Indicator';
 
 import './ResourcesMatrix.scss';
 import { abbrNum, addImages } from 'utils';

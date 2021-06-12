@@ -3,7 +3,7 @@ import * as React from 'react';
 import './Notification.scss';
 import { connect } from 'react-redux';
 import { Era } from 'utils';
-import { Button } from '@clickopolis/core';
+import { Button } from 'components/Button';
 
 
 export interface EraNotificationProps {

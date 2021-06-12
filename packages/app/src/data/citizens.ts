@@ -1,6 +1,5 @@
-import { Citizen, CitizenType } from '@clickopolis/core'
+import { Citizen, CitizenType } from 'interfaces';
 
-// @ts-expect-error
 export const citizens = new Map<CitizenType, Citizen>([
     ['ruler', {
         name: 'ruler',
@@ -71,6 +70,7 @@ export const citizens = new Map<CitizenType, Citizen>([
                 type: 'constant',
                 amount: 10,
                 resource: 'health',
+                interval: null,
             }
         ],
         amount: 0,

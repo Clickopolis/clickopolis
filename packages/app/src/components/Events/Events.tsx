@@ -1,9 +1,14 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { addNotification, addResource } from 'actions';
-import { Flags, choose, Resource, Citizen, Civilization } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Resource, Flags, Citizen, Civilization } from 'interfaces';
 import { TimeStatus } from 'utils';
 import { v4 as uuid } from 'uuid';
+
+const choose = <T extends string>(x: T[]) => x[Math.floor(Math.random() * x.length)];
 
 interface EventsProps {
     addNotification: addNotification;
@@ -15,7 +20,6 @@ interface EventsProps {
     miner: Citizen;
     civilization: Civilization;
 }
-
 
 const events = [
     {

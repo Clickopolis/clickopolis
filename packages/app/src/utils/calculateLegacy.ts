@@ -1,4 +1,4 @@
-import { Resource, Civilization } from '@clickopolis/core';
+import { Resource, Civilization } from 'interfaces';
 
 export interface CalcLegacyOption {
     food: Resource;

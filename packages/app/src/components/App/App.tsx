@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 
-import { Resource, Flags, Citizen, Civilization } from '@clickopolis/core';
+import { Resource, Flags, Citizen, Civilization } from 'interfaces';
 
 import { Menu } from '../Menu';
 import { ResourcesScreen } from 'components/ResourcesScreen';

@@ -1,4 +1,4 @@
-import { Civilization, Citizen } from '@clickopolis/core';
+import { Civilization, Citizen } from 'interfaces';
 
 export type State = {
     civilization: Civilization

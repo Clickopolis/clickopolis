@@ -1,7 +1,11 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-import { Screen, Indicator, Civilization, Resource } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Resource, Civilization } from 'interfaces';
+
 import { abbrNum } from 'utils/abbrNum';
+
 import { PopulationButton } from '../PopulationButton';
 import { colors, getCashPerMinute } from 'utils';
 

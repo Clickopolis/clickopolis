@@ -1,4 +1,4 @@
-import { Resource } from '@clickopolis/core';
+import { Resource } from 'interfaces';
 import { Action, GROW_FOOD, CONSUME_FOOD, UPDATE_FOOD_PER_SECOND, UPDATE_FOOD_PER_CLICK, UPDATE_MAX_FOOD} from 'actions';
 
 const foodState:Resource = {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Button } from '@clickopolis/core';
+import { Button } from 'components/Button';
 
 export interface EventNotificationProps {
     event: {

@@ -1,11 +1,13 @@
 import * as React from 'react';
-import { Screen, Indicator } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Civilization } from 'interfaces';
 import { connect } from 'react-redux';
 
 import { colors } from 'utils';
 
 import './EconomyScreen.scss';
-import { Civilization } from '@clickopolis/core'
 
 export interface EconomyScreenProps {
     civilization: Civilization;

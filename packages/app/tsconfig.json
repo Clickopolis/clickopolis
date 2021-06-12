@@ -26,7 +26,6 @@
         "target": "es6",
         "baseUrl": "./src",
         "paths": {
-            "@clickopolis/core": ["packages/core"],
             "@clickopolis/app": ["packages/app"]
         }
     },

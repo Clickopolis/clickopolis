@@ -1,8 +1,5 @@
-import {
-    Resource,
-    ResourceCategory,
-    ResourceName,
-} from '@clickopolis/core';
+import { Resource, ResourceCategory, ResourceName } from 'interfaces';
+
 
 export const resources:Map<ResourceName, Resource> = new Map([
     ['cattle', {

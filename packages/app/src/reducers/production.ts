@@ -1,4 +1,4 @@
-import { Resource } from '@clickopolis/core';
+import { Resource } from 'interfaces';
 import { Action, CREATE_PRODUCTION, UPDATE_PRODUCTION_PER_SECOND, UPDATE_PRODUCTION_PER_CLICK, UPDATE_MAX_PRODUCTION } from '../actions';
 
 const productionState:Resource = {

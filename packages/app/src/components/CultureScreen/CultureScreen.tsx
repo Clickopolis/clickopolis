@@ -2,7 +2,9 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 
 import { colors, colorKeys } from 'utils';
-import { Screen, Indicator, Civilization } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Resource, Civilization } from 'interfaces';
 import './CultureScreen.scss';
 import { socialPolicies, SocialPolicy as SP } from 'data/socialPolicies';
 import { addImages } from 'utils/addImages';

@@ -1,5 +1,7 @@
 import * as React from 'react';
-import { Indicator, Biome } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Biome } from 'interfaces';
 import { colors } from 'utils';
 import { keyframes, stylesheet } from 'typestyle';
 

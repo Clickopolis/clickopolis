@@ -1,6 +1,6 @@
-import { Biome } from "@clickopolis/core";
+import { Biome } from 'interfaces';
 
-export const biomes:any[] = [
+export const biomes:Biome[] = [
     {
         name: 'Desert',
         description: 'Someone fetch me a drink!',

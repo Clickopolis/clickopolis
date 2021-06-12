@@ -1,5 +1,5 @@
 import { Action } from 'actions';
-import { Leader } from '@clickopolis/core';
+import { Leader } from 'interfaces';
 
 export type SELECT_LEADER = 'SELECT_LEADER';
 export const SELECT_LEADER:SELECT_LEADER = 'SELECT_LEADER';

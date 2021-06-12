@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { Screen, Indicator, Resource } from '@clickopolis/core';
 import { connect } from 'react-redux';
 import { colors, Era } from 'utils';
 import { purchaseBuilding } from 'actions';
 
-import { Civilization } from '@clickopolis/core'
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Resource, Civilization } from 'interfaces';
 
 import './BuildingsScreen.scss';
 import { Subscreen } from 'components/Subscreen';

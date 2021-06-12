@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
-// @ts-ignore: importing core
-import { Screen, Indicator, Citizen, Resource } from '@clickopolis/core';
+import { Screen } from 'components/Screen';
+import { Indicator } from 'components/Indicator';
+import { Button } from 'components/Button';
+import { Citizen, Resource } from 'interfaces';
 import { CitizensList } from '../CitizensList';
 import { colors } from 'utils';
 

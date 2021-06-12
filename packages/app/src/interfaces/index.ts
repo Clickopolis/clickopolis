@@ -34,11 +34,32 @@ export type BiomeType = 'Desert'
                     | 'Iceberg'
                     | 'Permafrost Tundra'
                     | 'Oasis'
-                    | 'Mountains';
+                    | 'Mountains'
+                    | 'Forest'
+                    | 'Cave'
+                    | 'Space'
+                    | 'Moon'
+                    | 'Mars'
+                    | 'Waterfall'
+                    | 'Volcano'
+                    | 'Plains'
+                    | 'Ocean'
+                    | 'Tundra'
+                    | 'River'
+;
 
 export interface Biome {
     name: BiomeType;
     description: string;
+    biomeRank?: number;
+    sqKm?: number;
+    rankBonuses?: BiomeRank[];
+}
+
+export interface BiomeRank {
+    rank: number;
+    bonus: string;
+    unlocked: boolean;
 }
 
 export interface Building {

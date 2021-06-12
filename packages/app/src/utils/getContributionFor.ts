@@ -1,4 +1,4 @@
-import { Contribution, Citizen } from '@clickopolis/core'
+import { Contribution, Citizen } from 'interfaces';
 
 export const getContributionFor = ({ consumptionFunction, findFunction, citizens, amount }: {
     consumptionFunction: () => number,
