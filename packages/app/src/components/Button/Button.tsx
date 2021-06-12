@@ -1,9 +1,8 @@
 import * as React from 'react';
-// @ts-ignore: no @types def
-import classNames from 'classnames';
+import { classes } from 'typestyle';
 
 export interface ButtonProps {
-    icon?: string;
+    icon?: string | React.ReactNode;
     iconHeight?: string;
     id?: string;
     value?: string | number | React.ReactNode;
@@ -44,13 +43,14 @@ export class Button extends React.Component<ButtonProps> {
         return <button
                     id={id}
                     onClick={onClick}
-                    className={classNames('clickopolis-button', disabled ? 'disabled' : null, className)}
+                    className={classes('clickopolis-button', disabled ? 'disabled' : null, className)}
                     disabled={disabled}
                     style={style}
                 >
-                    {icon && <img src={ icon } style={
+                    {typeof icon === 'string' ? <img src={ icon } style={
                         Object.assign(iconStyles.base, value ? iconStyles.marginRight : {})
-                    } />}
+                    } /> : icon}
+                    
                     {value && <span className='clickopolis-button-value'>{ value }</span>}
                     {children}
                 </button>;

@@ -239,9 +239,9 @@ export class AppBase extends React.Component<AppProps> {
             <>
                 <Events />
                 {/*@ts-expect-error*/}
-                <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
+                { HAS_STARTED_GAME && <div style={timeControlStyle} className='time-control' onClick={this.toggleTime} >
                     {this.props.timeStatus === TimeStatus.Paused ? <img style={timeControlIconStyle} src='./images/play.svg' /> : <img style={timeControlIconStyle} src='./images/pause.svg' /> }
-                </div>
+                </div> }
                 {this.props.notifications.map((note: Note, idx: number) => (
                     note && note.id && Boolean(note.content) && <Notification key={note.id} id={note.id} posId={idx} content={note.content} />
                 ))}

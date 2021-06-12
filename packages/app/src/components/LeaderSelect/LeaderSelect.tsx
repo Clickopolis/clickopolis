@@ -45,7 +45,7 @@ export class LeaderSelect extends React.Component<LeaderSelectProps, LeaderSelec
                     display: 'flex',
                     justifyContent: 'space-between',
                 }} onClick={this.openSelect.bind(this, o.name, idx)} key={o.name} className={`leader-option ${isHidden}`}>
-                    <LeaderIcon style={{ marginLeft: '.5rem', overflow: 'hidden' }} height='2rem' width='2rem' icon={o.name} />
+                    <LeaderIcon style={{ marginLeft: '.5rem', overflow: 'hidden' }} height='2rem' width='2rem' icon={o.name.toLowerCase().replace(/\s/, '-')} />
                     <span style={{ marginLeft: '2rem' }} className='leader-option-name'>{
                         this.toTitleCase(o.name)
                     }</span>

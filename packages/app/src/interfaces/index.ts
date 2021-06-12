@@ -247,6 +247,7 @@ export interface Leader {
     defaultName: string;
     defaultCivName: string;
     traits: Trait[];
+    abilities: {name: string, unlocked?: boolean, description: string}[];
 }
 
 /* A player in the game - Human or AI */

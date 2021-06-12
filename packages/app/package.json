@@ -27,6 +27,10 @@
   "dependencies": {
     "@clickopolis/server": "^0.0.13",
     "@clickopolis/webpack-build-scripts": "^0.1.8",
+    "@fortawesome/fontawesome-svg-core": "^1.2.35",
+    "@fortawesome/free-regular-svg-icons": "^5.15.3",
+    "@fortawesome/free-solid-svg-icons": "^5.15.3",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@tippyjs/react": "^4.2.5",
     "@types/ramda": "^0.26.44",
     "@types/react": "^16.14.8",

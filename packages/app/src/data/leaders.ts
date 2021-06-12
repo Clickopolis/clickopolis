@@ -1,10 +1,4 @@
 import { Leader } from 'interfaces';
-import { ReactNode } from 'react';
-
-
-type Enhancements = {
-    abilities: {name: string, status?: 'locked' | 'unlocked', description: ReactNode}[]
-}
 
 export enum LeaderName {
     AbrahamLincoln = 'Abraham Lincoln',
@@ -12,9 +6,10 @@ export enum LeaderName {
     Victoria = 'Victoria',
     AnaNzinga = 'Ana Nzinga',
     BenitoJuarez = 'Benito Juarez',
+    Trajan = 'Trajan',
 }
 
-export const leaders: (Leader & Enhancements)[] = [
+export const leaders: Leader[] = [
     {
         name: LeaderName.AbrahamLincoln,
         defaultName: LeaderName.AbrahamLincoln,
@@ -23,16 +18,18 @@ export const leaders: (Leader & Enhancements)[] = [
         abilities: [
             {
                 name: `Emancipation Procalamation`,
-                description: `Cannot institute Slavery mechanic, but cannot lose citizens due to loss in influence.`
+                description: `Cannot institute Slavery mechanic, but cannot lose citizens due to loss in influence.`,
+                unlocked: true,
             },
             {
                 name: `Gettysburg Address`,
-                description: `Each Writer earns +1 influence/min. Great Works of Writing earn a one-time 100 influence bonus.`
+                description: `Each Writer earns +1 influence/min. Great Works of Writing earn a one-time 100 influence bonus.`,
+                unlocked: false,
             },
             {
                 name: `A House Divided`,
                 description: `Unlocks a unique wartime bonus when a war is justified.`,
-                status: 'locked',
+                unlocked: false,
             }
         ]
     },
@@ -44,15 +41,18 @@ export const leaders: (Leader & Enhancements)[] = [
         abilities: [
             {
                 name: `Lord of the Mines`,
-                description: `Miner output increased 100%`
+                description: `Miner output increased 100%`,
+                unlocked: true,
             },
             {
                 name: `The Great Pilgrimage`,
                 description: `+100% time to complete Trade Routes, but +300% Money when completed`,
+                unlocked: false,
             },
             {
                 name: `Griot Tradition`,
                 description: `Removes ability to have Great Writers. Musicians produce +3 Culture, +4 Faith, +1 Money`,
+                unlocked: false,
             }
         ]
     },
@@ -65,14 +65,17 @@ export const leaders: (Leader & Enhancements)[] = [
             {
                 name: `Royal Navy`,
                 description: `+50% Navy strength. +1 Navy unit when discovering Sailing.`,
+                unlocked: true,
             },
             {
                 name: `The Big Smoke`,
-                description: `+0.1 Production/click per citizen but +1.5 Pollution per citizen`
+                description: `+0.1 Production/click per citizen but +1.5 Pollution per citizen`,
+                unlocked: false,
             },
             {
                 name: `Warehouse City`,
-                description: `+100% Production from Workshops and Factories`
+                description: `+100% Production from Workshops and Factories`,
+                unlocked: false,
             },
         ]
     },
@@ -84,15 +87,18 @@ export const leaders: (Leader & Enhancements)[] = [
         abilities: [
             {
                 name: `Queen of Many Names`,
-                description: `Gains +1 Spy when espionage is enabled. Spies' automatically gain 1 rank upon creation.`
+                description: `Gains +1 Spy when espionage is enabled. Spies' automatically gain 1 rank upon creation.`,
+                unlocked: true,
             },
             {
                 name: `Entourage`,
-                description: `+.1 domestic influence/min per citizen after building your first Courthouse.`
+                description: `+.1 domestic influence/min per citizen after building your first Courthouse.`,
+                unlocked: false,
             },
             {
                 name: `Syncretic Church`,
-                description: `Can worship one Pantheon beyond the normal limit and gains one faith bonus based on your closest neighboring nation.`
+                description: `Can worship one Pantheon beyond the normal limit and gains one faith bonus based on your closest neighboring nation.`,
+                unlocked: false,
             },
         ]
     },
@@ -105,16 +111,28 @@ export const leaders: (Leader & Enhancements)[] = [
             {
                 name: `La Reforma Del Norte`,
                 description: `Temples and Churches do not cost land to build but Clerics produce -10% less faith.`,
+                unlocked: true,
             },
             {
                 name: `Biodiverse Lands`,
                 description: `Gains +5% culture/min per biome discovered. Can unlock the Eagle resource, which earns 1 culture/min per Eagle discovered. Can only be earned by Explorers.`,
+                unlocked: false,
             },
             {
                 name: `Columbian Exchange`,
-                description: `Trade Routes award a bonus resource when completed, but plague chance increases by 1% with each completed trade. Plauge chance penalty removed after discovering Germ Theory.`
+                description: `Trade Routes award a bonus resource when completed, but plague chance increases by 1% with each completed trade. Plauge chance penalty removed after discovering Germ Theory.`,
+                unlocked: false,
             }
         ]
+    },
+    {
+        name: LeaderName.Trajan,
+        defaultCivName: 'Rome',
+        defaultName: LeaderName.Trajan,
+        traits: [],
+        abilities: [
+
+        ],
     }
 ]
 
