@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.24.0"></a>
+# [0.24.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.23.0...@clickopolis/app@0.24.0) (2021-06-12)
+
+
+### Bug Fixes
+
+* update dead references to core ([61b8d64](https://github.com/Clickopolis/clickopolis/commit/61b8d64))
+* **build:** ignore dist folder ([dfe7f5c](https://github.com/Clickopolis/clickopolis/commit/dfe7f5c))
+* **build:** webpack now properly copies images folder ([14c33cb](https://github.com/Clickopolis/clickopolis/commit/14c33cb))
+* **Population:** add per click for pop growth ([2928a94](https://github.com/Clickopolis/clickopolis/commit/2928a94))
+* **Resources:** update screens to be more usable ([e6b6e29](https://github.com/Clickopolis/clickopolis/commit/e6b6e29))
+* **UI:** add misc ui fixes ([d75fddd](https://github.com/Clickopolis/clickopolis/commit/d75fddd))
+* add dev-tools extension ([db5cd1a](https://github.com/Clickopolis/clickopolis/commit/db5cd1a))
+
+
+### Features
+
+* **Advancements:** add Fire Making advancement ([fa73c65](https://github.com/Clickopolis/clickopolis/commit/fa73c65))
+* **Advancements:** wip tree-style UI ([a13aa92](https://github.com/Clickopolis/clickopolis/commit/a13aa92))
+* **Menu:** add proper Menu toggling ([6678038](https://github.com/Clickopolis/clickopolis/commit/6678038))
+* **Subscreen:** add Subscreen component ([3f1d74d](https://github.com/Clickopolis/clickopolis/commit/3f1d74d))
+
+
+
+
 <a name="0.23.0"></a>
 # [0.23.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.22.2...@clickopolis/app@0.23.0) (2021-06-07)
 

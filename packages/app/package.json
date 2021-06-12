@@ -1,6 +1,6 @@
 {
   "name": "@clickopolis/app",
-  "version": "0.23.0",
+  "version": "0.24.0",
   "description": "the webapp for clickopolis",
   "main": "main.js",
   "scripts": {
