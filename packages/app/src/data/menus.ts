@@ -1,13 +1,13 @@
 export const menus = [
     {
-        name: 'Civilization',
-        id: 1,
-        show: false,
-    },
-    {
         name: 'Resources',
         id: 2,
         show: true,
+    },
+    {
+        name: 'Civilization',
+        id: 1,
+        show: false,
     },
     {
         name: 'Citizens',
