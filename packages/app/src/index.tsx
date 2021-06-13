@@ -11,6 +11,7 @@ import { PersistGate } from 'redux-persist/es/integration/react';
 import { store, persistor } from './store';
 
 import './styles/global.scss';
+import 'tippy.js/dist/tippy.css';
 
 const mountNode = document.getElementById('root');
 

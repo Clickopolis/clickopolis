@@ -28,6 +28,10 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ],
+            },
+            {
                 test: /\.scss$/,
                 use: [ require.resolve('style-loader'), ...scssLoaders ],
             },

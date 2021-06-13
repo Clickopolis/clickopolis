@@ -1,39 +1,33 @@
 import * as React from 'react';
-import { connect } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { color } from 'csx';
+import { classes, stylesheet } from 'typestyle';
 
-import { selectLeader } from 'actions';
-import { LeaderSelect } from 'components/LeaderSelect';
-
-import { classes, cssRaw, keyframes, stylesheet } from 'typestyle';
+import { selectLeader, turnOnFlag } from 'actions';
 import { leaders } from 'data/leaders';
 import { Leader } from 'interfaces';
-import { color } from 'csx';
-import { useState } from 'react';
 import { addImages, colors } from 'utils';
-import { useEffect } from 'react';
-import { noop } from 'redux-saga/utils';
 import { Button } from 'components/Button';
+import { State } from 'utils/State';
 
-export interface StartScreenOptionsProps {
-    // selectLeader: selectLeader;
-    // leader: Leader;
-}
-
-export function LeaderProfile({ leader, leaderState }: {
+export function LeaderProfile({ leader, selectedLeader }: {
     leader: Leader,
-    leaderState: [Leader | null, React.Dispatch<Leader | null>],
+    selectedLeader: Leader,
 }) {
+    const dispatch = useDispatch();
+
     return <div className={css.leader}>
-        <figure onClick={() => leaderState?.[1](leader)} className={classes(css.leaderProfile, leaderState?.[0]?.name === leader?.name && css.leaderProfileSelected)}>
+        <figure onClick={() => dispatch(selectLeader(leader.name))} className={classes(css.leaderProfile, selectedLeader?.name === leader?.name && css.leaderProfileSelected)}>
             <img style={{width: '100%'}} src={`./images/${leader?.name?.toLowerCase().replace(/\s/g, '-')}.png`} />
         </figure>
         <div className={css.leaderName}>{leader.name}</div>
     </div>;
 }
 
-export function StartScreenOptions(props: StartScreenOptionsProps) {
-    //const {leader} = props;
-    const [selectedLeader, setSelectedLeader] = useState(null);
+export function StartScreenOptions() {
+    const selectedLeader = useSelector<State, State['leader']>(state => state.leader);
+    const dispatch = useDispatch();
 
     useEffect(() => console.log(selectedLeader), [selectedLeader]);
 
@@ -63,7 +57,10 @@ export function StartScreenOptions(props: StartScreenOptionsProps) {
                 <div className={css.leaders}>
                     {leaders.map(leader => {
                         return <div key={leader?.name} className={css.leader}>
-                            <LeaderProfile leader={leader} leaderState={[selectedLeader, setSelectedLeader]} />
+                            <LeaderProfile
+                                leader={leader}
+                                selectedLeader={selectedLeader}
+                            />
                         </div>
                     })}
 
@@ -85,7 +82,7 @@ export function StartScreenOptions(props: StartScreenOptionsProps) {
                 </div>
             </div>
 
-            <Button className={css.goButton}>
+            <Button onClick={() => dispatch(turnOnFlag('HAS_STARTED_GAME'))} className={css.goButton}>
                 Go!
             </Button>
 
@@ -180,6 +177,7 @@ const css = stylesheet({
     selectedLeader: {
         width: '50%',
         padding: '1rem',
+        minHeight: '500px'
     },
     selectedLeaderName: {
         textAlign: 'center',
