@@ -15,6 +15,8 @@ import { calculateHappiness } from 'components';
 import { calculateAnger } from 'components/CivilizationScreen';
 import { classes, stylesheet } from 'typestyle';
 import { menus } from 'data/menus';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 
 export interface MenuProps {
   ac?: number;
@@ -52,9 +54,16 @@ const css = stylesheet({
     padding: '0.25rem',
     margin: '0.5rem',
   },
+  quickView: {
+    marginTop: '.5rem',
+    marginRight: '.5rem',
+  },
+  quickViewChevron: {
+    marginLeft: 'auto',
+  },
 });
 
-const margin = { margin: '0 .5rem', color: '#111' };
+const margin = { margin: '.25rem', color: '#111' };
 
 const ProgressBar = () => {
   return (
@@ -70,7 +79,11 @@ const ProgressBar = () => {
   );
 };
 
-export class MenuBase extends React.Component<MenuProps> {
+export class MenuBase extends React.Component<MenuProps, {isQuickViewOpen: boolean}> {
+  state = {
+    isQuickViewOpen: true,
+  }
+
   private displayQuests = (_: any) => ({});
 
   private getHappinessRating = () => {
@@ -107,6 +120,8 @@ export class MenuBase extends React.Component<MenuProps> {
     return 'Uncertain';
   };
 
+  private toggleQuickView = () => this.setState({ isQuickViewOpen: !this.state.isQuickViewOpen });
+
   public render() {
     const {
       ac,
@@ -124,12 +139,10 @@ export class MenuBase extends React.Component<MenuProps> {
         <UserMenu username={leader.name} userCivName={leader.defaultCivName} />
 
         <div
-          className="at-a-glance"
-          style={{
-            padding: '0.5rem',
-          }}
+          className={css.quickView}
         >
           <h3
+            onClick={this.toggleQuickView}
             style={{
               textTransform: 'lowercase',
               textAlign: 'left',
@@ -137,14 +150,18 @@ export class MenuBase extends React.Component<MenuProps> {
               fontSize: '0.75rem',
               margin: 0,
               marginLeft: '0.5rem',
+              display: 'flex',
             }}
           >
-            At A Glance
+            <span>Quick View</span>
+
+            <FontAwesomeIcon className={css.quickViewChevron} icon={this.state.isQuickViewOpen ? faChevronUp : faChevronDown} />
           </h3>
           <div
             style={{
-              display: 'flex',
+              display: this.state.isQuickViewOpen ? 'flex' : 'none',
               justifyContent: 'flex-start',
+              flexWrap: 'wrap',
               alignItems: 'center',
               margin: '0.25rem',
             }}
@@ -176,15 +193,7 @@ export class MenuBase extends React.Component<MenuProps> {
               description="Total population"
               style={margin}
             />
-          </div>
-          <div
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-start',
-              alignItems: 'center',
-              margin: '0.25rem',
-            }}
-          >
+
             <EraIndicator />
             <Indicator
               value={`${ac} AC`}
@@ -192,14 +201,13 @@ export class MenuBase extends React.Component<MenuProps> {
               neutralColor="#333"
               style={{ margin: '0 .33rem' }}
             />
-          </div>
-          <div>
             <Indicator
               icon={`./images/${this.getHappinessRating().toLowerCase()}.svg`}
-              value={`Your citizens are ${this.getHappinessRating()}`}
+              description={`Your citizens are ${this.getHappinessRating()}`}
               neutralColor="#333"
+              style={margin}
             />
-          </div>
+          </div>  
         </div>
 
         <nav className="main-nav">

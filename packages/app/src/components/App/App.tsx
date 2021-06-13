@@ -284,7 +284,7 @@ export class AppBase extends React.Component<AppProps> {
             style={{
               // justifyContent: HAS_STARTED_GAME ? 'initial' : 'center',
               height: 'calc(100%)',
-              marginLeft: HAS_STARTED_GAME ? '30%' : '0%',
+              marginLeft: HAS_STARTED_GAME ? '20%' : '0%',
             }}
           >
             {HAS_STARTED_GAME ? (
