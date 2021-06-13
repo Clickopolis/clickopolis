@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+<a name="0.25.0"></a>
+# [0.25.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.24.0...@clickopolis/app@0.25.0) (2021-06-13)
+
+
+### Features
+
+* **Start:** rewrite & polish Start screen ([29164a4](https://github.com/Clickopolis/clickopolis/commit/29164a4))
+
+
+
+
 <a name="0.24.0"></a>
 # [0.24.0](https://github.com/Clickopolis/clickopolis/compare/@clickopolis/app@0.23.0...@clickopolis/app@0.24.0) (2021-06-12)
 
