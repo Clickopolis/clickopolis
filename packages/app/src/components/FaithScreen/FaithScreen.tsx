@@ -8,33 +8,30 @@ import { Button } from 'components/Button';
 import { Civilization } from 'interfaces';
 
 export interface FaithScreenprops {
-    faith?: Civilization['faith'];
+  faith?: Civilization['faith'];
 }
 
 export class FaithScreenBase extends React.Component<FaithScreenprops> {
-    constructor(props:FaithScreenprops) {
-        super(props);
-    }
+  constructor(props: FaithScreenprops) {
+    super(props);
+  }
 
-    public render() {
-        return (
-            <Screen
-                type='Faith'
-                color={colors.get('faith')}
-            >
-                <Indicator
-                    value={this.props.faith.total}
-                    positiveColor={colors.get('faith')}
-                    neutralColor={colors.get('faith')}
-                    icon={'./images/faith.svg'}
-                    description={`The total faith in your empire`}
-                />
-            </Screen>
-        );
-    }
+  public render() {
+    return (
+      <Screen type="Faith" color={colors.get('faith')}>
+        <Indicator
+          value={this.props.faith.total}
+          positiveColor={colors.get('faith')}
+          neutralColor={colors.get('faith')}
+          icon={'./images/faith.svg'}
+          description={`The total faith in your empire`}
+        />
+      </Screen>
+    );
+  }
 }
 
 export const FaithScreen = connect(
-    (state: any) => ({ faith: state.civilization.faith }),
-    null
+  (state: any) => ({ faith: state.civilization.faith }),
+  null
 )(FaithScreenBase as any);

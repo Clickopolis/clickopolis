@@ -60,40 +60,50 @@ const exporter = (name: any) => `export * from './${name}';
 `;
 
 const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
+  input: process.stdin,
+  output: process.stdout,
 });
 
-rl.question('Component name:\n> ', answer => {
-    askConnected(answer);
+rl.question('Component name:\n> ', (answer) => {
+  askConnected(answer);
 });
 
 const askConnected = (name: any) => {
-    rl.question('Make a connected component? [y/n]\n> ', answer => {
-        if (answer === 'y' || answer === 'yes') {
-            writeComponent(name, true);
-        } else {
-            writeComponent(name, false);
-        }
-    });
+  rl.question('Make a connected component? [y/n]\n> ', (answer) => {
+    if (answer === 'y' || answer === 'yes') {
+      writeComponent(name, true);
+    } else {
+      writeComponent(name, false);
+    }
+  });
 };
 
 const writeComponent = (name: any, isConnected: any) => {
-    const componentString = isConnected ? componentConnected(name) : component(name);
+  const componentString = isConnected
+    ? componentConnected(name)
+    : component(name);
 
-    fs.mkdir(`${DEFAULT_DIR}/${name}`, err => {
+  fs.mkdir(`${DEFAULT_DIR}/${name}`, (err) => {
+    if (err) throw new Error();
+    fs.writeFile(
+      `${DEFAULT_DIR}/${name}/${name}.tsx`,
+      componentString,
+      (err) => {
         if (err) throw new Error();
-        fs.writeFile(`${DEFAULT_DIR}/${name}/${name}.tsx`, componentString, err => {
+        console.log(`Wrote component ${name} tsx file [1/3]`);
+        fs.writeFile(
+          `${DEFAULT_DIR}/${name}/index.ts`,
+          exporter(name),
+          (err) => {
             if (err) throw new Error();
-            console.log(`Wrote component ${name} tsx file [1/3]`);
-            fs.writeFile(`${DEFAULT_DIR}/${name}/index.ts`, exporter(name), err => {
-                if (err) throw new Error();
-                console.log(`Wrote component ${name} index file [2/3]`);
-                fs.writeFile(`${DEFAULT_DIR}/${name}/${name}.scss`, '\n', err => {
-                    if (err) throw new Error();
-                    console.log(`Wrote component ${name} scss file [3/3]`);
-                });
+            console.log(`Wrote component ${name} index file [2/3]`);
+            fs.writeFile(`${DEFAULT_DIR}/${name}/${name}.scss`, '\n', (err) => {
+              if (err) throw new Error();
+              console.log(`Wrote component ${name} scss file [3/3]`);
             });
-        });
-    });
+          }
+        );
+      }
+    );
+  });
 };

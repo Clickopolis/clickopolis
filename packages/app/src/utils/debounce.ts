@@ -19,26 +19,26 @@ import { curry, apply } from 'ramda';
  *
  */
 export const debounce = curry((immediate, timeMs, fn) => () => {
-	let timeout: any;
+  let timeout: any;
 
-	return (...args: any[]) => {
-		const later = () => {
-			timeout = null;
+  return (...args: any[]) => {
+    const later = () => {
+      timeout = null;
 
-			if (!immediate) {
-				apply(fn, args);
-			}
-		};
+      if (!immediate) {
+        apply(fn, args);
+      }
+    };
 
-		const callNow = immediate && !timeout;
+    const callNow = immediate && !timeout;
 
-		clearTimeout(timeout);
-		timeout = setTimeout(later, timeMs);
+    clearTimeout(timeout);
+    timeout = setTimeout(later, timeMs);
 
-		if (callNow) {
-			apply(fn, args);
-		}
+    if (callNow) {
+      apply(fn, args);
+    }
 
-		return timeout;
-	};
+    return timeout;
+  };
 });

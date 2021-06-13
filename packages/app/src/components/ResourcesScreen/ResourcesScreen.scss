@@ -10,109 +10,107 @@ $prod-button-color: #e6d83e;
 // }
 
 .resources-main-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1rem;
+  .resources-main-buttons-row {
+    align-content: center;
+    align-items: flex-end;
     display: flex;
-    flex-direction: row;
+    height: 64px;
     justify-content: center;
-    flex-wrap: wrap;
-    padding: 1rem;
-    .resources-main-buttons-row {
-        align-content: center;
-        align-items: flex-end;
-        display: flex;
-        height: 64px;
-        justify-content: center;
-        flex-direction: row;
-        position: relative;
-    }
+    flex-direction: row;
+    position: relative;
+  }
 }
 
 .clickopolis-indicator-label {
-    font-size: 90%;
+  font-size: 90%;
 }
 
 .pointer-animated {
-    animation: alternate infinite cubic-bezier(0.39, 0.575, 0.565, 1) 1s;
-    animation-name: pointer;
-    filter: drop-shadow(0 0 1px white);
+  animation: alternate infinite cubic-bezier(0.39, 0.575, 0.565, 1) 1s;
+  animation-name: pointer;
+  filter: drop-shadow(0 0 1px white);
 }
 
 @keyframes pointer {
-    // It's rotated by 90deg so our Y axis is actually our "X" axis
-    0% {
-        transform: rotate(90deg) translateY(10px);
-    }
-    100% {
-        transform: rotate(90deg) translateY(-10px);
-    }
+  // It's rotated by 90deg so our Y axis is actually our "X" axis
+  0% {
+    transform: rotate(90deg) translateY(10px);
+  }
+  100% {
+    transform: rotate(90deg) translateY(-10px);
+  }
 }
 
 .food-button {
-    all: unset;
-    align-content: center;
-    background: $food-button-color;
-    border-bottom: 2px solid darken($food-button-color, 15%);
-    border-radius: 4px;
-    box-shadow: 0 0 1rem rgba(white, 0.1);
-    color: #222;
-    cursor: pointer;
-    display: flex;
-    font-size: 1.25rem;
-    justify-content: center;
-    margin: .5rem;
-    margin-top: .75rem;
-    padding: .75rem;
-    vertical-align: middle;
-    width: 14rem;
+  all: unset;
+  align-content: center;
+  background: $food-button-color;
+  border-bottom: 2px solid darken($food-button-color, 15%);
+  border-radius: 4px;
+  box-shadow: 0 0 1rem rgba(white, 0.1);
+  color: #222;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.25rem;
+  justify-content: center;
+  margin: 0.5rem;
+  margin-top: 0.75rem;
+  padding: 0.75rem;
+  vertical-align: middle;
+  width: 14rem;
 
-    span {
-        display: inline-block;
-        margin-left: .5rem;
-    }
+  span {
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
 
-    &:hover {
-        background: lighten($food-button-color, 5%);
-        transition: 200ms all;
-    }
+  &:hover {
+    background: lighten($food-button-color, 5%);
+    transition: 200ms all;
+  }
 
-    &:active {
-        border-bottom: 0 solid transparent;
-        background: lighten($food-button-color, 10%);
-        transform: translateY(4px);
-        transition: 200ms all;
-    }
+  &:active {
+    border-bottom: 0 solid transparent;
+    background: lighten($food-button-color, 10%);
+    transform: translateY(4px);
+    transition: 200ms all;
+  }
 }
 
 .plus-sign {
-    font-weight: bold;
-    color: white;
-    -webkit-text-stroke: 1px solid #222;
-    pointer-events: none;
-    transition: 300ms ease-in;
-    transform: translateZ(0);
+  font-weight: bold;
+  color: white;
+  -webkit-text-stroke: 1px solid #222;
+  pointer-events: none;
+  transition: 300ms ease-in;
+  transform: translateZ(0);
 }
 
 .clickopolis-button-value {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .prod-button {
-    @extend .food-button;
-    background: $prod-button-color;
-    border-bottom: 2px solid darken($prod-button-color, 15%);
+  @extend .food-button;
+  background: $prod-button-color;
+  border-bottom: 2px solid darken($prod-button-color, 15%);
 
-    
-
-    &:hover {
-        background: lighten($prod-button-color, 5%);
-        transition: 200ms all;
-    }
+  &:hover {
+    background: lighten($prod-button-color, 5%);
+    transition: 200ms all;
+  }
 }
 
 .other-resources-screen {
-    border: 1px solid #333;
-    border-radius: .25rem;
-    color: white;
-    margin: 0.25rem;
-    padding: 0.25rem;
-    width: 400px;
+  border: 1px solid #333;
+  border-radius: 0.25rem;
+  color: white;
+  margin: 0.25rem;
+  padding: 0.25rem;
+  width: 400px;
 }

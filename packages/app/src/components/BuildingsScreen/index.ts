@@ -1,1 +1,1 @@
-export * from './BuildingsScreen'
+export * from './BuildingsScreen';

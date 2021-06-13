@@ -1,177 +1,176 @@
 .resources-matrix {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1rem;
-    img {
-        margin-right: 4px;
-    }
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  img {
+    margin-right: 4px;
+  }
 }
 
 .resources-matrix-row {
-    align-items: flex-end;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    //justify-content: space-evenly;
-    & > div {
-        margin: .25rem;
-    }
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  //justify-content: space-evenly;
+  & > div {
+    margin: 0.25rem;
+  }
 }
 
 .resources-matrix-category {
-    align-items: center;
-    background: #111;
-    border: 1px solid black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    padding: .5rem;
-    width: 8rem;
-    img {
-        height: 1rem;
-        margin-right: auto;
-        width: 1rem;
-    }
-    span {
-        display: block;
-        margin: .25rem;
-    }
+  align-items: center;
+  background: #111;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  width: 8rem;
+  img {
+    height: 1rem;
+    margin-right: auto;
+    width: 1rem;
+  }
+  span {
+    display: block;
+    margin: 0.25rem;
+  }
 }
 
 .resources-matrix-item {
-    align-items: center;
-    background-color: rgba(17, 17, 17, 0.925) !important;
-    color: white;
-    display: flex;
-    height: 3rem;
-    justify-content: center;
-    &:nth-of-type(5n) {
-        margin-right: 8.5rem;
-    }
+  align-items: center;
+  background-color: rgba(17, 17, 17, 0.925) !important;
+  color: white;
+  display: flex;
+  height: 3rem;
+  justify-content: center;
+  &:nth-of-type(5n) {
+    margin-right: 8.5rem;
+  }
 }
 
 .resource-info {
-    align-items: flex-start;
-    background: #111;
-    border: 1px solid #000;
-    border-radius: .25rem;
-    color: #eee;
-    display: flex;
-    flex-direction: column;
-    padding: .5rem;
-    width: 100%;
-    position: relative;
+  align-items: flex-start;
+  background: #111;
+  border: 1px solid #000;
+  border-radius: 0.25rem;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  width: 100%;
+  position: relative;
 
-    h3 {
-        align-self: stretch;
-        color: white;
-        font-weight: lighter;
-        margin: 0;
-        text-align: center;
-        text-transform: uppercase;
-    }
+  h3 {
+    align-self: stretch;
+    color: white;
+    font-weight: lighter;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
-    img {
-        height: 6rem;
-        transform: scale(0.8);
-    }
-
+  img {
+    height: 6rem;
+    transform: scale(0.8);
+  }
 }
 
 .resource-info-row {
-    display: flex;
-    text-align: center;
-    width: 100%;
-    &.center-row {
-        justify-content: center;
-    }
+  display: flex;
+  text-align: center;
+  width: 100%;
+  &.center-row {
+    justify-content: center;
+  }
 }
 
 .info-description {
-    margin-left: 1rem;
-    text-align: left;
-    width: calc(100% - 8rem);
+  margin-left: 1rem;
+  text-align: left;
+  width: calc(100% - 8rem);
 }
 
 .info-image {
-    background: #000;
-    border: 1px solid #222;
-    border-radius: 50%;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    height: 8rem;
-    width: 8rem;
+  background: #000;
+  border: 1px solid #222;
+  border-radius: 50%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 8rem;
+  width: 8rem;
 }
 
 .image-fish {
-    background: #f9a885
+  background: #f9a885;
 }
 
 .image-maize {
-    background: rgb(169, 224, 40);
+  background: rgb(169, 224, 40);
 }
 
 .image-crabs {
-    background: rgb(0, 15, 80);
+  background: rgb(0, 15, 80);
 }
 
 .image-wine {
-    background: rgb(228, 166, 50);
+  background: rgb(228, 166, 50);
 }
 
 .image-mushrooms {
-    background: #ca0a4a;
+  background: #ca0a4a;
 }
 
 .image-banana {
-    background: #8f58f6;
+  background: #8f58f6;
 }
 
 .image-stone {
-    background: #694d3e;
+  background: #694d3e;
 }
 
 .image-cattle {
-    background: #ccb7ac;
+  background: #ccb7ac;
 }
 
 .image-cactus {
-    background: #adbd68;
+  background: #adbd68;
 }
 
 .image-gems {
-    background: #ccffc9;
+  background: #ccffc9;
 }
 
 .image-horses {
-    background: #4db8b4;
+  background: #4db8b4;
 }
 
 .image-wood {
-    background: #495b74
+  background: #495b74;
 }
 
 .image-chihuahuas {
-    background: rgb(94, 48, 26);
+  background: rgb(94, 48, 26);
 }
 
 .image-spaghetti {
-    background: rgb(168, 57, 57);
+  background: rgb(168, 57, 57);
 }
 
 .image-spices {
-    background: rgb(109, 185, 109);
+  background: rgb(109, 185, 109);
 }
 
 .image-gold {
-    background: rgb(70, 16, 70);
+  background: rgb(70, 16, 70);
 }
 
 .image-silver {
-    background: rgb(211, 189, 64);
+  background: rgb(211, 189, 64);
 }
 
 .image-oil {
-    background: rgb(168, 8, 8);
+  background: rgb(168, 8, 8);
 }

@@ -1,7 +1,7 @@
 .building {
+  transition: transform 300ms;
+  &:active {
+    transform: scale(0.9);
     transition: transform 300ms;
-    &:active {
-        transform: scale(0.9);
-        transition: transform 300ms;
-    }
+  }
 }

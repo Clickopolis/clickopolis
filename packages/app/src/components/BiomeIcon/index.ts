@@ -1,1 +1,1 @@
-export * from './BiomeIcon'
+export * from './BiomeIcon';

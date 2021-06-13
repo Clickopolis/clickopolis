@@ -29,4 +29,3 @@ render(
 );
 
 store.subscribe(() => {});
-

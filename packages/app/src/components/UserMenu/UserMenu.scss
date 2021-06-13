@@ -1,39 +1,39 @@
 .user-menu {
-    background-color: transparent;
-    border-radius: .25rem;
-    border: 1px solid #444;
-    cursor: pointer;
-    display: flex;
-    height: 3.5rem;
-    justify-content: center;
-    margin-left: auto;
-    padding: .5rem;
+  background-color: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid #444;
+  cursor: pointer;
+  display: flex;
+  height: 3.5rem;
+  justify-content: center;
+  margin-left: auto;
+  padding: 0.5rem;
+  transition: 350ms background-color;
+  width: 100%;
+  &:hover {
+    background: #444;
+    box-shadow: 0 0 4px black;
     transition: 350ms background-color;
-    width: 100%;
-    &:hover {
-        background: #444;
-        box-shadow: 0 0 4px black;
-        transition: 350ms background-color;
-    }
+  }
 }
 
 .user-info {
-    text-align: right;
+  text-align: right;
 }
 
 .user-info-name {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 .user-info-civ {
-    font-weight: light;
+  font-weight: light;
 }
 
 .user-profile {
-    height: 2rem;
-    margin: 0 .5rem;
+  height: 2rem;
+  margin: 0 0.5rem;
 }
 .user-profile img {
-    border-radius: 50%;
-    height: 2rem;
+  border-radius: 50%;
+  height: 2rem;
 }

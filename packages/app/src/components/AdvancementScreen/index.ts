@@ -1,1 +1,1 @@
-export * from './AdvancementScreen'
+export * from './AdvancementScreen';

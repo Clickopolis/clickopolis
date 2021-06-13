@@ -1,6 +1,5 @@
 declare module 'gradient-path' {
+  const GradientPath: any;
 
-    const GradientPath: any;
-
-    export default GradientPath;
+  export default GradientPath;
 }

@@ -1,60 +1,60 @@
 .notification {
-    animation: 750ms appear;
-    animation-iteration-count: 1;
-    position: fixed;
-    bottom: 3.5rem;
-    right: 1rem;
-    width: 30rem;
-    height: 4rem;
-    overflow-y: auto;
-    font-size: 1.1rem;
-    background: #222;
-    color: #fff;
-    box-shadow: 0 0 1rem rgba(black, 0.33);
-    border: 1px solid #444;
-    padding: 1.5rem;
-    border-radius: .25rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 90%;
-    //text-align: center;
-    z-index: 1001;
+  animation: 750ms appear;
+  animation-iteration-count: 1;
+  position: fixed;
+  bottom: 3.5rem;
+  right: 1rem;
+  width: 30rem;
+  height: 4rem;
+  overflow-y: auto;
+  font-size: 1.1rem;
+  background: #222;
+  color: #fff;
+  box-shadow: 0 0 1rem rgba(black, 0.33);
+  border: 1px solid #444;
+  padding: 1.5rem;
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 90%;
+  //text-align: center;
+  z-index: 1001;
 
-    &.warning {
-        background: tomato;
-    }
+  &.warning {
+    background: tomato;
+  }
 }
 
 .notification-inner {
-    max-width: 80%;
+  max-width: 80%;
 
-    img {
-        height: 1rem;
-    }
+  img {
+    height: 1rem;
+  }
 }
 
 @keyframes appear {
-    from {
-        right: -40rem;
-        opacity: 0;
-    }
-    to {
-        right: 1rem;
-        opacity: 1;
-    }
+  from {
+    right: -40rem;
+    opacity: 0;
+  }
+  to {
+    right: 1rem;
+    opacity: 1;
+  }
 }
 
 .notification-close {
-    // position: absolute;
-    // top: 3.7rem;
-    // right: 1.2rem;
-    border-radius: .25rem;
-    text-align: center;
-    vertical-align: middle;
-    color: white;
-    font-size: 1.5rem;
-    height: 40px;
-    width: 40px;
-    cursor: pointer;
+  // position: absolute;
+  // top: 3.7rem;
+  // right: 1.2rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  vertical-align: middle;
+  color: white;
+  font-size: 1.5rem;
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
 }

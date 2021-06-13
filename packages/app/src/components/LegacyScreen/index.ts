@@ -1,1 +1,1 @@
-export * from './LegacyScreen'
+export * from './LegacyScreen';

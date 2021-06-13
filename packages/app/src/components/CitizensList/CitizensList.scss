@@ -1,52 +1,52 @@
 .citizens-list {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .citizens-list-item {
-    background: #111;
-    border: 1px solid #000;
-    margin: .25rem;
-    padding: .5rem;
+  background: #111;
+  border: 1px solid #000;
+  margin: 0.25rem;
+  padding: 0.5rem;
 }
 
 .citizen-amount {
-    color: #fff;
-    font-weight: bold;
-    margin: .5rem;
-    text-align: center;
-    width: 2rem;
+  color: #fff;
+  font-weight: bold;
+  margin: 0.5rem;
+  text-align: center;
+  width: 2rem;
 }
 
 .citizen-amount-button {
-    background: #444;
-    border: 1px solid #111;
-    border-radius: .25rem;
-    color: white;
-    img {
-        display: none;
-    }
-    
-    &[disabled] {
-        opacity: 0.3;
-    }
+  background: #444;
+  border: 1px solid #111;
+  border-radius: 0.25rem;
+  color: white;
+  img {
+    display: none;
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+  }
 }
 
 .citizen-image {
-    height: 2rem;
-    margin: 0 .5rem;
+  height: 2rem;
+  margin: 0 0.5rem;
 }
 
 .citizen-description {
-    color: white;
-    font-style: italic;
-    margin-left: .25rem;
+  color: white;
+  font-style: italic;
+  margin-left: 0.25rem;
 }
 
 .citizen-contribution {
-    color: #fff;
-    margin-left: auto;
-    img {
-        height: .75rem;
-    }
+  color: #fff;
+  margin-left: auto;
+  img {
+    height: 0.75rem;
+  }
 }
