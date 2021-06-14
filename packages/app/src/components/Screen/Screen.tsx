@@ -1,13 +1,14 @@
 import * as React from 'react';
-// @ts-ignore: no @types def
-import classNames from 'classnames';
+import { classes, style as typestyle, stylesheet } from 'typestyle';
 
 export interface ScreenProps {
   className?: string | string[];
   color: string;
+  color2?: string;
   style?: object;
   type: string;
   infoComponent?: React.ReactNode;
+  header?: React.ReactNode;
 }
 
 export class Screen extends React.Component<
@@ -23,44 +24,58 @@ export class Screen extends React.Component<
   };
 
   public render() {
-    const { children, color, className, style, type, infoComponent } =
+    const { children, color, color2, className, style, type, header, infoComponent } =
       this.props;
+
+    const headerWrapper = typestyle({
+      margin: '0.5rem',
+      marginTop: 0,
+      padding: '0.25rem',
+      borderRadius: '0 0 .5rem .5rem',
+      background: `linear-gradient(to right, ${color}, ${color2 ?? color})`,
+    });
 
     return (
       <section
         style={{ ...style }}
-        className={classNames(
+        className={classes(
           'clickopolis-screen',
           `${type.toLowerCase()}-screen`,
           className
         )}
         id={type}
       >
-        <header
-          style={{ backgroundColor: color }}
-          className={classNames(
-            `${type.toLowerCase()}-screen-header`,
-            'screen-header'
-          )}
-        >
-          <img
-            alt={type}
-            src={'./images/' + type.toLowerCase() + '.svg'}
-            style={{ height: '2rem', marginRight: '8px' }}
-          />
-          <h2>{type}</h2>
-          {infoComponent != null && (
-            <img
-              style={{ height: '1.5rem' }}
-              onClick={this.onShowInfo}
-              alt="info"
-              src={'./images/info.svg'}
-            />
-          )}
-        </header>
+        {!header ? <div className={headerWrapper}><header className={css.header}>
+          <img className={css.headerImage} src={`./images/${type.toLowerCase()}.svg`} />
+          <h2 className={css.headerTitle}>{type}</h2>
+        </header></div> : header}
         {this.state.showInfo && infoComponent && infoComponent}
         {children}
       </section>
     );
   }
 }
+
+const css = stylesheet({
+  
+  header: {
+    display: 'flex',
+    alignItems: 'center',
+    borderRadius: '.5rem',
+    background: '#222',
+    padding: '0.25rem',
+  },
+  headerImage: {
+    height: '2rem',
+    margin: '.25rem',
+
+  },
+  headerTitle: {
+    margin: 0,
+    marginLeft: '.25rem',
+    color: 'white',
+    textTransform: 'uppercase',
+    fontWeight: 'lighter',
+
+  },
+});

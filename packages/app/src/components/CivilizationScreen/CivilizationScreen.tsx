@@ -69,6 +69,8 @@ export const calculateHealth = (civ: Civilization, cattle: Resource) => {
   );
 };
 
+const isNegative = (n?: number) => n?.toString().charAt(0) === '-';
+
 export class CivilizationScreenBase extends React.Component<
   CivilizationScreenProps,
   CivilizationScreenState
@@ -120,6 +122,7 @@ export class CivilizationScreenBase extends React.Component<
 
     const { civilization } = this.props;
     const goldenAgePercent = this.getGoldenAgeProgress(civilization);
+    const gaGain = civilization.population / ((calculateHappiness(civilization) - calculateAnger(civilization)) || 1);
 
     return (
       <Screen type="Civilization" color={colors.get('civilization')}>
@@ -232,7 +235,7 @@ export class CivilizationScreenBase extends React.Component<
             </div>
           </div>
           <Indicator
-            value={`Golden Age Progress`}
+            value={`Golden Age Progress (${isNegative(gaGain) ? '-' : '+'}${abbrNum(gaGain)})`}
             style={{
               ...indicatorStyle,
               color: 'white',
@@ -245,7 +248,7 @@ export class CivilizationScreenBase extends React.Component<
             }}
             icon={'./images/golden-age.svg'}
             description={`Your progress towards a Golden Age ${
-              civilization.goldenAge.progress
+              abbrNum(civilization.goldenAge.progress)
             }/${abbrNum(civilization.goldenAge.goal)}`}
           />
         </div>

@@ -12,7 +12,8 @@ import {
   addImages,
 } from 'utils';
 import { purchaseAdvancement } from 'actions';
-import { Tooltip } from 'react-tippy';
+import { followCursor } from 'tippy.js';
+import Tippy, { TippyProps } from '@tippyjs/react';
 import GradientPath from 'gradient-path';
 
 import './AdvancementScreen.scss';
@@ -134,12 +135,10 @@ export const AdvancementDisplay = (
   }, [adv.purchased, adv.advs]);
 
   return (
-    <Tooltip
-      hideDuration={10}
+    <Tippy
       followCursor
-      arrow
-      position="left"
-      html={
+      plugins={[followCursor]}
+      content={
         <div>
           {
             <ul
@@ -158,6 +157,7 @@ export const AdvancementDisplay = (
         </div>
       }
     >
+    <>
       {/* {adv.tier !== 0 && <svg style={{
                 position: 'absolute',
                 top: (170 * adv.tier) + 'px',
@@ -315,7 +315,8 @@ export const AdvancementDisplay = (
           </div>
         )}
       </div>
-    </Tooltip>
+      </>
+    </Tippy>
   );
 };
 

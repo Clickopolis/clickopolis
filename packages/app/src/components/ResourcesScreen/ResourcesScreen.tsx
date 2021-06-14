@@ -5,8 +5,7 @@ import { Indicator } from 'components/Indicator';
 import { Button } from 'components/Button';
 import { Resource, Flags } from 'interfaces';
 import { abbrNum } from 'utils';
-//@ts-ignore: no @types def
-import * as classNames from 'classnames';
+import { classes, stylesheet } from 'typestyle';
 
 import { ResourcesMatrix } from '../ResourcesMatrix';
 import {
@@ -391,3 +390,4 @@ export const ResourcesScreen = connect(
     addNotification,
   }
 )(ResourcesScreenBase as any);
+

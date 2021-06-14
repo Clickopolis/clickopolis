@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { followCursor } from 'tippy.js';
 import Tippy, { TippyProps } from '@tippyjs/react';
 
 export interface IndicatorProps {
@@ -116,7 +117,7 @@ export function Indicator(props: IndicatorProps) {
   );
 
   return description ? (
-    <Tippy content={description} followCursor={true} {...ttp}>
+    <Tippy content={description} followCursor={true} plugins={[followCursor]} {...ttp}>
       {indicator}
     </Tippy>
   ) : (

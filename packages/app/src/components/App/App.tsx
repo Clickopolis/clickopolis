@@ -180,7 +180,8 @@ export class AppBase extends React.Component<AppProps> {
     // const minerProd = minerContrib ? minerContrib.amount * miners.amount : 0;
     if (flags.HAS_STARTED_GAME && timeStatus === TimeStatus.Playing) {
       this.props.updateGAProgress(
-        calculateHappiness(civilization) - calculateAnger(civilization)
+        // divide pop by happiness - anger, handling for division by zero JIC
+        civilization.population / ((calculateHappiness(civilization) - calculateAnger(civilization)) || 1)
       );
     }
   };
