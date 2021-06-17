@@ -1,35 +1,32 @@
 {
-  "name": "@clickopolis/app",
-  "version": "0.25.0",
-  "description": "the webapp for clickopolis",
-  "main": "main.js",
+  "name": "~TODO~",
+  "version": "0.0.1",
   "scripts": {
-    "test": "exit 0",
-    "serve": "ts-node ./server.ts",
-    "build": "webpack",
-    "clean": "rm -rf ./dist",
-    "create-component": "ts-node ./create-component.ts",
-    "start": "npm run serve",
-    "start:loop": "while true; do npm start && break; done",
-    "start:app": "electron .",
-    "build:watch": "npm run build -- --watch"
-  },
-  "keywords": [
-    "webapp",
-    "clickopolis"
-  ],
-  "author": "Emma Ramirez <ramirez.emma.g@gmail.com>",
-  "license": "MIT",
-  "private": false,
-  "publishConfig": {
-    "access": "public"
-  },
-  "dependencies": {
-    "typestyle": "^2.1.0"
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview",
+    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+    "lint": "prettier --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+    "format": "prettier --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "electron": "^13.1.1",
-    "prettier": "^2.3.1",
-    "typescript": "^4"
+    "@sveltejs/kit": "next",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
+    "@typescript-eslint/parser": "^4.19.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-svelte3": "^3.2.0",
+    "prettier": "~2.2.1",
+    "prettier-plugin-svelte": "^2.2.0",
+    "svelte": "^3.34.0",
+    "svelte-check": "^2.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "^4.0.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "ramda": "^0.27.1"
   }
 }
