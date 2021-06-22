@@ -1,5 +1,5 @@
 export enum TimeStatus {
-  Idle,
-  Playing,
-  Paused,
+	Idle,
+	Playing,
+	Paused
 }

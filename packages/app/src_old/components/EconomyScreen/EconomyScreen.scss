@@ -1,46 +1,46 @@
 table.trade-routes {
-  font-family: 'Courier New', Courier, monospace;
-  border: 2px solid #ffffff;
-  background-color: #242424;
-  width: 100%;
-  text-align: center;
-  border-collapse: collapse;
+	font-family: 'Courier New', Courier, monospace;
+	border: 2px solid #ffffff;
+	background-color: #242424;
+	width: 100%;
+	text-align: center;
+	border-collapse: collapse;
 }
 table.trade-routes td,
 table.trade-routes th {
-  border: 0px solid #ffffff;
-  padding: 3px 2px;
+	border: 0px solid #ffffff;
+	padding: 3px 2px;
 }
 table.trade-routes tbody td,
 table.trade-routes thead td {
-  font-size: 13px;
-  color: #ffffff;
+	font-size: 13px;
+	color: #ffffff;
 }
 table.trade-routes td:nth-child(even) {
-  background: #2f2f2f;
+	background: #2f2f2f;
 }
 table.trade-routes thead {
-  background: #333333;
-  border-bottom: 4px solid #333333;
+	background: #333333;
+	border-bottom: 4px solid #333333;
 }
 table.trade-routes thead th {
-  font-size: 15px;
-  font-weight: bold;
-  color: #333333;
-  text-align: center;
-  border-left: 2px solid #333333;
+	font-size: 15px;
+	font-weight: bold;
+	color: #333333;
+	text-align: center;
+	border-left: 2px solid #333333;
 }
 table.trade-routes thead th:first-child {
-  border-left: none;
+	border-left: none;
 }
 
 table.trade-routes tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #16aa1f;
-  background: #383838;
-  border-top: 4px solid #333333;
+	font-size: 14px;
+	font-weight: bold;
+	color: #16aa1f;
+	background: #383838;
+	border-top: 4px solid #333333;
 }
 table.trade-routes tfoot td {
-  font-size: 14px;
+	font-size: 14px;
 }

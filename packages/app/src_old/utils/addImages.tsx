@@ -10,24 +10,24 @@ import { Tooltip } from 'react-tippy';
  * @param str - a string to regexify
  */
 export const addImages = (str: string) => {
-  const m = str.match(/\[.{1,20}\]/g);
-  const matches = m && m.map((s) => s.replace(/(\[|\])/g, ''));
-  const parts = str.split(/\[.{1,20}\]/g);
+	const m = str.match(/\[.{1,20}\]/g);
+	const matches = m && m.map((s) => s.replace(/(\[|\])/g, ''));
+	const parts = str.split(/\[.{1,20}\]/g);
 
-  //console.log(matches, parts)
+	//console.log(matches, parts)
 
-  const image = (str: string) => (
-    <Tooltip title={str}>
-      <img style={{ height: '1rem' }} src={`./images/${str}.svg`} />
-    </Tooltip>
-  );
+	const image = (str: string) => (
+		<Tooltip title={str}>
+			<img style={{ height: '1rem' }} src={`./images/${str}.svg`} />
+		</Tooltip>
+	);
 
-  const arr = [
-    parts[0],
-    matches?.[0] && image(matches[0]),
-    parts[1],
-    matches?.[1] && image(matches[1]),
-  ];
+	const arr = [
+		parts[0],
+		matches?.[0] && image(matches[0]),
+		parts[1],
+		matches?.[1] && image(matches[1])
+	];
 
-  return arr;
+	return arr;
 };

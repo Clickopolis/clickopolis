@@ -18,6 +18,7 @@
 		"sourceMap": true,
 		"esModuleInterop": true,
 		"skipLibCheck": true,
+		"noImplicitAny": true,
 		"forceConsistentCasingInFileNames": true,
 		"baseUrl": ".",
 		"allowJs": true,

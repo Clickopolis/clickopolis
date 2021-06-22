@@ -1,0 +1,22 @@
+@tailwind base;
+/* Write your global styles here, in PostCSS syntax */
+@tailwind components;
+@tailwind utilities;
+
+button {
+	background: #6dc7fc;
+	padding: 0.25rem;
+	border-radius: 0.25rem;
+	margin: 0.25rem;
+	transition: 250ms background;
+}
+
+button:hover {
+	background: #85d2ff;
+	transition: 250ms background;
+}
+
+button[disabled] {
+	background: #eee;
+	pointer-events: none;
+}

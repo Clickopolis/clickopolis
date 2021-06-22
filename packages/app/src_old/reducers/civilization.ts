@@ -1,176 +1,173 @@
 // import { Civilization } from '../../../core';
 
 import {
-  Action,
-  GROW_POPULATION,
-  UPDATE_CIVILIZATION,
-  GAIN_CASH,
-  UPDATE_GA_PROGRESS,
+	Action,
+	GROW_POPULATION,
+	UPDATE_CIVILIZATION,
+	GAIN_CASH,
+	UPDATE_GA_PROGRESS
 } from '../actions';
 import { assocPath } from 'ramda';
 
 // @NOTE: Replace any with Civilization
 const civDefault: any = {
-  civName: '',
-  leader: {},
-  color: '',
-  biomes: ['Biome'],
-  ac: 0,
+	civName: '',
+	leader: {},
+	color: '',
+	biomes: ['Biome'],
+	ac: 0,
 
-  population: 1,
-  foodNeededForGrowth: 20,
+	population: 1,
+	foodNeededForGrowth: 20,
 
-  goldenAge: {
-    isActive: false,
-    progress: 0,
-    goal: 100000,
-    multiplier: 0,
-  },
+	goldenAge: {
+		isActive: false,
+		progress: 0,
+		goal: 100000,
+		multiplier: 0
+	},
 
-  happiness: {
-    base: 50,
-    fromBuildings: 0,
-    fromWonders: 0,
-    fromCitizens: 0,
-    fromResources: 0,
-    fromCultureBonuses: 0,
-    fromFaithBonuses: 0,
-    fromEvents: 0,
-    multiplier: 1,
-  },
+	happiness: {
+		base: 50,
+		fromBuildings: 0,
+		fromWonders: 0,
+		fromCitizens: 0,
+		fromResources: 0,
+		fromCultureBonuses: 0,
+		fromFaithBonuses: 0,
+		fromEvents: 0,
+		multiplier: 1
+	},
 
-  anger: {
-    fromPopulation: 0,
-    fromWar: 0,
-    fromEvents: 0,
-    fromSlavery: 0,
-    multiplier: 1,
-  },
+	anger: {
+		fromPopulation: 0,
+		fromWar: 0,
+		fromEvents: 0,
+		fromSlavery: 0,
+		multiplier: 1
+	},
 
-  health: {
-    base: 50,
-    fromResources: 0,
-    fromBuildings: 0,
-    multiplier: 1,
-  },
+	health: {
+		base: 50,
+		fromResources: 0,
+		fromBuildings: 0,
+		multiplier: 1
+	},
 
-  pollution: {
-    fromPopulation: 0,
-    fromResources: 0,
-    fromBuildings: 0,
-    fromWonders: 0,
-    fromCorporations: 0,
-    fromEvents: 0,
-    multiplier: 1,
-  },
+	pollution: {
+		fromPopulation: 0,
+		fromResources: 0,
+		fromBuildings: 0,
+		fromWonders: 0,
+		fromCorporations: 0,
+		fromEvents: 0,
+		multiplier: 1
+	},
 
-  cash: {
-    total: 0,
-    perMinute: 0,
-    perMinuteFromCitizens: 0,
-    perMinuteFromBuildings: 0,
-    perMinuteFromBuildingMaintenance: 0,
-    perMinuteFromMilitary: 0,
-    perMinuteFromTradeRoutes: 0,
-    perMinuteFromTradeDeals: 0,
-    perMinuteFromSocialPolicies: 0,
-    perMinuteFromFaith: 0,
-    perMinuteFromLegacy: 0,
-    perMinuteFromWonders: 0,
-    multiplier: 1,
-  },
+	cash: {
+		total: 0,
+		perMinute: 0,
+		perMinuteFromCitizens: 0,
+		perMinuteFromBuildings: 0,
+		perMinuteFromBuildingMaintenance: 0,
+		perMinuteFromMilitary: 0,
+		perMinuteFromTradeRoutes: 0,
+		perMinuteFromTradeDeals: 0,
+		perMinuteFromSocialPolicies: 0,
+		perMinuteFromFaith: 0,
+		perMinuteFromLegacy: 0,
+		perMinuteFromWonders: 0,
+		multiplier: 1
+	},
 
-  culture: {
-    total: 0,
+	culture: {
+		total: 0,
 
-    perMinuteFromCitizens: 0,
-    perMinuteFromSocialPolicies: 0,
-    perMinuteFromResources: 0,
-    perMinuteFromLegacy: 0,
-    perMinuteFromWonders: 0,
-    perMinuteFromAdvancements: 0,
-    multiplier: 0,
-  },
+		perMinuteFromCitizens: 0,
+		perMinuteFromSocialPolicies: 0,
+		perMinuteFromResources: 0,
+		perMinuteFromLegacy: 0,
+		perMinuteFromWonders: 0,
+		perMinuteFromAdvancements: 0,
+		multiplier: 0
+	},
 
-  faith: {
-    total: 0,
-    gameTotal: 0,
-    perMinuteFromBuildings: 0,
-    perMinuteFromSocialPolicies: 0,
-    perMinuteFromResources: 0,
-    perMinuteFromLegacy: 0,
-    perMinuteFromWonders: 0,
-    perMinute: 0,
-    multiplier: 0,
-  },
+	faith: {
+		total: 0,
+		gameTotal: 0,
+		perMinuteFromBuildings: 0,
+		perMinuteFromSocialPolicies: 0,
+		perMinuteFromResources: 0,
+		perMinuteFromLegacy: 0,
+		perMinuteFromWonders: 0,
+		perMinute: 0,
+		multiplier: 0
+	},
 
-  research: {
-    total: 1000000,
-    perMinuteFromCitizens: 0,
-    perMinuteFromCultureBonuses: 0,
-    perMinuteFromFaithBonuses: 0,
-    perMinuteFromAdvancements: 0,
-    perMinuteFromTrade: 0,
-    perMinuteFromBuildings: 0,
-    perMinuteFromCorporations: 0,
-  },
+	research: {
+		total: 1000000,
+		perMinuteFromCitizens: 0,
+		perMinuteFromCultureBonuses: 0,
+		perMinuteFromFaithBonuses: 0,
+		perMinuteFromAdvancements: 0,
+		perMinuteFromTrade: 0,
+		perMinuteFromBuildings: 0,
+		perMinuteFromCorporations: 0
+	}
 };
 
 export function civilization(
-  state = civDefault,
-  action: Action<
-    GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH | UPDATE_GA_PROGRESS
-  >
+	state = civDefault,
+	action: Action<GROW_POPULATION | UPDATE_CIVILIZATION | GAIN_CASH | UPDATE_GA_PROGRESS>
 ) {
-  switch (action.type) {
-    case GROW_POPULATION:
-      const population = state.population + action.amount;
-      return {
-        ...state,
-        population,
-        foodNeededForGrowth: action.foodNeededForGrowth,
-        angerFromPopulation: population,
-        research: {
-          ...state.research,
-          perMinuteFromCitizens:
-            state.research.perMinuteFromCitizens + action.amount / 4,
-        },
-        anger: {
-          ...state.anger,
-          fromPopulation: state.anger.fromPopulation + action.amount,
-        },
-        pollution: {
-          ...state.pollution,
-          fromPopulation: state.pollution.fromPopulation + action.amount,
-        },
-        cash: {
-          ...state.cash,
-          perMinuteCitizens: state.cash.perMinuteCitizens + action.amount,
-        },
-      };
-    case GAIN_CASH:
-      return {
-        ...state,
-        cash: {
-          ...state.cash,
-          total: state.cash.total + action.amount,
-        },
-      };
-    case UPDATE_GA_PROGRESS:
-      return state.goldenAge.isActive
-        ? state
-        : {
-            ...state,
-            goldenAge: {
-              ...state.goldenAge,
-              progress: state.goldenAge.progress + action.amount,
-            },
-          };
-    case UPDATE_CIVILIZATION:
-      return assocPath([...action.key], action.value, state);
-    default:
-      return state;
-  }
+	switch (action.type) {
+		case GROW_POPULATION:
+			const population = state.population + action.amount;
+			return {
+				...state,
+				population,
+				foodNeededForGrowth: action.foodNeededForGrowth,
+				angerFromPopulation: population,
+				research: {
+					...state.research,
+					perMinuteFromCitizens: state.research.perMinuteFromCitizens + action.amount / 4
+				},
+				anger: {
+					...state.anger,
+					fromPopulation: state.anger.fromPopulation + action.amount
+				},
+				pollution: {
+					...state.pollution,
+					fromPopulation: state.pollution.fromPopulation + action.amount
+				},
+				cash: {
+					...state.cash,
+					perMinuteCitizens: state.cash.perMinuteCitizens + action.amount
+				}
+			};
+		case GAIN_CASH:
+			return {
+				...state,
+				cash: {
+					...state.cash,
+					total: state.cash.total + action.amount
+				}
+			};
+		case UPDATE_GA_PROGRESS:
+			return state.goldenAge.isActive
+				? state
+				: {
+						...state,
+						goldenAge: {
+							...state.goldenAge,
+							progress: state.goldenAge.progress + action.amount
+						}
+				  };
+		case UPDATE_CIVILIZATION:
+			return assocPath([...action.key], action.value, state);
+		default:
+			return state;
+	}
 }
 
 // export interface Civilization {

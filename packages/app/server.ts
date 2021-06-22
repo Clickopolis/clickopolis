@@ -6,13 +6,13 @@ const express = require('express');
 const app = express();
 
 if (process.env.NODE_ENV !== 'production') {
-  app.use(
-    middleware(compiler, {
-      // webpack-dev-middleware options
-    })
-  );
+	app.use(
+		middleware(compiler, {
+			// webpack-dev-middleware options
+		})
+	);
 } else {
-  app.use('/', express.static('./dist'));
+	app.use('/', express.static('./dist'));
 }
 
 app.listen(port, () => console.log(`Running at port ${port}`));

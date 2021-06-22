@@ -1,6 +1,6 @@
 export interface MapTiles {
-  terrain: string;
-  features: string[];
+	terrain: string;
+	features: string[];
 }
 
 export type Map = MapTiles[];
@@ -8,5 +8,5 @@ export type Map = MapTiles[];
 export interface MapOptions {}
 
 export const createMap = (_opt: MapOptions): Map[] => {
-  return [[], [], []];
+	return [[], [], []];
 };

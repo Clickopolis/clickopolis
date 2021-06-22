@@ -1,40 +1,40 @@
 .citizens-top-bar {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.5rem;
+	display: flex;
+	justify-content: space-between;
+	margin: 0.5rem;
 }
 
 .citizens-employment {
-  background: #ddd;
+	background: #ddd;
 }
 
 .citizens-note {
-  color: #fff;
-  margin: 0.5rem;
-  text-align: center;
+	color: #fff;
+	margin: 0.5rem;
+	text-align: center;
 }
 
 .citizens-amount-text {
-  color: white;
-  margin-left: auto;
-  padding: 0.5rem;
+	color: white;
+	margin-left: auto;
+	padding: 0.5rem;
 }
 
 .citizens-input {
-  background: #ddd;
-  border: 1px solid #000;
-  color: #111;
-  padding: 0 0.5rem;
+	background: #ddd;
+	border: 1px solid #000;
+	color: #111;
+	padding: 0 0.5rem;
 }
 
 .tiny-image {
-  height: 0.75rem;
+	height: 0.75rem;
 }
 
 .full-employment {
-  background: lightgreen;
+	background: lightgreen;
 }
 
 .unemployment {
-  background: tomato;
+	background: tomato;
 }

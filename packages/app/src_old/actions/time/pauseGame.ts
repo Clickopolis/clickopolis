@@ -5,7 +5,7 @@ export const PAUSE_GAME: PAUSE_GAME = 'PAUSE_GAME';
 
 export type pauseGame = () => Action<PAUSE_GAME>;
 export function pauseGame() {
-  return {
-    type: PAUSE_GAME,
-  };
+	return {
+		type: PAUSE_GAME
+	};
 }

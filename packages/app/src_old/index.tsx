@@ -16,16 +16,12 @@ import 'tippy.js/dist/tippy.css';
 const mountNode = document.getElementById('root');
 
 render(
-  <Provider store={store}>
-    <PersistGate
-      loading={<div>Loading...</div>}
-      onBeforeLift={null}
-      persistor={persistor}
-    >
-      <App />
-    </PersistGate>
-  </Provider>,
-  mountNode
+	<Provider store={store}>
+		<PersistGate loading={<div>Loading...</div>} onBeforeLift={null} persistor={persistor}>
+			<App />
+		</PersistGate>
+	</Provider>,
+	mountNode
 );
 
 store.subscribe(() => {});

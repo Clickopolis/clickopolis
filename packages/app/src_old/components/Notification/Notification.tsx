@@ -5,67 +5,65 @@ import { connect } from 'react-redux';
 import { removeNotification } from 'actions';
 
 export enum NotificationType {
-  Success = 'success',
-  Info = 'info',
-  Warning = 'warning',
-  Error = 'error',
+	Success = 'success',
+	Info = 'info',
+	Warning = 'warning',
+	Error = 'error'
 }
 
 export interface NotificationProps {
-  timeout?: number;
-  type?: NotificationType;
-  requireUserCancellation?: boolean;
-  content: React.ReactNode;
-  id?: string;
-  posId?: number;
-  key: string;
-  removeNotification: removeNotification;
-  onClose?: () => void;
+	timeout?: number;
+	type?: NotificationType;
+	requireUserCancellation?: boolean;
+	content: React.ReactNode;
+	id?: string;
+	posId?: number;
+	key: string;
+	removeNotification: removeNotification;
+	onClose?: () => void;
 }
 
 export class NotificationBase extends React.Component<NotificationProps> {
-  public intervalId: any;
-  public static defaultProps = {
-    timeout: 1000,
-  };
+	public intervalId: any;
+	public static defaultProps = {
+		timeout: 1000
+	};
 
-  public componentDidMount() {
-    this.intervalId = setTimeout(this.disappear, this.props.timeout);
-  }
+	public componentDidMount() {
+		this.intervalId = setTimeout(this.disappear, this.props.timeout);
+	}
 
-  public componentWillUnmount() {
-    clearInterval(this.intervalId);
-  }
+	public componentWillUnmount() {
+		clearInterval(this.intervalId);
+	}
 
-  public render() {
-    const { content, posId, type } = this.props;
+	public render() {
+		const { content, posId, type } = this.props;
 
-    const style = {
-      bottom: `calc(3.5rem + (4.25rem * (${posId}))`,
-    };
+		const style = {
+			bottom: `calc(3.5rem + (4.25rem * (${posId}))`
+		};
 
-    return (
-      <div className={`notification ${type}`} style={style}>
-        <div className="notification-inner">{content}</div>
-        <div onClick={this.disappear} className="notification-close">
-          <img
-            src="./images/close.svg"
-            style={{
-              height: '1rem',
-              filter: 'invert(100%)',
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
+		return (
+			<div className={`notification ${type}`} style={style}>
+				<div className="notification-inner">{content}</div>
+				<div onClick={this.disappear} className="notification-close">
+					<img
+						src="./images/close.svg"
+						style={{
+							height: '1rem',
+							filter: 'invert(100%)'
+						}}
+					/>
+				</div>
+			</div>
+		);
+	}
 
-  private disappear = () => {
-    this.props.onClose && this.props.onClose();
-    this.props.removeNotification(this.props.id.toString());
-  };
+	private disappear = () => {
+		this.props.onClose && this.props.onClose();
+		this.props.removeNotification(this.props.id.toString());
+	};
 }
 
-export const Notification: any = connect(null, { removeNotification })(
-  NotificationBase as any
-);
+export const Notification: any = connect(null, { removeNotification })(NotificationBase as any);

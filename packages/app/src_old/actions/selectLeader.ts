@@ -6,6 +6,6 @@ export const SELECT_LEADER: SELECT_LEADER = 'SELECT_LEADER';
 
 export type selectLeader = (l: Leader['name']) => Action<SELECT_LEADER>;
 export const selectLeader = (leader: Leader['name']) => ({
-  type: SELECT_LEADER,
-  leader,
+	type: SELECT_LEADER,
+	leader
 });

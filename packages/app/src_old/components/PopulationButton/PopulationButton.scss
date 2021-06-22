@@ -1,86 +1,86 @@
 .population-button {
-  align-items: center;
-  background: tan;
-  border-radius: 0.25rem;
-  cursor: pointer;
-  margin: 0.25rem;
-  padding: 0.5rem;
-  overflow: hidden;
-  text-align: center;
-  width: 20rem;
+	align-items: center;
+	background: tan;
+	border-radius: 0.25rem;
+	cursor: pointer;
+	margin: 0.25rem;
+	padding: 0.5rem;
+	overflow: hidden;
+	text-align: center;
+	width: 20rem;
 
-  display: inline-flex;
-  vertical-align: middle;
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  position: relative;
-  transition-property: color;
-  transition-duration: 0.5s;
-  &.disabled {
-    filter: grayscale(90%);
-    opacity: 0.9;
-    pointer-events: none;
-  }
-  &:hover {
-    background: lighten(tan, 5%);
-    .population-to-growth {
-      background: lighten(lightgreen, 5%);
-    }
-  }
-  &:active {
-    animation: 700ms pop;
-  }
+	display: inline-flex;
+	vertical-align: middle;
+	transform: perspective(1px) translateZ(0);
+	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+	position: relative;
+	transition-property: color;
+	transition-duration: 0.5s;
+	&.disabled {
+		filter: grayscale(90%);
+		opacity: 0.9;
+		pointer-events: none;
+	}
+	&:hover {
+		background: lighten(tan, 5%);
+		.population-to-growth {
+			background: lighten(lightgreen, 5%);
+		}
+	}
+	&:active {
+		animation: 700ms pop;
+	}
 }
 
 @keyframes pop {
-  from {
-    transform: scale(0.9);
-  }
+	from {
+		transform: scale(0.9);
+	}
 
-  to {
-    transform: scale(1.1);
-  }
+	to {
+		transform: scale(1.1);
+	}
 }
 
 .population-button:before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: lighten(lightgreen, 5%);
-  transform: scaleY(0);
-  transform-origin: 50% 100%;
-  transition-property: transform;
-  transition-duration: 0.5s;
-  transition-timing-function: ease-out;
+	content: '';
+	position: absolute;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: lighten(lightgreen, 5%);
+	transform: scaleY(0);
+	transform-origin: 50% 100%;
+	transition-property: transform;
+	transition-duration: 0.5s;
+	transition-timing-function: ease-out;
 }
 
 .population-button:active:before {
-  -webkit-transform: scaleY(1);
-  transform: scaleY(1);
-  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
-  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+	-webkit-transform: scaleY(1);
+	transform: scaleY(1);
+	-webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+	transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
 }
 
 .pop-growth-text {
-  border-bottom: 2px solid navy;
-  color: white;
-  font-weight: lighter;
-  margin-right: 0.5rem;
-  padding: 0.25rem;
-  transform: translate(-0.5rem, 0);
+	border-bottom: 2px solid navy;
+	color: white;
+	font-weight: lighter;
+	margin-right: 0.5rem;
+	padding: 0.25rem;
+	transform: translate(-0.5rem, 0);
 }
 
 .population-text {
-  padding: 0.25rem;
+	padding: 0.25rem;
 }
 
 .population-to-growth {
-  background: lightgreen;
-  border-radius: 2px;
-  margin-left: auto;
-  padding: 0.25rem 0.5rem;
+	background: lightgreen;
+	border-radius: 2px;
+	margin-left: auto;
+	padding: 0.25rem 0.5rem;
 }
