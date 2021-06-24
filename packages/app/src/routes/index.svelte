@@ -63,17 +63,18 @@
 	let populationGrowthCost = 10;
 	let maximumFoodPurchaseSet = false;
 
-	interface Citizen {
-		total: number;
-		color: string;
-		contribution: {
-			target: [
+	interface Contribution {
+		target: [
 				'food' | 'production' | 'coins' | 'culture' | 'faith' | 'ideas',
 				'/s' | '/click' | '/min'
 			];
-			value: number;
-			multiplier: number;
-		}[];
+		value: number;
+		multiplier: number;
+	}
+	interface Citizen {
+		total: number;
+		color: string;
+		contribution: Contribution[];
 	}
 
 	let farmer: Citizen = {
@@ -216,6 +217,10 @@
 
 	getContributions();
 
+	function isContributionEqual(contributionA: Contribution['target'], contributionB: Contribution['target']) {
+		return contributionA.join('') === contributionB.join('');
+	}
+
 	function getContributionValue(name: string, contribution: string[]) {
 		let citizen = citizens[name];
 		const contrib = citizen.contribution.find((contrib) => {
@@ -275,7 +280,7 @@
 	}
 
 	function autoAssignCitizen(number: number) {
-		let citizen = path([autoAssignedCitizen], citizens);
+		let citizen: Citizen = path([autoAssignedCitizen], citizens);
 		citizen.total += number;
 		citizens = { ...citizens, [autoAssignedCitizen]: citizen };
 	}
@@ -348,6 +353,7 @@
 		];
 		switch (idea.name) {
 			case 'Animal Husbandry':
+				citizens['farmer'].contribution.find(contrib => isContributionEqual(contrib.target, ['food', '/s'])).multiplier *= 1.2;
 				break;
 			default:
 				return;
