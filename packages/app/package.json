@@ -82,7 +82,7 @@
   },
   "devDependencies": {
     "css-loader": "^5.2.6",
-    "electron": "^13.1.1",
+    "electron": "^15.5.5",
     "electron-devtools-installer": "^3.2.0",
     "file-loader": "^6.2.0",
     "prettier": "^2.3.1",
